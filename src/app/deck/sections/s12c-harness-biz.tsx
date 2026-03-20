@@ -5,77 +5,116 @@ import { cn } from "@/lib/utils";
 
 interface P { anim: (i: number) => string; index: number; }
 
-const mechanisms = [
-  {
-    name: "에이전트 (Agent)",
-    analogy: "전문 부서장",
-    desc: "마케팅·영업·법무·재무·HR 등 16명의 부서장. 각자 도메인 전문 지식을 갖고 있다. 요청이 오면 해당 부서장이 직접 답한다.",
-  },
-  {
-    name: "플러그인 (Plugin)",
-    analogy: "부서의 업무 매뉴얼",
-    desc: "각 부서가 보유한 업무 매뉴얼 묶음. 마케팅 부서엔 브랜드·캠페인·분석 매뉴얼이, 법무 부서엔 계약·컴플라이언스 매뉴얼이 있다. 17개 매뉴얼 세트.",
-  },
-  {
-    name: "스킬 (Skill)",
-    analogy: "매뉴얼 안의 절차서",
-    desc: "매뉴얼(플러그인) 안에 있는 구체적 실행 절차. '경쟁사 분석하는 법', 'PRD 작성하는 법' 같은 110개의 상세 절차서.",
-  },
-  {
-    name: "라우팅 (Routing)",
-    analogy: "안내 데스크",
-    desc: "'마케팅 캠페인 분석해줘' → 안내 데스크가 마케팅 부서장에게 전달 + 경쟁분석·퍼포먼스 매뉴얼을 꺼내준다. 모호한 요청은 먼저 인터뷰로 명확화.",
-  },
-  {
-    name: "커맨드 (Command)",
-    analogy: "단축 버튼",
-    desc: "/ask 질문 → 전문가가 답변. /route 요청 → 자동 라우팅. /team → 부서 목록 확인. 복잡한 절차를 한 단어로 실행.",
-  },
-  {
-    name: "훅 (Hook)",
-    analogy: "자동 트리거",
-    desc: "특정 이벤트가 발생하면 자동 실행. 파일 저장 → 자동 포맷. 세션 종료 → 작업 기록 자동 저장. 사람이 기억할 필요 없이 시스템이 처리.",
-  },
-];
-
 const S12cHarnessBiz = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
     <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
       비즈니스 하네스 실전
     </h2>
     <p className={cn("text-lg text-muted-foreground mb-3", anim(index))} style={{ transitionDelay: "80ms" }}>
-      대기업에 전문 부서 시스템이 있듯, AI에게도 부서를 만들어줄 수 있다
-    </p>
-    <p className={cn("text-sm text-muted-foreground mb-6", anim(index))} style={{ transitionDelay: "100ms" }}>
-      business-ai-team — 16개 전문가 에이전트 · 17개 플러그인 · 110개 스킬 · 자동 라우팅 · RLVR 학습
+      business-ai-team — 같은 Claude Code 위에 비즈니스 하네스를 씌운 실제 사례
     </p>
 
-    <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4", anim(index))} style={{ transitionDelay: "150ms" }}>
-      {mechanisms.map((m) => (
-        <div key={m.name} className="rounded-2xl border border-border/40 bg-card/80 p-4 shadow-sm backdrop-blur-sm">
-          <div className="flex items-baseline gap-2 mb-1">
-            <p className="text-sm font-bold">{m.name}</p>
-            <span className="text-sm text-muted-foreground/50">= {m.analogy}</span>
-          </div>
-          <p className="text-sm text-muted-foreground leading-relaxed">{m.desc}</p>
+    {/* Stats */}
+    <div className={cn("flex flex-wrap gap-3 mb-5", anim(index))} style={{ transitionDelay: "100ms" }}>
+      {[
+        { value: "31", label: "네이티브 스킬" },
+        { value: "112", label: "Plugin 스킬" },
+        { value: "5", label: "커맨드" },
+        { value: "4", label: "자동 규칙" },
+      ].map((s) => (
+        <div key={s.label} className="rounded-xl border border-border/40 bg-card/80 px-4 py-2 shadow-sm backdrop-blur-sm">
+          <span className="text-lg font-black text-primary mr-1.5">{s.value}</span>
+          <span className="text-xs text-muted-foreground">{s.label}</span>
         </div>
       ))}
     </div>
 
-    <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-3", anim(index))} style={{ transitionDelay: "250ms" }}>
+    {/* Architecture Flow */}
+    <div className={cn("rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm mb-4", anim(index))} style={{ transitionDelay: "140ms" }}>
+      <p className="text-sm font-bold mb-3">요청 처리 흐름</p>
+      <div className="flex items-center gap-2 text-xs text-muted-foreground flex-wrap">
+        <span className="rounded-lg bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 text-blue-400 font-semibold">/ask · /route</span>
+        <span className="text-muted-foreground/40">&rarr;</span>
+        <span className="rounded-lg bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 text-amber-400 font-semibold">브레인스토밍 게이트</span>
+        <span className="text-muted-foreground/40">&rarr;</span>
+        <span className="rounded-lg bg-purple-500/10 border border-purple-500/20 px-2.5 py-1 text-purple-400 font-semibold">도메인 분류</span>
+        <span className="text-muted-foreground/40">&rarr;</span>
+        <span className="rounded-lg bg-cyan-500/10 border border-cyan-500/20 px-2.5 py-1 text-cyan-400 font-semibold">에이전트.md + SKILL.md 읽기</span>
+        <span className="text-muted-foreground/40">&rarr;</span>
+        <span className="rounded-lg bg-green-500/10 border border-green-500/20 px-2.5 py-1 text-green-400 font-semibold">전문가 답변</span>
+      </div>
+    </div>
+
+    {/* 3-column domain breakdown */}
+    <div className={cn("grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4", anim(index))} style={{ transitionDelay: "200ms" }}>
       <div className="rounded-2xl border border-border/40 bg-card/80 p-4 shadow-sm backdrop-blur-sm">
-        <p className="text-sm font-bold mb-1">온톨로지 (Obsidian 연동)</p>
-        <p className="text-sm text-muted-foreground/50 mb-1">= 회사의 지식 창고</p>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          조직의 모든 지식이 Obsidian에 구조화되어 있다. AI가 답할 때 이 창고에서 실데이터를 찾아 참조한다. 일반론이 아닌 &quot;우리 회사&quot; 맥락의 답변.
-        </p>
+        <p className="text-sm font-bold mb-0.5">PM 도메인</p>
+        <p className="text-xs text-muted-foreground/50 mb-2">7개 메가스킬 → 62개 서브스킬</p>
+        <div className="flex flex-wrap gap-1">
+          {["Discovery", "Strategy", "Execution", "Core", "Research", "GTM", "Analytics"].map((d) => (
+            <span key={d} className="text-[10px] px-2 py-0.5 rounded-md bg-green-500/10 text-green-400 border border-green-500/20">{d}</span>
+          ))}
+        </div>
       </div>
       <div className="rounded-2xl border border-border/40 bg-card/80 p-4 shadow-sm backdrop-blur-sm">
-        <p className="text-sm font-bold mb-1">RLVR 학습</p>
-        <p className="text-sm text-muted-foreground/50 mb-1">= 실수에서 배우는 시스템</p>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          &quot;아닌데, 그건 틀려&quot; 같은 피드백을 AI가 자동 감지 → knowledge/에 저장. 3건 쌓이면 스킬 매뉴얼에 자동 반영. 같은 실수를 두 번 하지 않는다.
-        </p>
+        <p className="text-sm font-bold mb-0.5">기능 도메인</p>
+        <p className="text-xs text-muted-foreground/50 mb-2">9개 메가스킬 → 50개 서브스킬</p>
+        <div className="flex flex-wrap gap-1">
+          {["Marketing", "Sales", "Finance", "Legal", "Data", "CS", "Search", "Productivity", "Plugin"].map((d) => (
+            <span key={d} className="text-[10px] px-2 py-0.5 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">{d}</span>
+          ))}
+        </div>
+      </div>
+      <div className="rounded-2xl border border-border/40 bg-card/80 p-4 shadow-sm backdrop-blur-sm">
+        <p className="text-sm font-bold mb-0.5">단일 도메인 + 엔지니어링</p>
+        <p className="text-xs text-muted-foreground/50 mb-2">7개 자체 완결 + 8개 워크플로우</p>
+        <div className="flex flex-wrap gap-1">
+          {["BizDev", "Compliance", "Design", "Dev", "HR", "PR", "Security"].map((d) => (
+            <span key={d} className="text-[10px] px-2 py-0.5 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20">{d}</span>
+          ))}
+          {["/qa", "/review", "/ship"].map((d) => (
+            <span key={d} className="text-[10px] px-2 py-0.5 rounded-md bg-red-500/10 text-red-400 border border-red-500/20 font-mono">{d}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    {/* Detail Link */}
+    <div className={cn("mb-4 text-right", anim(index))} style={{ transitionDelay: "240ms" }}>
+      <a
+        href="/architecture.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-1.5 rounded-lg border border-primary/30 bg-primary/5 px-4 py-2 text-sm font-semibold text-primary transition-colors hover:bg-primary/10"
+      >
+        아키텍처 전체 보기 &rarr;
+      </a>
+    </div>
+
+    {/* Auto Rules + RLVR */}
+    <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-3", anim(index))} style={{ transitionDelay: "280ms" }}>
+      <div className="rounded-2xl border border-border/40 bg-card/80 p-4 shadow-sm backdrop-blur-sm">
+        <p className="text-sm font-bold mb-2">자동 규칙 (매 세션 자동 로드)</p>
+        <ul className="text-sm text-muted-foreground space-y-1">
+          <li><span className="font-semibold text-foreground">expert-routing</span> — 에이전트→스킬 필수 Read + 담당 표시 강제</li>
+          <li><span className="font-semibold text-foreground">brainstorming</span> — 모호한 요청은 2축 게이트로 분류 후 진행</li>
+          <li><span className="font-semibold text-foreground">feedback-learning</span> — 피드백 자동 감지 → knowledge/ 저장</li>
+          <li><span className="font-semibold text-foreground">session-reminder</span> — 선호도·맥락·학습 이력 자동 로드</li>
+        </ul>
+      </div>
+      <div className="rounded-2xl border border-green-500/20 bg-green-500/5 p-4 shadow-sm">
+        <p className="text-sm font-bold text-green-400 mb-2">피드백 루프 (쓸수록 정교해짐)</p>
+        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <span className="rounded-md bg-card/80 border border-border/40 px-2 py-1">&quot;그건 틀려&quot;</span>
+          <span>&rarr;</span>
+          <span className="rounded-md bg-card/80 border border-border/40 px-2 py-1">자동 감지</span>
+          <span>&rarr;</span>
+          <span className="rounded-md bg-card/80 border border-border/40 px-2 py-1">knowledge/ 저장</span>
+          <span>&rarr;</span>
+          <span className="rounded-md bg-card/80 border border-border/40 px-2 py-1">3건 축적</span>
+          <span>&rarr;</span>
+          <span className="rounded-md bg-green-500/10 border border-green-500/20 px-2 py-1 text-green-400 font-semibold">SKILL.md 자동 반영</span>
+        </div>
       </div>
     </div>
   </SectionShell>
