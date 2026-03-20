@@ -2,8 +2,8 @@
   "slides": [
     {
       "audioFile": "audio/s00.mp3",
-      "durationSec": 20.4,
-      "durationFrames": 613,
+      "durationSec": 40.9,
+      "durationFrames": 1242,
       "cues": [
         {
           "text": "여러분 안녕하세요.",
@@ -41,8 +41,8 @@
     },
     {
       "audioFile": "audio/s01.mp3",
-      "durationSec": 54.6,
-      "durationFrames": 1637,
+      "durationSec": 109.15,
+      "durationFrames": 3290,
       "cues": [
         {
           "text": "LLM, 즉 Large Language Model이 뭔지부터 짚고 넘어가겠습니다.",
@@ -140,8 +140,8 @@
     },
     {
       "audioFile": "audio/s02.mp3",
-      "durationSec": 57.3,
-      "durationFrames": 1720,
+      "durationSec": 114.65,
+      "durationFrames": 3454,
       "cues": [
         {
           "text": "이제 벡터 임베딩이 왜 혁신적인지 얘기해 볼게요.",
@@ -259,8 +259,8 @@
     },
     {
       "audioFile": "audio/s03.mp3",
-      "durationSec": 58.2,
-      "durationFrames": 1745,
+      "durationSec": 116.3,
+      "durationFrames": 3504,
       "cues": [
         {
           "text": "이번엔 AI가 어떻게 추론하고 답변을 생성하는지 살펴보겠습니다.",
@@ -383,8 +383,8 @@
     },
     {
       "audioFile": "audio/s04.mp3",
-      "durationSec": 45.4,
-      "durationFrames": 1363,
+      "durationSec": 90.84,
+      "durationFrames": 2740,
       "cues": [
         {
           "text": "LLM과 에이전트의 차이를 확실히 짚고 넘어가겠습니다.",
@@ -487,8 +487,8 @@
     },
     {
       "audioFile": "audio/s05.mp3",
-      "durationSec": 55.1,
-      "durationFrames": 1652,
+      "durationSec": 110.14,
+      "durationFrames": 3319,
       "cues": [
         {
           "text": "GitHub 얘기를 왜 하냐고 물으실 수 있어요.",
@@ -616,8 +616,8 @@
     },
     {
       "audioFile": "audio/s06.mp3",
-      "durationSec": 56.7,
-      "durationFrames": 1700,
+      "durationSec": 113.3,
+      "durationFrames": 3414,
       "cues": [
         {
           "text": "이제 전체 그림을 보겠습니다.",
@@ -745,8 +745,8 @@
     },
     {
       "audioFile": "audio/s07.mp3",
-      "durationSec": 53.8,
-      "durationFrames": 1615,
+      "durationSec": 107.69,
+      "durationFrames": 3246,
       "cues": [
         {
           "text": "마지막으로, 실제로 많은 분들이 AI 툴을 어떤 순서로 깊이 쓰게 되는지 얘기해 보겠습니다.",
@@ -854,8 +854,8 @@
     },
     {
       "audioFile": "audio/s08.mp3",
-      "durationSec": 59.1,
-      "durationFrames": 1773,
+      "durationSec": 118.18,
+      "durationFrames": 3560,
       "cues": [
         {
           "text": "앞 슬라이드에서 Stage 1부터 3까지, 기초 환경을 구축하는 흐름을 보셨죠.",
@@ -958,8 +958,8 @@
     },
     {
       "audioFile": "audio/s09.mp3",
-      "durationSec": 63.3,
-      "durationFrames": 1898,
+      "durationSec": 126.55,
+      "durationFrames": 3812,
       "cues": [
         {
           "text": "Claude Code를 처음 접하시는 분들이 가장 많이 하시는 오해가 있어요.",
@@ -1092,8 +1092,8 @@
     },
     {
       "audioFile": "audio/s10.mp3",
-      "durationSec": 69.3,
-      "durationFrames": 2079,
+      "durationSec": 138.62,
+      "durationFrames": 4174,
       "cues": [
         {
           "text": "플래닝이 90%다.\" 이 말을 처음 들으시면 좀 과장된 것 같죠?",
@@ -1256,8 +1256,8 @@
     },
     {
       "audioFile": "audio/s11.mp3",
-      "durationSec": 68.5,
-      "durationFrames": 2055,
+      "durationSec": 136.99,
+      "durationFrames": 4125,
       "cues": [
         {
           "text": "이제 실수 이야기를 해볼게요.",
@@ -1415,8 +1415,8 @@
     },
     {
       "audioFile": "audio/s12.mp3",
-      "durationSec": 66.0,
-      "durationFrames": 1979,
+      "durationSec": 131.9,
+      "durationFrames": 3972,
       "cues": [
         {
           "text": "하네스라는 단어, 처음 들어보시는 분들도 계실 텐데요.",
@@ -1549,8 +1549,8 @@
     },
     {
       "audioFile": "audio/s13.mp3",
-      "durationSec": 57.0,
-      "durationFrames": 1711,
+      "durationSec": 114.07,
+      "durationFrames": 3437,
       "cues": [
         {
           "text": "잠깐 여러분 자신을 돌아보는 시간을 가져볼게요.",
@@ -1693,8 +1693,8 @@
     },
     {
       "audioFile": "audio/s14.mp3",
-      "durationSec": 61.3,
-      "durationFrames": 1840,
+      "durationSec": 122.66,
+      "durationFrames": 3695,
       "cues": [
         {
           "text": "이제 도구 선택 기준에 대해 이야기해 보겠습니다.",
@@ -1827,8 +1827,8 @@
     },
     {
       "audioFile": "audio/s15.mp3",
-      "durationSec": 63.4,
-      "durationFrames": 1903,
+      "durationSec": 126.89,
+      "durationFrames": 3822,
       "cues": [
         {
           "text": "마지막으로 비용 이야기를 솔직하게 해보겠습니다.",
@@ -1966,8 +1966,8 @@
     },
     {
       "audioFile": "audio/s16.mp3",
-      "durationSec": 58.0,
-      "durationFrames": 1739,
+      "durationSec": 115.92,
+      "durationFrames": 3493,
       "cues": [
         {
           "text": "여러분, 혹시 AI한테 글만 보내고 계신가요?",
@@ -2075,8 +2075,8 @@
     },
     {
       "audioFile": "audio/s17.mp3",
-      "durationSec": 64.3,
-      "durationFrames": 1929,
+      "durationSec": 128.57,
+      "durationFrames": 3872,
       "cues": [
         {
           "text": "자, 이제 이 강의에서 가장 중요한 전환점에 왔습니다.",
@@ -2199,8 +2199,8 @@
     },
     {
       "audioFile": "audio/s18.mp3",
-      "durationSec": 68.9,
-      "durationFrames": 2067,
+      "durationSec": 137.78,
+      "durationFrames": 4149,
       "cues": [
         {
           "text": "그렇다면 온톨로지는 구체적으로 어떻게 구성되어 있을까요?",
@@ -2333,8 +2333,8 @@
     },
     {
       "audioFile": "audio/s19.mp3",
-      "durationSec": 69.9,
-      "durationFrames": 2097,
+      "durationSec": 139.8,
+      "durationFrames": 4209,
       "cues": [
         {
           "text": "이제 RAG라는 개념을 살펴볼게요.",
@@ -2452,8 +2452,8 @@
     },
     {
       "audioFile": "audio/s20.mp3",
-      "durationSec": 70.5,
-      "durationFrames": 2116,
+      "durationSec": 141.1,
+      "durationFrames": 4248,
       "cues": [
         {
           "text": "RAG를 위한 지식 저장소로 Obsidian을 왜 추천하는지 설명드리겠습니다.",
@@ -2586,8 +2586,8 @@
     },
     {
       "audioFile": "audio/s21.mp3",
-      "durationSec": 71.1,
-      "durationFrames": 2132,
+      "durationSec": 142.13,
+      "durationFrames": 4279,
       "cues": [
         {
           "text": "그럼 실제로 어떻게 시작하면 될까요?",
@@ -2735,8 +2735,8 @@
     },
     {
       "audioFile": "audio/s22.mp3",
-      "durationSec": 74.8,
-      "durationFrames": 2245,
+      "durationSec": 149.69,
+      "durationFrames": 4506,
       "cues": [
         {
           "text": "이제 AI 학습 패러다임이 어떻게 바뀌고 있는지, 그리고 그게 우리에게 왜 중요한지를 이야기해보겠습니다.",
@@ -2884,8 +2884,8 @@
     },
     {
       "audioFile": "audio/s23.mp3",
-      "durationSec": 80.5,
-      "durationFrames": 2416,
+      "durationSec": 161.06,
+      "durationFrames": 4847,
       "cues": [
         {
           "text": "마지막 슬라이드입니다.",
@@ -3073,8 +3073,8 @@
     },
     {
       "audioFile": "audio/s24.mp3",
-      "durationSec": 85.3,
-      "durationFrames": 2560,
+      "durationSec": 170.69,
+      "durationFrames": 5136,
       "cues": [
         {
           "text": "여기서부터가 이번 강의의 핵심입니다.",
@@ -3262,8 +3262,8 @@
     },
     {
       "audioFile": "audio/s25.mp3",
-      "durationSec": 74.2,
-      "durationFrames": 2226,
+      "durationSec": 148.37,
+      "durationFrames": 4466,
       "cues": [
         {
           "text": "이번에는 이 질문을 전문가들은 어떻게 바라보는지 살펴보겠습니다.",
@@ -3421,8 +3421,8 @@
     },
     {
       "audioFile": "audio/s26.mp3",
-      "durationSec": 73.9,
-      "durationFrames": 2217,
+      "durationSec": 147.77,
+      "durationFrames": 4448,
       "cues": [
         {
           "text": "잠깐 멈추고 싶습니다.",
@@ -3610,8 +3610,8 @@
     },
     {
       "audioFile": "audio/s27.mp3",
-      "durationSec": 69.3,
-      "durationFrames": 2080,
+      "durationSec": 138.65,
+      "durationFrames": 4174,
       "cues": [
         {
           "text": "한 가지 질문을 드려보겠습니다.",
@@ -3784,8 +3784,8 @@
     },
     {
       "audioFile": "audio/s28.mp3",
-      "durationSec": 51.8,
-      "durationFrames": 1554,
+      "durationSec": 103.63,
+      "durationFrames": 3124,
       "cues": [
         {
           "text": "자, 이제 실전입니다.",
@@ -3908,8 +3908,8 @@
     },
     {
       "audioFile": "audio/s29.mp3",
-      "durationSec": 49.2,
-      "durationFrames": 1475,
+      "durationSec": 98.3,
+      "durationFrames": 2964,
       "cues": [
         {
           "text": "준비가 되셨으면 설치를 시작해 보겠습니다.",
@@ -4022,8 +4022,8 @@
     },
     {
       "audioFile": "audio/s30.mp3",
-      "durationSec": 72.8,
-      "durationFrames": 2184,
+      "durationSec": 145.63,
+      "durationFrames": 4384,
       "cues": [
         {
           "text": "설치가 완료됐으면, 이제 실제로 어떻게 쓰는지 알아보겠습니다.",
@@ -4196,8 +4196,8 @@
     },
     {
       "audioFile": "audio/s31.mp3",
-      "durationSec": 12.1,
-      "durationFrames": 364,
+      "durationSec": 24.24,
+      "durationFrames": 742,
       "cues": [
         {
           "text": "여기까지 오셨습니다.",
@@ -4239,5 +4239,5 @@
       "title": "마무리"
     }
   ],
-  "totalDurationFrames": 58684
+  "totalDurationFrames": 117847
 }
