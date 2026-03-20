@@ -615,6 +615,244 @@
       "title": "GitHub 기초"
     },
     {
+      "audioFile": "audio/s05b.mp3",
+      "durationSec": 114.29,
+      "durationFrames": 3444,
+      "cues": [
+        {
+          "text": "식당을 상상해 보세요.",
+          "startFrame": 3,
+          "endFrame": 77
+        },
+        {
+          "text": "손님이 앉아 있는 홀, 음식을 만드는 주방, 그리고 재료가 쌓여 있는 냉장고.",
+          "startFrame": 75,
+          "endFrame": 270
+        },
+        {
+          "text": "모든 앱은 정확히 이 세 가지로 이루어져 있습니다.",
+          "startFrame": 270,
+          "endFrame": 392
+        },
+        {
+          "text": "첫 번째는 프론트엔드입니다.",
+          "startFrame": 392,
+          "endFrame": 479
+        },
+        {
+          "text": "사용자가 직접 눈으로 보고 손가락으로 누르는 화면이죠.",
+          "startFrame": 479,
+          "endFrame": 620
+        },
+        {
+          "text": "브라우저에서 실행되는 HTML, CSS, JavaScript가 여기에 속하고요.",
+          "startFrame": 620,
+          "endFrame": 826
+        },
+        {
+          "text": "React나 Next.js 같은 프레임워크는 이 화면을 더 효율적으로 만들어 주는 도구입니다.",
+          "startFrame": 826,
+          "endFrame": 1042
+        },
+        {
+          "text": "두 번째는 백엔드입니다.",
+          "startFrame": 1042,
+          "endFrame": 1123
+        },
+        {
+          "text": "눈에는 보이지 않지만 실제 일이 일어나는 곳이에요.",
+          "startFrame": 1123,
+          "endFrame": 1252
+        },
+        {
+          "text": "로그인을 처리하고, 결제를 검증하고, 추천 알고리즘을 돌리는 서버가 여기에 있습니다.",
+          "startFrame": 1252,
+          "endFrame": 1464
+        },
+        {
+          "text": "Node.js, Python, Go 같은 언어가 많이 쓰입니다.",
+          "startFrame": 1464,
+          "endFrame": 1619
+        },
+        {
+          "text": "세 번째는 데이터베이스입니다.",
+          "startFrame": 1619,
+          "endFrame": 1712
+        },
+        {
+          "text": "앱의 기억 장치예요.",
+          "startFrame": 1712,
+          "endFrame": 1784
+        },
+        {
+          "text": "회원 정보, 주문 내역, 게시글 같은 데이터를 저장하고 꺼내오는 역할을 합니다.",
+          "startFrame": 1784,
+          "endFrame": 1982
+        },
+        {
+          "text": "PostgreSQL 같은 SQL 데이터베이스가 가장 많이 쓰이고, Supabase처럼 백엔드와 DB를 묶어서 제공하는 서비스도 있습니다.",
+          "startFrame": 1982,
+          "endFrame": 2282
+        },
+        {
+          "text": "이 세 층이 어떻게 연결되는지 보면, 사용자가 버튼을 누르면 프론트엔드가 백엔드에 API 요청을 보내고, 백엔드는 데이터베이스에서 필요한 정보를 꺼내서 프론트엔드에 돌려줍니다.",
+          "startFrame": 2282,
+          "endFrame": 2677
+        },
+        {
+          "text": "그러면 화면이 업데이트되죠.",
+          "startFrame": 2677,
+          "endFrame": 2764
+        },
+        {
+          "text": "이게 왜 중요하냐고요?",
+          "startFrame": 2764,
+          "endFrame": 2838
+        },
+        {
+          "text": "AI 코딩을 할 때, Claude Code는 이 전체 구조를 통째로 이해하고 작업합니다.",
+          "startFrame": 2838,
+          "endFrame": 3038
+        },
+        {
+          "text": "프론트엔드만 고치는 게 아니라, 필요하면 백엔드 API를 추가하고 DB 테이블도 함께 만들어 줍니다.",
+          "startFrame": 3038,
+          "endFrame": 3278
+        },
+        {
+          "text": "구조를 알면 AI에게 더 정확한 지시를 내릴 수 있습니다.",
+          "startFrame": 3278,
+          "endFrame": 3427
+        }
+      ],
+      "slideId": "s05b",
+      "title": "개발의 기본 구조"
+    },
+    {
+      "audioFile": "audio/s05c.mp3",
+      "durationSec": 127.66,
+      "durationFrames": 3845,
+      "cues": [
+        {
+          "text": "AI 코딩을 하다 보면 세 가지 용어가 반복해서 등장합니다.",
+          "startFrame": 3,
+          "endFrame": 156
+        },
+        {
+          "text": "API, CLI, 그리고 MCP입니다.",
+          "startFrame": 154,
+          "endFrame": 285
+        },
+        {
+          "text": "각각 뭔지 비유로 먼저 이해해 봅시다.",
+          "startFrame": 285,
+          "endFrame": 393
+        },
+        {
+          "text": "API는 식당의 메뉴판이라고 생각하세요.",
+          "startFrame": 393,
+          "endFrame": 514
+        },
+        {
+          "text": "손님이 메뉴판에 나온 대로 주문하면, 주방에서 그대로 만들어 줍니다.",
+          "startFrame": 514,
+          "endFrame": 678
+        },
+        {
+          "text": "프로그램 사이에도 이런 규칙이 필요하거든요.",
+          "startFrame": 678,
+          "endFrame": 794
+        },
+        {
+          "text": "이 주소로 이 형식으로 요청을 보내면 이 결과를 돌려줄게.\" 이게 API입니다.",
+          "startFrame": 794,
+          "endFrame": 989
+        },
+        {
+          "text": "OpenAI API를 호출한다는 건, OpenAI가 정해놓은 메뉴판 형식으로 AI 모델에게 요청을 보내는 거예요.",
+          "startFrame": 989,
+          "endFrame": 1250
+        },
+        {
+          "text": "CLI는 직접 명령하는 리모컨입니다.",
+          "startFrame": 1250,
+          "endFrame": 1361
+        },
+        {
+          "text": "마우스로 클릭하는 대신, 텍스트로 컴퓨터에게 직접 명령을 내립니다.",
+          "startFrame": 1361,
+          "endFrame": 1533
+        },
+        {
+          "text": "터미널에서 \"claude\"를 입력하면 Claude Code가 실행되고, \"git commit\"을 입력하면 코드가 저장됩니다.",
+          "startFrame": 1533,
+          "endFrame": 1769
+        },
+        {
+          "text": "AI 에이전트는 이 CLI를 통해 실제로 명령을 실행합니다.",
+          "startFrame": 1769,
+          "endFrame": 1930
+        },
+        {
+          "text": "코드를 작성하고, 파일을 열고, 서버를 실행하는 모든 게 CLI를 거칩니다.",
+          "startFrame": 1930,
+          "endFrame": 2124
+        },
+        {
+          "text": "마지막으로 MCP는 AI의 만능 어댑터입니다.",
+          "startFrame": 2124,
+          "endFrame": 2253
+        },
+        {
+          "text": "이게 진짜 게임 체인저입니다.",
+          "startFrame": 2253,
+          "endFrame": 2345
+        },
+        {
+          "text": "기존에는 AI가 외부 앱과 연동하려면 각각의 API를 직접 연결해야 했어요.",
+          "startFrame": 2345,
+          "endFrame": 2549
+        },
+        {
+          "text": "Notion API 따로, Slack API 따로, GitHub API 따로.",
+          "startFrame": 2549,
+          "endFrame": 2720
+        },
+        {
+          "text": "그런데 MCP는 이 모든 걸 하나의 표준 규격으로 통일합니다.",
+          "startFrame": 2720,
+          "endFrame": 2875
+        },
+        {
+          "text": "Claude Code에 MCP를 연결하면 Notion 문서를 직접 읽고 쓰고, Slack 메시지를 보내고, GitHub 코드를 관리하는 게 다 됩니다.",
+          "startFrame": 2875,
+          "endFrame": 3164
+        },
+        {
+          "text": "왜 중요한가요?",
+          "startFrame": 3164,
+          "endFrame": 3226
+        },
+        {
+          "text": "지금 여러분이 쓰는 Claude Code는 CLI 위에서 돌아가고, API로 AI 모델을 호출하며, MCP로 외부 도구와 연결됩니다.",
+          "startFrame": 3226,
+          "endFrame": 3528
+        },
+        {
+          "text": "이 세 개념을 이해하면, AI가 어떻게 실제로 작업하는지 그림이 보입니다.",
+          "startFrame": 3528,
+          "endFrame": 3717
+        },
+        {
+          "text": "그리고 더 강력하게 활용할 수 있게 됩니다.",
+          "startFrame": 3717,
+          "endFrame": 3828
+        }
+      ],
+      "slideId": "s05c",
+      "title": "API, CLI, MCP"
+    },
+    {
       "audioFile": "audio/s06.mp3",
       "durationSec": 113.3,
       "durationFrames": 3414,
@@ -4239,5 +4477,5 @@
       "title": "마무리"
     }
   ],
-  "totalDurationFrames": 117847
+  "totalDurationFrames": 125136
 }
