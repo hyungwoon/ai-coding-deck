@@ -10,6 +10,8 @@ import S02 from "./sections/01b-vector-context";
 import S03 from "./sections/01c-reasoning-output";
 import S04 from "./sections/02a-llm-vs-agent";
 import S05 from "./sections/02b-github-basics";
+import S05b from "./sections/s05b-dev-basics";
+import S05c from "./sections/s05c-mcp-api-cli";
 import S06 from "./sections/s06-ecosystem";
 import S07 from "./sections/s07-evolution-early";
 import S08 from "./sections/s08-evolution-advanced";
@@ -37,11 +39,11 @@ import S29 from "./sections/s29-install";
 import S30 from "./sections/s30-ultrawork";
 import S31 from "./sections/s31-contact";
 
-const SECTION_COUNT = 32;
+const SECTION_COUNT = 34;
 
 const sectionLabels = [
   "Title", "LLM 정의", "벡터 임베딩", "추론과 출력",
-  "LLM vs Agent", "GitHub", "생태계", "진화 초기",
+  "LLM vs Agent", "GitHub", "개발 구조", "API·CLI·MCP", "생태계", "진화 초기",
   "진화 심화", "Claude Code", "바이브 코딩", "안티패턴",
   "하네스", "하네스 성숙도", "에디터 vs 에이전트", "비용",
   "멀티모달", "온톨로지", "4요소", "RAG",
@@ -51,7 +53,7 @@ const sectionLabels = [
 ];
 
 const sectionComponents = [
-  S00, S01, S02, S03, S04, S05, S06, S07,
+  S00, S01, S02, S03, S04, S05, S05b, S05c, S06, S07,
   S08, S09, S10, S11, S12, S13, S14, S15,
   S16, S17, S18, S19, S20, S21, S22, S23,
   S24, S25, S26, S27, S28, S29, S30, S31,

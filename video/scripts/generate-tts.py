@@ -17,8 +17,9 @@ def parse_segments():
     lecture_dir = os.path.join(os.path.dirname(__file__), "..", "..", "lecture")
     segments = []
 
-    for i in range(1, 5):
-        filepath = os.path.join(lecture_dir, f"segment-{i}.ts")
+    filenames = [f"segment-{i}.ts" for i in range(1, 5)] + ["segment-new.ts"]
+    for filename in filenames:
+        filepath = os.path.join(lecture_dir, filename)
         with open(filepath, "r") as f:
             content = f.read()
 
