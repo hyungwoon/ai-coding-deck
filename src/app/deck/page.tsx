@@ -19,6 +19,7 @@ import S09 from "./sections/s09-claude-concepts";
 import S10 from "./sections/s10-vibe-loop";
 import S11 from "./sections/s11-anti-patterns";
 import S12 from "./sections/s12-harness";
+import S12b from "./sections/s12b-harness-real";
 import S13 from "./sections/s13-harness-maturity";
 import S14 from "./sections/s14-editor-vs-agent";
 import S15 from "./sections/s15-cost";
@@ -39,13 +40,13 @@ import S29 from "./sections/s29-install";
 import S30 from "./sections/s30-ultrawork";
 import S31 from "./sections/s31-contact";
 
-const SECTION_COUNT = 34;
+const SECTION_COUNT = 35;
 
 const sectionLabels = [
   "Title", "LLM 정의", "벡터 임베딩", "추론과 출력",
   "LLM vs Agent", "GitHub", "개발 구조", "API·CLI·MCP", "생태계", "진화 초기",
   "진화 심화", "Claude Code", "바이브 코딩", "안티패턴",
-  "하네스", "하네스 성숙도", "에디터 vs 에이전트", "비용",
+  "하네스", "실전 하네스", "하네스 성숙도", "에디터 vs 에이전트", "비용",
   "멀티모달", "온톨로지", "4요소", "RAG",
   "Obsidian", "온톨로지 실전", "RLHF→RLVR", "컨텍스트",
   "해자", "전문가 시각", "도구의 철학", "격차",
@@ -54,7 +55,7 @@ const sectionLabels = [
 
 const sectionComponents = [
   S00, S01, S02, S03, S04, S05, S05b, S05c, S06, S07,
-  S08, S09, S10, S11, S12, S13, S14, S15,
+  S08, S09, S10, S11, S12, S12b, S13, S14, S15,
   S16, S17, S18, S19, S20, S21, S22, S23,
   S24, S25, S26, S27, S28, S29, S30, S31,
 ];
