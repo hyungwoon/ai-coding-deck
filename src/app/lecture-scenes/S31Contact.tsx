@@ -93,7 +93,7 @@ export const S31Contact: React.FC = () => {
             ...fade(16),
           }}
         >
-          AI 코딩 생태계 관계도
+          AI는 어떻게 작동하고 어떻게 쓰는가
         </h2>
 
         {/* Subtitle */}

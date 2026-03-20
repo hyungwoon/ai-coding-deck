@@ -29,7 +29,7 @@ export default function LecturePage() {
           fontFamily: "system-ui, sans-serif",
         }}
       >
-        AI 코딩 생태계 관계도 — 강의
+        AI는 어떻게 작동하고 어떻게 쓰는가 — 강의
       </h1>
       <p
         style={{

@@ -9,7 +9,7 @@ const TitleSection = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
     <div className="text-center">
       <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
-        AI Coding Ecosystem · 2026
+        Vibe Coding · 2026
       </p>
       <h1 className={cn("text-5xl font-bold tracking-tight sm:text-7xl", anim(index))}>
         AI는 어떻게 작동하고

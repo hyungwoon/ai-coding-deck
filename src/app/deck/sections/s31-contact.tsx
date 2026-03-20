@@ -21,7 +21,7 @@ const SlideContact = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       </p>
 
       <h2 className={cn("text-4xl font-bold tracking-tight sm:text-6xl mb-4", anim(index))} style={{ transitionDelay: "80ms" }}>
-        AI 코딩 생태계 관계도
+        AI는 어떻게 작동하고 어떻게 쓰는가
       </h2>
 
       <p className={cn("text-lg text-muted-foreground mb-10 max-w-md", anim(index))} style={{ transitionDelay: "160ms" }}>

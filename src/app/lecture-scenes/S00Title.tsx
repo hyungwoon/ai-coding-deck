@@ -46,7 +46,7 @@ export const S00Title: React.FC = () => {
             transform: `translateY(${labelY}px)`,
           }}
         >
-          AI Coding Ecosystem · 2026
+          Vibe Coding · 2026
         </p>
 
         <h1
