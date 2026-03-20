@@ -25,6 +25,14 @@ import { S20Obsidian } from "./S20Obsidian";
 import { S21OntologyPractice } from "./S21OntologyPractice";
 import { S22RlhfRlvr } from "./S22RlhfRlvr";
 import { S23ContextMoat } from "./S23ContextMoat";
+import { S24MoatDiagram } from "./S24MoatDiagram";
+import { S25MoatExperts } from "./S25MoatExperts";
+import { S26Philosophy } from "./S26Philosophy";
+import { S27PhilosophyGap } from "./S27PhilosophyGap";
+import { S28GettingStarted } from "./S28GettingStarted";
+import { S29Install } from "./S29Install";
+import { S30Ultrawork } from "./S30Ultrawork";
+import { S31Contact } from "./S31Contact";
 
 // Generic slide renderer — reads title from manifest and shows centered text
 // Individual scene components can be added later for richer visuals
@@ -119,6 +127,14 @@ sceneMap["s20"] = S20Obsidian;
 sceneMap["s21"] = S21OntologyPractice;
 sceneMap["s22"] = S22RlhfRlvr;
 sceneMap["s23"] = S23ContextMoat;
+sceneMap["s24"] = S24MoatDiagram;
+sceneMap["s25"] = S25MoatExperts;
+sceneMap["s26"] = S26Philosophy;
+sceneMap["s27"] = S27PhilosophyGap;
+sceneMap["s28"] = S28GettingStarted;
+sceneMap["s29"] = S29Install;
+sceneMap["s30"] = S30Ultrawork;
+sceneMap["s31"] = S31Contact;
 
 for (const id of slideIds) {
   if (sceneMap[id]) continue; // already registered
