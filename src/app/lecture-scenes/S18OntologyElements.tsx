@@ -56,7 +56,7 @@ export const S18OntologyElements: React.FC = () => {
       <div style={{ maxWidth: 1400, width: "100%" }}>
         <h2
           style={{
-            fontSize: 56,
+            fontSize: 72,
             fontWeight: 700,
             color: FG,
             marginBottom: 12,
@@ -69,7 +69,7 @@ export const S18OntologyElements: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 22,
+            fontSize: 28,
             color: MUTED,
             marginBottom: 40,
             lineHeight: 1.6,
@@ -100,7 +100,7 @@ export const S18OntologyElements: React.FC = () => {
               <p
                 style={{
                   fontFamily: "monospace",
-                  fontSize: 11,
+                  fontSize: 16,
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
                   color: PRIMARY,
@@ -109,7 +109,7 @@ export const S18OntologyElements: React.FC = () => {
               >
                 {el.tag}
               </p>
-              <p style={{ fontSize: 18, fontWeight: 600, color: FG, marginBottom: 10 }}>
+              <p style={{ fontSize: 24, fontWeight: 600, color: FG, marginBottom: 10 }}>
                 {el.title}
               </p>
               <p style={{ fontSize: 15, color: MUTED, lineHeight: 1.65, marginBottom: 16 }}>
@@ -121,7 +121,7 @@ export const S18OntologyElements: React.FC = () => {
                   borderRadius: 12,
                   padding: "14px 18px",
                   fontFamily: "monospace",
-                  fontSize: 14,
+                  fontSize: 20,
                   color: MUTED,
                   lineHeight: 1.7,
                   whiteSpace: "pre-line",

@@ -39,7 +39,7 @@ export const S26Philosophy: React.FC = () => {
         <p
           style={{
             fontFamily: "monospace",
-            fontSize: 12,
+            fontSize: 18,
             letterSpacing: "0.2em",
             color: MUTED,
             textTransform: "uppercase",
@@ -53,7 +53,7 @@ export const S26Philosophy: React.FC = () => {
         {/* Main heading line 1 */}
         <h2
           style={{
-            fontSize: 64,
+            fontSize: 80,
             fontWeight: 700,
             letterSpacing: "-0.02em",
             color: FG,
@@ -68,7 +68,7 @@ export const S26Philosophy: React.FC = () => {
         {/* Main heading line 2 */}
         <h2
           style={{
-            fontSize: 64,
+            fontSize: 80,
             fontWeight: 700,
             letterSpacing: "-0.02em",
             color: PRIMARY,
@@ -84,7 +84,7 @@ export const S26Philosophy: React.FC = () => {
         {/* Subtitle */}
         <p
           style={{
-            fontSize: 14,
+            fontSize: 20,
             color: MUTED,
             maxWidth: 560,
             margin: "0 auto",
@@ -167,14 +167,14 @@ export const S26Philosophy: React.FC = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     margin: "0 auto 10px",
-                    fontSize: 20,
+                    fontSize: 26,
                   }}
                 >
                   {icon}
                 </div>
                 <p
                   style={{
-                    fontSize: 12,
+                    fontSize: 18,
                     fontWeight: 600,
                     color: highlight ? PRIMARY : FG,
                     marginTop: 0,
@@ -196,7 +196,7 @@ export const S26Philosophy: React.FC = () => {
                 </p>
                 <p
                   style={{
-                    fontSize: 11,
+                    fontSize: 16,
                     color: MUTED,
                     lineHeight: 1.4,
                     margin: 0,
@@ -218,8 +218,8 @@ export const S26Philosophy: React.FC = () => {
               textAlign: "center",
             }}
           >
-            <span style={{ fontSize: 12, color: MUTED }}>도구가 바뀌어도 바뀌지 않은 것 → </span>
-            <span style={{ fontSize: 13, fontWeight: 600, color: FG }}>
+            <span style={{ fontSize: 18, color: MUTED }}>도구가 바뀌어도 바뀌지 않은 것 → </span>
+            <span style={{ fontSize: 20, fontWeight: 600, color: FG }}>
               무엇을 말할지, 왜 말할지, 누구를 위한지
             </span>
           </div>

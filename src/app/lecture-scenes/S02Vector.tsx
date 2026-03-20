@@ -37,7 +37,7 @@ export const S02Vector: React.FC = () => {
         fontFamily: "system-ui, sans-serif",
       }}
     >
-      <p style={{ fontFamily: "monospace", fontSize: 13, letterSpacing: "0.2em", color: MUTED, textTransform: "uppercase", marginBottom: 12, opacity: fade(frame, 5, 22), transform: `translateY(${slide(frame, 5, 22)}px)` }}>
+      <p style={{ fontFamily: "monospace", fontSize: 20, letterSpacing: "0.2em", color: MUTED, textTransform: "uppercase", marginBottom: 12, opacity: fade(frame, 5, 22), transform: `translateY(${slide(frame, 5, 22)}px)` }}>
         STEP 1-2 · 벡터 임베딩 + 컨텍스트 윈도우
       </p>
 
@@ -49,10 +49,10 @@ export const S02Vector: React.FC = () => {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20, opacity: fade(frame, 28, 52), transform: `translateY(${slide(frame, 28, 52)}px)` }}>
         {/* Vector embedding */}
         <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 20, padding: "24px 28px" }}>
-          <p style={{ fontFamily: "monospace", fontSize: 11, color: PRIMARY, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 14 }}>
+          <p style={{ fontFamily: "monospace", fontSize: 16, color: PRIMARY, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 14 }}>
             벡터 임베딩(Vector Embedding)
           </p>
-          <p style={{ fontSize: 16, color: MUTED, lineHeight: 1.7, marginBottom: 18 }}>
+          <p style={{ fontSize: 22, color: MUTED, lineHeight: 1.7, marginBottom: 18 }}>
             숫자 배열은 단순한 ID가 아니다. 각 숫자는{" "}
             <span style={{ color: FG, fontWeight: 600 }}>의미의 좌표</span>다.
             "강아지"와 "고양이"는 벡터 공간에서{" "}
@@ -64,18 +64,18 @@ export const S02Vector: React.FC = () => {
             { title: "온톨로지 + 벡터DB (RAG)", body: "지식을 벡터로 저장하면 AI가 의미 기반으로 검색 가능", primary: true },
           ].map(({ title, body, primary: p }) => (
             <div key={title} style={{ background: "rgba(255,255,255,0.05)", borderRadius: 10, padding: "10px 14px", marginBottom: 8 }}>
-              <p style={{ fontSize: 13, fontWeight: 600, color: p ? PRIMARY : FG, marginBottom: 4 }}>{title}</p>
-              <p style={{ fontSize: 13, color: MUTED, margin: 0 }}>{body}</p>
+              <p style={{ fontSize: 20, fontWeight: 600, color: p ? PRIMARY : FG, marginBottom: 4 }}>{title}</p>
+              <p style={{ fontSize: 20, color: MUTED, margin: 0 }}>{body}</p>
             </div>
           ))}
         </div>
 
         {/* Context window */}
         <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 20, padding: "24px 28px" }}>
-          <p style={{ fontFamily: "monospace", fontSize: 11, color: PRIMARY, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 14 }}>
+          <p style={{ fontFamily: "monospace", fontSize: 16, color: PRIMARY, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 14 }}>
             STEP 2 · 컨텍스트 윈도우
           </p>
-          <p style={{ fontSize: 16, fontWeight: 600, color: FG, marginBottom: 12 }}>AI의 책장</p>
+          <p style={{ fontSize: 22, fontWeight: 600, color: FG, marginBottom: 12 }}>AI의 책장</p>
           <p style={{ fontSize: 15, color: MUTED, lineHeight: 1.7, marginBottom: 20 }}>
             컨텍스트 윈도우는{" "}
             <span style={{ color: FG, fontWeight: 600 }}>AI가 한 번에 펼쳐볼 수 있는 책장</span>이다.
@@ -83,7 +83,7 @@ export const S02Vector: React.FC = () => {
             대화가 길어질수록 오래된 내용이{" "}
             <span style={{ color: FG, fontWeight: 600 }}>밖으로 밀려난다.</span>
           </p>
-          <div style={{ fontFamily: "monospace", fontSize: 13, background: "rgba(255,255,255,0.04)", borderRadius: 14, padding: 20 }}>
+          <div style={{ fontFamily: "monospace", fontSize: 20, background: "rgba(255,255,255,0.04)", borderRadius: 14, padding: 20 }}>
             <p style={{ fontSize: 10, color: MUTED, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 14 }}>컨텍스트 윈도우 (200K tokens)</p>
             {contextRows.map(({ label, pct }) => (
               <div key={label} style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 8 }}>
@@ -105,8 +105,8 @@ export const S02Vector: React.FC = () => {
         {bottomCards.map(({ title, body }) => (
           <div key={title} style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 16, padding: "20px 22px" }}>
             <p style={{ fontFamily: "monospace", fontSize: 10, color: MUTED, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 8 }}>CONCEPT</p>
-            <p style={{ fontSize: 16, fontWeight: 600, color: FG, marginBottom: 8 }}>{title}</p>
-            <p style={{ fontSize: 14, color: MUTED, lineHeight: 1.6, margin: 0 }}>{body}</p>
+            <p style={{ fontSize: 22, fontWeight: 600, color: FG, marginBottom: 8 }}>{title}</p>
+            <p style={{ fontSize: 20, color: MUTED, lineHeight: 1.6, margin: 0 }}>{body}</p>
           </div>
         ))}
       </div>

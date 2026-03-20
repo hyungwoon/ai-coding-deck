@@ -62,7 +62,7 @@ export const S08EvolutionAdv: React.FC = () => {
       <div style={{ maxWidth: 1400, width: "100%" }}>
         <h2
           style={{
-            fontSize: 56,
+            fontSize: 72,
             fontWeight: 700,
             color: FG,
             margin: 0,
@@ -75,7 +75,7 @@ export const S08EvolutionAdv: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 22,
+            fontSize: 28,
             color: MUTED,
             marginTop: 0,
             marginBottom: 40,
@@ -110,7 +110,7 @@ export const S08EvolutionAdv: React.FC = () => {
                   <span
                     style={{
                       fontFamily: "monospace",
-                      fontSize: 12,
+                      fontSize: 18,
                       fontWeight: 700,
                       color: PRIMARY,
                     }}
@@ -124,7 +124,7 @@ export const S08EvolutionAdv: React.FC = () => {
                     style={{
                       marginLeft: "auto",
                       fontFamily: "monospace",
-                      fontSize: 11,
+                      fontSize: 16,
                       color: MUTED,
                     }}
                   >
@@ -152,7 +152,7 @@ export const S08EvolutionAdv: React.FC = () => {
                       <span
                         key={t}
                         style={{
-                          fontSize: 12,
+                          fontSize: 18,
                           padding: "2px 10px",
                           borderRadius: 999,
                           border: `1px solid ${BORDER}`,
@@ -166,7 +166,7 @@ export const S08EvolutionAdv: React.FC = () => {
                   </div>
                   <p
                     style={{
-                      fontSize: 13,
+                      fontSize: 20,
                       color: MUTED,
                       lineHeight: 1.6,
                       flex: 1,
@@ -186,7 +186,7 @@ export const S08EvolutionAdv: React.FC = () => {
                     justifyContent: "center",
                     height: 36,
                     color: "rgba(255,255,255,0.2)",
-                    fontSize: 12,
+                    fontSize: 18,
                     gap: 8,
                     userSelect: "none",
                   }}

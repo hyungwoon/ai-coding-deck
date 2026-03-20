@@ -32,7 +32,7 @@ export const S04LlmVsAgent: React.FC = () => {
         fontFamily: "system-ui, sans-serif",
       }}
     >
-      <p style={{ fontFamily: "monospace", fontSize: 13, letterSpacing: "0.2em", color: MUTED, textTransform: "uppercase", marginBottom: 12, opacity: fade(frame, 5, 22), transform: `translateY(${slide(frame, 5, 22)}px)` }}>
+      <p style={{ fontFamily: "monospace", fontSize: 20, letterSpacing: "0.2em", color: MUTED, textTransform: "uppercase", marginBottom: 12, opacity: fade(frame, 5, 22), transform: `translateY(${slide(frame, 5, 22)}px)` }}>
         02 · 에이전트 전환점
       </p>
 
@@ -45,8 +45,8 @@ export const S04LlmVsAgent: React.FC = () => {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20, opacity: fade(frame, 28, 52), transform: `translateY(${slide(frame, 28, 52)}px)` }}>
         {/* LLM alone */}
         <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 20, padding: "28px 32px" }}>
-          <p style={{ fontFamily: "monospace", fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 14 }}>LLM 단독</p>
-          <p style={{ fontSize: 20, fontWeight: 600, color: FG, marginBottom: 20 }}>질문 → 답변. 끝.</p>
+          <p style={{ fontFamily: "monospace", fontSize: 16, color: MUTED, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 14 }}>LLM 단독</p>
+          <p style={{ fontSize: 26, fontWeight: 600, color: FG, marginBottom: 20 }}>질문 → 답변. 끝.</p>
           <p style={{ fontSize: 17, color: MUTED, lineHeight: 1.7, marginBottom: 16 }}>
             입력이 들어오면 출력을 냄. 기억 없음. 행동 없음. 매번 처음부터.
           </p>
@@ -57,8 +57,8 @@ export const S04LlmVsAgent: React.FC = () => {
 
         {/* AI Agent */}
         <div style={{ background: "rgba(167,139,250,0.06)", border: `1px solid rgba(167,139,250,0.25)`, borderRadius: 20, padding: "28px 32px" }}>
-          <p style={{ fontFamily: "monospace", fontSize: 11, color: PRIMARY, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 14 }}>AI 에이전트</p>
-          <p style={{ fontSize: 20, fontWeight: 600, color: FG, marginBottom: 20 }}>태스크 → 계획 → 실행 → 검증. 반복.</p>
+          <p style={{ fontFamily: "monospace", fontSize: 16, color: PRIMARY, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 14 }}>AI 에이전트</p>
+          <p style={{ fontSize: 26, fontWeight: 600, color: FG, marginBottom: 20 }}>태스크 → 계획 → 실행 → 검증. 반복.</p>
           <p style={{ fontSize: 17, color: MUTED, lineHeight: 1.7, marginBottom: 16 }}>
             LLM에{" "}
             <span style={{ color: FG, fontWeight: 600 }}>툴(파일·터미널·웹·API)</span>을
@@ -72,15 +72,15 @@ export const S04LlmVsAgent: React.FC = () => {
 
       {/* Agent components */}
       <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 20, padding: "24px 28px", opacity: fade(frame, 50, 72), transform: `translateY(${slide(frame, 50, 72)}px)` }}>
-        <p style={{ fontFamily: "monospace", fontSize: 11, color: MUTED, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 20 }}>
+        <p style={{ fontFamily: "monospace", fontSize: 16, color: MUTED, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 20 }}>
           에이전트 = LLM + 이것들
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
           {AGENT_PARTS.map(({ icon, label, desc }) => (
             <div key={label} style={{ display: "flex", alignItems: "center", gap: 10, background: "rgba(255,255,255,0.05)", border: `1px solid ${BORDER}`, borderRadius: 12, padding: "10px 18px" }}>
               <span style={{ color: PRIMARY, fontSize: 16 }}>{icon}</span>
-              <span style={{ fontSize: 16, fontWeight: 600, color: FG }}>{label}</span>
-              <span style={{ fontSize: 14, color: MUTED }}>— {desc}</span>
+              <span style={{ fontSize: 22, fontWeight: 600, color: FG }}>{label}</span>
+              <span style={{ fontSize: 20, color: MUTED }}>— {desc}</span>
             </div>
           ))}
         </div>

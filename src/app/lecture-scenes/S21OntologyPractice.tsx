@@ -81,7 +81,7 @@ export const S21OntologyPractice: React.FC = () => {
       <div style={{ maxWidth: 1400, width: "100%" }}>
         <h2
           style={{
-            fontSize: 56,
+            fontSize: 72,
             fontWeight: 700,
             color: FG,
             marginBottom: 12,
@@ -94,7 +94,7 @@ export const S21OntologyPractice: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 22,
+            fontSize: 28,
             color: MUTED,
             marginBottom: 28,
             lineHeight: 1.6,
@@ -139,7 +139,7 @@ export const S21OntologyPractice: React.FC = () => {
               </p>
               <p
                 style={{
-                  fontSize: 16,
+                  fontSize: 22,
                   fontWeight: 700,
                   color: step.highlight ? PRIMARY : FG,
                   marginBottom: 6,
@@ -147,7 +147,7 @@ export const S21OntologyPractice: React.FC = () => {
               >
                 {step.label}
               </p>
-              <p style={{ fontSize: 13, color: MUTED, lineHeight: 1.6, margin: 0 }}>
+              <p style={{ fontSize: 20, color: MUTED, lineHeight: 1.6, margin: 0 }}>
                 {step.desc}
               </p>
               {step.star && (
@@ -159,7 +159,7 @@ export const S21OntologyPractice: React.FC = () => {
                     color: PRIMARY,
                     borderRadius: 999,
                     padding: "2px 10px",
-                    fontSize: 11,
+                    fontSize: 16,
                     fontWeight: 600,
                   }}
                 >
@@ -211,7 +211,7 @@ export const S21OntologyPractice: React.FC = () => {
                 <p style={{ fontSize: 15, fontWeight: 600, color: FG, margin: 0 }}>{m.title}</p>
               </div>
               <div style={{ padding: "14px 18px" }}>
-                <p style={{ fontSize: 13, color: MUTED, lineHeight: 1.65, marginBottom: 14 }}>
+                <p style={{ fontSize: 20, color: MUTED, lineHeight: 1.65, marginBottom: 14 }}>
                   {m.desc}
                 </p>
                 <div
@@ -220,7 +220,7 @@ export const S21OntologyPractice: React.FC = () => {
                     borderRadius: 10,
                     padding: "12px 14px",
                     fontFamily: "monospace",
-                    fontSize: 12,
+                    fontSize: 18,
                     color: MUTED,
                     lineHeight: 1.7,
                     whiteSpace: "pre-line",

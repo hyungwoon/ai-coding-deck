@@ -55,7 +55,7 @@ export const S07Evolution: React.FC = () => {
         AI 툴 진화 경로
       </h2>
 
-      <p style={{ fontSize: 20, color: MUTED, marginBottom: 44, opacity: fade(frame, 16, 36), transform: `translateY(${slide(frame, 16, 36)}px)` }}>
+      <p style={{ fontSize: 26, color: MUTED, marginBottom: 44, opacity: fade(frame, 16, 36), transform: `translateY(${slide(frame, 16, 36)}px)` }}>
         대부분이 이 순서로 깊어진다
       </p>
 
@@ -68,15 +68,15 @@ export const S07Evolution: React.FC = () => {
               <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 18, overflow: "hidden", opacity: fade(frame, staggerStart, staggerEnd), transform: `translateY(${slide(frame, staggerStart, staggerEnd)}px)` }}>
                 {/* Header row */}
                 <div style={{ display: "flex", alignItems: "center", gap: 16, padding: "14px 24px", borderBottom: `1px solid rgba(255,255,255,0.07)`, background: "rgba(255,255,255,0.03)" }}>
-                  <span style={{ fontFamily: "monospace", fontSize: 12, fontWeight: 700, color: PRIMARY }}>STAGE {s.num}</span>
+                  <span style={{ fontFamily: "monospace", fontSize: 18, fontWeight: 700, color: PRIMARY }}>STAGE {s.num}</span>
                   <span style={{ fontSize: 17, fontWeight: 600, color: FG }}>{s.title}</span>
-                  <span style={{ marginLeft: "auto", fontFamily: "monospace", fontSize: 12, color: MUTED }}>{s.tag}</span>
+                  <span style={{ marginLeft: "auto", fontFamily: "monospace", fontSize: 18, color: MUTED }}>{s.tag}</span>
                 </div>
                 {/* Body */}
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "flex-start", gap: 20, padding: "18px 24px" }}>
                   <div style={{ display: "flex", gap: 8, flexWrap: "wrap", flexShrink: 0 }}>
                     {s.tools.map((t) => (
-                      <span key={t} style={{ fontSize: 13, padding: "4px 12px", borderRadius: 20, border: `1px solid ${BORDER}`, background: "rgba(255,255,255,0.04)", color: MUTED }}>
+                      <span key={t} style={{ fontSize: 20, padding: "4px 12px", borderRadius: 20, border: `1px solid ${BORDER}`, background: "rgba(255,255,255,0.04)", color: MUTED }}>
                         {t}
                       </span>
                     ))}
@@ -88,7 +88,7 @@ export const S07Evolution: React.FC = () => {
               {s.arrow && (
                 <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: 36, gap: 10, color: "rgba(161,161,170,0.4)", fontSize: 13 }}>
                   <span>↓</span>
-                  <span style={{ border: `1px solid rgba(255,255,255,0.12)`, borderRadius: 20, padding: "3px 14px", background: "rgba(255,255,255,0.03)", fontSize: 12, color: MUTED }}>
+                  <span style={{ border: `1px solid rgba(255,255,255,0.12)`, borderRadius: 20, padding: "3px 14px", background: "rgba(255,255,255,0.03)", fontSize: 18, color: MUTED }}>
                     {s.arrow}
                   </span>
                   <span>↓</span>

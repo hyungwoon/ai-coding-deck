@@ -51,7 +51,7 @@ export const S12Harness: React.FC = () => {
       <div style={{ maxWidth: 1400, width: "100%" }}>
         <h2
           style={{
-            fontSize: 56,
+            fontSize: 72,
             fontWeight: 700,
             color: FG,
             margin: 0,
@@ -64,7 +64,7 @@ export const S12Harness: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 22,
+            fontSize: 28,
             color: MUTED,
             marginTop: 0,
             marginBottom: 28,
@@ -128,7 +128,7 @@ export const S12Harness: React.FC = () => {
               <p
                 style={{
                   fontFamily: "monospace",
-                  fontSize: 11,
+                  fontSize: 16,
                   color: MUTED,
                   marginTop: 4,
                   margin: 0,
@@ -145,7 +145,7 @@ export const S12Harness: React.FC = () => {
                   style={{
                     display: "flex",
                     gap: 10,
-                    fontSize: 13,
+                    fontSize: 20,
                     color: MUTED,
                     marginBottom: 10,
                   }}
@@ -179,7 +179,7 @@ export const S12Harness: React.FC = () => {
               <p
                 style={{
                   fontFamily: "monospace",
-                  fontSize: 11,
+                  fontSize: 16,
                   color: MUTED,
                   marginTop: 4,
                   margin: 0,
@@ -196,7 +196,7 @@ export const S12Harness: React.FC = () => {
                   style={{
                     display: "flex",
                     gap: 10,
-                    fontSize: 13,
+                    fontSize: 20,
                     color: MUTED,
                     marginBottom: 10,
                   }}

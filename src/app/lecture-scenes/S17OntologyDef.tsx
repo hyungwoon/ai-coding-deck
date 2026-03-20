@@ -29,7 +29,7 @@ export const S17OntologyDef: React.FC = () => {
       <div style={{ maxWidth: 1400, width: "100%" }}>
         <h2
           style={{
-            fontSize: 56,
+            fontSize: 72,
             fontWeight: 700,
             color: FG,
             marginBottom: 12,
@@ -42,7 +42,7 @@ export const S17OntologyDef: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 22,
+            fontSize: 28,
             color: MUTED,
             marginBottom: 40,
             lineHeight: 1.6,
@@ -66,7 +66,7 @@ export const S17OntologyDef: React.FC = () => {
           <p
             style={{
               fontFamily: "monospace",
-              fontSize: 11,
+              fontSize: 16,
               letterSpacing: "0.12em",
               textTransform: "uppercase",
               color: MUTED,
@@ -75,7 +75,7 @@ export const S17OntologyDef: React.FC = () => {
           >
             온톨로지(Ontology)란?
           </p>
-          <p style={{ fontSize: 18, color: MUTED, lineHeight: 1.7, margin: 0 }}>
+          <p style={{ fontSize: 24, color: MUTED, lineHeight: 1.7, margin: 0 }}>
             개념·관계·규칙을 구조적으로 정의한{" "}
             <strong style={{ color: FG }}>지식의 지도</strong>. 단순한 메모나 문서가 아니라,{" "}
             <strong style={{ color: FG }}>"무엇이 무엇과 어떻게 연결되어 있는가"</strong>를 기계가 읽을 수 있는 형태로 정의한 것.
@@ -105,7 +105,7 @@ export const S17OntologyDef: React.FC = () => {
             <p
               style={{
                 fontFamily: "monospace",
-                fontSize: 11,
+                fontSize: 16,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
                 color: MUTED,
@@ -114,10 +114,10 @@ export const S17OntologyDef: React.FC = () => {
             >
               온톨로지 없는 AI
             </p>
-            <p style={{ fontSize: 20, fontWeight: 600, color: FG, marginBottom: 14 }}>
+            <p style={{ fontSize: 26, fontWeight: 600, color: FG, marginBottom: 14 }}>
               매번 처음부터 가르쳐야 하는 직원
             </p>
-            <p style={{ fontSize: 16, color: MUTED, lineHeight: 1.7, margin: 0 }}>
+            <p style={{ fontSize: 22, color: MUTED, lineHeight: 1.7, margin: 0 }}>
               "우리 회사가 뭐 하는 곳이에요?" "이 고객이 누구예요?" "우리 팀의 용어는요?"
               <br /><br />
               세션이 끝나면 모두 사라짐.{" "}
@@ -136,7 +136,7 @@ export const S17OntologyDef: React.FC = () => {
             <p
               style={{
                 fontFamily: "monospace",
-                fontSize: 11,
+                fontSize: 16,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
                 color: "rgba(99,102,241,0.7)",
@@ -145,10 +145,10 @@ export const S17OntologyDef: React.FC = () => {
             >
               온톨로지 갖춘 AI
             </p>
-            <p style={{ fontSize: 20, fontWeight: 600, color: FG, marginBottom: 14 }}>
+            <p style={{ fontSize: 26, fontWeight: 600, color: FG, marginBottom: 14 }}>
               맥락을 내재화한 전문 어시스턴트
             </p>
-            <p style={{ fontSize: 16, color: MUTED, lineHeight: 1.7, margin: 0 }}>
+            <p style={{ fontSize: 22, color: MUTED, lineHeight: 1.7, margin: 0 }}>
               회사 구조, 제품, 고객, 용어, 관계, 규칙이 이미 구조화되어 있음.
               <br /><br />
               <strong style={{ color: FG }}>지시만 하면 됨. 설명은 필요 없음.</strong>

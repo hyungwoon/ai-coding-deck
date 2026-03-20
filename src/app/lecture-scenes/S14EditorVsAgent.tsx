@@ -83,7 +83,7 @@ export const S14EditorVsAgent: React.FC = () => {
       <div style={{ maxWidth: 1400, width: "100%" }}>
         <h2
           style={{
-            fontSize: 56,
+            fontSize: 72,
             fontWeight: 700,
             color: FG,
             margin: 0,
@@ -96,7 +96,7 @@ export const S14EditorVsAgent: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 22,
+            fontSize: 28,
             color: MUTED,
             marginTop: 0,
             marginBottom: 44,
@@ -131,7 +131,7 @@ export const S14EditorVsAgent: React.FC = () => {
               (h) => (
                 <span
                   key={h}
-                  style={{ fontSize: 12, fontWeight: 500, color: MUTED }}
+                  style={{ fontSize: 18, fontWeight: 500, color: MUTED }}
                 >
                   {h}
                 </span>
@@ -165,7 +165,7 @@ export const S14EditorVsAgent: React.FC = () => {
                 </p>
                 <p
                   style={{
-                    fontSize: 12,
+                    fontSize: 18,
                     color: MUTED,
                     marginTop: 3,
                     margin: 0,
@@ -175,13 +175,13 @@ export const S14EditorVsAgent: React.FC = () => {
                   {row.sub}
                 </p>
               </div>
-              <span style={{ fontSize: 14, color: MUTED }}>{row.unit}</span>
+              <span style={{ fontSize: 20, color: MUTED }}>{row.unit}</span>
               <span
                 style={{
                   display: "inline-block",
                   borderRadius: 999,
                   padding: "4px 12px",
-                  fontSize: 11,
+                  fontSize: 16,
                   fontWeight: 500,
                   background: "rgba(255,255,255,0.06)",
                   color: MUTED,
@@ -195,7 +195,7 @@ export const S14EditorVsAgent: React.FC = () => {
                   display: "inline-block",
                   borderRadius: 999,
                   padding: "4px 12px",
-                  fontSize: 11,
+                  fontSize: 16,
                   fontWeight: 500,
                   background: "rgba(255,255,255,0.06)",
                   color: MUTED,
@@ -206,7 +206,7 @@ export const S14EditorVsAgent: React.FC = () => {
               </span>
               <span
                 style={{
-                  fontSize: 14,
+                  fontSize: 20,
                   fontWeight: 500,
                   color: row.highlight ? PRIMARY : FG,
                 }}
@@ -240,7 +240,7 @@ export const S14EditorVsAgent: React.FC = () => {
               <p
                 style={{
                   fontFamily: "monospace",
-                  fontSize: 11,
+                  fontSize: 16,
                   color: MUTED,
                   marginBottom: 6,
                   margin: 0,
@@ -261,7 +261,7 @@ export const S14EditorVsAgent: React.FC = () => {
               >
                 {item.value}
               </p>
-              <p style={{ fontSize: 12, color: MUTED, lineHeight: 1.6, margin: 0 }}>
+              <p style={{ fontSize: 18, color: MUTED, lineHeight: 1.6, margin: 0 }}>
                 {item.desc}
               </p>
             </div>

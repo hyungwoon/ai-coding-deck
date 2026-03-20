@@ -49,7 +49,7 @@ export const S30Ultrawork: React.FC = () => {
         <p
           style={{
             fontFamily: "monospace",
-            fontSize: 12,
+            fontSize: 18,
             letterSpacing: "0.2em",
             color: MUTED,
             textTransform: "uppercase",
@@ -106,7 +106,7 @@ export const S30Ultrawork: React.FC = () => {
                 <code
                   style={{
                     fontFamily: "monospace",
-                    fontSize: 12,
+                    fontSize: 18,
                     color: PRIMARY,
                     background: "rgba(228,228,231,0.1)",
                     padding: "4px 8px",
@@ -117,7 +117,7 @@ export const S30Ultrawork: React.FC = () => {
                 >
                   {cmd}
                 </code>
-                <span style={{ fontSize: 12, color: MUTED }}>{desc}</span>
+                <span style={{ fontSize: 18, color: MUTED }}>{desc}</span>
               </div>
             ))}
           </div>
@@ -168,10 +168,10 @@ export const S30Ultrawork: React.FC = () => {
                 >
                   {phase}
                 </p>
-                <p style={{ fontSize: 12, fontWeight: 600, color: FG, marginTop: 0, marginBottom: 4 }}>
+                <p style={{ fontSize: 18, fontWeight: 600, color: FG, marginTop: 0, marginBottom: 4 }}>
                   {title}
                 </p>
-                <p style={{ fontSize: 11, color: MUTED, lineHeight: 1.5, margin: 0 }}>
+                <p style={{ fontSize: 16, color: MUTED, lineHeight: 1.5, margin: 0 }}>
                   {tip}
                 </p>
               </div>

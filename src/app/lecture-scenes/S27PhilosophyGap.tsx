@@ -65,7 +65,7 @@ export const S27PhilosophyGap: React.FC = () => {
         <p
           style={{
             fontFamily: "monospace",
-            fontSize: 12,
+            fontSize: 18,
             letterSpacing: "0.2em",
             color: MUTED,
             textTransform: "uppercase",
@@ -127,7 +127,7 @@ export const S27PhilosophyGap: React.FC = () => {
                     border: `1px solid ${BORDER}`,
                     borderRadius: 12,
                     padding: "12px 16px",
-                    fontSize: 14,
+                    fontSize: 20,
                     textAlign: "center",
                     color: FG,
                   }}
@@ -165,7 +165,7 @@ export const S27PhilosophyGap: React.FC = () => {
                     border: "1px solid rgba(228,228,231,0.2)",
                     borderRadius: 12,
                     padding: "12px 16px",
-                    fontSize: 14,
+                    fontSize: 20,
                     textAlign: "center",
                     color: PRIMARY,
                   }}
@@ -217,7 +217,7 @@ export const S27PhilosophyGap: React.FC = () => {
                 </p>
                 <p
                   style={{
-                    fontSize: 14,
+                    fontSize: 20,
                     fontWeight: 700,
                     color: highlight ? PRIMARY : FG,
                     margin: 0,
@@ -227,7 +227,7 @@ export const S27PhilosophyGap: React.FC = () => {
                 </p>
               </div>
               <div style={{ padding: "12px 16px" }}>
-                <p style={{ fontSize: 12, color: MUTED, lineHeight: 1.6, margin: 0 }}>
+                <p style={{ fontSize: 18, color: MUTED, lineHeight: 1.6, margin: 0 }}>
                   {desc}
                 </p>
               </div>

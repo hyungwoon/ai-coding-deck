@@ -55,7 +55,7 @@ export const S25MoatExperts: React.FC = () => {
         <p
           style={{
             fontFamily: "monospace",
-            fontSize: 12,
+            fontSize: 18,
             letterSpacing: "0.2em",
             color: MUTED,
             textTransform: "uppercase",
@@ -85,7 +85,7 @@ export const S25MoatExperts: React.FC = () => {
         {/* Subtitle */}
         <p
           style={{
-            fontSize: 14,
+            fontSize: 20,
             color: MUTED,
             marginBottom: 24,
             ...fade(18),
@@ -128,7 +128,7 @@ export const S25MoatExperts: React.FC = () => {
               </p>
               <p
                 style={{
-                  fontSize: 14,
+                  fontSize: 20,
                   fontWeight: 600,
                   color: PRIMARY,
                   marginTop: 0,
@@ -139,7 +139,7 @@ export const S25MoatExperts: React.FC = () => {
               </p>
               <p
                 style={{
-                  fontSize: 12,
+                  fontSize: 18,
                   color: MUTED,
                   lineHeight: 1.6,
                   margin: 0,
@@ -163,7 +163,7 @@ export const S25MoatExperts: React.FC = () => {
         >
           <p
             style={{
-              fontSize: 12,
+              fontSize: 18,
               fontWeight: 600,
               color: PRIMARY,
               marginTop: 0,
@@ -172,7 +172,7 @@ export const S25MoatExperts: React.FC = () => {
           >
             종합하면
           </p>
-          <p style={{ fontSize: 12, color: MUTED, lineHeight: 1.6, margin: 0 }}>
+          <p style={{ fontSize: 18, color: MUTED, lineHeight: 1.6, margin: 0 }}>
             전문가들이 공통으로 동의하는 것은 하나 —{" "}
             <span style={{ color: FG, fontWeight: 500 }}>AI 능력 자체는 해자가 아니다.</span>{" "}
             해자는 AI 위에서 쌓이는 것들: 독점 데이터, 네트워크 효과, 배포 능력, 신뢰.

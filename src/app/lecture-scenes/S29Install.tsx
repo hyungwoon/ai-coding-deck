@@ -59,7 +59,7 @@ export const S29Install: React.FC = () => {
         <p
           style={{
             fontFamily: "monospace",
-            fontSize: 12,
+            fontSize: 18,
             letterSpacing: "0.2em",
             color: MUTED,
             textTransform: "uppercase",
@@ -126,7 +126,7 @@ export const S29Install: React.FC = () => {
                 <span
                   style={{
                     fontFamily: "monospace",
-                    fontSize: 11,
+                    fontSize: 16,
                     fontWeight: 700,
                     color: PRIMARY,
                   }}
@@ -139,7 +139,7 @@ export const S29Install: React.FC = () => {
               <div style={{ flex: 1, minWidth: 0 }}>
                 <p
                   style={{
-                    fontSize: 14,
+                    fontSize: 20,
                     fontWeight: 600,
                     color: FG,
                     marginTop: 0,
@@ -151,7 +151,7 @@ export const S29Install: React.FC = () => {
                 <code
                   style={{
                     fontFamily: "monospace",
-                    fontSize: 12,
+                    fontSize: 18,
                     background: "rgba(228,228,231,0.08)",
                     color: PRIMARY,
                     padding: "6px 12px",
@@ -162,7 +162,7 @@ export const S29Install: React.FC = () => {
                   {code}
                 </code>
                 {note && (
-                  <p style={{ fontSize: 11, color: MUTED, marginTop: 6, marginBottom: 0 }}>
+                  <p style={{ fontSize: 16, color: MUTED, marginTop: 6, marginBottom: 0 }}>
                     {note}
                   </p>
                 )}

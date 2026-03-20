@@ -66,7 +66,7 @@ export const S13HarnessMaturity: React.FC = () => {
       <div style={{ maxWidth: 1400, width: "100%" }}>
         <h2
           style={{
-            fontSize: 56,
+            fontSize: 72,
             fontWeight: 700,
             color: FG,
             margin: 0,
@@ -79,7 +79,7 @@ export const S13HarnessMaturity: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 22,
+            fontSize: 28,
             color: MUTED,
             marginTop: 0,
             marginBottom: 44,
@@ -134,7 +134,7 @@ export const S13HarnessMaturity: React.FC = () => {
               </span>
               <p
                 style={{
-                  fontSize: 11,
+                  fontSize: 16,
                   color: MUTED,
                   lineHeight: 1.6,
                   whiteSpace: "pre-line",

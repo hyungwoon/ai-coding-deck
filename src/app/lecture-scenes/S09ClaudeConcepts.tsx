@@ -68,7 +68,7 @@ export const S09ClaudeConcepts: React.FC = () => {
       <div style={{ maxWidth: 1400, width: "100%" }}>
         <h2
           style={{
-            fontSize: 56,
+            fontSize: 72,
             fontWeight: 700,
             color: FG,
             margin: 0,
@@ -81,7 +81,7 @@ export const S09ClaudeConcepts: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 22,
+            fontSize: 28,
             color: MUTED,
             marginTop: 0,
             marginBottom: 40,
@@ -118,7 +118,7 @@ export const S09ClaudeConcepts: React.FC = () => {
                 <span
                   style={{
                     fontFamily: "monospace",
-                    fontSize: 13,
+                    fontSize: 20,
                     fontWeight: 700,
                     color: PRIMARY,
                   }}
@@ -128,7 +128,7 @@ export const S09ClaudeConcepts: React.FC = () => {
               </div>
               <p
                 style={{
-                  fontSize: 14,
+                  fontSize: 20,
                   color: MUTED,
                   lineHeight: 1.6,
                   margin: 0,

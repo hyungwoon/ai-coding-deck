@@ -63,7 +63,7 @@ export const S24MoatDiagram: React.FC = () => {
         <p
           style={{
             fontFamily: "monospace",
-            fontSize: 12,
+            fontSize: 18,
             letterSpacing: "0.2em",
             color: MUTED,
             textTransform: "uppercase",
@@ -104,7 +104,7 @@ export const S24MoatDiagram: React.FC = () => {
           <p
             style={{
               fontFamily: "monospace",
-              fontSize: 11,
+              fontSize: 16,
               color: MUTED,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
@@ -120,7 +120,7 @@ export const S24MoatDiagram: React.FC = () => {
                 <span
                   style={{
                     fontFamily: "monospace",
-                    fontSize: 11,
+                    fontSize: 16,
                     color: MUTED,
                     width: 44,
                     flexShrink: 0,
@@ -140,7 +140,7 @@ export const S24MoatDiagram: React.FC = () => {
                   <span
                     style={{
                       fontFamily: "monospace",
-                      fontSize: 11,
+                      fontSize: 16,
                       color: "rgba(74,222,128,0.8)",
                     }}
                   >
@@ -185,7 +185,7 @@ export const S24MoatDiagram: React.FC = () => {
               </p>
               <p
                 style={{
-                  fontSize: 14,
+                  fontSize: 20,
                   fontWeight: 700,
                   color: highlight ? PRIMARY : FG,
                   marginTop: 0,
@@ -207,7 +207,7 @@ export const S24MoatDiagram: React.FC = () => {
               </p>
               <p
                 style={{
-                  fontSize: 12,
+                  fontSize: 18,
                   color: MUTED,
                   lineHeight: 1.6,
                   margin: 0,

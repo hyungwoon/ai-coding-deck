@@ -74,7 +74,7 @@ export const S15Cost: React.FC = () => {
       <div style={{ maxWidth: 1400, width: "100%" }}>
         <h2
           style={{
-            fontSize: 56,
+            fontSize: 72,
             fontWeight: 700,
             color: FG,
             margin: 0,
@@ -87,7 +87,7 @@ export const S15Cost: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 22,
+            fontSize: 28,
             color: MUTED,
             marginTop: 0,
             marginBottom: 36,
@@ -151,12 +151,12 @@ export const S15Cost: React.FC = () => {
                   }}
                 >
                   <div>
-                    <p style={{ fontSize: 14, fontWeight: 600, color: FG, margin: 0 }}>
+                    <p style={{ fontSize: 20, fontWeight: 600, color: FG, margin: 0 }}>
                       {plan.name}
                     </p>
                     <p
                       style={{
-                        fontSize: 12,
+                        fontSize: 18,
                         color: MUTED,
                         marginTop: 3,
                         margin: 0,
@@ -169,7 +169,7 @@ export const S15Cost: React.FC = () => {
                   <p
                     style={{
                       fontFamily: "monospace",
-                      fontSize: 14,
+                      fontSize: 20,
                       fontWeight: 600,
                       color: PRIMARY,
                       flexShrink: 0,
@@ -230,7 +230,7 @@ export const S15Cost: React.FC = () => {
                   background: "rgba(255,255,255,0.05)",
                   padding: "18px 20px",
                   fontFamily: "monospace",
-                  fontSize: 14,
+                  fontSize: 20,
                   marginBottom: 12,
                 }}
               >
@@ -278,7 +278,7 @@ export const S15Cost: React.FC = () => {
                   border: `1px solid ${BORDER}`,
                   background: "rgba(255,255,255,0.03)",
                   padding: "14px 18px",
-                  fontSize: 12,
+                  fontSize: 18,
                   color: MUTED,
                   lineHeight: 1.6,
                 }}
@@ -324,7 +324,7 @@ export const S15Cost: React.FC = () => {
               >
                 {tip.icon} {tip.label}
               </p>
-              <p style={{ fontSize: 12, color: MUTED, lineHeight: 1.6, margin: 0 }}>
+              <p style={{ fontSize: 18, color: MUTED, lineHeight: 1.6, margin: 0 }}>
                 {tip.desc}
               </p>
             </div>

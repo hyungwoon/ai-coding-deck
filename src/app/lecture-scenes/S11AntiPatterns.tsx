@@ -79,7 +79,7 @@ export const S11AntiPatterns: React.FC = () => {
       <div style={{ maxWidth: 1400, width: "100%" }}>
         <h2
           style={{
-            fontSize: 56,
+            fontSize: 72,
             fontWeight: 700,
             color: FG,
             margin: 0,
@@ -92,7 +92,7 @@ export const S11AntiPatterns: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 22,
+            fontSize: 28,
             color: MUTED,
             marginTop: 0,
             marginBottom: 36,
@@ -128,7 +128,7 @@ export const S11AntiPatterns: React.FC = () => {
               <span
                 style={{
                   fontFamily: "monospace",
-                  fontSize: 12,
+                  fontSize: 18,
                   color: "rgba(161,161,170,0.4)",
                   flexShrink: 0,
                   marginTop: 2,
@@ -151,7 +151,7 @@ export const S11AntiPatterns: React.FC = () => {
                 </p>
                 <p
                   style={{
-                    fontSize: 13,
+                    fontSize: 20,
                     color: MUTED,
                     lineHeight: 1.6,
                     margin: 0,

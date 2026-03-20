@@ -56,7 +56,7 @@ export const S05Github: React.FC = () => {
         fontFamily: "system-ui, sans-serif",
       }}
     >
-      <p style={{ fontFamily: "monospace", fontSize: 13, letterSpacing: "0.2em", color: MUTED, textTransform: "uppercase", marginBottom: 12, opacity: fade(frame, 5, 22), transform: `translateY(${slide(frame, 5, 22)}px)` }}>
+      <p style={{ fontFamily: "monospace", fontSize: 20, letterSpacing: "0.2em", color: MUTED, textTransform: "uppercase", marginBottom: 12, opacity: fade(frame, 5, 22), transform: `translateY(${slide(frame, 5, 22)}px)` }}>
         02-B · 버전 관리
       </p>
 
@@ -69,11 +69,11 @@ export const S05Github: React.FC = () => {
         {GITHUB_CONCEPTS.map(({ term, korean, desc }) => (
           <div key={term} style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 18, overflow: "hidden" }}>
             <div style={{ padding: "12px 20px", borderBottom: `1px solid ${BORDER}`, background: "rgba(255,255,255,0.03)" }}>
-              <p style={{ fontFamily: "monospace", fontSize: 13, fontWeight: 600, color: PRIMARY, margin: "0 0 2px" }}>{term}</p>
-              <p style={{ fontSize: 12, color: MUTED, margin: 0 }}>{korean}</p>
+              <p style={{ fontFamily: "monospace", fontSize: 20, fontWeight: 600, color: PRIMARY, margin: "0 0 2px" }}>{term}</p>
+              <p style={{ fontSize: 18, color: MUTED, margin: 0 }}>{korean}</p>
             </div>
             <div style={{ padding: "16px 20px" }}>
-              <p style={{ fontSize: 14, color: MUTED, lineHeight: 1.65, margin: 0 }}>{desc}</p>
+              <p style={{ fontSize: 20, color: MUTED, lineHeight: 1.65, margin: 0 }}>{desc}</p>
             </div>
           </div>
         ))}
@@ -81,7 +81,7 @@ export const S05Github: React.FC = () => {
 
       {/* Flow steps */}
       <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 18, padding: "20px 24px", opacity: fade(frame, 52, 74), transform: `translateY(${slide(frame, 52, 74)}px)` }}>
-        <p style={{ fontFamily: "monospace", fontSize: 11, color: PRIMARY, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 16 }}>
+        <p style={{ fontFamily: "monospace", fontSize: 16, color: PRIMARY, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 16 }}>
           AI 에이전트 + GitHub 실제 흐름
         </p>
         <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8 }}>

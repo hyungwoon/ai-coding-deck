@@ -56,7 +56,7 @@ export const S06Ecosystem: React.FC = () => {
         AI 코딩 생태계 전체 관계도
       </h2>
 
-      <p style={{ fontSize: 18, color: MUTED, marginBottom: 40, opacity: fade(frame, 18, 38), transform: `translateY(${slide(frame, 18, 38)}px)` }}>
+      <p style={{ fontSize: 24, color: MUTED, marginBottom: 40, opacity: fade(frame, 18, 38), transform: `translateY(${slide(frame, 18, 38)}px)` }}>
         위에서 아래로 — 모델이 에이전트를 구동하고, 에이전트가 에디터·터미널 위에서 실행된다
       </p>
 
@@ -64,15 +64,15 @@ export const S06Ecosystem: React.FC = () => {
         {layers.map((layer, i) => (
           <React.Fragment key={layer.badge}>
             <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 16, padding: "18px 24px", display: "flex", alignItems: "center", gap: 20 }}>
-              <span style={{ fontFamily: "monospace", fontSize: 13, fontWeight: 600, color: PRIMARY, width: 140, flexShrink: 0 }}>
+              <span style={{ fontFamily: "monospace", fontSize: 20, fontWeight: 600, color: PRIMARY, width: 140, flexShrink: 0 }}>
                 {layer.badge}
               </span>
-              <span style={{ fontSize: 13, color: MUTED, width: 220, flexShrink: 0 }}>
+              <span style={{ fontSize: 20, color: MUTED, width: 220, flexShrink: 0 }}>
                 {layer.desc}
               </span>
               <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
                 {layer.tools.map((t) => (
-                  <span key={t} style={{ fontSize: 13, padding: "4px 12px", borderRadius: 20, border: `1px solid ${BORDER}`, background: "rgba(255,255,255,0.04)", color: MUTED }}>
+                  <span key={t} style={{ fontSize: 20, padding: "4px 12px", borderRadius: 20, border: `1px solid ${BORDER}`, background: "rgba(255,255,255,0.04)", color: MUTED }}>
                     {t}
                   </span>
                 ))}

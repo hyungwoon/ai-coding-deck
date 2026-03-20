@@ -69,7 +69,7 @@ export const S31Contact: React.FC = () => {
         <p
           style={{
             fontFamily: "monospace",
-            fontSize: 12,
+            fontSize: 18,
             letterSpacing: "0.2em",
             color: MUTED,
             textTransform: "uppercase",
@@ -99,7 +99,7 @@ export const S31Contact: React.FC = () => {
         {/* Subtitle */}
         <p
           style={{
-            fontSize: 16,
+            fontSize: 22,
             color: MUTED,
             marginBottom: 40,
             maxWidth: 440,
@@ -143,7 +143,7 @@ export const S31Contact: React.FC = () => {
           <p
             style={{
               fontFamily: "monospace",
-              fontSize: 11,
+              fontSize: 16,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
               color: "rgba(161,161,170,0.5)",
@@ -161,7 +161,7 @@ export const S31Contact: React.FC = () => {
           />
           <p
             style={{
-              fontSize: 11,
+              fontSize: 16,
               color: "rgba(161,161,170,0.4)",
               margin: 0,
             }}

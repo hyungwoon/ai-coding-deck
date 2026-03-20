@@ -47,7 +47,7 @@ export const S20Obsidian: React.FC = () => {
       <div style={{ maxWidth: 1400, width: "100%" }}>
         <h2
           style={{
-            fontSize: 56,
+            fontSize: 72,
             fontWeight: 700,
             color: FG,
             marginBottom: 12,
@@ -60,7 +60,7 @@ export const S20Obsidian: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 22,
+            fontSize: 28,
             color: MUTED,
             marginBottom: 28,
             lineHeight: 1.6,
@@ -93,7 +93,7 @@ export const S20Obsidian: React.FC = () => {
                 padding: "2px 8px",
                 borderRadius: 6,
                 fontFamily: "monospace",
-                fontSize: 14,
+                fontSize: 20,
               }}
             >
               [[링크]]
@@ -127,7 +127,7 @@ export const S20Obsidian: React.FC = () => {
               <p
                 style={{
                   fontFamily: "monospace",
-                  fontSize: 11,
+                  fontSize: 16,
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
                   color: PRIMARY,
@@ -136,10 +136,10 @@ export const S20Obsidian: React.FC = () => {
               >
                 REASON {r.num}
               </p>
-              <p style={{ fontSize: 16, fontWeight: 600, color: FG, marginBottom: 10 }}>
+              <p style={{ fontSize: 22, fontWeight: 600, color: FG, marginBottom: 10 }}>
                 {r.title}
               </p>
-              <p style={{ fontSize: 13, color: MUTED, lineHeight: 1.65, margin: 0 }}>
+              <p style={{ fontSize: 20, color: MUTED, lineHeight: 1.65, margin: 0 }}>
                 {r.desc}
               </p>
             </div>
@@ -159,7 +159,7 @@ export const S20Obsidian: React.FC = () => {
           <p
             style={{
               fontFamily: "monospace",
-              fontSize: 11,
+              fontSize: 16,
               letterSpacing: "0.12em",
               textTransform: "uppercase",
               color: MUTED,
@@ -171,7 +171,7 @@ export const S20Obsidian: React.FC = () => {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
             <div>
               <p style={{ fontSize: 17, fontWeight: 600, color: FG, marginBottom: 8 }}>Notion</p>
-              <p style={{ fontSize: 14, color: MUTED, lineHeight: 1.65, margin: 0 }}>
+              <p style={{ fontSize: 20, color: MUTED, lineHeight: 1.65, margin: 0 }}>
                 팀 협업·프로젝트 관리에 강함. 독점 포맷 — API 없이 AI가 직접 접근 불가.
               </p>
             </div>
@@ -179,14 +179,14 @@ export const S20Obsidian: React.FC = () => {
               <p style={{ fontSize: 17, fontWeight: 600, color: PRIMARY, marginBottom: 8 }}>
                 Obsidian
               </p>
-              <p style={{ fontSize: 14, color: MUTED, lineHeight: 1.65, margin: 0 }}>
+              <p style={{ fontSize: 20, color: MUTED, lineHeight: 1.65, margin: 0 }}>
                 개인 지식 축적·AI RAG 연동에 강함. 순수 .md — AI가 가공 없이 바로 읽음.
               </p>
             </div>
           </div>
           <p
             style={{
-              fontSize: 13,
+              fontSize: 20,
               color: MUTED,
               marginTop: 16,
               paddingTop: 16,

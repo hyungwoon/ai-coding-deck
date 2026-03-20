@@ -32,7 +32,7 @@ export const S28GettingStarted: React.FC = () => {
         <p
           style={{
             fontFamily: "monospace",
-            fontSize: 12,
+            fontSize: 18,
             letterSpacing: "0.2em",
             color: MUTED,
             textTransform: "uppercase",
@@ -73,7 +73,7 @@ export const S28GettingStarted: React.FC = () => {
           <p
             style={{
               fontFamily: "monospace",
-              fontSize: 11,
+              fontSize: 16,
               letterSpacing: "0.2em",
               color: PRIMARY,
               textTransform: "uppercase",
@@ -83,10 +83,10 @@ export const S28GettingStarted: React.FC = () => {
           >
             추천 조합
           </p>
-          <p style={{ fontSize: 14, fontWeight: 600, color: FG, marginTop: 0, marginBottom: 4 }}>
+          <p style={{ fontSize: 20, fontWeight: 600, color: FG, marginTop: 0, marginBottom: 4 }}>
             Claude Code + oh-my-claudecode
           </p>
-          <p style={{ fontSize: 12, color: MUTED, lineHeight: 1.6, margin: 0 }}>
+          <p style={{ fontSize: 18, color: MUTED, lineHeight: 1.6, margin: 0 }}>
             Anthropic 공식 CLI 에이전트 + 멀티 에이전트 오케스트레이션 레이어.
             32개 특화 에이전트 · 스마트 모델 라우팅 (Haiku / Sonnet / Opus). 10.6k GitHub Stars.
           </p>
@@ -122,7 +122,7 @@ export const S28GettingStarted: React.FC = () => {
                 key={mode}
                 style={{
                   fontFamily: "monospace",
-                  fontSize: 11,
+                  fontSize: 16,
                   color: PRIMARY,
                   background: "rgba(228,228,231,0.1)",
                   padding: "6px 12px",
@@ -186,16 +186,16 @@ export const S28GettingStarted: React.FC = () => {
               >
                 {num}
               </p>
-              <p style={{ fontSize: 14, fontWeight: 600, color: FG, marginTop: 0, marginBottom: 4 }}>
+              <p style={{ fontSize: 20, fontWeight: 600, color: FG, marginTop: 0, marginBottom: 4 }}>
                 {title}
               </p>
-              <p style={{ fontSize: 12, color: MUTED, lineHeight: 1.6, margin: 0 }}>
+              <p style={{ fontSize: 18, color: MUTED, lineHeight: 1.6, margin: 0 }}>
                 {desc}{" "}
                 {code && (
                   <span
                     style={{
                       fontFamily: "monospace",
-                      fontSize: 11,
+                      fontSize: 16,
                       color: PRIMARY,
                     }}
                   >

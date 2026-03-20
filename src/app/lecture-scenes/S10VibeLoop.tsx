@@ -83,7 +83,7 @@ export const S10VibeLoop: React.FC = () => {
       <div style={{ maxWidth: 1400, width: "100%" }}>
         <h2
           style={{
-            fontSize: 56,
+            fontSize: 72,
             fontWeight: 700,
             color: FG,
             margin: 0,
@@ -96,7 +96,7 @@ export const S10VibeLoop: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 22,
+            fontSize: 28,
             color: MUTED,
             marginTop: 0,
             marginBottom: 36,
@@ -142,7 +142,7 @@ export const S10VibeLoop: React.FC = () => {
               </span>
               <span
                 style={{
-                  fontSize: 14,
+                  fontSize: 20,
                   fontWeight: 600,
                   color: p.star ? PRIMARY : FG,
                 }}
@@ -151,7 +151,7 @@ export const S10VibeLoop: React.FC = () => {
               </span>
               <p
                 style={{
-                  fontSize: 11,
+                  fontSize: 16,
                   color: MUTED,
                   lineHeight: 1.6,
                   whiteSpace: "pre-line",
@@ -188,7 +188,7 @@ export const S10VibeLoop: React.FC = () => {
             >
               <p
                 style={{
-                  fontSize: 14,
+                  fontSize: 20,
                   fontWeight: 600,
                   color: PRIMARY,
                   marginBottom: 6,
@@ -200,7 +200,7 @@ export const S10VibeLoop: React.FC = () => {
               </p>
               <p
                 style={{
-                  fontSize: 13,
+                  fontSize: 20,
                   color: MUTED,
                   lineHeight: 1.6,
                   margin: 0,

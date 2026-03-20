@@ -30,7 +30,7 @@ export const S22RlhfRlvr: React.FC = () => {
         <p
           style={{
             fontFamily: "monospace",
-            fontSize: 13,
+            fontSize: 20,
             letterSpacing: "0.12em",
             textTransform: "uppercase",
             color: MUTED,
@@ -42,7 +42,7 @@ export const S22RlhfRlvr: React.FC = () => {
         </p>
         <h2
           style={{
-            fontSize: 56,
+            fontSize: 72,
             fontWeight: 700,
             color: FG,
             marginBottom: 12,
@@ -55,7 +55,7 @@ export const S22RlhfRlvr: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 22,
+            fontSize: 28,
             color: MUTED,
             marginBottom: 28,
             lineHeight: 1.6,
@@ -76,10 +76,10 @@ export const S22RlhfRlvr: React.FC = () => {
             ...fade(25),
           }}
         >
-          <p style={{ fontSize: 18, fontWeight: 700, color: FG, marginBottom: 6 }}>
+          <p style={{ fontSize: 24, fontWeight: 700, color: FG, marginBottom: 6 }}>
             "AI를 얼마나 잘 쓰느냐"가 아니라
           </p>
-          <p style={{ fontSize: 18, fontWeight: 700, color: PRIMARY, margin: 0 }}>
+          <p style={{ fontSize: 24, fontWeight: 700, color: PRIMARY, margin: 0 }}>
             "AI가 얼마나 나를 잘 아느냐"가 격차를 만든다
           </p>
         </div>
@@ -110,10 +110,10 @@ export const S22RlhfRlvr: React.FC = () => {
                 background: "rgba(255,255,255,0.03)",
               }}
             >
-              <p style={{ fontFamily: "monospace", fontSize: 12, color: MUTED, marginBottom: 6 }}>
+              <p style={{ fontFamily: "monospace", fontSize: 18, color: MUTED, marginBottom: 6 }}>
                 RLHF
               </p>
-              <p style={{ fontSize: 18, fontWeight: 700, color: FG, margin: 0, lineHeight: 1.3 }}>
+              <p style={{ fontSize: 24, fontWeight: 700, color: FG, margin: 0, lineHeight: 1.3 }}>
                 인간 피드백 강화학습
               </p>
             </div>
@@ -128,7 +128,7 @@ export const S22RlhfRlvr: React.FC = () => {
                   borderRadius: 12,
                   padding: "14px 18px",
                   fontFamily: "monospace",
-                  fontSize: 14,
+                  fontSize: 20,
                   color: MUTED,
                   lineHeight: 1.7,
                 }}
@@ -153,7 +153,7 @@ export const S22RlhfRlvr: React.FC = () => {
             }}
           >
             <span style={{ fontSize: 28, color: PRIMARY }}>→</span>
-            <span style={{ fontFamily: "monospace", fontSize: 11, color: MUTED }}>진화</span>
+            <span style={{ fontFamily: "monospace", fontSize: 16, color: MUTED }}>진화</span>
           </div>
 
           {/* RLVR */}
@@ -175,14 +175,14 @@ export const S22RlhfRlvr: React.FC = () => {
               <p
                 style={{
                   fontFamily: "monospace",
-                  fontSize: 12,
+                  fontSize: 18,
                   color: PRIMARY,
                   marginBottom: 6,
                 }}
               >
                 RLVR
               </p>
-              <p style={{ fontSize: 18, fontWeight: 700, color: FG, margin: 0, lineHeight: 1.3 }}>
+              <p style={{ fontSize: 24, fontWeight: 700, color: FG, margin: 0, lineHeight: 1.3 }}>
                 검증 가능한 결과 강화학습
               </p>
             </div>
@@ -197,7 +197,7 @@ export const S22RlhfRlvr: React.FC = () => {
                   borderRadius: 12,
                   padding: "14px 18px",
                   fontFamily: "monospace",
-                  fontSize: 14,
+                  fontSize: 20,
                   color: MUTED,
                   lineHeight: 1.7,
                 }}

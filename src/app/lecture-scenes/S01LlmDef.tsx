@@ -43,7 +43,7 @@ export const S01LlmDef: React.FC = () => {
       }}
     >
       {/* label */}
-      <p style={{ fontFamily: "monospace", fontSize: 13, letterSpacing: "0.2em", color: MUTED, textTransform: "uppercase", marginBottom: 12, opacity: fade(frame, 5, 22), transform: `translateY(${slide(frame, 5, 22)}px)` }}>
+      <p style={{ fontFamily: "monospace", fontSize: 20, letterSpacing: "0.2em", color: MUTED, textTransform: "uppercase", marginBottom: 12, opacity: fade(frame, 5, 22), transform: `translateY(${slide(frame, 5, 22)}px)` }}>
         01 · LLM이란 무엇인가
       </p>
 
@@ -54,10 +54,10 @@ export const S01LlmDef: React.FC = () => {
 
       {/* definition card */}
       <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 20, padding: "24px 28px", marginBottom: 20, opacity: fade(frame, 25, 50), transform: `translateY(${slide(frame, 25, 50)}px)` }}>
-        <p style={{ fontFamily: "monospace", fontSize: 11, letterSpacing: "0.18em", color: PRIMARY, textTransform: "uppercase", marginBottom: 10 }}>
+        <p style={{ fontFamily: "monospace", fontSize: 16, letterSpacing: "0.18em", color: PRIMARY, textTransform: "uppercase", marginBottom: 10 }}>
           Large Language Model — 대규모 언어 모델
         </p>
-        <p style={{ fontSize: 20, color: MUTED, lineHeight: 1.7, margin: 0 }}>
+        <p style={{ fontSize: 26, color: MUTED, lineHeight: 1.7, margin: 0 }}>
           인터넷의 방대한 텍스트를 학습해서{" "}
           <span style={{ color: FG, fontWeight: 600 }}>"다음에 올 가장 자연스러운 단어"를 확률적으로 예측</span>
           하는 모델. 번역·요약·코드 작성·추론이 모두 이 하나의 원리에서 나온다.
@@ -67,7 +67,7 @@ export const S01LlmDef: React.FC = () => {
 
       {/* tokenization card */}
       <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 20, padding: "24px 28px", marginBottom: 20, opacity: fade(frame, 40, 62), transform: `translateY(${slide(frame, 40, 62)}px)` }}>
-        <p style={{ fontFamily: "monospace", fontSize: 11, letterSpacing: "0.18em", color: MUTED, textTransform: "uppercase", marginBottom: 20 }}>
+        <p style={{ fontFamily: "monospace", fontSize: 16, letterSpacing: "0.18em", color: MUTED, textTransform: "uppercase", marginBottom: 20 }}>
           STEP 1 · 토큰화 — 텍스트를 숫자로
         </p>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
@@ -83,7 +83,7 @@ export const S01LlmDef: React.FC = () => {
               <span style={{ color: FG, fontWeight: 600 }}>의미 단위 조각</span>. 한국어는 음절 단위로 더 잘게 쪼개져 같은 내용이어도 토큰 수가 더 많이 소모된다.
             </p>
           </div>
-          <div style={{ fontFamily: "monospace", fontSize: 13, background: "rgba(255,255,255,0.04)", borderRadius: 14, padding: 20 }}>
+          <div style={{ fontFamily: "monospace", fontSize: 20, background: "rgba(255,255,255,0.04)", borderRadius: 14, padding: 20 }}>
             <p style={{ color: MUTED, fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: 12 }}>INPUT TEXT</p>
             <p style={{ color: FG, marginBottom: 8 }}>"Claude is powerful"</p>
             <p style={{ color: MUTED, marginBottom: 8 }}>↓ 토큰 분해</p>
@@ -115,8 +115,8 @@ export const S01LlmDef: React.FC = () => {
         {cards.map(({ label, title, body }) => (
           <div key={label} style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 16, padding: "20px 22px" }}>
             <p style={{ fontFamily: "monospace", fontSize: 10, color: MUTED, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 8 }}>{label}</p>
-            <p style={{ fontSize: 16, fontWeight: 600, color: FG, marginBottom: 8 }}>{title}</p>
-            <p style={{ fontSize: 14, color: MUTED, lineHeight: 1.6, margin: 0 }}>{body}</p>
+            <p style={{ fontSize: 22, fontWeight: 600, color: FG, marginBottom: 8 }}>{title}</p>
+            <p style={{ fontSize: 20, color: MUTED, lineHeight: 1.6, margin: 0 }}>{body}</p>
           </div>
         ))}
       </div>

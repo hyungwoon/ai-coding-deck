@@ -65,7 +65,7 @@ export const S19Rag: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 20,
+            fontSize: 26,
             color: MUTED,
             marginBottom: 28,
             lineHeight: 1.6,
@@ -113,7 +113,7 @@ export const S19Rag: React.FC = () => {
             <p
               style={{
                 fontFamily: "monospace",
-                fontSize: 11,
+                fontSize: 16,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
                 color: MUTED,
@@ -143,10 +143,10 @@ export const S19Rag: React.FC = () => {
                     minWidth: 130,
                   }}
                 >
-                  <p style={{ fontSize: 13, fontWeight: 600, color: FG, margin: "0 0 4px" }}>
+                  <p style={{ fontSize: 20, fontWeight: 600, color: FG, margin: "0 0 4px" }}>
                     {step.label}
                   </p>
-                  <p style={{ fontSize: 11, color: MUTED, margin: 0 }}>{step.sub}</p>
+                  <p style={{ fontSize: 16, color: MUTED, margin: 0 }}>{step.sub}</p>
                 </div>
                 {i < flowSteps.length - 1 && (
                   <span style={{ color: "rgba(255,255,255,0.25)", fontSize: 18 }}>→</span>

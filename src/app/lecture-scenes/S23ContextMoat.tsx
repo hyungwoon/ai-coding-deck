@@ -71,7 +71,7 @@ export const S23ContextMoat: React.FC = () => {
         <p
           style={{
             fontFamily: "monospace",
-            fontSize: 13,
+            fontSize: 20,
             letterSpacing: "0.12em",
             textTransform: "uppercase",
             color: MUTED,
@@ -83,7 +83,7 @@ export const S23ContextMoat: React.FC = () => {
         </p>
         <h2
           style={{
-            fontSize: 56,
+            fontSize: 72,
             fontWeight: 700,
             color: FG,
             marginBottom: 12,
@@ -96,7 +96,7 @@ export const S23ContextMoat: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 20,
+            fontSize: 26,
             color: MUTED,
             marginBottom: 24,
             lineHeight: 1.6,
@@ -143,7 +143,7 @@ export const S23ContextMoat: React.FC = () => {
                 <p style={{ fontSize: 15, fontWeight: 600, color: FG, marginBottom: 6 }}>
                   {title}
                 </p>
-                <p style={{ fontSize: 14, color: MUTED, lineHeight: 1.65, margin: 0 }}>
+                <p style={{ fontSize: 20, color: MUTED, lineHeight: 1.65, margin: 0 }}>
                   {desc}
                 </p>
               </div>
@@ -164,7 +164,7 @@ export const S23ContextMoat: React.FC = () => {
           <p
             style={{
               fontFamily: "monospace",
-              fontSize: 12,
+              fontSize: 18,
               letterSpacing: "0.12em",
               textTransform: "uppercase",
               color: PRIMARY,
@@ -187,7 +187,7 @@ export const S23ContextMoat: React.FC = () => {
                 <p
                   style={{
                     fontFamily: "monospace",
-                    fontSize: 11,
+                    fontSize: 16,
                     letterSpacing: "0.12em",
                     color: PRIMARY,
                     marginBottom: 8,
@@ -195,10 +195,10 @@ export const S23ContextMoat: React.FC = () => {
                 >
                   {label}
                 </p>
-                <p style={{ fontSize: 14, fontWeight: 600, color: FG, marginBottom: 8 }}>
+                <p style={{ fontSize: 20, fontWeight: 600, color: FG, marginBottom: 8 }}>
                   {title}
                 </p>
-                <p style={{ fontSize: 13, color: MUTED, lineHeight: 1.65, margin: 0 }}>
+                <p style={{ fontSize: 20, color: MUTED, lineHeight: 1.65, margin: 0 }}>
                   {desc}
                 </p>
               </div>

@@ -43,7 +43,7 @@ export const S03Reasoning: React.FC = () => {
         fontFamily: "system-ui, sans-serif",
       }}
     >
-      <p style={{ fontFamily: "monospace", fontSize: 13, letterSpacing: "0.2em", color: MUTED, textTransform: "uppercase", marginBottom: 12, opacity: fade(frame, 5, 22), transform: `translateY(${slide(frame, 5, 22)}px)` }}>
+      <p style={{ fontFamily: "monospace", fontSize: 20, letterSpacing: "0.2em", color: MUTED, textTransform: "uppercase", marginBottom: 12, opacity: fade(frame, 5, 22), transform: `translateY(${slide(frame, 5, 22)}px)` }}>
         STEP 3 · 4 · 추론과 출력
       </p>
 
@@ -55,7 +55,7 @@ export const S03Reasoning: React.FC = () => {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20, opacity: fade(frame, 28, 52), transform: `translateY(${slide(frame, 28, 52)}px)` }}>
         {/* Attention */}
         <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 20, padding: "24px 28px" }}>
-          <p style={{ fontFamily: "monospace", fontSize: 11, color: PRIMARY, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 14 }}>
+          <p style={{ fontFamily: "monospace", fontSize: 16, color: PRIMARY, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 14 }}>
             STEP 3 · 어텐션 그래프로 의미 연결
           </p>
           <p style={{ fontSize: 15, color: MUTED, lineHeight: 1.7, marginBottom: 20 }}>
@@ -64,7 +64,7 @@ export const S03Reasoning: React.FC = () => {
             이 관계망을 수백 개 레이어에서 반복 계산해{" "}
             <span style={{ color: FG, fontWeight: 600 }}>문맥 속 의미</span>를 추론한다.
           </p>
-          <div style={{ fontFamily: "monospace", fontSize: 13, background: "rgba(255,255,255,0.04)", borderRadius: 14, padding: 20 }}>
+          <div style={{ fontFamily: "monospace", fontSize: 20, background: "rgba(255,255,255,0.04)", borderRadius: 14, padding: 20 }}>
             <p style={{ fontSize: 10, color: "rgba(161,161,170,0.6)", letterSpacing: "0.12em", marginBottom: 16 }}>예: "그가 공을 찼다"</p>
             {attentionRows.map(({ left, right, weight, thick, primary: p, faded }) => (
               <div key={`${left}-${right}`} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
@@ -80,7 +80,7 @@ export const S03Reasoning: React.FC = () => {
 
         {/* Streaming output */}
         <div style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 20, padding: "24px 28px" }}>
-          <p style={{ fontFamily: "monospace", fontSize: 11, color: PRIMARY, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 14 }}>
+          <p style={{ fontFamily: "monospace", fontSize: 16, color: PRIMARY, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 14 }}>
             STEP 4 · 토큰 하나씩 생성 → 스트리밍
           </p>
           <p style={{ fontSize: 15, color: MUTED, lineHeight: 1.7, marginBottom: 14 }}>
@@ -91,7 +91,7 @@ export const S03Reasoning: React.FC = () => {
           <p style={{ fontSize: 15, color: MUTED, lineHeight: 1.7, marginBottom: 20 }}>
             ChatGPT·Claude에서 답변이 흘러나오듯 표시되는 이유가 이 구조 때문이다.
           </p>
-          <div style={{ fontFamily: "monospace", fontSize: 13, background: "rgba(255,255,255,0.04)", borderRadius: 14, padding: 20 }}>
+          <div style={{ fontFamily: "monospace", fontSize: 20, background: "rgba(255,255,255,0.04)", borderRadius: 14, padding: 20 }}>
             <p style={{ fontSize: 10, color: "rgba(161,161,170,0.6)", letterSpacing: "0.12em", marginBottom: 14 }}>토큰 생성 루프</p>
             {loopSteps.map(({ n, text, bold }) => (
               <div key={n} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
@@ -108,8 +108,8 @@ export const S03Reasoning: React.FC = () => {
         {conceptCards.map(({ title, body }) => (
           <div key={title} style={{ background: CARD_BG, border: `1px solid ${BORDER}`, borderRadius: 16, padding: "20px 22px" }}>
             <p style={{ fontFamily: "monospace", fontSize: 10, color: MUTED, textTransform: "uppercase", letterSpacing: "0.18em", marginBottom: 8 }}>CONCEPT</p>
-            <p style={{ fontSize: 16, fontWeight: 600, color: FG, marginBottom: 8 }}>{title}</p>
-            <p style={{ fontSize: 14, color: MUTED, lineHeight: 1.6, margin: 0 }}>{body}</p>
+            <p style={{ fontSize: 22, fontWeight: 600, color: FG, marginBottom: 8 }}>{title}</p>
+            <p style={{ fontSize: 20, color: MUTED, lineHeight: 1.6, margin: 0 }}>{body}</p>
           </div>
         ))}
       </div>

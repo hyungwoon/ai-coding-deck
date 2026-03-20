@@ -37,7 +37,7 @@ export const S00Title: React.FC = () => {
         <p
           style={{
             fontFamily: "monospace",
-            fontSize: 14,
+            fontSize: 20,
             letterSpacing: "0.2em",
             color: MUTED,
             textTransform: "uppercase",
@@ -95,8 +95,8 @@ export const S00Title: React.FC = () => {
         </p>
 
         <div style={{ marginTop: 64, opacity: scrollOpacity }}>
-          <p style={{ fontSize: 12, color: MUTED, marginBottom: 8, letterSpacing: "0.2em" }}>SCROLL</p>
-          <span style={{ fontSize: 22, color: MUTED }}>↓</span>
+          <p style={{ fontSize: 18, color: MUTED, marginBottom: 8, letterSpacing: "0.2em" }}>SCROLL</p>
+          <span style={{ fontSize: 28, color: MUTED }}>↓</span>
         </div>
       </div>
     </AbsoluteFill>

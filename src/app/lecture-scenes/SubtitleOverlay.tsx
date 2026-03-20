@@ -37,7 +37,7 @@ export const SubtitleOverlay: React.FC<Props> = ({ cues }) => {
         <span
           style={{
             color: FG,
-            fontSize: 36,
+            fontSize: 28,
             fontFamily: "system-ui, sans-serif",
             fontWeight: 500,
             lineHeight: 1.5,

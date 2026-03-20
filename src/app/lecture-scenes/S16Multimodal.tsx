@@ -56,7 +56,7 @@ export const S16Multimodal: React.FC = () => {
       <div style={{ maxWidth: 1400, width: "100%" }}>
         <h2
           style={{
-            fontSize: 56,
+            fontSize: 72,
             fontWeight: 700,
             color: FG,
             marginBottom: 12,
@@ -69,7 +69,7 @@ export const S16Multimodal: React.FC = () => {
         </h2>
         <p
           style={{
-            fontSize: 22,
+            fontSize: 28,
             color: MUTED,
             marginBottom: 40,
             lineHeight: 1.6,
@@ -104,7 +104,7 @@ export const S16Multimodal: React.FC = () => {
                   padding: "14px 20px",
                 }}
               >
-                <p style={{ fontSize: 16, fontWeight: 600, color: FG, margin: 0 }}>
+                <p style={{ fontSize: 22, fontWeight: 600, color: FG, margin: 0 }}>
                   {card.icon} {card.title}
                 </p>
               </div>
@@ -126,7 +126,7 @@ export const S16Multimodal: React.FC = () => {
                     borderRadius: 12,
                     padding: "12px 16px",
                     fontFamily: "monospace",
-                    fontSize: 13,
+                    fontSize: 20,
                     color: PRIMARY,
                     lineHeight: 1.6,
                     whiteSpace: "pre-line",
