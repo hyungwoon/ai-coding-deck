@@ -23,9 +23,9 @@ const SlideInstall = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
             <span className="font-mono text-xs font-bold text-primary">01</span>
           </div>
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-semibold mb-2">Warp 설치</p>
+            <p className="text-sm font-semibold mb-2">Claude Code 설치</p>
             <code className="font-mono text-xs bg-muted/60 text-primary px-3 py-1.5 rounded-lg block">
-              brew install --cask warp
+              npm install -g @anthropic-ai/claude-code
             </code>
           </div>
         </div>
@@ -36,10 +36,11 @@ const SlideInstall = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
             <span className="font-mono text-xs font-bold text-primary">02</span>
           </div>
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-semibold mb-2">Claude Code 설치</p>
+            <p className="text-sm font-semibold mb-2">oh-my-claudecode 설치</p>
             <code className="font-mono text-xs bg-muted/60 text-primary px-3 py-1.5 rounded-lg block">
-              npm install -g @anthropic-ai/claude-code
+              /plugin marketplace add oh-my-claudecode
             </code>
+            <p className="text-xs text-muted-foreground mt-1">또는 Claude Code 내에서 <span className="font-mono text-primary">/setup</span> 실행</p>
           </div>
         </div>
 
@@ -49,10 +50,11 @@ const SlideInstall = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
             <span className="font-mono text-xs font-bold text-primary">03</span>
           </div>
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-semibold mb-2">oh-my-claudecode 설치</p>
+            <p className="text-sm font-semibold mb-2">Anthropic 인증</p>
             <code className="font-mono text-xs bg-muted/60 text-primary px-3 py-1.5 rounded-lg block">
-              bunx oh-my-claudecode install
+              claude auth login
             </code>
+            <p className="text-xs text-muted-foreground mt-1">Pro / Max 구독 계정으로 OAuth 로그인</p>
           </div>
         </div>
 
@@ -62,10 +64,11 @@ const SlideInstall = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
             <span className="font-mono text-xs font-bold text-primary">04</span>
           </div>
           <div className="min-w-0 flex-1">
-            <p className="text-sm font-semibold mb-2">Provider 인증</p>
+            <p className="text-sm font-semibold mb-2">CLAUDE.md 초기화</p>
             <code className="font-mono text-xs bg-muted/60 text-primary px-3 py-1.5 rounded-lg block">
-              claude → Provider: Anthropic 선택 → OAuth 로그인
+              프로젝트 폴더에서 claude 실행 → CLAUDE.md 작성
             </code>
+            <p className="text-xs text-muted-foreground mt-1">프로젝트 맥락·규칙·금지사항을 AI에게 선언하는 파일</p>
           </div>
         </div>
 
