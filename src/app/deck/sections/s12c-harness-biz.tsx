@@ -63,52 +63,8 @@ const S12cHarnessBiz = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       ))}
     </div>
 
-    {/* 요청 처리 흐름 */}
-    <div className={cn("rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm mb-4", anim(index))} style={{ transitionDelay: "200ms" }}>
-      <p className="text-sm font-bold mb-3">요청 처리 흐름</p>
-      <div className="flex items-center gap-2 text-xs text-muted-foreground flex-wrap">
-        {["/ask · /route", "브레인스토밍 게이트", "도메인 분류", "에이전트.md + SKILL.md 읽기", "전문가 답변"].map((step, i) => (
-          <span key={step}>
-            {i > 0 && <span className="text-muted-foreground/30 mr-2">&rarr;</span>}
-            <span className="rounded-lg border border-border/40 bg-muted/30 px-2.5 py-1 font-medium text-foreground/80">{step}</span>
-          </span>
-        ))}
-      </div>
-    </div>
-
-    {/* 도메인 분류 */}
-    <div className={cn("grid grid-cols-1 sm:grid-cols-3 gap-3 mb-4", anim(index))} style={{ transitionDelay: "240ms" }}>
-      <div className="rounded-2xl border border-border/40 bg-card/80 p-4 shadow-sm backdrop-blur-sm">
-        <p className="text-sm font-bold mb-0.5">PM 도메인</p>
-        <p className="text-xs text-muted-foreground/50 mb-2">7개 메가스킬 &rarr; 62개 서브스킬</p>
-        <div className="flex flex-wrap gap-1">
-          {["Discovery", "Strategy", "Execution", "Core", "Research", "GTM", "Analytics"].map((d) => (
-            <span key={d} className="text-[10px] px-2 py-0.5 rounded-md border border-border/40 bg-muted/20 text-muted-foreground">{d}</span>
-          ))}
-        </div>
-      </div>
-      <div className="rounded-2xl border border-border/40 bg-card/80 p-4 shadow-sm backdrop-blur-sm">
-        <p className="text-sm font-bold mb-0.5">기능 도메인</p>
-        <p className="text-xs text-muted-foreground/50 mb-2">9개 메가스킬 &rarr; 50개 서브스킬</p>
-        <div className="flex flex-wrap gap-1">
-          {["Marketing", "Sales", "Finance", "Legal", "Data", "CS", "Search", "Productivity", "Plugin"].map((d) => (
-            <span key={d} className="text-[10px] px-2 py-0.5 rounded-md border border-border/40 bg-muted/20 text-muted-foreground">{d}</span>
-          ))}
-        </div>
-      </div>
-      <div className="rounded-2xl border border-border/40 bg-card/80 p-4 shadow-sm backdrop-blur-sm">
-        <p className="text-sm font-bold mb-0.5">단일 도메인 + 엔지니어링</p>
-        <p className="text-xs text-muted-foreground/50 mb-2">7개 자체 완결 + 8개 워크플로우</p>
-        <div className="flex flex-wrap gap-1">
-          {["BizDev", "Compliance", "Design", "Dev", "HR", "PR", "Security", "/qa", "/review", "/ship"].map((d) => (
-            <span key={d} className={cn("text-[10px] px-2 py-0.5 rounded-md border border-border/40 bg-muted/20 text-muted-foreground", d.startsWith("/") && "font-mono")}>{d}</span>
-          ))}
-        </div>
-      </div>
-    </div>
-
-    {/* 온톨로지 + 피드백 루프 + 자세히 보기 */}
-    <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4", anim(index))} style={{ transitionDelay: "280ms" }}>
+    {/* 온톨로지 + 피드백 루프 */}
+    <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4", anim(index))} style={{ transitionDelay: "200ms" }}>
       <div className="rounded-2xl border border-border/40 bg-card/80 p-4 shadow-sm backdrop-blur-sm">
         <p className="text-sm font-bold mb-1">온톨로지 (Obsidian 연동)</p>
         <p className="text-sm text-muted-foreground/50 mb-1">= 회사의 지식 창고</p>
