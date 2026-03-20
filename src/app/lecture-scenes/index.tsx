@@ -65,10 +65,10 @@ const sceneMap: Record<string, React.FC> = {};
 
 // Register all 32 slides as generic scenes
 const slideIds = [
-  "s00", "s01", "s02", "s03", "s04", "s05", "s06", "s07",
-  "s08", "s09", "s10", "s11", "s12", "s13", "s14", "s15",
-  "s16", "s17", "s18", "s19", "s20", "s21", "s22", "s23",
-  "s24", "s25", "s26", "s27", "s28", "s29", "s30", "s31",
+  "s00", "s01", "s02", "s03", "s03b", "s04", "s05", "s05b", "s05c", "s06", "s07", "s07r",
+  "s08", "s09", "s10", "s11", "s12", "s12b", "s12c", "s13", "s14", "s15", "s15r",
+  "s16", "s17", "s18", "s19", "s20", "s21", "s21b", "s22", "s23", "s23r",
+  "s24", "s25", "s26", "s27", "s28", "s29", "s30", "s31", "s32",
 ];
 
 const slideTitles: Record<string, string> = {
@@ -104,6 +104,16 @@ const slideTitles: Record<string, string> = {
   s29: "설치",
   s30: "Ultrawork",
   s31: "Contact",
+  s03b: "프롬프트 엔지니어링",
+  s05b: "개발의 기본 구조",
+  s05c: "API · CLI · MCP",
+  s07r: "파트 1 요약",
+  s12b: "코딩 하네스 실전",
+  s12c: "비즈니스 하네스 실전",
+  s15r: "파트 2 요약",
+  s21b: "보안과 프라이버시",
+  s23r: "파트 3 요약",
+  s32: "실습 과제",
 };
 
 // Register rich scene components
