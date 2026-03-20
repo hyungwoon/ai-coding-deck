@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI 코딩 생태계 관계도",
-  description: "AI는 어떻게 작동하고 어떻게 쓰는가 — LLM, 에이전트, 온톨로지, 해자까지",
+  title: "AI는 어떻게 작동하고 어떻게 쓰는가",
+  description: "LLM의 작동 원리부터 에이전트 생태계, 온톨로지, 해자까지 — 처음 접하는 사람도 읽을 수 있게 정리했습니다.",
 };
 
 export default function RootLayout({
