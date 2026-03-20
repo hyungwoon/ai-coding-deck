@@ -53,7 +53,7 @@ export function useSectionObserver(
           }
         }
       },
-      { root: container, threshold: 0.5 },
+      { root: container, threshold: 0.1 },
     );
 
     sectionRefs.current?.forEach((s) => {
