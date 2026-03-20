@@ -15,14 +15,14 @@ const timeline = [
 const SlidePhilosophy = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
     <div className="text-center">
-      <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-6", anim(index))}>
+      <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-6", anim(index))}>
         10 · 도구의 철학
       </p>
 
-      <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-2 leading-snug", anim(index))}>
+      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-2 leading-snug", anim(index))}>
         글쓴이가 펜을 버렸다고
       </h2>
-      <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-4 text-primary leading-snug", anim(index))} style={{ transitionDelay: "60ms" }}>
+      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-4 text-primary leading-snug", anim(index))} style={{ transitionDelay: "60ms" }}>
         그의 글이 사라지지 않는다
       </h2>
       <p className={cn("text-sm text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed", anim(index))} style={{ transitionDelay: "120ms" }}>
@@ -32,7 +32,7 @@ const SlidePhilosophy = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
 
       {/* Timeline */}
       <div className={cn("rounded-2xl border border-border/40 bg-card/80 p-6 shadow-sm backdrop-blur-sm mb-0", anim(index))} style={{ transitionDelay: "180ms" }}>
-        <p className="font-mono text-[10px] text-muted-foreground tracking-widest uppercase mb-5">
+        <p className="font-mono text-sm text-muted-foreground tracking-widest uppercase mb-5">
           도구의 진화 — 바뀐 것과 바뀌지 않은 것
         </p>
         <div className="grid grid-cols-4 gap-0 relative mb-5">
@@ -50,16 +50,16 @@ const SlidePhilosophy = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
               >
                 {icon}
               </div>
-              <p className={cn("text-xs font-semibold mb-0.5", highlight ? "text-primary" : "")}>{label}</p>
-              <p className={cn("font-mono text-[10px] mb-1.5", highlight ? "text-primary" : "text-muted-foreground")}>{era}</p>
-              <p className="text-[11px] text-muted-foreground leading-snug">{note}</p>
+              <p className={cn("text-sm font-semibold mb-0.5", highlight ? "text-primary" : "")}>{label}</p>
+              <p className={cn("font-mono text-sm mb-1.5", highlight ? "text-primary" : "text-muted-foreground")}>{era}</p>
+              <p className="text-xs text-muted-foreground leading-snug">{note}</p>
             </div>
           ))}
         </div>
 
         {/* 불변의 것 */}
         <div className="rounded-xl border border-dashed border-border/60 bg-card/40 px-5 py-3 text-center">
-          <span className="text-xs text-muted-foreground">도구가 바뀌어도 바뀌지 않은 것 → </span>
+          <span className="text-sm text-muted-foreground">도구가 바뀌어도 바뀌지 않은 것 → </span>
           <span className="text-sm font-semibold">무엇을 말할지, 왜 말할지, 누구를 위한지</span>
         </div>
       </div>

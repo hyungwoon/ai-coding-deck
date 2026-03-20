@@ -50,7 +50,7 @@ export default function LecturePage() {
         fps={FPS}
         style={{
           width: "100%",
-          maxWidth: 1280,
+          maxWidth: 1600,
           aspectRatio: "16/9",
           borderRadius: 12,
           overflow: "hidden",

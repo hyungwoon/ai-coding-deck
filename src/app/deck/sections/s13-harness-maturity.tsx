@@ -38,10 +38,10 @@ const levels = [
 
 const S13HarnessMaturity = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-2", anim(index))}>
+    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
       하네스 성숙도
     </h2>
-    <p className={cn("text-base text-muted-foreground mb-10", anim(index))} style={{ transitionDelay: "80ms" }}>
+    <p className={cn("text-lg text-muted-foreground mb-10", anim(index))} style={{ transitionDelay: "80ms" }}>
       어디까지 왔는가 — 4단계로 보는 에이전트 제어 수준
     </p>
 
@@ -55,12 +55,12 @@ const S13HarnessMaturity = forwardRef<HTMLElement, P>(({ anim, index }, ref) => 
             lv.active ? "bg-card/80" : "bg-muted/10",
           )}
         >
-          <span className={cn("font-mono text-[10px] font-semibold", lv.active ? "text-primary" : "text-muted-foreground/40")}>
+          <span className={cn("font-mono text-sm font-semibold", lv.active ? "text-primary" : "text-muted-foreground/40")}>
             {lv.lv}
           </span>
           <span className={cn("text-sm font-semibold", !lv.active && "text-muted-foreground/50")}>{lv.title}</span>
-          <p className="text-[10px] text-muted-foreground leading-relaxed whitespace-pre-line mt-1">{lv.desc}</p>
-          <span className={cn("text-[10px] font-mono mt-2", lv.active ? "text-primary/70" : "text-muted-foreground/30")}>
+          <p className="text-xs text-muted-foreground leading-relaxed whitespace-pre-line mt-1">{lv.desc}</p>
+          <span className={cn("text-xs font-mono mt-2", lv.active ? "text-primary/70" : "text-muted-foreground/30")}>
             {lv.tag}
           </span>
         </div>

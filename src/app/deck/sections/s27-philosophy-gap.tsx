@@ -41,10 +41,10 @@ const eras = [
 const SlidePhilosophyGap = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
     <div>
-      <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
+      <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         10 · 도구의 철학
       </p>
-      <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-6", anim(index))}>
+      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-6", anim(index))}>
         도구는 같다. 격차는 어디서 오는가
       </h2>
 
@@ -55,7 +55,7 @@ const SlidePhilosophyGap = forwardRef<HTMLElement, P>(({ anim, index }, ref) => 
       >
         {/* 같은 것 */}
         <div>
-          <p className="font-mono text-[10px] text-muted-foreground tracking-widest text-center mb-3">둘 다 갖고 있는 것</p>
+          <p className="font-mono text-sm text-muted-foreground tracking-widest text-center mb-3">둘 다 갖고 있는 것</p>
           <div className="flex flex-col gap-2">
             {same.map(({ icon, label }) => (
               <div key={label} className="rounded-xl border border-border/40 bg-card/80 py-3 px-4 text-sm text-center backdrop-blur-sm">
@@ -70,7 +70,7 @@ const SlidePhilosophyGap = forwardRef<HTMLElement, P>(({ anim, index }, ref) => 
 
         {/* 다른 것 */}
         <div>
-          <p className="font-mono text-[10px] text-primary tracking-widest text-center mb-3">격차를 만드는 것</p>
+          <p className="font-mono text-sm text-primary tracking-widest text-center mb-3">격차를 만드는 것</p>
           <div className="flex flex-col gap-2">
             {diff.map(({ icon, label }) => (
               <div key={label} className="rounded-xl border border-primary/20 bg-primary/5 py-3 px-4 text-sm text-center text-primary">
@@ -94,13 +94,13 @@ const SlidePhilosophyGap = forwardRef<HTMLElement, P>(({ anim, index }, ref) => 
             )}
           >
             <div className={cn("px-4 py-3 border-b", highlight ? "border-primary/15 bg-primary/8" : "border-border/40")}>
-              <p className={cn("font-mono text-[10px] tracking-widest mb-1", highlight ? "text-primary" : "text-muted-foreground")}>
+              <p className={cn("font-mono text-sm tracking-widest mb-1", highlight ? "text-primary" : "text-muted-foreground")}>
                 {tag}
               </p>
               <p className={cn("text-sm font-bold", highlight ? "text-primary" : "")}>{title}</p>
             </div>
             <div className="px-4 py-3">
-              <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
             </div>
           </div>
         ))}

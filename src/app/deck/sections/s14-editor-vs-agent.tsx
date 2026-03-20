@@ -34,21 +34,21 @@ const rows = [
 
 const S14EditorVsAgent = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-3", anim(index))}>
+    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
       에디터 vs 에이전트 핵심 차이
     </h2>
-    <p className={cn("text-base text-muted-foreground mb-10", anim(index))} style={{ transitionDelay: "100ms" }}>
+    <p className={cn("text-lg text-muted-foreground mb-10", anim(index))} style={{ transitionDelay: "100ms" }}>
       작업 단위와 주도권이 AI로 이동하는 스펙트럼
     </p>
 
     <div className={cn("rounded-2xl border border-border/40 bg-card/80 overflow-hidden shadow-sm backdrop-blur-sm", anim(index))} style={{ transitionDelay: "150ms" }}>
       {/* Header */}
       <div className="grid grid-cols-[2fr_1.2fr_1fr_1fr_1fr] bg-muted/30 border-b border-border/40 px-5 py-3">
-        <span className="text-[11px] font-medium text-muted-foreground">구분</span>
-        <span className="text-[11px] font-medium text-muted-foreground">작업 단위</span>
-        <span className="text-[11px] font-medium text-muted-foreground">사람 개입</span>
-        <span className="text-[11px] font-medium text-muted-foreground">터미널 실행</span>
-        <span className="text-[11px] font-medium text-muted-foreground">주도권</span>
+        <span className="text-xs font-medium text-muted-foreground">구분</span>
+        <span className="text-xs font-medium text-muted-foreground">작업 단위</span>
+        <span className="text-xs font-medium text-muted-foreground">사람 개입</span>
+        <span className="text-xs font-medium text-muted-foreground">터미널 실행</span>
+        <span className="text-xs font-medium text-muted-foreground">주도권</span>
       </div>
 
       {/* Rows */}
@@ -62,11 +62,11 @@ const S14EditorVsAgent = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         >
           <div>
             <p className="text-sm font-semibold">{row.label}</p>
-            <p className="text-[11px] text-muted-foreground mt-0.5">{row.sub}</p>
+            <p className="text-xs text-muted-foreground mt-0.5">{row.sub}</p>
           </div>
           <span className="text-sm text-muted-foreground">{row.unit}</span>
-          <span className="rounded-full px-2.5 py-1 text-[10px] font-medium bg-muted/60 w-fit">{row.human}</span>
-          <span className="rounded-full px-2.5 py-1 text-[10px] font-medium bg-muted/60 w-fit">{row.terminal}</span>
+          <span className="rounded-full px-2.5 py-1 text-xs font-medium bg-muted/60 w-fit">{row.human}</span>
+          <span className="rounded-full px-2.5 py-1 text-xs font-medium bg-muted/60 w-fit">{row.terminal}</span>
           <span className={cn("text-sm font-medium", i === 2 && "text-primary")}>{row.control}</span>
         </div>
       ))}
@@ -79,9 +79,9 @@ const S14EditorVsAgent = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         { label: "사람의 역할", value: "조작 → 감독", desc: "코드 작성 대신 목표와 방향을 지시" },
       ].map((item) => (
         <div key={item.label} className="rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm">
-          <p className="text-[10px] font-mono text-muted-foreground mb-1">{item.label}</p>
+          <p className="text-xs font-mono text-muted-foreground mb-1">{item.label}</p>
           <p className="text-sm font-semibold text-primary mb-1">{item.value}</p>
-          <p className="text-[11px] text-muted-foreground leading-relaxed">{item.desc}</p>
+          <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
         </div>
       ))}
     </div>

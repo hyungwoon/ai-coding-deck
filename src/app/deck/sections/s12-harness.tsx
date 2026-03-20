@@ -23,10 +23,10 @@ const withItems = [
 
 const S12Harness = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-2", anim(index))}>
+    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
       하네스 — AI 에이전트를 길들이는 구조
     </h2>
-    <p className={cn("text-base text-muted-foreground mb-6", anim(index))} style={{ transitionDelay: "80ms" }}>
+    <p className={cn("text-lg text-muted-foreground mb-6", anim(index))} style={{ transitionDelay: "80ms" }}>
       에이전트는 강력하다. 하지만 방향 없이는 쓸모없다.
     </p>
 
@@ -41,11 +41,11 @@ const S12Harness = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       <div className="rounded-2xl border border-border/40 bg-card/80 shadow-sm backdrop-blur-sm overflow-hidden">
         <div className="px-4 py-3 border-b border-border/30 bg-muted/20">
           <p className="text-sm font-semibold">하네스 없는 에이전트</p>
-          <p className="font-mono text-[10px] text-muted-foreground mt-0.5">= 고삐 없는 말</p>
+          <p className="font-mono text-sm text-muted-foreground mt-0.5">= 고삐 없는 말</p>
         </div>
         <ul className="px-4 py-3 space-y-1.5">
           {withoutItems.map((item) => (
-            <li key={item} className="flex gap-2 text-xs text-muted-foreground">
+            <li key={item} className="flex gap-2 text-sm text-muted-foreground">
               <span className="shrink-0 text-destructive/70">✗</span>
               <span>{item}</span>
             </li>
@@ -56,11 +56,11 @@ const S12Harness = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       <div className="rounded-2xl border border-border/40 bg-card/80 shadow-sm backdrop-blur-sm overflow-hidden">
         <div className="px-4 py-3 border-b border-border/30 bg-muted/20">
           <p className="text-sm font-semibold">하네스 있는 에이전트</p>
-          <p className="font-mono text-[10px] text-muted-foreground mt-0.5">= 조련된 경주마</p>
+          <p className="font-mono text-sm text-muted-foreground mt-0.5">= 조련된 경주마</p>
         </div>
         <ul className="px-4 py-3 space-y-1.5">
           {withItems.map((item) => (
-            <li key={item.label} className="flex gap-2 text-xs text-muted-foreground">
+            <li key={item.label} className="flex gap-2 text-sm text-muted-foreground">
               <span className="shrink-0 text-primary">✓</span>
               <span>
                 <span className="text-foreground font-medium">{item.label}</span>

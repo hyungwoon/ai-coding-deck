@@ -60,10 +60,10 @@ const methods = [
 
 const S21OntologyPractice = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-3", anim(index))}>
+    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
       온톨로지 실전
     </h2>
-    <p className={cn("text-base text-muted-foreground mb-6", anim(index))} style={{ transitionDelay: "100ms" }}>
+    <p className={cn("text-lg text-muted-foreground mb-6", anim(index))} style={{ transitionDelay: "100ms" }}>
       수집 → 연결 → 구조화 → AI 연동 — 쌓으면 쌓을수록 AI가 똑똑해지는 구조
     </p>
 
@@ -78,9 +78,9 @@ const S21OntologyPractice = forwardRef<HTMLElement, P>(({ anim, index }, ref) =>
             step.color
           )}
         >
-          <p className="text-[10px] font-mono tracking-widest text-muted-foreground mb-2">STEP {step.num}</p>
+          <p className="text-xs font-mono tracking-widest text-muted-foreground mb-2">STEP {step.num}</p>
           <p className={cn("text-sm font-bold mb-1", step.textColor)}>{step.label}</p>
-          <p className="text-[11px] text-muted-foreground leading-relaxed">{step.desc}</p>
+          <p className="text-xs text-muted-foreground leading-relaxed">{step.desc}</p>
           {step.star && (
             <span className="inline-block mt-2 rounded-full px-2 py-0.5 text-[9px] font-semibold bg-primary/20 text-primary">핵심</span>
           )}
@@ -97,8 +97,8 @@ const S21OntologyPractice = forwardRef<HTMLElement, P>(({ anim, index }, ref) =>
             <p className="text-sm font-semibold">{m.title}</p>
           </div>
           <div className="px-4 py-3">
-            <p className="text-[11px] text-muted-foreground leading-relaxed mb-3">{m.desc}</p>
-            <div className="rounded-lg bg-muted/40 px-3 py-2.5 font-mono text-[10px] text-muted-foreground leading-relaxed whitespace-pre-line">
+            <p className="text-xs text-muted-foreground leading-relaxed mb-3">{m.desc}</p>
+            <div className="rounded-lg bg-muted/40 px-3 py-2.5 font-mono text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
               {m.code}
             </div>
           </div>

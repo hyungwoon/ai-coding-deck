@@ -19,7 +19,7 @@ const SectionShell = forwardRef<HTMLElement, ShellProps>(({ index, children, cla
         className,
       )}
     >
-      <div className="mx-auto w-full max-w-4xl py-16">{children}</div>
+      <div className="mx-auto w-full max-w-6xl py-16">{children}</div>
     </section>
   );
 });

@@ -40,10 +40,10 @@ const FLOW_STEPS = [
 const GithubBasics = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
     <div>
-      <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
+      <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         02-B · 버전 관리
       </p>
-      <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-8", anim(index))}>
+      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-8", anim(index))}>
         GitHub 기초
       </h2>
 
@@ -55,11 +55,11 @@ const GithubBasics = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
             className="rounded-2xl border border-border/40 bg-card/80 shadow-sm backdrop-blur-sm overflow-hidden"
           >
             <div className="px-5 py-3 border-b border-border/40 bg-muted/20">
-              <p className="font-mono text-xs font-semibold text-primary">{term}</p>
-              <p className="text-xs text-muted-foreground mt-0.5">{korean}</p>
+              <p className="font-mono text-sm font-semibold text-primary">{term}</p>
+              <p className="text-sm text-muted-foreground mt-0.5">{korean}</p>
             </div>
             <div className="px-5 py-4">
-              <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
             </div>
           </div>
         ))}
@@ -67,7 +67,7 @@ const GithubBasics = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
 
       {/* AI + GitHub 흐름 tip */}
       <div className={cn("rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm", anim(index))} style={{ transitionDelay: "200ms" }}>
-        <p className="font-mono text-xs tracking-widest text-primary uppercase mb-3">
+        <p className="font-mono text-sm tracking-widest text-primary uppercase mb-3">
           AI 에이전트 + GitHub 실제 흐름
         </p>
         <div className="flex flex-wrap items-center gap-2 text-xs">

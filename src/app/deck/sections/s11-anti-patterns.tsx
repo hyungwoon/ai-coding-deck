@@ -17,10 +17,10 @@ const items = [
 
 const S11AntiPatterns = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-2", anim(index))}>
+    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
       바이브 코딩 안티패턴
     </h2>
-    <p className={cn("text-base text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "80ms" }}>
+    <p className={cn("text-lg text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "80ms" }}>
       흔한 실수 7가지 — 미리 알면 절반은 피할 수 있다
     </p>
 
@@ -33,10 +33,10 @@ const S11AntiPatterns = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
             item.full && "col-span-2",
           )}
         >
-          <span className="font-mono text-xs text-muted-foreground/50 shrink-0 mt-0.5">{item.num}</span>
+          <span className="font-mono text-sm text-muted-foreground/50 shrink-0 mt-0.5">{item.num}</span>
           <div>
             <p className="text-sm font-semibold mb-1">{item.title}</p>
-            <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
           </div>
         </div>
       ))}

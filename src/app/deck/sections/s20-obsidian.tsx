@@ -25,10 +25,10 @@ const reasons = [
 
 const S20Obsidian = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-3", anim(index))}>
+    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
       Obsidian — AI의 지식 저장소
     </h2>
-    <p className={cn("text-base text-muted-foreground mb-6", anim(index))} style={{ transitionDelay: "100ms" }}>
+    <p className={cn("text-lg text-muted-foreground mb-6", anim(index))} style={{ transitionDelay: "100ms" }}>
       로컬 마크다운 + 양방향 링크 + 지식 그래프 — RAG에 최적화된 개인 온톨로지 저장소
     </p>
 
@@ -36,7 +36,7 @@ const S20Obsidian = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
     <div className={cn("rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm mb-5 flex items-start gap-4", anim(index))} style={{ transitionDelay: "150ms" }}>
       <span className="text-2xl shrink-0">💎</span>
       <p className="text-sm text-muted-foreground leading-relaxed">
-        모든 노트가 마크다운 파일로 저장되고, <code className="bg-muted/60 px-1.5 py-0.5 rounded text-[11px]">[[링크]]</code>로 노트끼리 연결하면 <strong className="text-foreground">지식 그래프가 자동으로 만들어진다.</strong> 온톨로지를 쌓기에 가장 자연스러운 도구이면서, AI 에이전트가 직접 읽고 검색할 수 있는 <strong className="text-foreground">RAG 최적의 지식 저장소.</strong>
+        모든 노트가 마크다운 파일로 저장되고, <code className="bg-muted/60 px-1.5 py-0.5 rounded text-xs">[[링크]]</code>로 노트끼리 연결하면 <strong className="text-foreground">지식 그래프가 자동으로 만들어진다.</strong> 온톨로지를 쌓기에 가장 자연스러운 도구이면서, AI 에이전트가 직접 읽고 검색할 수 있는 <strong className="text-foreground">RAG 최적의 지식 저장소.</strong>
       </p>
     </div>
 
@@ -44,16 +44,16 @@ const S20Obsidian = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
     <div className={cn("grid grid-cols-3 gap-4 mb-5", anim(index))} style={{ transitionDelay: "200ms" }}>
       {reasons.map((r) => (
         <div key={r.num} className="rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm">
-          <p className="text-[10px] font-mono tracking-widest text-primary uppercase mb-2">REASON {r.num}</p>
+          <p className="text-xs font-mono tracking-widest text-primary uppercase mb-2">REASON {r.num}</p>
           <p className="text-sm font-semibold mb-2">{r.title}</p>
-          <p className="text-[11px] text-muted-foreground leading-relaxed">{r.desc}</p>
+          <p className="text-xs text-muted-foreground leading-relaxed">{r.desc}</p>
         </div>
       ))}
     </div>
 
     {/* Notion vs Obsidian one-liner */}
     <div className={cn("rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm", anim(index))} style={{ transitionDelay: "300ms" }}>
-      <p className="text-[10px] font-mono tracking-widest text-muted-foreground uppercase mb-3">Notion vs Obsidian — 한 줄 비교</p>
+      <p className="text-xs font-mono tracking-widest text-muted-foreground uppercase mb-3">Notion vs Obsidian — 한 줄 비교</p>
       <div className="grid grid-cols-2 gap-4">
         <div>
           <p className="text-sm font-semibold mb-1">Notion</p>
@@ -64,7 +64,7 @@ const S20Obsidian = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
           <p className="text-[12px] text-muted-foreground leading-relaxed">개인 지식 축적·AI RAG 연동에 강함. 순수 .md — AI가 가공 없이 바로 읽음.</p>
         </div>
       </div>
-      <p className="text-[11px] text-muted-foreground mt-3 pt-3 border-t border-border/30">
+      <p className="text-xs text-muted-foreground mt-3 pt-3 border-t border-border/30">
         💡 둘 다 쓰는 것도 좋은 전략 — Notion으로 팀 작업하고, Obsidian에 나만의 온톨로지를 쌓는 방식.
       </p>
     </div>

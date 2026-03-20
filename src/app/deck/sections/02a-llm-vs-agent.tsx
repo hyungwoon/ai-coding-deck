@@ -16,10 +16,10 @@ const AGENT_PARTS = [
 const LlmVsAgent = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
     <div>
-      <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
+      <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         02 · 에이전트 전환점
       </p>
-      <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-8", anim(index))}>
+      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-8", anim(index))}>
         LLM과 AI 에이전트의{" "}
         <span className="text-muted-foreground">차이</span>
       </h2>
@@ -27,7 +27,7 @@ const LlmVsAgent = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       {/* 2-column 비교 */}
       <div className={cn("grid grid-cols-2 gap-5 mb-5", anim(index))} style={{ transitionDelay: "100ms" }}>
         <div className="rounded-2xl border border-border/40 bg-card/80 p-6 shadow-sm backdrop-blur-sm">
-          <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase mb-3">LLM 단독</p>
+          <p className="font-mono text-sm tracking-widest text-muted-foreground uppercase mb-3">LLM 단독</p>
           <p className="text-base font-semibold mb-4">질문 → 답변. 끝.</p>
           <p className="text-sm text-muted-foreground leading-relaxed mb-3">
             입력이 들어오면 출력을 냄. 기억 없음. 행동 없음. 매번 처음부터.
@@ -38,7 +38,7 @@ const LlmVsAgent = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         </div>
 
         <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 shadow-sm backdrop-blur-sm">
-          <p className="font-mono text-xs tracking-widest text-primary uppercase mb-3">AI 에이전트</p>
+          <p className="font-mono text-sm tracking-widest text-primary uppercase mb-3">AI 에이전트</p>
           <p className="text-base font-semibold mb-4">태스크 → 계획 → 실행 → 검증. 반복.</p>
           <p className="text-sm text-muted-foreground leading-relaxed mb-3">
             LLM에{" "}
@@ -53,7 +53,7 @@ const LlmVsAgent = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
 
       {/* 에이전트 구성 요소 */}
       <div className={cn("rounded-2xl border border-border/40 bg-card/80 p-6 shadow-sm backdrop-blur-sm", anim(index))} style={{ transitionDelay: "200ms" }}>
-        <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase mb-4">
+        <p className="font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4">
           에이전트 = LLM + 이것들
         </p>
         <div className="flex flex-wrap gap-3">
@@ -64,7 +64,7 @@ const LlmVsAgent = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
             >
               <span className="text-primary text-sm">{icon}</span>
               <span className="text-sm font-semibold">{label}</span>
-              <span className="text-xs text-muted-foreground">— {desc}</span>
+              <span className="text-sm text-muted-foreground">— {desc}</span>
             </div>
           ))}
         </div>

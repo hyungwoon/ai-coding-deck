@@ -36,22 +36,22 @@ const moats = [
 const SlideMoatDiagram = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
     <div>
-      <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
+      <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         09 · 해자
       </p>
-      <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-6", anim(index))}>
+      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-6", anim(index))}>
         무엇이 진짜 경쟁 우위인가
       </h2>
 
       {/* Bar chart */}
       <div className={cn("rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm mb-5", anim(index))} style={{ transitionDelay: "100ms" }}>
-        <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-4">
+        <p className="font-mono text-sm text-muted-foreground tracking-widest uppercase mb-4">
           에이전트 구축 진입장벽
         </p>
         <div className="flex flex-col gap-2.5">
           {bars.map(({ year, widthClass, colorClass, label }) => (
             <div key={year} className="flex items-center gap-3">
-              <span className="font-mono text-xs text-muted-foreground w-10 shrink-0">{year}</span>
+              <span className="font-mono text-sm text-muted-foreground w-10 shrink-0">{year}</span>
               <div className={cn("h-2 rounded-full", widthClass, colorClass)} />
               {label && <span className="text-xs text-green-400/80 font-mono">{label}</span>}
             </div>
@@ -71,12 +71,12 @@ const SlideMoatDiagram = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
                 : "border-border/40 bg-card/80 backdrop-blur-sm"
             )}
           >
-            <p className={cn("font-mono text-[10px] tracking-widest mb-2", i === 0 ? "text-primary" : "text-muted-foreground")}>
+            <p className={cn("font-mono text-sm tracking-widest mb-2", i === 0 ? "text-primary" : "text-muted-foreground")}>
               {badge}
             </p>
             <p className={cn("text-sm font-bold mb-0.5", i === 0 ? "text-primary" : "")}>{title}</p>
-            <p className="font-mono text-[10px] text-muted-foreground mb-3">{sub}</p>
-            <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+            <p className="font-mono text-sm text-muted-foreground mb-3">{sub}</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
           </div>
         ))}
       </div>

@@ -8,10 +8,10 @@ interface P { anim: (i: number) => string; index: number; }
 const SlideContextMoat = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
     <div>
-      <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
+      <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         08 · 컨텍스트 축적
       </p>
-      <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-3", anim(index))}>
+      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
         컨텍스트 축적이 경쟁 우위
       </h2>
       <p className={cn("text-sm text-muted-foreground mb-5", anim(index))} style={{ transitionDelay: "80ms" }}>
@@ -29,8 +29,8 @@ const SlideContextMoat = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
           <div key={title} className="rounded-2xl border border-border/40 bg-card/80 p-4 shadow-sm backdrop-blur-sm flex items-start gap-3">
             <span className={cn("w-2 h-2 rounded-full mt-1.5 shrink-0", dot)} />
             <div>
-              <p className="text-xs font-semibold mb-1">{title}</p>
-              <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              <p className="text-sm font-semibold mb-1">{title}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
             </div>
           </div>
         ))}
@@ -38,7 +38,7 @@ const SlideContextMoat = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
 
       {/* 실천 로드맵 */}
       <div className={cn("rounded-2xl border border-primary/20 bg-primary/5 p-5", anim(index))} style={{ transitionDelay: "220ms" }}>
-        <p className="font-mono text-xs text-primary tracking-widest uppercase mb-4">지금 당장 시작할 수 있는 것</p>
+        <p className="font-mono text-sm text-primary tracking-widest uppercase mb-4">지금 당장 시작할 수 있는 것</p>
         <div className="grid grid-cols-3 gap-3">
           {[
             { label: "WEEK 1", title: "나의 맥락 문서화", desc: "CLAUDE.md에 역할·프로젝트·용어·선호 방식 작성. 반복 설명을 한 번에 정리." },
@@ -46,9 +46,9 @@ const SlideContextMoat = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
             { label: "ONGOING", title: "피드백 루프 운영", desc: "AI가 틀리거나 맥락을 놓칠 때마다 온톨로지 갱신. 쓸수록 정교해지는 나만의 AI." },
           ].map(({ label, title, desc }) => (
             <div key={label} className="rounded-xl border border-primary/15 p-3">
-              <p className="font-mono text-[10px] text-primary tracking-widest mb-2">{label}</p>
-              <p className="text-xs font-semibold mb-1.5">{title}</p>
-              <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+              <p className="font-mono text-sm text-primary tracking-widest mb-2">{label}</p>
+              <p className="text-sm font-semibold mb-1.5">{title}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
             </div>
           ))}
         </div>

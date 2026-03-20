@@ -40,10 +40,10 @@ const concepts = [
 
 const S09ClaudeConcepts = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-2", anim(index))}>
+    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
       Claude Code 핵심 개념
     </h2>
-    <p className={cn("text-base text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "80ms" }}>
+    <p className={cn("text-lg text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "80ms" }}>
       단순한 CLI 도구가 아닌, 작업 흐름 전체를 설계하는 프레임워크
     </p>
 
@@ -55,9 +55,9 @@ const S09ClaudeConcepts = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         >
           <div className="flex items-center gap-2">
             <span className="text-lg">{c.emoji}</span>
-            <span className="font-mono text-xs font-semibold text-primary">{c.title}</span>
+            <span className="font-mono text-sm font-semibold text-primary">{c.title}</span>
           </div>
-          <p className="text-xs text-muted-foreground leading-relaxed">{c.desc}</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
         </div>
       ))}
     </div>

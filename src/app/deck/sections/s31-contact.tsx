@@ -16,7 +16,7 @@ const SlideContact = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
     </div>
 
     <div className="relative text-center flex flex-col items-center">
-      <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-6", anim(index))}>
+      <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-6", anim(index))}>
         ANTIEGG · HYUNGWOON
       </p>
 
@@ -24,7 +24,7 @@ const SlideContact = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         AI 코딩 생태계 관계도
       </h2>
 
-      <p className={cn("text-base text-muted-foreground mb-10 max-w-md", anim(index))} style={{ transitionDelay: "160ms" }}>
+      <p className={cn("text-lg text-muted-foreground mb-10 max-w-md", anim(index))} style={{ transitionDelay: "160ms" }}>
         이 문서에 대해 궁금한 게 있으신가요?
       </p>
 
@@ -35,7 +35,7 @@ const SlideContact = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       <div className={cn("flex flex-col items-center gap-3 text-muted-foreground/50", anim(index))} style={{ transitionDelay: "320ms" }}>
         <p className="text-xs font-mono tracking-widest uppercase">↑↓ 키로 탐색</p>
         <div className="h-px w-24 bg-border/40" />
-        <p className="text-xs text-muted-foreground/40">© 2026 ANTIEGG HYUNGWOON</p>
+        <p className="text-sm text-muted-foreground/40">© 2026 ANTIEGG HYUNGWOON</p>
       </div>
     </div>
   </SectionShell>

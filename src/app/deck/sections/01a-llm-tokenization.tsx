@@ -8,16 +8,16 @@ interface P { anim: (i: number) => string; index: number; }
 const LlmTokenization = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
     <div>
-      <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
+      <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         01 · LLM이란 무엇인가
       </p>
-      <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-8", anim(index))}>
+      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-8", anim(index))}>
         LLM이란 무엇인가
       </h2>
 
       {/* 핵심 정의 카드 */}
       <div className={cn("rounded-2xl border border-border/40 bg-card/80 p-6 shadow-sm backdrop-blur-sm mb-6", anim(index))} style={{ transitionDelay: "100ms" }}>
-        <p className="font-mono text-xs tracking-widest text-primary uppercase mb-2">
+        <p className="font-mono text-sm tracking-widest text-primary uppercase mb-2">
           Large Language Model — 대규모 언어 모델
         </p>
         <p className="text-sm text-muted-foreground leading-relaxed">
@@ -30,7 +30,7 @@ const LlmTokenization = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
 
       {/* 토큰화 예시 */}
       <div className={cn("rounded-2xl border border-border/40 bg-card/80 p-6 shadow-sm backdrop-blur-sm mb-6", anim(index))} style={{ transitionDelay: "150ms" }}>
-        <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase mb-5">
+        <p className="font-mono text-sm tracking-widest text-muted-foreground uppercase mb-5">
           STEP 1 · 토큰화 — 텍스트를 숫자로
         </p>
         <div className="grid grid-cols-2 gap-6">
@@ -47,8 +47,8 @@ const LlmTokenization = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
               음절 단위로 더 잘게 쪼개져 같은 내용이어도 토큰 수가 더 많이 소모된다.
             </p>
           </div>
-          <div className="font-mono text-xs bg-muted/30 rounded-xl p-4 space-y-3">
-            <p className="text-muted-foreground text-[10px] uppercase tracking-widest">INPUT TEXT</p>
+          <div className="font-mono text-sm bg-muted/30 rounded-xl p-4 space-y-3">
+            <p className="text-muted-foreground text-xs uppercase tracking-widest">INPUT TEXT</p>
             <p className="text-foreground">&quot;Claude is powerful&quot;</p>
             <p className="text-muted-foreground">↓ 토큰 분해</p>
             <div className="flex gap-1.5 flex-wrap">
@@ -71,19 +71,19 @@ const LlmTokenization = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       {/* 3개 요약 카드 */}
       <div className={cn("grid grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "200ms" }}>
         <div className="rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm">
-          <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase mb-2">학습</p>
+          <p className="font-mono text-sm tracking-widest text-muted-foreground uppercase mb-2">학습</p>
           <p className="text-sm font-semibold mb-1.5">패턴 학습</p>
-          <p className="text-xs text-muted-foreground leading-relaxed">수천억 개 텍스트에서 언어 패턴을 학습. 사실 저장이 아닌 확률 분포를 학습한다.</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">수천억 개 텍스트에서 언어 패턴을 학습. 사실 저장이 아닌 확률 분포를 학습한다.</p>
         </div>
         <div className="rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm">
-          <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase mb-2">추론</p>
+          <p className="font-mono text-sm tracking-widest text-muted-foreground uppercase mb-2">추론</p>
           <p className="text-sm font-semibold mb-1.5">토큰 예측</p>
-          <p className="text-xs text-muted-foreground leading-relaxed">다음 토큰의 확률 분포를 계산하고 가장 자연스러운 답을 한 글자씩 생성한다.</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">다음 토큰의 확률 분포를 계산하고 가장 자연스러운 답을 한 글자씩 생성한다.</p>
         </div>
         <div className="rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm">
-          <p className="font-mono text-xs tracking-widest text-muted-foreground uppercase mb-2">제약</p>
+          <p className="font-mono text-sm tracking-widest text-muted-foreground uppercase mb-2">제약</p>
           <p className="text-sm font-semibold mb-1.5">할루시네이션</p>
-          <p className="text-xs text-muted-foreground leading-relaxed">모르는 것도 그럴듯하게 지어낼 수 있다. 중요한 정보는 반드시 검증이 필요하다.</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">모르는 것도 그럴듯하게 지어낼 수 있다. 중요한 정보는 반드시 검증이 필요하다.</p>
         </div>
       </div>
     </div>

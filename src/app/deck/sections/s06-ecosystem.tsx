@@ -35,7 +35,7 @@ const layers = [
 
 const S06Ecosystem = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-2", anim(index))}>
+    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
       AI 코딩 생태계 전체 관계도
     </h2>
     <p className={cn("text-sm text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "80ms" }}>
@@ -47,7 +47,7 @@ const S06Ecosystem = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         <div key={layer.badge}>
           <div className="rounded-2xl border border-border/40 bg-card/80 p-4 shadow-sm backdrop-blur-sm flex items-center gap-4">
             <span className="text-xs font-mono font-semibold text-primary w-36 shrink-0">{layer.badge}</span>
-            <span className="text-xs text-muted-foreground w-52 shrink-0 hidden sm:block">{layer.desc}</span>
+            <span className="text-sm text-muted-foreground w-52 shrink-0 hidden sm:block">{layer.desc}</span>
             <div className="flex flex-wrap gap-2">
               {layer.tools.map((t) => (
                 <span key={t} className="text-xs px-2 py-0.5 rounded-full border border-border/40 bg-muted/30 text-muted-foreground">

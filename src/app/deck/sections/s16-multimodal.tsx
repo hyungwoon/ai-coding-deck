@@ -34,10 +34,10 @@ const cards = [
 
 const S16Multimodal = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-3", anim(index))}>
+    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
       멀티모달 — 이미지를 AI에게 보여주기
     </h2>
-    <p className={cn("text-base text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "100ms" }}>
+    <p className={cn("text-lg text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "100ms" }}>
       Claude는 텍스트만 받는 게 아니다. 이미지·스크린샷·PDF를 그대로 붙여넣으면 읽고 분석하고 구현한다.
     </p>
 
@@ -49,7 +49,7 @@ const S16Multimodal = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
           </div>
           <div className="px-5 py-4">
             <p className="text-[12px] text-muted-foreground leading-relaxed mb-3">{card.desc}</p>
-            <div className="rounded-lg bg-muted/40 px-3 py-2.5 font-mono text-[10px] text-primary leading-relaxed whitespace-pre-line">
+            <div className="rounded-lg bg-muted/40 px-3 py-2.5 font-mono text-sm text-primary leading-relaxed whitespace-pre-line">
               {card.example}
             </div>
           </div>

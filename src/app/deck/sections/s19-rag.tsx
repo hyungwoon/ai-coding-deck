@@ -30,10 +30,10 @@ const flowSteps = [
 
 const S19Rag = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-3", anim(index))}>
+    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
       RAG — AI가 모르는 것을 검색해서 답하는 방법
     </h2>
-    <p className={cn("text-base text-muted-foreground mb-6", anim(index))} style={{ transitionDelay: "100ms" }}>
+    <p className={cn("text-lg text-muted-foreground mb-6", anim(index))} style={{ transitionDelay: "100ms" }}>
       Retrieval-Augmented Generation — 검색과 생성의 결합으로 LLM의 지식 한계를 극복한다
     </p>
 
@@ -47,14 +47,14 @@ const S19Rag = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
     {/* Flow strip */}
     <div className={cn("rounded-2xl border border-border/40 bg-card/80 shadow-sm backdrop-blur-sm overflow-hidden mb-5", anim(index))} style={{ transitionDelay: "200ms" }}>
       <div className="bg-muted/30 border-b border-border/40 px-5 py-3">
-        <p className="text-[10px] font-mono tracking-widest text-muted-foreground uppercase">RAG 작동 흐름</p>
+        <p className="text-xs font-mono tracking-widest text-muted-foreground uppercase">RAG 작동 흐름</p>
       </div>
       <div className="px-5 py-4 flex items-center gap-2 overflow-x-auto">
         {flowSteps.map((step, i) => (
           <div key={step.label} className="flex items-center gap-2 shrink-0">
             <div className={cn("rounded-xl border px-4 py-3 text-center min-w-[110px]", step.color)}>
-              <p className="text-[11px] font-semibold">{step.label}</p>
-              <p className="text-[10px] text-muted-foreground mt-0.5">{step.sub}</p>
+              <p className="text-sm font-semibold">{step.label}</p>
+              <p className="text-xs text-muted-foreground mt-0.5">{step.sub}</p>
             </div>
             {i < flowSteps.length - 1 && (
               <span className="text-muted-foreground/40 text-sm">→</span>

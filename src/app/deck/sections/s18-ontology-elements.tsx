@@ -34,20 +34,20 @@ const elements = [
 
 const S18OntologyElements = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-3", anim(index))}>
+    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
       온톨로지를 구성하는 4가지 요소
     </h2>
-    <p className={cn("text-base text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "100ms" }}>
+    <p className={cn("text-lg text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "100ms" }}>
       Entity, Relation, Attribute, Rule — 이 네 가지로 AI의 지식 구조를 설계한다
     </p>
 
     <div className={cn("grid grid-cols-2 gap-4", anim(index))} style={{ transitionDelay: "150ms" }}>
       {elements.map((el) => (
         <div key={el.tag} className="rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm">
-          <p className="text-[10px] font-mono tracking-widest text-primary uppercase mb-2">{el.tag}</p>
+          <p className="text-xs font-mono tracking-widest text-primary uppercase mb-2">{el.tag}</p>
           <p className="text-sm font-semibold mb-2">{el.title}</p>
           <p className="text-[12px] text-muted-foreground leading-relaxed mb-3">{el.desc}</p>
-          <div className="rounded-lg bg-muted/40 px-3 py-2.5 font-mono text-[10px] text-muted-foreground leading-relaxed whitespace-pre-line">
+          <div className="rounded-lg bg-muted/40 px-3 py-2.5 font-mono text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
             {el.code}
           </div>
         </div>

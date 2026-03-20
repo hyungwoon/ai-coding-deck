@@ -21,10 +21,10 @@ const tips = [
 
 const S10VibeLoop = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-4xl font-bold tracking-tight sm:text-5xl mb-2", anim(index))}>
+    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
       바이브 코딩 루프
     </h2>
-    <p className={cn("text-base text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "80ms" }}>
+    <p className={cn("text-lg text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "80ms" }}>
       플래닝이 90%다 — 구현은 AI가 한다
     </p>
 
@@ -38,11 +38,11 @@ const S10VibeLoop = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
             p.star ? "bg-primary/5" : "bg-card/80",
           )}
         >
-          <span className={cn("font-mono text-[10px] font-semibold", p.star ? "text-primary" : "text-muted-foreground/60")}>
+          <span className={cn("font-mono text-sm font-semibold", p.star ? "text-primary" : "text-muted-foreground/60")}>
             PHASE {p.num}
           </span>
           <span className={cn("text-sm font-semibold", p.star ? "text-primary" : "")}>{p.label}</span>
-          <p className="text-[10px] text-muted-foreground leading-relaxed whitespace-pre-line mt-1">{p.note}</p>
+          <p className="text-xs text-muted-foreground leading-relaxed whitespace-pre-line mt-1">{p.note}</p>
         </div>
       ))}
     </div>
@@ -50,8 +50,8 @@ const S10VibeLoop = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
     <div className={cn("grid grid-cols-3 gap-3", anim(index))} style={{ transitionDelay: "200ms" }}>
       {tips.map((t) => (
         <div key={t.title} className="rounded-2xl border border-border/40 bg-card/80 p-4 shadow-sm backdrop-blur-sm">
-          <p className="text-xs font-semibold text-primary mb-1">{t.title}</p>
-          <p className="text-xs text-muted-foreground leading-relaxed">{t.desc}</p>
+          <p className="text-sm font-semibold text-primary mb-1">{t.title}</p>
+          <p className="text-sm text-muted-foreground leading-relaxed">{t.desc}</p>
         </div>
       ))}
     </div>
