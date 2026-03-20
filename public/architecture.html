@@ -167,48 +167,24 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
 <div class="flow">
 
   <!-- Entry -->
-  <div class="step-row">
-    <div class="node node-entry">
-      <div class="node-title">User Request</div>
-      <div class="node-desc">비즈니스 또는 엔지니어링 요청</div>
-    </div>
-    <div class="step-example">
-      <div class="ex-label">예시</div>
-      <div class="ex-text">"경쟁사 A의 마케팅 전략 분석해줘"</div>
-      <div class="ex-detail">→ 비즈니스 요청으로 인식, 파이프라인 시작</div>
-    </div>
+  <div class="node node-entry">
+    <div class="node-title">User Request</div>
+    <div class="node-desc">비즈니스 또는 엔지니어링 요청</div>
   </div>
   <div class="arrow"><span class="arrow-label">0.5</span></div>
 
   <!-- Context check -->
-  <div class="step-row">
-    <div class="node node-read" style="min-width:320px">
-      <div class="node-title">기존 맥락 확인</div>
-      <div class="node-desc">projects/_context.md + 요구사항 존재 → 게이트 스킵</div>
-    </div>
-    <div class="step-example">
-      <div class="ex-label">예시</div>
-      <div class="ex-text">이전에 "경쟁사 A 분석" 프로젝트가 _context.md에 있음</div>
-      <div class="ex-detail">→ 맥락 존재 → 인터뷰 게이트 스킵, 바로 도메인 분류로</div>
-    </div>
+  <div class="node node-read" style="min-width:320px">
+    <div class="node-title">기존 맥락 확인</div>
+    <div class="node-desc">projects/_context.md + 요구사항 존재 → 게이트 스킵</div>
   </div>
   <div class="arrow"><span class="arrow-label">1</span></div>
 
   <!-- Brainstorming Gate -->
-  <div class="step-row">
-    <div class="node node-gate" style="min-width:360px">
-      <div class="node-title">심층 인터뷰 게이트</div>
-      <div class="node-desc">2축 분류 (과업/사실 x 모호/구체) → 4가지 경로</div>
-      <div class="node-badge" style="background:var(--orange-bg);color:var(--orange);border:1px solid #4e3a2a">탈출: "바로 해줘" / "급해"</div>
-    </div>
-    <div class="step-example">
-      <div class="ex-label">A 경로 — 모호한 과업</div>
-      <div class="ex-text">"마케팅 전략 좀 봐줘" → 어떤 경쟁사? 어떤 측면?</div>
-      <div class="ex-detail">→ 심층 인터뷰 3~5개 질문 후 구체화</div>
-      <div class="ex-sep"></div>
-      <div class="ex-label">D 경로 — 구체적 사실</div>
-      <div class="ex-text">"우리 환불 정책 어떻게 돼?" → 바로 라우팅</div>
-    </div>
+  <div class="node node-gate" style="min-width:360px">
+    <div class="node-title">심층 인터뷰 게이트</div>
+    <div class="node-desc">2축 분류 (과업/사실 x 모호/구체) → 4가지 경로</div>
+    <div class="node-badge" style="background:var(--orange-bg);color:var(--orange);border:1px solid #4e3a2a">탈출: "바로 해줘" / "급해"</div>
   </div>
 
   <!-- Gate Matrix -->
@@ -229,22 +205,14 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   <div class="arrow"><span class="arrow-label">2</span></div>
 
   <!-- Domain Classification -->
-  <div class="step-row">
-    <div class="node node-classify" style="min-width:400px">
-      <div class="node-title">도메인 분류</div>
-      <div class="node-desc">CLAUDE.md 매핑 테이블로 에이전트 식별 — 비즈니스 + 엔지니어링 동시 판별</div>
-    </div>
-    <div class="step-example">
-      <div class="ex-label">예시</div>
-      <div class="ex-text">"경쟁사 마케팅 전략 분석" → 키워드 "경쟁사", "마케팅"</div>
-      <div class="ex-detail">→ Marketing(주) + Research(보조) 식별</div>
-    </div>
+  <div class="node node-classify" style="min-width:400px">
+    <div class="node-title">도메인 분류</div>
+    <div class="node-desc">CLAUDE.md 매핑 테이블로 에이전트 식별 — 비즈니스 + 엔지니어링 동시 판별</div>
   </div>
   <div class="arrow"></div>
 
   <!-- Parallel Paths -->
-  <div class="step-row">
-  <div class="parallel" style="width:580px">
+  <div class="parallel" style="width:700px">
     <!-- Business path -->
     <div class="parallel-path">
       <div class="path-label path-biz">Business Domain</div>
@@ -267,53 +235,144 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
       </div>
     </div>
   </div>
-  <div class="step-example">
-    <div class="ex-label">Business 경로</div>
-    <div class="ex-text">agents/marketing.md 읽기 → 브랜드 보이스, 캠페인 관점 확보</div>
-    <div class="ex-detail">→ plugins/marketing/skills/competitive-analysis/SKILL.md 로드</div>
-    <div class="ex-sep"></div>
-    <div class="ex-label">Engineering 경로</div>
-    <div class="ex-text">/review → PR diff 코드 리뷰 직접 실행 (자체 완결)</div>
-  </div>
-  </div>
 
   <div class="arrow"><span class="arrow-label">4.5</span></div>
 
   <!-- Knowledge Read -->
-  <div class="step-row">
-    <div class="node node-learn" style="min-width:380px">
-      <div class="node-title">학습 지식 읽기</div>
-      <div class="node-desc">knowledge/[domain].md + knowledge/preferences.md<br>우선순위: knowledge/ > SKILL.md > agents/</div>
-    </div>
-    <div class="step-example">
-      <div class="ex-label">예시</div>
-      <div class="ex-text">knowledge/marketing.md에 이전 피드백 기록 존재</div>
-      <div class="ex-detail">→ "가격 비교는 항상 표로", "브랜드 톤은 에너지+도전" 반영</div>
-    </div>
+  <div class="node node-learn" style="min-width:380px">
+    <div class="node-title">학습 지식 읽기</div>
+    <div class="node-desc">knowledge/[domain].md + knowledge/preferences.md<br>우선순위: knowledge/ > SKILL.md > agents/</div>
   </div>
   <div class="arrow"><span class="arrow-label">5</span></div>
 
   <!-- Response -->
-  <div class="step-row">
-    <div class="node node-classify" style="min-width:380px">
-      <div class="node-title">전문가 관점 응답 생성</div>
-      <div class="node-desc">에이전트 원칙 + 스킬 프레임워크 + 학습 보정 반영</div>
-    </div>
-    <div class="step-example">
-      <div class="ex-label">예시 출력</div>
-      <div class="ex-text">경쟁사 A를 포지셔닝/채널/메시지/예산 4축으로 분석, 가격 비교는 표, 브랜드 톤 반영</div>
-    </div>
+  <div class="node node-classify" style="min-width:380px">
+    <div class="node-title">전문가 관점 응답 생성</div>
+    <div class="node-desc">에이전트 원칙 + 스킬 프레임워크 + 학습 보정 반영</div>
   </div>
   <div class="arrow"><span class="arrow-label">6</span></div>
 
   <!-- Output -->
-  <div class="step-row">
-    <div class="node node-output">
-      <div class="node-title">Response</div>
-      <div class="node-desc">> <strong>담당</strong>: [Agent] | 참조 스킬: [Skill]</div>
+  <div class="node node-output">
+    <div class="node-title">Response</div>
+    <div class="node-desc">> <strong>담당</strong>: [Agent] | 참조 스킬: [Skill]</div>
+  </div>
+</div>
+
+<!-- ============ Example Walkthrough ============ -->
+<style>
+.walkthrough { max-width: 900px; margin: 0 auto; }
+.walkthrough-header { text-align: center; margin-bottom: 24px; }
+.walkthrough-header h3 { font-size: 18px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+.walkthrough-header p { font-size: 12px; color: var(--text3); }
+.walkthrough-example { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px 24px; margin-bottom: 16px; font-size: 13px; color: var(--text2); text-align: center; }
+.walkthrough-example code { background: var(--surface2); border: 1px solid var(--border2); border-radius: 6px; padding: 4px 12px; font-family: 'SF Mono', monospace; font-size: 13px; color: var(--white); }
+.wt-list { display: flex; flex-direction: column; gap: 2px; }
+.wt-row { display: grid; grid-template-columns: 200px 1fr; gap: 0; min-height: 52px; }
+.wt-stage { display: flex; align-items: center; gap: 10px; padding: 12px 16px; background: var(--surface); border: 1px solid var(--border); border-right: none; border-radius: 10px 0 0 10px; }
+.wt-stage .wt-num { font-size: 11px; font-weight: 700; width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.wt-stage .wt-name { font-size: 12px; font-weight: 600; }
+.wt-detail { display: flex; align-items: center; padding: 12px 16px; background: var(--surface2); border: 1px solid var(--border); border-left: 3px solid var(--border2); border-radius: 0 10px 10px 0; font-size: 12px; color: var(--text); line-height: 1.6; }
+/* Stage color coding */
+.wt-row:nth-child(1) .wt-stage .wt-num { background: var(--blue-bg); color: var(--blue); border: 1px solid #3a3a5e; }
+.wt-row:nth-child(1) .wt-stage .wt-name { color: var(--blue); }
+.wt-row:nth-child(1) .wt-detail { border-left-color: var(--blue); }
+
+.wt-row:nth-child(2) .wt-stage .wt-num { background: var(--cyan-bg); color: var(--cyan); border: 1px solid #2a3a4e; }
+.wt-row:nth-child(2) .wt-stage .wt-name { color: var(--cyan); }
+.wt-row:nth-child(2) .wt-detail { border-left-color: var(--cyan); }
+
+.wt-row:nth-child(3) .wt-stage .wt-num { background: var(--orange-bg); color: var(--orange); border: 1px solid #4e3a2a; }
+.wt-row:nth-child(3) .wt-stage .wt-name { color: var(--orange); }
+.wt-row:nth-child(3) .wt-detail { border-left-color: var(--orange); }
+
+.wt-row:nth-child(4) .wt-stage .wt-num { background: var(--purple-bg); color: var(--purple); border: 1px solid #3a2a4e; }
+.wt-row:nth-child(4) .wt-stage .wt-name { color: var(--purple); }
+.wt-row:nth-child(4) .wt-detail { border-left-color: var(--purple); }
+
+.wt-row:nth-child(5) .wt-stage .wt-num { background: var(--cyan-bg); color: var(--cyan); border: 1px solid #2a3a4e; }
+.wt-row:nth-child(5) .wt-stage .wt-name { color: var(--cyan); }
+.wt-row:nth-child(5) .wt-detail { border-left-color: var(--cyan); }
+
+.wt-row:nth-child(6) .wt-stage .wt-num { background: var(--green-bg); color: var(--green); border: 1px solid #2a4e2a; }
+.wt-row:nth-child(6) .wt-stage .wt-name { color: var(--green); }
+.wt-row:nth-child(6) .wt-detail { border-left-color: var(--green); }
+
+.wt-row:nth-child(7) .wt-stage .wt-num { background: var(--purple-bg); color: var(--purple); border: 1px solid #3a2a4e; }
+.wt-row:nth-child(7) .wt-stage .wt-name { color: var(--purple); }
+.wt-row:nth-child(7) .wt-detail { border-left-color: var(--purple); }
+
+.wt-row:nth-child(8) .wt-stage .wt-num { background: var(--green-bg); color: var(--green); border: 1px solid #2a4e2a; }
+.wt-row:nth-child(8) .wt-stage .wt-name { color: var(--green); }
+.wt-row:nth-child(8) .wt-detail { border-left-color: var(--green); }
+</style>
+
+<div class="section-div" style="margin-top:48px">
+  <h2>Example Walkthrough</h2>
+  <p>하나의 요청이 파이프라인을 통과하는 과정</p>
+</div>
+
+<div class="walkthrough">
+  <div class="walkthrough-example">
+    <code>"경쟁사 A의 마케팅 전략 분석해줘"</code>
+  </div>
+
+  <div class="wt-list">
+    <div class="wt-row">
+      <div class="wt-stage">
+        <div class="wt-num">1</div>
+        <div class="wt-name">User Request</div>
+      </div>
+      <div class="wt-detail">"경쟁사 A의 마케팅 전략 분석해줘" &mdash; 비즈니스 요청으로 인식, 파이프라인 진입</div>
     </div>
-    <div class="step-example">
-      <div class="ex-text">> <strong>담당</strong>: Marketing | 참조 스킬: competitive-analysis</div>
+    <div class="wt-row">
+      <div class="wt-stage">
+        <div class="wt-num">2</div>
+        <div class="wt-name">맥락 확인</div>
+      </div>
+      <div class="wt-detail">_context.md에 이전 분석 없음 &rarr; 기존 맥락 없으므로 게이트 진행</div>
+    </div>
+    <div class="wt-row">
+      <div class="wt-stage">
+        <div class="wt-num">3</div>
+        <div class="wt-name">인터뷰 게이트</div>
+      </div>
+      <div class="wt-detail">모호한 과업(A경로) &rarr; "어떤 측면을 분석할까요? 채널? 예산 포함?" 질문으로 구체화</div>
+    </div>
+    <div class="wt-row">
+      <div class="wt-stage">
+        <div class="wt-num">4</div>
+        <div class="wt-name">도메인 분류</div>
+      </div>
+      <div class="wt-detail">키워드 "경쟁사", "마케팅" &rarr; <strong style="color:var(--purple)">Marketing</strong>(주) + <strong style="color:var(--cyan)">Research</strong>(보조) 식별</div>
+    </div>
+    <div class="wt-row">
+      <div class="wt-stage">
+        <div class="wt-num">5</div>
+        <div class="wt-name">Agent/Skill 읽기</div>
+      </div>
+      <div class="wt-detail"><span style="font-family:'SF Mono',monospace;font-size:11px;color:var(--cyan)">agents/marketing.md</span> + <span style="font-family:'SF Mono',monospace;font-size:11px;color:var(--cyan)">plugins/marketing/skills/competitive-analysis/SKILL.md</span></div>
+    </div>
+    <div class="wt-row">
+      <div class="wt-stage">
+        <div class="wt-num">6</div>
+        <div class="wt-name">학습 지식</div>
+      </div>
+      <div class="wt-detail"><span style="font-family:'SF Mono',monospace;font-size:11px;color:var(--green)">knowledge/marketing.md</span> &rarr; "가격 비교는 표로", "톤은 에너지+도전"</div>
+    </div>
+    <div class="wt-row">
+      <div class="wt-stage">
+        <div class="wt-num">7</div>
+        <div class="wt-name">응답 생성</div>
+      </div>
+      <div class="wt-detail">포지셔닝/채널/메시지/예산 4축 분석, 표 형식, 브랜드 톤 반영</div>
+    </div>
+    <div class="wt-row">
+      <div class="wt-stage">
+        <div class="wt-num">8</div>
+        <div class="wt-name">Response</div>
+      </div>
+      <div class="wt-detail"><code style="background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:2px 8px;font-size:11px;color:var(--green)">&gt; 담당: Marketing | 참조 스킬: competitive-analysis</code></div>
     </div>
   </div>
 </div>
