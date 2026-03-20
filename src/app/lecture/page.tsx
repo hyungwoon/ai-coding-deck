@@ -41,8 +41,8 @@ export default function LecturePage() {
         {Math.round(manifest.totalDurationFrames / FPS / 60)}분 · {manifest.slides.length}개 슬라이드 · 한국어 음성 + 자막
       </p>
       <Player
-        component={LectureDeck}
-        inputProps={{ manifest }}
+        component={LectureDeck as unknown as React.ComponentType<Record<string, unknown>>}
+        inputProps={{ manifest } as unknown as Record<string, unknown>}
         durationInFrames={manifest.totalDurationFrames}
         compositionWidth={1920}
         compositionHeight={1080}
