@@ -30,7 +30,7 @@ const S11AntiPatterns = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
           key={item.num}
           className={cn(
             "rounded-2xl border border-border/40 bg-card/80 p-4 shadow-sm backdrop-blur-sm flex gap-3 items-start",
-            item.full && "col-span-2",
+            item.full && "sm:col-span-2",
           )}
         >
           <span className="font-mono text-sm text-muted-foreground/50 shrink-0 mt-0.5">{item.num}</span>
