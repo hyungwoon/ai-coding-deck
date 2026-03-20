@@ -27,6 +27,7 @@ import S15 from "./sections/s15-cost";
 import S16 from "./sections/s16-multimodal";
 import S17 from "./sections/s17-ontology-def";
 import S18 from "./sections/s18-ontology-elements";
+import S18b from "./sections/s18b-tacit-knowledge";
 import S19 from "./sections/s19-rag";
 import S20 from "./sections/s20-obsidian";
 import S21 from "./sections/s21-ontology-practice";
@@ -43,14 +44,14 @@ import S30 from "./sections/s30-ultrawork";
 import S31 from "./sections/s31-contact";
 import S32 from "./sections/s32-practice";
 
-const SECTION_COUNT = 38;
+const SECTION_COUNT = 39;
 
 const sectionLabels = [
   "Title", "LLM 정의", "벡터 임베딩", "추론과 출력",
   "LLM vs Agent", "GitHub", "개발 구조", "API·CLI·MCP", "생태계", "진화 초기",
   "진화 심화", "Claude Code", "바이브 코딩", "안티패턴",
   "하네스", "코딩 하네스", "비즈니스 하네스", "하네스 성숙도", "에디터 vs 에이전트", "비용",
-  "멀티모달", "온톨로지", "4요소", "RAG",
+  "멀티모달", "온톨로지", "4요소", "암묵지", "RAG",
   "Obsidian", "온톨로지 실전", "보안", "RLHF→RLVR", "컨텍스트",
   "해자", "전문가 시각", "도구의 철학", "격차",
   "시작 가이드", "설치", "Ultrawork", "Contact", "실습 과제",
@@ -59,7 +60,7 @@ const sectionLabels = [
 const sectionComponents = [
   S00, S01, S02, S03, S04, S05, S05b, S05c, S06, S07,
   S08, S09, S10, S11, S12, S12b, S12c, S13, S14, S15,
-  S16, S17, S18, S19, S20, S21, S21b, S22, S23,
+  S16, S17, S18, S18b, S19, S20, S21, S21b, S22, S23,
   S24, S25, S26, S27, S28, S29, S30, S31, S32,
 ];
 
