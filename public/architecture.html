@@ -1021,6 +1021,127 @@ body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; b
   </div>
 </div>
 
+<!-- ============ SECTION 2.5: Ontology — ANTIEGG ============ -->
+<div class="section-div" style="margin-top:64px">
+  <h2>Ontology Layer — ANTIEGG 실제 사례</h2>
+  <p>Notion 팀스페이스 → Obsidian Zettelkasten으로 구축된 조직 지식 온톨로지</p>
+</div>
+
+<div style="max-width:1000px;margin:0 auto">
+
+  <!-- Stats -->
+  <div style="display:flex;gap:12px;margin-bottom:24px;flex-wrap:wrap;justify-content:center">
+    <div class="stat-pill"><strong>4,179</strong> 파일</div>
+    <div class="stat-pill"><strong>21,800</strong> wikilinks</div>
+    <div class="stat-pill"><strong>88</strong> 태그</div>
+    <div class="stat-pill"><strong>27</strong> 핵심 DB</div>
+    <div class="stat-pill"><strong>3,162</strong> DB entries</div>
+  </div>
+
+  <!-- 온톨로지 4요소 — ANTIEGG 구체 예시 -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px">
+      <div style="font-size:13px;font-weight:700;color:var(--white);margin-bottom:8px">개체 (Entity)</div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.7">
+        <div>ANTIEGG (프리랜서 에디터 공동체)</div>
+        <div>에디터 40명 · 에디터 DB 1,200명</div>
+        <div>4개 프로덕트: Gathering · Square · Link · Magazine</div>
+        <div>4개 기능 조직 · 3개 목적 스쿼드</div>
+        <div>파트너 기업 250개사</div>
+      </div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px">
+      <div style="font-size:13px;font-weight:700;color:var(--white);margin-bottom:8px">관계 (Relation)</div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.7">
+        <div>에디터 → 기업 매칭 (Link 프로덕트)</div>
+        <div>스쿼드 → 프로덕트 담당 (Growth → Gathering)</div>
+        <div>기능 조직 → 팀원 소속 (Creative Team → 문수진)</div>
+        <div>매거진 스쿼드 → 호별 아티클 (그레이스쿼드 → 3월호)</div>
+        <div>21,800 wikilinks가 이 관계를 자동 구축</div>
+      </div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px">
+      <div style="font-size:13px;font-weight:700;color:var(--white);margin-bottom:8px">속성 (Attribute)</div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.7">
+        <div>에디터 선발 기준: 상위 5%</div>
+        <div>콘텐츠 단가: 큐레이션 20만 ~ 인터뷰 100만</div>
+        <div>뉴스레터: 오픈율 30-45%, 클릭률 8-15%</div>
+        <div>성장률: 연 160% 복리</div>
+        <div>형운 보이스: 격식체 존댓말, toxic positivity 금지</div>
+      </div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px">
+      <div style="font-size:13px;font-weight:700;color:var(--white);margin-bottom:8px">규칙 (Rule)</div>
+      <div style="font-size:11px;color:var(--text2);line-height:1.7">
+        <div>B2B 제작 과정: 기획 상담 → 견적 → 계약 → 제작 → 배포</div>
+        <div>형운 명의 콘텐츠 → knowledge/writing.md 보이스 필수 적용</div>
+        <div>우선순위: knowledge/ > SKILL.md > agents/</div>
+        <div>반말 절대 금지 · "나" 거의 사용 안 함</div>
+        <div>피드백 3건 이상 축적 → SKILL.md 자동 반영</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 데이터 흐름 -->
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px">
+    <div style="font-size:13px;font-weight:700;color:var(--white);margin-bottom:12px">데이터 흐름: Notion → Obsidian → RAG → AI 에이전트</div>
+
+    <!-- 구축 흐름 -->
+    <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;font-weight:600">구축 (1회)</div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text2);flex-wrap:wrap;margin-bottom:16px">
+      <span style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 12px">Notion 팀스페이스<br><span style="color:var(--text3)">3,038 objects</span></span>
+      <span style="color:var(--text3)">&rarr;</span>
+      <span style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 12px">Obsidian Vault<br><span style="color:var(--text3)">Zettelkasten + MOC</span></span>
+      <span style="color:var(--text3)">&rarr;</span>
+      <span style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 12px">벡터 임베딩<br><span style="color:var(--text3)">Smart Connections</span></span>
+      <span style="color:var(--text3)">&rarr;</span>
+      <span style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 12px">projects/_context.md<br><span style="color:var(--text3)">조직 맥락 구조화</span></span>
+    </div>
+
+    <!-- 실행 흐름 -->
+    <div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;font-weight:600">실행 (매 요청)</div>
+    <div style="display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text2);flex-wrap:wrap">
+      <span style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 12px">사용자 질문<br><span style="color:var(--text3)">"경쟁사 A 분석해줘"</span></span>
+      <span style="color:var(--text3)">&rarr;</span>
+      <span style="background:var(--cyan-bg);border:1px solid #2a3a4e;border-radius:8px;padding:6px 12px;color:var(--cyan)">RAG 검색<br><span style="color:#88aacc">벡터 유사도 매칭</span></span>
+      <span style="color:var(--text3)">&rarr;</span>
+      <span style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 12px">관련 문서 추출<br><span style="color:var(--text3)">경쟁사·마케팅·단가 노트</span></span>
+      <span style="color:var(--text3)">&rarr;</span>
+      <span style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:6px 12px">knowledge/*.md<br><span style="color:var(--text3)">학습 지식 보정</span></span>
+      <span style="color:var(--text3)">&rarr;</span>
+      <span style="background:var(--green-bg);border:1px solid #2a4e2a;border-radius:8px;padding:6px 12px;color:var(--green)">AI 에이전트 응답<br><span style="color:#88cc88">"우리 회사" 맥락 반영</span></span>
+    </div>
+
+    <!-- RAG 설명 -->
+    <div style="margin-top:16px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-left:3px solid var(--cyan);border-radius:8px;font-size:11px;color:var(--text2);line-height:1.6">
+      <strong style="color:var(--cyan)">RAG (Retrieval-Augmented Generation)</strong> — 4,179개 파일을 벡터 임베딩으로 인덱싱. 질문이 들어오면 의미적으로 유사한 문서를 자동 검색해서 컨텍스트에 주입. 키워드가 달라도 의미가 같으면 찾아냄. MCP 서버 또는 로컬 파일 직접 참조로 연결.
+    </div>
+  </div>
+
+  <!-- 학습 지식 현황 -->
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:20px">
+    <div style="font-size:13px;font-weight:700;color:var(--white);margin-bottom:12px">학습 지식 현황 (knowledge/)</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;font-size:11px">
+      <div>
+        <div style="color:var(--text3);margin-bottom:6px">preferences.md</div>
+        <div style="color:var(--text2)">도메인 공통 선호도 <strong style="color:var(--white)">8건</strong></div>
+        <div style="color:var(--text3);margin-top:2px">톤, 인칭, 리듬, 감정 규칙 등</div>
+      </div>
+      <div>
+        <div style="color:var(--text3);margin-bottom:6px">writing.md</div>
+        <div style="color:var(--text2)">보이스 프로파일 <strong style="color:var(--white)">13개 섹션</strong></div>
+        <div style="color:var(--text3);margin-top:2px">34편 전수조사 기반 · 정보 보정 1 · 노하우 5 · 주의 3</div>
+      </div>
+      <div>
+        <div style="color:var(--text3);margin-bottom:6px">16개 도메인 파일</div>
+        <div style="color:var(--text2)">피드백 축적 대기 <strong style="color:var(--white)">0건</strong></div>
+        <div style="color:var(--text3);margin-top:2px">사용할수록 자동 축적 (RLVR)</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <!-- ============ SECTION 3: RLVR Learning Loop ============ -->
 <div class="section-div" style="margin-top:64px">
   <h2>RLVR Learning Loop</h2>
