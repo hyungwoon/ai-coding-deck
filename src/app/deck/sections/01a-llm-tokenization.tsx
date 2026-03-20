@@ -11,7 +11,7 @@ const LlmTokenization = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         01 · LLM이란 무엇인가
       </p>
-      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-8", anim(index))}>
+      <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-8", anim(index))}>
         LLM이란 무엇인가
       </h2>
 
@@ -33,7 +33,7 @@ const LlmTokenization = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         <p className="font-mono text-sm tracking-widest text-muted-foreground uppercase mb-5">
           STEP 1 · 토큰화 — 텍스트를 숫자로
         </p>
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="text-sm text-muted-foreground leading-relaxed space-y-3">
             <p>
               AI는 텍스트를 그대로 읽지 않는다. 먼저{" "}
@@ -69,7 +69,7 @@ const LlmTokenization = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       </div>
 
       {/* 3개 요약 카드 */}
-      <div className={cn("grid grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "200ms" }}>
+      <div className={cn("grid grid-cols-1 sm:grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "200ms" }}>
         <div className="rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm">
           <p className="font-mono text-sm tracking-widest text-muted-foreground uppercase mb-2">학습</p>
           <p className="text-sm font-semibold mb-1.5">패턴 학습</p>

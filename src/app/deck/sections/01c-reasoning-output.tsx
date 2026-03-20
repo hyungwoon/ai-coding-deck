@@ -11,12 +11,12 @@ const ReasoningOutput = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         STEP 3 · 4 · 추론과 출력
       </p>
-      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-8", anim(index))}>
+      <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-8", anim(index))}>
         어텐션 추론과{" "}
         <span className="text-muted-foreground">스트리밍 출력</span>
       </h2>
 
-      <div className={cn("grid grid-cols-2 gap-5 mb-5", anim(index))} style={{ transitionDelay: "100ms" }}>
+      <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5", anim(index))} style={{ transitionDelay: "100ms" }}>
         {/* 추론 */}
         <div className="rounded-2xl border border-border/40 bg-card/80 p-6 shadow-sm backdrop-blur-sm">
           <p className="font-mono text-sm tracking-widest text-primary uppercase mb-3">
@@ -90,7 +90,7 @@ const ReasoningOutput = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       </div>
 
       {/* 핵심 개념 3개 */}
-      <div className={cn("grid grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "200ms" }}>
+      <div className={cn("grid grid-cols-1 sm:grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "200ms" }}>
         <div className="rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm">
           <p className="font-mono text-sm text-muted-foreground uppercase tracking-widest mb-2">CONCEPT</p>
           <p className="text-sm font-semibold mb-1.5">컨텍스트 윈도우</p>

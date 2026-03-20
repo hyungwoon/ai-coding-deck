@@ -34,7 +34,7 @@ const SlideMoatExperts = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         09 · 전문가 시각
       </p>
-      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
+      <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
         전문가들의 시각
       </h2>
       <p className={cn("text-sm text-muted-foreground mb-6", anim(index))} style={{ transitionDelay: "80ms" }}>
@@ -42,7 +42,7 @@ const SlideMoatExperts = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       </p>
 
       {/* 2x2 grid */}
-      <div className={cn("grid grid-cols-2 gap-4 mb-4", anim(index))} style={{ transitionDelay: "140ms" }}>
+      <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4", anim(index))} style={{ transitionDelay: "140ms" }}>
         {experts.map(({ source, title, desc }) => (
           <div key={source} className="rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm">
             <p className="font-mono text-sm text-muted-foreground tracking-widest mb-2">{source}</p>

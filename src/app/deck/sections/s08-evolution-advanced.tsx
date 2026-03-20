@@ -34,7 +34,7 @@ const stages = [
 
 const S08EvolutionAdvanced = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
+    <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
       AI 툴 진화 경로 (심화)
     </h2>
     <p className={cn("text-lg text-muted-foreground mb-10", anim(index))} style={{ transitionDelay: "80ms" }}>

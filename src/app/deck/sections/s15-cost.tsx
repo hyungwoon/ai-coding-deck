@@ -31,14 +31,14 @@ const tips = [
 
 const S15Cost = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
+    <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
       비용 현실 — 얼마나 드는가
     </h2>
     <p className={cn("text-lg text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "100ms" }}>
       Claude Code 요금 구조와 API 토큰 비용 (2026년 기준)
     </p>
 
-    <div className={cn("grid grid-cols-2 gap-5 mb-5", anim(index))} style={{ transitionDelay: "150ms" }}>
+    <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5", anim(index))} style={{ transitionDelay: "150ms" }}>
       {/* Left: Plans */}
       <div className="rounded-2xl border border-border/40 bg-card/80 shadow-sm backdrop-blur-sm overflow-hidden">
         <div className="bg-muted/30 border-b border-border/40 px-5 py-3">
@@ -87,7 +87,7 @@ const S15Cost = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
     </div>
 
     {/* Tips */}
-    <div className={cn("grid grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "250ms" }}>
+    <div className={cn("grid grid-cols-1 sm:grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "250ms" }}>
       {tips.map((tip) => (
         <div key={tip.label} className="rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm">
           <p className="text-sm font-semibold mb-2">{tip.icon} {tip.label}</p>

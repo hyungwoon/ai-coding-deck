@@ -21,14 +21,14 @@ const tips = [
 
 const S10VibeLoop = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
+    <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
       바이브 코딩 루프
     </h2>
     <p className={cn("text-lg text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "80ms" }}>
       플래닝이 90%다 — 구현은 AI가 한다
     </p>
 
-    <div className={cn("grid grid-cols-5 gap-0 mb-6 rounded-2xl overflow-hidden border border-border/40", anim(index))} style={{ transitionDelay: "120ms" }}>
+    <div className={cn("grid grid-cols-2 sm:grid-cols-5 gap-0 mb-6 rounded-2xl overflow-hidden border border-border/40", anim(index))} style={{ transitionDelay: "120ms" }}>
       {phases.map((p, i) => (
         <div
           key={p.num}
@@ -47,7 +47,7 @@ const S10VibeLoop = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       ))}
     </div>
 
-    <div className={cn("grid grid-cols-3 gap-3", anim(index))} style={{ transitionDelay: "200ms" }}>
+    <div className={cn("grid grid-cols-1 sm:grid-cols-3 gap-3", anim(index))} style={{ transitionDelay: "200ms" }}>
       {tips.map((t) => (
         <div key={t.title} className="rounded-2xl border border-border/40 bg-card/80 p-4 shadow-sm backdrop-blur-sm">
           <p className="text-sm font-semibold text-primary mb-1">{t.title}</p>

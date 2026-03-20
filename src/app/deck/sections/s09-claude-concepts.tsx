@@ -40,14 +40,14 @@ const concepts = [
 
 const S09ClaudeConcepts = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
+    <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
       Claude Code 핵심 개념
     </h2>
     <p className={cn("text-lg text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "80ms" }}>
       단순한 CLI 도구가 아닌, 작업 흐름 전체를 설계하는 프레임워크
     </p>
 
-    <div className={cn("grid grid-cols-3 gap-3", anim(index))} style={{ transitionDelay: "150ms" }}>
+    <div className={cn("grid grid-cols-1 sm:grid-cols-3 gap-3", anim(index))} style={{ transitionDelay: "150ms" }}>
       {concepts.map((c) => (
         <div
           key={c.title}

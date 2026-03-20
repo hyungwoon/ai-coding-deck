@@ -25,7 +25,7 @@ const reasons = [
 
 const S20Obsidian = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
+    <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
       Obsidian — AI의 지식 저장소
     </h2>
     <p className={cn("text-lg text-muted-foreground mb-6", anim(index))} style={{ transitionDelay: "100ms" }}>
@@ -41,7 +41,7 @@ const S20Obsidian = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
     </div>
 
     {/* 3 reasons */}
-    <div className={cn("grid grid-cols-3 gap-4 mb-5", anim(index))} style={{ transitionDelay: "200ms" }}>
+    <div className={cn("grid grid-cols-1 sm:grid-cols-3 gap-4 mb-5", anim(index))} style={{ transitionDelay: "200ms" }}>
       {reasons.map((r) => (
         <div key={r.num} className="rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm">
           <p className="text-xs font-mono tracking-widest text-primary uppercase mb-2">REASON {r.num}</p>
@@ -54,7 +54,7 @@ const S20Obsidian = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
     {/* Notion vs Obsidian one-liner */}
     <div className={cn("rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm", anim(index))} style={{ transitionDelay: "300ms" }}>
       <p className="text-xs font-mono tracking-widest text-muted-foreground uppercase mb-3">Notion vs Obsidian — 한 줄 비교</p>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
           <p className="text-sm font-semibold mb-1">Notion</p>
           <p className="text-[12px] text-muted-foreground leading-relaxed">팀 협업·프로젝트 관리에 강함. 독점 포맷 — API 없이 AI가 직접 접근 불가.</p>

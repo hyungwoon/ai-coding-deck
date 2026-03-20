@@ -11,7 +11,7 @@ const SlideInstall = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         11 · 설치
       </p>
-      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-8", anim(index))}>
+      <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-8", anim(index))}>
         설치 순서
       </h2>
 

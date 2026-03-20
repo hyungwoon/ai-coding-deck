@@ -19,10 +19,10 @@ const SlidePhilosophy = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         10 · 도구의 철학
       </p>
 
-      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-2 leading-snug", anim(index))}>
+      <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-2 leading-snug", anim(index))}>
         글쓴이가 펜을 버렸다고
       </h2>
-      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-4 text-primary leading-snug", anim(index))} style={{ transitionDelay: "60ms" }}>
+      <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-4 text-primary leading-snug", anim(index))} style={{ transitionDelay: "60ms" }}>
         그의 글이 사라지지 않는다
       </h2>
       <p className={cn("text-sm text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed", anim(index))} style={{ transitionDelay: "120ms" }}>
@@ -35,7 +35,7 @@ const SlidePhilosophy = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         <p className="font-mono text-sm text-muted-foreground tracking-widest uppercase mb-5">
           도구의 진화 — 바뀐 것과 바뀌지 않은 것
         </p>
-        <div className="grid grid-cols-4 gap-0 relative mb-5">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-0 relative mb-5">
           {/* connector line */}
           <div className="absolute top-6 left-[12.5%] right-[12.5%] h-px bg-border/60 z-0" />
           {timeline.map(({ icon, label, era, note, highlight }) => (

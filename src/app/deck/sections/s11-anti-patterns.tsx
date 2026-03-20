@@ -17,14 +17,14 @@ const items = [
 
 const S11AntiPatterns = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
+    <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
       바이브 코딩 안티패턴
     </h2>
     <p className={cn("text-lg text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "80ms" }}>
       흔한 실수 7가지 — 미리 알면 절반은 피할 수 있다
     </p>
 
-    <div className={cn("grid grid-cols-2 gap-3", anim(index))} style={{ transitionDelay: "150ms" }}>
+    <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-3", anim(index))} style={{ transitionDelay: "150ms" }}>
       {items.map((item) => (
         <div
           key={item.num}

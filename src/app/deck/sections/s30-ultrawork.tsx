@@ -28,7 +28,7 @@ const SlideUltrawork = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         11 · 사용법
       </p>
-      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-5", anim(index))}>
+      <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-5", anim(index))}>
         실행 모드 &amp; 바이브 코딩
       </h2>
 
@@ -48,7 +48,7 @@ const SlideUltrawork = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       {/* Bottom half: 바이브 코딩 6단계 */}
       <div className={cn("", anim(index))} style={{ transitionDelay: "200ms" }}>
         <p className="font-mono text-sm tracking-widest text-muted-foreground uppercase mb-3">바이브 코딩 프로세스 — 6단계</p>
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {vibeSteps.map(({ phase, title, tip }) => (
             <div key={phase} className="rounded-xl border border-border/40 bg-card/80 p-4 shadow-sm backdrop-blur-sm">
               <p className="font-mono text-sm text-primary uppercase tracking-widest mb-1">{phase}</p>

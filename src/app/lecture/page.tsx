@@ -16,8 +16,8 @@ export default function LecturePage() {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: "20px",
-        paddingTop: "72px",
+        padding: "12px",
+        paddingTop: "64px",
       }}
     >
       <h1

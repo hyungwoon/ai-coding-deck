@@ -70,7 +70,7 @@ export default function AiCodingDeckPage() {
   }, []);
 
   return (
-    <div ref={containerRef} className="h-screen snap-y snap-mandatory overflow-y-auto">
+    <div ref={containerRef} className="h-screen overflow-y-auto snap-y sm:snap-mandatory">
       <nav className="fixed right-6 top-1/2 z-50 hidden -translate-y-1/2 sm:flex">
         <div className="relative flex flex-col items-center gap-1">
           <div className="absolute inset-y-3 w-px bg-border/20" />

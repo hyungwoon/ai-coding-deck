@@ -60,7 +60,7 @@ const methods = [
 
 const S21OntologyPractice = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
+    <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
       온톨로지 실전
     </h2>
     <p className={cn("text-lg text-muted-foreground mb-6", anim(index))} style={{ transitionDelay: "100ms" }}>
@@ -68,7 +68,7 @@ const S21OntologyPractice = forwardRef<HTMLElement, P>(({ anim, index }, ref) =>
     </p>
 
     {/* 4-step workflow strip */}
-    <div className={cn("grid grid-cols-4 gap-0 mb-6 rounded-2xl overflow-hidden border border-border/40 shadow-sm", anim(index))} style={{ transitionDelay: "150ms" }}>
+    <div className={cn("grid grid-cols-2 sm:grid-cols-4 gap-0 mb-6 rounded-2xl overflow-hidden border border-border/40 shadow-sm", anim(index))} style={{ transitionDelay: "150ms" }}>
       {steps.map((step, i) => (
         <div
           key={step.label}
@@ -89,7 +89,7 @@ const S21OntologyPractice = forwardRef<HTMLElement, P>(({ anim, index }, ref) =>
     </div>
 
     {/* AI integration methods */}
-    <div className={cn("grid grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "250ms" }}>
+    <div className={cn("grid grid-cols-1 sm:grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "250ms" }}>
       {methods.map((m) => (
         <div key={m.title} className="rounded-2xl border border-border/40 bg-card/80 shadow-sm backdrop-blur-sm overflow-hidden">
           <div className="bg-muted/30 border-b border-border/40 px-4 py-3">

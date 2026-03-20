@@ -35,7 +35,7 @@ const layers = [
 
 const S06Ecosystem = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
+    <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
       AI 코딩 생태계 전체 관계도
     </h2>
     <p className={cn("text-sm text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "80ms" }}>

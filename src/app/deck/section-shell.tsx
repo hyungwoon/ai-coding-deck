@@ -14,7 +14,7 @@ const SectionShell = forwardRef<HTMLElement, ShellProps>(({ index, children, cla
     <section
       ref={ref}
       className={cn(
-        "min-h-screen snap-start flex items-center justify-center px-6 sm:px-12",
+        "min-h-[50vh] sm:min-h-screen snap-start flex items-center justify-center px-4 sm:px-12 py-12 sm:py-0",
         index % 2 !== 0 && "bg-muted/20",
         className,
       )}

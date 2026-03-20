@@ -39,7 +39,7 @@ const SlideMoatDiagram = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         09 · 해자
       </p>
-      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-6", anim(index))}>
+      <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-6", anim(index))}>
         무엇이 진짜 경쟁 우위인가
       </h2>
 
@@ -60,7 +60,7 @@ const SlideMoatDiagram = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       </div>
 
       {/* 3 moat cards */}
-      <div className={cn("grid grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "200ms" }}>
+      <div className={cn("grid grid-cols-1 sm:grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "200ms" }}>
         {moats.map(({ badge, title, sub, desc }, i) => (
           <div
             key={badge}

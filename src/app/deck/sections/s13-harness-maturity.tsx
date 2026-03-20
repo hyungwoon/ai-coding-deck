@@ -38,14 +38,14 @@ const levels = [
 
 const S13HarnessMaturity = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
+    <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
       하네스 성숙도
     </h2>
     <p className={cn("text-lg text-muted-foreground mb-10", anim(index))} style={{ transitionDelay: "80ms" }}>
       어디까지 왔는가 — 4단계로 보는 에이전트 제어 수준
     </p>
 
-    <div className={cn("grid grid-cols-4 gap-0 rounded-2xl overflow-hidden border border-border/40 mb-6", anim(index))} style={{ transitionDelay: "150ms" }}>
+    <div className={cn("grid grid-cols-2 sm:grid-cols-4 gap-0 rounded-2xl overflow-hidden border border-border/40 mb-6", anim(index))} style={{ transitionDelay: "150ms" }}>
       {levels.map((lv, i) => (
         <div
           key={lv.lv}

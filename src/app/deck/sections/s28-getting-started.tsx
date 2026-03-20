@@ -11,7 +11,7 @@ const SlideGettingStarted = forwardRef<HTMLElement, P>(({ anim, index }, ref) =>
       <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         11 · 시작 가이드
       </p>
-      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-6", anim(index))}>
+      <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-6", anim(index))}>
         첫 시작 가이드
       </h2>
 
@@ -40,7 +40,7 @@ const SlideGettingStarted = forwardRef<HTMLElement, P>(({ anim, index }, ref) =>
       </div>
 
       {/* 사전 요구사항 3개 */}
-      <div className={cn("grid grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "260ms" }}>
+      <div className={cn("grid grid-cols-1 sm:grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "260ms" }}>
         <div className="rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm">
           <p className="font-mono text-sm tracking-widest text-muted-foreground uppercase mb-3">필수 01</p>
           <p className="text-sm font-semibold mb-1">Anthropic 구독</p>

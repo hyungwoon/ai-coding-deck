@@ -44,7 +44,7 @@ const SlidePhilosophyGap = forwardRef<HTMLElement, P>(({ anim, index }, ref) => 
       <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         10 · 도구의 철학
       </p>
-      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-6", anim(index))}>
+      <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-6", anim(index))}>
         도구는 같다. 격차는 어디서 오는가
       </h2>
 
@@ -82,7 +82,7 @@ const SlidePhilosophyGap = forwardRef<HTMLElement, P>(({ anim, index }, ref) => 
       </div>
 
       {/* 3 era cards */}
-      <div className={cn("grid grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "220ms" }}>
+      <div className={cn("grid grid-cols-1 sm:grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "220ms" }}>
         {eras.map(({ tag, title, desc, highlight }) => (
           <div
             key={tag}

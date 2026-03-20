@@ -30,7 +30,7 @@ const flowSteps = [
 
 const S19Rag = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
+    <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
       RAG — AI가 모르는 것을 검색해서 답하는 방법
     </h2>
     <p className={cn("text-lg text-muted-foreground mb-6", anim(index))} style={{ transitionDelay: "100ms" }}>
@@ -65,7 +65,7 @@ const S19Rag = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
     </div>
 
     {/* 3-column comparison */}
-    <div className={cn("grid grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "250ms" }}>
+    <div className={cn("grid grid-cols-1 sm:grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "250ms" }}>
       {comparison.map((item) => (
         <div key={item.label} className="rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm">
           <p className="text-sm font-semibold text-primary mb-2">{item.label}</p>

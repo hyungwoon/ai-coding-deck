@@ -43,12 +43,12 @@ const GithubBasics = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         02-B · 버전 관리
       </p>
-      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-8", anim(index))}>
+      <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-8", anim(index))}>
         GitHub 기초
       </h2>
 
       {/* 4-card 2x2 grid */}
-      <div className={cn("grid grid-cols-2 gap-4 mb-5", anim(index))} style={{ transitionDelay: "100ms" }}>
+      <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5", anim(index))} style={{ transitionDelay: "100ms" }}>
         {GITHUB_CONCEPTS.map(({ term, korean, desc }) => (
           <div
             key={term}

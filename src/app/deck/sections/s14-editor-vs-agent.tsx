@@ -34,7 +34,7 @@ const rows = [
 
 const S14EditorVsAgent = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
+    <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
       에디터 vs 에이전트 핵심 차이
     </h2>
     <p className={cn("text-lg text-muted-foreground mb-10", anim(index))} style={{ transitionDelay: "100ms" }}>
@@ -72,7 +72,7 @@ const S14EditorVsAgent = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       ))}
     </div>
 
-    <div className={cn("mt-6 grid grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "250ms" }}>
+    <div className={cn("mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4", anim(index))} style={{ transitionDelay: "250ms" }}>
       {[
         { label: "자동화 수준", value: "에디터 < 에이전트", desc: "AI가 점점 더 많은 결정을 스스로 내린다" },
         { label: "터미널 권한", value: "없음 → 풀 권한", desc: "에이전트는 명령어 실행까지 직접 처리" },

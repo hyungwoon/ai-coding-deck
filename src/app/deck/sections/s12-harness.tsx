@@ -23,7 +23,7 @@ const withItems = [
 
 const S12Harness = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
+    <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
       하네스 — AI 에이전트를 길들이는 구조
     </h2>
     <p className={cn("text-lg text-muted-foreground mb-6", anim(index))} style={{ transitionDelay: "80ms" }}>
@@ -37,7 +37,7 @@ const S12Harness = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       </p>
     </div>
 
-    <div className={cn("grid grid-cols-2 gap-4", anim(index))} style={{ transitionDelay: "180ms" }}>
+    <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-4", anim(index))} style={{ transitionDelay: "180ms" }}>
       <div className="rounded-2xl border border-border/40 bg-card/80 shadow-sm backdrop-blur-sm overflow-hidden">
         <div className="px-4 py-3 border-b border-border/30 bg-muted/20">
           <p className="text-sm font-semibold">하네스 없는 에이전트</p>

@@ -7,7 +7,7 @@ interface P { anim: (i: number) => string; index: number; }
 
 const S17OntologyDef = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
-    <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
+    <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-3", anim(index))}>
       온톨로지 — AI의 장기 기억을 설계한다
     </h2>
     <p className={cn("text-lg text-muted-foreground mb-8", anim(index))} style={{ transitionDelay: "100ms" }}>
@@ -24,7 +24,7 @@ const S17OntologyDef = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
     </div>
 
     {/* Comparison */}
-    <div className={cn("grid grid-cols-2 gap-4", anim(index))} style={{ transitionDelay: "200ms" }}>
+    <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-4", anim(index))} style={{ transitionDelay: "200ms" }}>
       <div className="rounded-2xl border border-border/40 bg-card/80 p-6 shadow-sm backdrop-blur-sm">
         <p className="text-xs font-mono tracking-widest text-muted-foreground uppercase mb-3">온톨로지 없는 AI</p>
         <p className="text-base font-semibold mb-3">매번 처음부터 가르쳐야 하는 직원</p>

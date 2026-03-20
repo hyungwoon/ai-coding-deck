@@ -19,13 +19,13 @@ const LlmVsAgent = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
         02 · 에이전트 전환점
       </p>
-      <h2 className={cn("text-5xl font-bold tracking-tight sm:text-6xl mb-8", anim(index))}>
+      <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-8", anim(index))}>
         LLM과 AI 에이전트의{" "}
         <span className="text-muted-foreground">차이</span>
       </h2>
 
       {/* 2-column 비교 */}
-      <div className={cn("grid grid-cols-2 gap-5 mb-5", anim(index))} style={{ transitionDelay: "100ms" }}>
+      <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5", anim(index))} style={{ transitionDelay: "100ms" }}>
         <div className="rounded-2xl border border-border/40 bg-card/80 p-6 shadow-sm backdrop-blur-sm">
           <p className="font-mono text-sm tracking-widest text-muted-foreground uppercase mb-3">LLM 단독</p>
           <p className="text-base font-semibold mb-4">질문 → 답변. 끝.</p>
