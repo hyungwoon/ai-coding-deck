@@ -17,6 +17,7 @@ export default function LecturePage() {
         alignItems: "center",
         justifyContent: "center",
         padding: "20px",
+        paddingTop: "72px",
       }}
     >
       <h1
