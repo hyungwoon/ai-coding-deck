@@ -1,6 +1,14 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
+
+interface Submission {
+  ts: string;
+  name: string;
+  task: string;
+  content: string;
+  edited: boolean;
+}
 
 const SETUP_PROMPT = `아래 도구와 스킬을 순서대로 전부 글로벌(~/.claude/)에 설치해줘.
 모든 프로젝트에서 사용할 수 있도록 글로벌 설치해야 합니다.
@@ -45,7 +53,7 @@ const commands = [
 
 const planSteps = [
   { step: "1. Plan 모드 진입", detail: "프롬프트에 /plan 입력 또는 Shift+Tab으로 전환" },
-  { step: "2. ultrathink와 함께 요청", detail: "ultrathink 로그인 기능 설계해줘 — 깊은 추론 + 플랜 생성" },
+  { step: "2. ultrathink와 함께 요구사항을 전달하세요", detail: "ultrathink [만들고 싶은 것의 요구사항을 구체적으로 작성] — 요구사항이 구체적일수록 플랜 품질이 올라갑니다" },
   { step: "3. 플랜 확인", detail: "Claude가 단계별 계획을 출력 → 방향이 맞는지 검토" },
   { step: "4. 승인 후 실행", detail: "플랜이 맞으면 승인 → Claude가 계획대로 구현 시작" },
 ];
@@ -63,12 +71,72 @@ const assignments = [
 
 export default function Week1Page() {
   const [copied, setCopied] = useState(false);
+  const [submissions, setSubmissions] = useState<Submission[]>([]);
+  const [selectedName, setSelectedName] = useState("");
+  const [submitContent, setSubmitContent] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [editingTs, setEditingTs] = useState<string | null>(null);
+  const [editContent, setEditContent] = useState("");
+
   const handleCopy = useCallback(() => {
     navigator.clipboard.writeText(SETUP_PROMPT).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     });
   }, []);
+
+  const fetchSubmissions = useCallback(async () => {
+    try {
+      const res = await fetch("/api/submissions");
+      const data = await res.json();
+      if (data.submissions) setSubmissions(data.submissions);
+    } catch { /* ignore */ }
+  }, []);
+
+  useEffect(() => { fetchSubmissions(); }, [fetchSubmissions]);
+
+  const handleSubmit = async () => {
+    if (!selectedName || !submitContent.trim()) return;
+    setSubmitting(true);
+    const assignment = assignments.find((a) => a.name === selectedName);
+    try {
+      await fetch("/api/submissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: selectedName,
+          task: assignment?.task ?? "",
+          content: submitContent,
+        }),
+      });
+      setSubmitContent("");
+      setSelectedName("");
+      await fetchSubmissions();
+    } catch { /* ignore */ }
+    setSubmitting(false);
+  };
+
+  const handleEdit = async (ts: string) => {
+    if (!editContent.trim()) return;
+    const sub = submissions.find((s) => s.ts === ts);
+    if (!sub) return;
+    setSubmitting(true);
+    try {
+      await fetch(`/api/submissions/${ts}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: sub.name,
+          task: sub.task,
+          content: editContent,
+        }),
+      });
+      setEditingTs(null);
+      setEditContent("");
+      await fetchSubmissions();
+    } catch { /* ignore */ }
+    setSubmitting(false);
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -240,6 +308,102 @@ export default function Week1Page() {
             ))}
           </div>
         </section>
+
+        {/* 과제 제출 */}
+        <section className="mb-10 mt-16">
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">과제 제출</h2>
+          <p className="text-sm text-muted-foreground mb-4">
+            이름을 선택하고 과제 내용을 작성한 뒤 제출하세요. 제출하면 Slack 채널에 자동으로 공유됩니다.
+          </p>
+          <div className="rounded-xl border border-border bg-card px-4 py-4 space-y-3">
+            <select
+              value={selectedName}
+              onChange={(e) => setSelectedName(e.target.value)}
+              className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
+            >
+              <option value="">이름을 선택하세요</option>
+              {assignments.map((a) => (
+                <option key={a.name} value={a.name}>{a.name} — {a.task}</option>
+              ))}
+            </select>
+            <textarea
+              value={submitContent}
+              onChange={(e) => setSubmitContent(e.target.value)}
+              placeholder="과제 내용을 작성하세요. 링크, 요약, 스크린샷 URL 등 자유롭게 입력할 수 있습니다."
+              rows={6}
+              className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/40 resize-y"
+            />
+            <div className="flex justify-end">
+              <button
+                onClick={handleSubmit}
+                disabled={!selectedName || !submitContent.trim() || submitting}
+                className="rounded-lg border border-border bg-foreground px-5 py-2 text-sm font-medium text-background transition-all hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed"
+              >
+                {submitting ? "제출 중..." : "제출하기"}
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* 제출된 과제 목록 */}
+        {submissions.length > 0 && (
+          <section className="mb-10">
+            <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">
+              제출된 과제 ({submissions.length}건)
+            </h2>
+            <div className="space-y-3">
+              {submissions.map((sub) => (
+                <div key={sub.ts} className="rounded-xl border border-border bg-card px-4 py-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-bold text-foreground">{sub.name}</span>
+                      <span className="text-sm text-muted-foreground">— {sub.task}</span>
+                      {sub.edited && (
+                        <span className="text-xs text-muted-foreground/40">(수정됨)</span>
+                      )}
+                    </div>
+                    <button
+                      onClick={() => {
+                        if (editingTs === sub.ts) {
+                          setEditingTs(null);
+                          setEditContent("");
+                        } else {
+                          setEditingTs(sub.ts);
+                          setEditContent(sub.content);
+                        }
+                      }}
+                      className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {editingTs === sub.ts ? "취소" : "수정"}
+                    </button>
+                  </div>
+
+                  {editingTs === sub.ts ? (
+                    <div className="space-y-2">
+                      <textarea
+                        value={editContent}
+                        onChange={(e) => setEditContent(e.target.value)}
+                        rows={5}
+                        className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground resize-y"
+                      />
+                      <div className="flex justify-end">
+                        <button
+                          onClick={() => handleEdit(sub.ts)}
+                          disabled={submitting}
+                          className="rounded-lg border border-border bg-foreground px-4 py-1.5 text-sm font-medium text-background transition-all hover:opacity-90 disabled:opacity-30"
+                        >
+                          {submitting ? "수정 중..." : "수정 완료"}
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-wrap">{sub.content}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
       </div>
     </div>
