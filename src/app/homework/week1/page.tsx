@@ -2,25 +2,28 @@
 
 import { useState, useCallback } from "react";
 
-const SETUP_PROMPT = `아래 도구와 스킬을 순서대로 전부 설치해줘.
+const SETUP_PROMPT = `아래 도구와 스킬을 순서대로 전부 글로벌(~/.claude/)에 설치해줘.
+모든 프로젝트에서 사용할 수 있도록 글로벌 설치해야 합니다.
 
 ## 1. oh-my-claudecode (OMC)
 - GitHub: https://github.com/Yeachan-Heo/oh-my-claudecode
 - 멀티 에이전트 오케스트레이션 — 여러 AI 에이전트를 동시에 조율하는 레이어
-- /install-github Yeachan-Heo/oh-my-claudecode 로 설치
+- /install-github Yeachan-Heo/oh-my-claudecode 로 글로벌 설치
 
 ## 2. oh-my-hwclaude
 - GitHub: https://github.com/hyungwoon/oh-my-hwclaude
 - 파일 편집 정확도를 10배 높여주는 코딩 하네스
-- git clone 후 install.sh 실행 (글로벌: ~/.claude/oh-my-hwclaude)
+- git clone https://github.com/hyungwoon/oh-my-hwclaude.git ~/.claude/oh-my-hwclaude
+- cd ~/.claude/oh-my-hwclaude && ./install.sh
 
 ## 3. business-ai-team
 - GitHub: https://github.com/hyungwoon/business-ai-team
 - 마케팅·영업·법무·재무·HR 등 16명의 비즈니스 전문가 에이전트 팀
-- git clone 후 install.sh 실행 (글로벌: ~/.claude/business-ai-team)
+- git clone https://github.com/hyungwoon/business-ai-team.git ~/.claude/business-ai-team
+- cd ~/.claude/business-ai-team && ./install.sh
 
-## 4. 필수 스킬
-다음 7개 스킬을 설치해줘:
+## 4. 필수 스킬 (글로벌 설치)
+다음 7개 스킬을 글로벌로 설치해줘:
 - brainstorming — 구현 전에 요구사항을 먼저 탐색
 - writing-plans — 스펙 기반 단계별 구현 계획 생성
 - executing-plans — 작성된 계획을 순서대로 실행
@@ -38,6 +41,13 @@ const commands = [
   { cmd: "/ask", desc: "비즈니스 전문가에게 질문", ex: "/ask 경쟁사 마케팅 전략 분석해줘" },
   { cmd: "/route", desc: "요청을 적합한 전문가에게 자동 라우팅", ex: "/route 다음 분기 OKR 수립" },
   { cmd: "/team", desc: "전문가 팀 목록 확인", ex: "/team" },
+];
+
+const planSteps = [
+  { step: "1. Plan 모드 진입", detail: "프롬프트에 /plan 입력 또는 Shift+Tab으로 전환" },
+  { step: "2. ultrathink와 함께 요청", detail: "ultrathink 로그인 기능 설계해줘 — 깊은 추론 + 플랜 생성" },
+  { step: "3. 플랜 확인", detail: "Claude가 단계별 계획을 출력 → 방향이 맞는지 검토" },
+  { step: "4. 승인 후 실행", detail: "플랜이 맞으면 승인 → Claude가 계획대로 구현 시작" },
 ];
 
 const assignments = [
@@ -73,9 +83,20 @@ export default function Week1Page() {
           <code className="block rounded-xl border border-border bg-card px-4 py-3 font-mono text-sm">
             claude --dangerously-skip-permissions
           </code>
-          <p className="text-sm text-muted-foreground mt-2">
-            승인 없이 자율 실행합니다. 실습 환경에서만 사용하세요.
-          </p>
+          <div className="rounded-xl border border-border bg-card px-4 py-3 mt-3 space-y-2">
+            <p className="text-sm font-bold text-foreground">Bypass 모드란?</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Claude Code는 기본적으로 파일 수정, 터미널 명령 실행, 외부 접근 시마다 사용자에게 승인을 요청합니다.
+              안전하지만 매번 &quot;허용&quot;을 눌러야 해서 흐름이 끊깁니다.
+            </p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Bypass 모드에서는 이 승인 과정을 건너뛰고 Claude가 <span className="text-foreground font-semibold">자율 실행</span>합니다.
+              파일 생성·수정, 패키지 설치, git 명령 등을 승인 없이 바로 실행합니다.
+            </p>
+            <p className="text-sm text-muted-foreground/60">
+              실습·학습 환경에서만 사용하세요. 프로덕션 코드에서는 기본 모드를 권장합니다.
+            </p>
+          </div>
         </section>
 
         {/* Step 2 */}
@@ -117,9 +138,35 @@ export default function Week1Page() {
           </div>
         </section>
 
-        {/* Step 4 */}
+        {/* Step 4: Planning */}
+        <section className="mb-10">
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 4. 플래닝 방법</h2>
+          <p className="text-sm text-muted-foreground mb-4">
+            바이브 코딩의 핵심은 <span className="text-foreground font-semibold">플래닝이 90%</span>입니다.
+            구현을 바로 시키지 말고, Plan 모드에서 설계를 먼저 하세요.
+          </p>
+          <div className="space-y-2 mb-4">
+            {planSteps.map((s) => (
+              <div key={s.step} className="rounded-xl border border-border bg-card px-4 py-3">
+                <p className="text-sm font-bold text-foreground">{s.step}</p>
+                <p className="text-sm text-muted-foreground">{s.detail}</p>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-xl border border-border bg-card px-4 py-3">
+            <p className="text-sm font-bold text-foreground mb-2">Plan 모드에서 이것들을 조합하세요</p>
+            <div className="space-y-1.5 text-sm text-muted-foreground">
+              <p><code className="font-mono text-foreground">ultrathink</code> + <code className="font-mono text-foreground">/plan</code> — 깊은 추론으로 플랜 생성</p>
+              <p><code className="font-mono text-foreground">/superpowers</code> + <code className="font-mono text-foreground">/plan</code> — 관련 스킬을 자동 탐색해서 플랜에 반영</p>
+              <p><code className="font-mono text-foreground">ulw</code> — 플랜 승인 후, 독립 작업들을 병렬 실행</p>
+              <p><code className="font-mono text-foreground">/ask</code> — 플래닝 중 모르는 도메인 지식을 전문가에게 질문</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Step 5 */}
         <section>
-          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 4. 개인별 과제</h2>
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 5. 개인별 과제</h2>
           <div className="space-y-2">
             {assignments.map((a) => (
               <div key={a.name} className="flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3">
