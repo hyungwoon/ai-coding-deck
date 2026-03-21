@@ -51,16 +51,43 @@ const SETUP_PROMPT = `아래 도구와 스킬을 순서대로 전부 글로벌(~
 - cd ~/.claude/business-ai-team && ./install.sh
 
 ## 4. 필수 스킬 (글로벌 설치)
-다음 7개 스킬을 글로벌로 설치해줘:
+다음 스킬들을 글로벌로 설치해줘:
+
+워크플로우 스킬:
 - brainstorming — 구현 전에 요구사항을 먼저 탐색
 - writing-plans — 스펙 기반 단계별 구현 계획 생성
 - executing-plans — 작성된 계획을 순서대로 실행
 - verification-before-completion — 완료 전 실제 동작 검증
 - using-superpowers — 요청에 맞는 스킬을 자동 탐색·실행
+- systematic-debugging — 근본 원인 분석 먼저, 수정은 그 다음 (4단계 방법론)
+
+디자인·콘텐츠 스킬:
 - humanizer — AI가 쓴 글에서 AI 느낌을 제거하고 자연스러운 문체로 다듬기
 - ui-ux-pro-max — UI/UX 디자인 + 구현 (50가지 스타일, 21개 팔레트, React/Next.js/Tailwind 등)
+- frontend-design — AI 슬롭 탈출, 실제 디자인 시스템·타이포그래피 적용 (https://github.com/anthropics/skills/tree/main/skills/frontend-design)
+- canvas-design — 소셜 그래픽, 포스터, 커버 — 텍스트 입력 → PNG/PDF 출력 (https://github.com/anthropics/skills/tree/main/skills/canvas-design)
+- brand-guidelines — 브랜드 가이드를 스킬로 인코딩, 모든 결과물에 자동 적용 (https://github.com/anthropics/skills/tree/main/skills/brand-guidelines)
 
-전부 끝나면 설치된 목록 보여줘.`;
+문서·오피스 스킬 (Official Anthropic):
+- pdf — PDF 읽기, 표 추출, 폼 채우기, 병합/분할 (https://github.com/anthropics/skills/tree/main/skills/pdf)
+- docx — Word 문서 생성·편집, 변경 추적, 서식 (https://github.com/anthropics/skills/tree/main/skills/docx)
+- pptx — 자연어로 슬라이드 덱 생성, 레이아웃·차트·발표 노트 (https://github.com/anthropics/skills/tree/main/skills/pptx)
+- xlsx — 엑셀 수식, 분석, 차트를 자연어로 (https://github.com/anthropics/skills/tree/main/skills/xlsx)
+- doc-coauthoring — 사람과 Claude가 번갈아 쓰는 협업 글쓰기 (https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring)
+- skill-creator — 워크플로우를 설명하면 SKILL.md를 5분 안에 생성하는 메타 스킬 (https://github.com/anthropics/skills/tree/main/skills/skill-creator)
+
+마케팅·SEO 스킬:
+- claude-seo — 사이트 전체 SEO 감사, 스키마 검증 (https://github.com/AgriciDaniel/claude-seo)
+
+지식·학습 스킬:
+- obsidian-skills — Obsidian CEO가 만든 스킬. 자동 태깅, 자동 링킹 (https://github.com/kepano/obsidian-skills)
+
+## 5. MCP 서버 설치 (글로벌)
+다음 MCP 서버들도 글로벌로 설치해줘:
+- Context7 — 최신 라이브러리 문서를 LLM 컨텍스트에 주입, 할루시네이션 방지 (https://github.com/upstash/context7)
+- Tavily — AI 에이전트용 검색 엔진. 구조화된 데이터 반환 (https://github.com/tavily-ai/tavily-mcp)
+
+전부 끝나면 설치된 스킬 목록과 MCP 서버 목록을 보여줘.`;
 
 const commands = [
   { cmd: "ultrathink", desc: "깊은 추론 — 복잡한 설계·분석에 효과적", ex: "ultrathink 하네스란 무엇이고 왜 필요한지 5분 스피치 원고 만들어줘" },
