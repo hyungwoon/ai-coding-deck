@@ -43,9 +43,9 @@ import S28 from "./sections/s28-getting-started";
 import S29 from "./sections/s29-install";
 import S30 from "./sections/s30-ultrawork";
 import S31 from "./sections/s31-contact";
-import S32 from "./sections/s32-homework";
+// s32 moved to /homework/week1 page
 
-const SECTION_COUNT = 40;
+const SECTION_COUNT = 39;
 
 const sectionLabels = [
   "Title", "LLM 정의", "벡터 임베딩", "추론과 출력",
@@ -55,14 +55,14 @@ const sectionLabels = [
   "멀티모달", "온톨로지", "4요소", "암묵지", "AI Native", "RAG",
   "Obsidian", "온톨로지 실전", "보안", "RLHF→RLVR", "컨텍스트",
   "해자", "전문가 시각", "도구의 철학", "격차",
-  "시작 가이드", "설치", "Ultrawork", "Contact", "1주차 과제",
+  "시작 가이드", "설치", "Ultrawork", "Contact",
 ];
 
 const sectionComponents = [
   S00, S01, S02, S03, S04, S05, S05b, S05c, S06, S07,
   S08, S09, S10, S11, S12, S12b, S12c, S13, S14, S15,
   S16, S17, S18, S18b, S18c, S19, S20, S21, S21b, S22, S23,
-  S24, S25, S26, S27, S28, S29, S30, S31, S32,
+  S24, S25, S26, S27, S28, S29, S30, S31,
 ];
 
 export default function AiCodingDeckPage() {
