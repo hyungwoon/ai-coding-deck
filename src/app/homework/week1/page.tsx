@@ -65,7 +65,7 @@ const SETUP_PROMPT = `아래 도구와 스킬을 순서대로 전부 글로벌(~
 const commands = [
   { cmd: "ultrathink", desc: "깊은 추론 — 복잡한 설계·분석에 효과적", ex: "ultrathink 하네스란 무엇이고 왜 필요한지 5분 스피치 원고 만들어줘" },
   { cmd: "ulw", desc: "최대 병렬 실행 — 독립 작업 2개 이상 동시 처리", ex: "ulw RLVR 개념 정리 + RLHF와 차이점 비교 + 5분 스피치 원고 병렬로" },
-  { cmd: "/superpowers", desc: "스킬 자동 탐색 — 요청에 맞는 스킬을 찾아서 적용", ex: "/superpowers 내 업무의 암묵지와 명시지를 구분해서 정리해줘" },
+  { cmd: "/using-superpowers", desc: "스킬 자동 탐색 — 요청에 맞는 스킬을 찾아서 적용", ex: "/using-superpowers 내 업무의 암묵지와 명시지를 구분해서 정리해줘" },
   { cmd: "/ask", desc: "비즈니스 전문가에게 질문", ex: "/ask 온톨로지를 처음 만들 때 어떤 구조로 시작하면 좋아?" },
   { cmd: "/route", desc: "요청을 적합한 전문가에게 자동 라우팅", ex: "/route 오늘 강의 핵심 내용을 5분 요약 아티클로 정리해줘" },
   { cmd: "/team", desc: "전문가 팀 목록 확인", ex: "/team" },
@@ -73,7 +73,7 @@ const commands = [
 
 const planSteps = [
   { step: "1. Plan 모드 진입", detail: "프롬프트에 /plan 입력 또는 Shift+Tab으로 전환" },
-  { step: "2. /superpowers + ultrathink로 요구사항을 전달하세요", detail: "예: /superpowers ultrathink PDF 문서를 온톨로지 형태로 변환하는 방법을 설계해줘 — superpowers가 스킬을 찾고, ultrathink가 깊이 추론합니다" },
+  { step: "2. /using-superpowers + ultrathink로 요구사항을 전달하세요", detail: "예: /using-superpowers ultrathink PDF 문서를 온톨로지 형태로 변환하는 방법을 설계해줘 — superpowers가 스킬을 찾고, ultrathink가 깊이 추론합니다" },
   { step: "3. 플랜 확인", detail: "Claude가 단계별 계획을 출력 → 방향이 맞는지 검토" },
   { step: "4. 승인 후 실행", detail: "플랜이 맞으면 승인 → Claude가 계획대로 구현 시작" },
 ];
@@ -297,7 +297,7 @@ export default function Week1Page() {
 
               <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
                 <div className="flex items-center gap-2 mb-1.5">
-                  <code className="font-mono font-bold text-foreground">/superpowers</code>
+                  <code className="font-mono font-bold text-foreground">/using-superpowers</code>
                   <span className="text-muted-foreground/40">+</span>
                   <code className="font-mono font-bold text-foreground">/plan</code>
                 </div>
@@ -305,7 +305,7 @@ export default function Week1Page() {
                   설치된 스킬 중 요청에 맞는 것을 자동으로 찾아서 플랜에 반영합니다.
                   어떤 스킬을 써야 할지 몰라도 됩니다. Claude가 알아서 고릅니다.
                 </p>
-                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">/superpowers 내 업무에서 암묵지와 명시지를 구분해서 표로 정리해줘</p>
+                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">/using-superpowers 내 업무에서 암묵지와 명시지를 구분해서 표로 정리해줘</p>
               </div>
 
               <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
