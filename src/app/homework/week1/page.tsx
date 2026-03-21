@@ -81,7 +81,7 @@ export default function Week1Page() {
         <section className="mb-10">
           <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 1. Claude Code를 Bypass 모드로 실행하세요</h2>
           <p className="text-sm text-muted-foreground mb-3">
-            터미널(맥은 Terminal 또는 iTerm, 윈도우는 PowerShell)을 열고 아래 명령어를 입력하세요.
+            터미널(Warp 또는 기본 Terminal)을 열고 아래 명령어를 입력하세요.
           </p>
           <code className="block rounded-xl border border-border bg-card px-4 py-3 font-mono text-sm">
             claude --dangerously-skip-permissions
@@ -127,33 +127,14 @@ export default function Week1Page() {
           </div>
         </section>
 
-        {/* Step 3 */}
+        {/* Step 3: Planning */}
         <section className="mb-10">
-          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 3. 설치가 끝나면 이 명령어들을 써보세요</h2>
-          <p className="text-sm text-muted-foreground mb-3">
-            Claude Code 입력창에 아래 명령어를 입력하면 됩니다. 각 명령어 뒤에 하고 싶은 말을 자연어로 붙이세요.
-          </p>
-          <div className="space-y-2">
-            {commands.map((c) => (
-              <div key={c.cmd} className="rounded-xl border border-border bg-card px-4 py-3">
-                <div className="flex items-baseline gap-2 mb-1">
-                  <code className="font-mono font-bold text-foreground">{c.cmd}</code>
-                  <span className="text-sm text-muted-foreground">{c.desc}</span>
-                </div>
-                <p className="text-sm text-muted-foreground/50">예시: <span className="font-mono">{c.ex}</span></p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Step 4: Planning */}
-        <section className="mb-10">
-          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 4. 무언가를 만들고 싶다면 Plan 모드를 먼저 켜세요</h2>
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 3. 무언가를 만들고 싶다면 Plan 모드를 먼저 켜세요</h2>
           <p className="text-sm text-muted-foreground mb-4">
             바이브 코딩의 핵심은 <span className="text-foreground font-semibold">플래닝이 90%</span>입니다.
             &quot;바로 만들어줘&quot;가 아니라, 먼저 계획을 세우고 확인한 다음에 실행하세요.
           </p>
-          <div className="space-y-2 mb-4">
+          <div className="space-y-2 mb-6">
             {planSteps.map((s) => (
               <div key={s.step} className="rounded-xl border border-border bg-card px-4 py-3">
                 <p className="text-sm font-bold text-foreground">{s.step}</p>
@@ -161,8 +142,12 @@ export default function Week1Page() {
               </div>
             ))}
           </div>
+
+          <h3 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">핵심 명령어 — Plan 모드와 함께 쓰면 더 강력합니다</h3>
+          <p className="text-sm text-muted-foreground mb-4">
+            Claude Code 입력창에 아래 명령어를 입력하면 됩니다. 각 명령어 뒤에 하고 싶은 말을 자연어로 붙이세요.
+          </p>
           <div className="rounded-xl border border-foreground/20 bg-card px-5 py-4">
-            <p className="text-base font-bold text-foreground mb-4">Plan 모드에서 이것들을 같이 쓰면 더 강력합니다</p>
             <div className="space-y-4">
               <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
                 <div className="flex items-center gap-2 mb-1.5">
@@ -239,9 +224,9 @@ export default function Week1Page() {
           </div>
         </section>
 
-        {/* Step 5 */}
+        {/* Step 4 */}
         <section>
-          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 5. 개인별 과제</h2>
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 4. 개인별 과제</h2>
           <p className="text-sm text-muted-foreground mb-3">
             위에서 세팅한 환경을 활용해서 아래 과제를 수행하세요. 과제 수행 자체를 Claude Code와 함께 하시면 됩니다.
           </p>
