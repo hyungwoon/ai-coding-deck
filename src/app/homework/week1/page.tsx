@@ -73,7 +73,7 @@ const commands = [
 
 const planSteps = [
   { step: "1. Plan 모드 진입", detail: "프롬프트에 /plan 입력 또는 Shift+Tab으로 전환" },
-  { step: "2. ultrathink와 함께 요구사항을 전달하세요", detail: "예: ultrathink PDF 문서를 온톨로지 형태로 변환하는 방법을 설계해줘 — 요구사항이 구체적일수록 플랜 품질이 올라갑니다" },
+  { step: "2. /superpowers + ultrathink로 요구사항을 전달하세요", detail: "예: /superpowers ultrathink PDF 문서를 온톨로지 형태로 변환하는 방법을 설계해줘 — superpowers가 스킬을 찾고, ultrathink가 깊이 추론합니다" },
   { step: "3. 플랜 확인", detail: "Claude가 단계별 계획을 출력 → 방향이 맞는지 검토" },
   { step: "4. 승인 후 실행", detail: "플랜이 맞으면 승인 → Claude가 계획대로 구현 시작" },
 ];
