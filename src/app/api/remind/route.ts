@@ -16,6 +16,13 @@ export async function GET() {
     return NextResponse.json({ message: "deadline passed, no reminder sent" });
   }
 
+  const diff = DEADLINE.getTime() - now.getTime();
+  const daysLeft = Math.ceil(diff / 86400000);
+
+  if (daysLeft > 3) {
+    return NextResponse.json({ message: `${daysLeft} days left, reminder starts at 3 days` });
+  }
+
   const res = await fetch("https://slack.com/api/conversations.history", {
     method: "POST",
     headers: {
@@ -43,9 +50,6 @@ export async function GET() {
   if (notSubmitted.length === 0) {
     return NextResponse.json({ message: "all submitted" });
   }
-
-  const diff = DEADLINE.getTime() - now.getTime();
-  const daysLeft = Math.ceil(diff / 86400000);
 
   const urgency = daysLeft <= 1 ? "!!!" : daysLeft <= 3 ? "!" : "";
   const nameList = notSubmitted.map((n) => `• ${n}`).join("\n");
