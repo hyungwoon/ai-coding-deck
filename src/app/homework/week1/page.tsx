@@ -269,6 +269,18 @@ export default function Week1Page() {
 
               <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
                 <div className="flex items-center gap-2 mb-1.5">
+                  <code className="font-mono font-bold text-foreground">/route</code>
+                  <span className="text-sm text-muted-foreground ml-1">(전문가 자동 라우팅)</span>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  요청 내용을 분석해서 가장 적합한 전문가 에이전트에게 자동으로 전달합니다.
+                  마케팅인지, 법무인지, 데이터인지 몰라도 됩니다. 시스템이 판단합니다.
+                </p>
+                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">/route 오늘 강의 핵심을 5분 요약 아티클로 정리해줘</p>
+              </div>
+
+              <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
+                <div className="flex items-center gap-2 mb-1.5">
                   <code className="font-mono font-bold text-foreground">/humanizer</code>
                   <span className="text-sm text-muted-foreground ml-1">(AI 느낌 제거)</span>
                 </div>
