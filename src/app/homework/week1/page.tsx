@@ -75,34 +75,42 @@ export default function Week1Page() {
       <div className="mx-auto max-w-3xl px-4 py-24">
 
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-2">1주차 과제</h1>
-        <p className="text-lg text-muted-foreground mb-12">환경 세팅 + 개인별 과제</p>
+        <p className="text-lg text-muted-foreground mb-12">아래 순서대로 따라오시면 됩니다. 막히는 부분은 편하게 물어보세요.</p>
 
         {/* Step 1 */}
         <section className="mb-10">
-          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 1. Bypass 모드로 실행</h2>
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 1. Claude Code를 Bypass 모드로 실행하세요</h2>
+          <p className="text-sm text-muted-foreground mb-3">
+            터미널(맥은 Terminal 또는 iTerm, 윈도우는 PowerShell)을 열고 아래 명령어를 입력하세요.
+          </p>
           <code className="block rounded-xl border border-border bg-card px-4 py-3 font-mono text-sm">
             claude --dangerously-skip-permissions
           </code>
           <div className="rounded-xl border border-border bg-card px-4 py-3 mt-3 space-y-2">
             <p className="text-sm font-bold text-foreground">Bypass 모드란?</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Claude Code는 기본적으로 파일 수정, 터미널 명령 실행, 외부 접근 시마다 사용자에게 승인을 요청합니다.
-              안전하지만 매번 &quot;허용&quot;을 눌러야 해서 흐름이 끊깁니다.
+              Claude Code는 기본적으로 파일을 수정하거나 터미널 명령을 실행할 때마다 &quot;이거 해도 돼?&quot;라고 승인을 요청합니다.
+              안전하지만, 매번 &quot;허용&quot;을 눌러야 해서 작업 흐름이 끊깁니다.
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Bypass 모드에서는 이 승인 과정을 건너뛰고 Claude가 <span className="text-foreground font-semibold">자율 실행</span>합니다.
-              파일 생성·수정, 패키지 설치, git 명령 등을 승인 없이 바로 실행합니다.
+              Bypass 모드에서는 이 승인 과정을 건너뛰고 Claude가 <span className="text-foreground font-semibold">자율적으로 실행</span>합니다.
+              파일 생성·수정, 패키지 설치, git 명령 등을 묻지 않고 바로 처리합니다.
             </p>
             <p className="text-sm text-muted-foreground/60">
-              실습·학습 환경에서만 사용하세요. 프로덕션 코드에서는 기본 모드를 권장합니다.
+              실습·학습 환경에서만 사용하세요. 실제 업무 코드에서는 기본 모드를 권장합니다.
             </p>
           </div>
         </section>
 
         {/* Step 2 */}
         <section className="mb-10">
-          <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest">Step 2. 프롬프트 붙여넣기</h2>
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 2. 아래 프롬프트를 Claude Code에 그대로 붙여넣으세요</h2>
+          <p className="text-sm text-muted-foreground mb-3">
+            오른쪽 Copy 버튼을 누르면 프롬프트가 클립보드에 복사됩니다.
+            Step 1에서 열린 Claude Code 화면에 붙여넣고 Enter를 누르세요.
+            Claude가 알아서 도구 3개 + 스킬 7개를 전부 설치합니다. 완료까지 몇 분 걸릴 수 있습니다.
+          </p>
+          <div className="flex items-center justify-end mb-2">
             <button
               onClick={handleCopy}
               className={`rounded-lg border px-4 py-1.5 text-sm font-medium transition-all ${
@@ -117,14 +125,14 @@ export default function Week1Page() {
           <div className="rounded-xl border border-border bg-card px-4 py-3 font-mono text-sm leading-relaxed whitespace-pre-wrap text-muted-foreground">
             {SETUP_PROMPT}
           </div>
-          <p className="text-sm text-muted-foreground mt-2">
-            Claude Code에 그대로 붙여넣으면 알아서 전부 설치합니다.
-          </p>
         </section>
 
         {/* Step 3 */}
         <section className="mb-10">
-          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 3. 핵심 사용법</h2>
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 3. 설치가 끝나면 이 명령어들을 써보세요</h2>
+          <p className="text-sm text-muted-foreground mb-3">
+            Claude Code 입력창에 아래 명령어를 입력하면 됩니다. 각 명령어 뒤에 하고 싶은 말을 자연어로 붙이세요.
+          </p>
           <div className="space-y-2">
             {commands.map((c) => (
               <div key={c.cmd} className="rounded-xl border border-border bg-card px-4 py-3">
@@ -132,7 +140,7 @@ export default function Week1Page() {
                   <code className="font-mono font-bold text-foreground">{c.cmd}</code>
                   <span className="text-sm text-muted-foreground">{c.desc}</span>
                 </div>
-                <p className="text-sm text-muted-foreground/50 font-mono">{c.ex}</p>
+                <p className="text-sm text-muted-foreground/50">예시: <span className="font-mono">{c.ex}</span></p>
               </div>
             ))}
           </div>
@@ -140,10 +148,10 @@ export default function Week1Page() {
 
         {/* Step 4: Planning */}
         <section className="mb-10">
-          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 4. 플래닝 방법</h2>
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 4. 무언가를 만들고 싶다면 Plan 모드를 먼저 켜세요</h2>
           <p className="text-sm text-muted-foreground mb-4">
             바이브 코딩의 핵심은 <span className="text-foreground font-semibold">플래닝이 90%</span>입니다.
-            구현을 바로 시키지 말고, Plan 모드에서 설계를 먼저 하세요.
+            &quot;바로 만들어줘&quot;가 아니라, 먼저 계획을 세우고 확인한 다음에 실행하세요.
           </p>
           <div className="space-y-2 mb-4">
             {planSteps.map((s) => (
@@ -154,12 +162,12 @@ export default function Week1Page() {
             ))}
           </div>
           <div className="rounded-xl border border-border bg-card px-4 py-3">
-            <p className="text-sm font-bold text-foreground mb-2">Plan 모드에서 이것들을 조합하세요</p>
+            <p className="text-sm font-bold text-foreground mb-2">Plan 모드에서 이것들을 같이 쓰면 더 강력합니다</p>
             <div className="space-y-1.5 text-sm text-muted-foreground">
-              <p><code className="font-mono text-foreground">ultrathink</code> + <code className="font-mono text-foreground">/plan</code> — 깊은 추론으로 플랜 생성</p>
-              <p><code className="font-mono text-foreground">/superpowers</code> + <code className="font-mono text-foreground">/plan</code> — 관련 스킬을 자동 탐색해서 플랜에 반영</p>
-              <p><code className="font-mono text-foreground">ulw</code> — 플랜 승인 후, 독립 작업들을 병렬 실행</p>
-              <p><code className="font-mono text-foreground">/ask</code> — 플래닝 중 모르는 도메인 지식을 전문가에게 질문</p>
+              <p><code className="font-mono text-foreground">ultrathink</code> + <code className="font-mono text-foreground">/plan</code> — Claude가 더 깊이 생각한 뒤 플랜을 생성합니다</p>
+              <p><code className="font-mono text-foreground">/superpowers</code> + <code className="font-mono text-foreground">/plan</code> — 관련 스킬을 자동으로 찾아서 플랜에 반영합니다</p>
+              <p><code className="font-mono text-foreground">ulw</code> — 플랜을 승인한 뒤, 독립적인 작업들을 동시에 실행합니다</p>
+              <p><code className="font-mono text-foreground">/ask</code> — 플래닝 중 모르는 도메인 지식을 전문가에게 물어봅니다</p>
             </div>
           </div>
         </section>
@@ -167,6 +175,9 @@ export default function Week1Page() {
         {/* Step 5 */}
         <section>
           <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 5. 개인별 과제</h2>
+          <p className="text-sm text-muted-foreground mb-3">
+            위에서 세팅한 환경을 활용해서 아래 과제를 수행하세요. 과제 수행 자체를 Claude Code와 함께 하시면 됩니다.
+          </p>
           <div className="space-y-2">
             {assignments.map((a) => (
               <div key={a.name} className="flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3">
