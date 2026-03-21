@@ -311,13 +311,19 @@ export default function Week1Page() {
             위에서 세팅한 환경을 활용해서 아래 과제를 수행하세요. 과제 수행 자체를 Claude Code와 함께 하시면 됩니다.
           </p>
           <div className="space-y-2">
-            {assignments.map((a) => (
-              <div key={a.name} className="flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3">
-                <span className="text-sm font-bold text-foreground shrink-0 w-16">{a.name}</span>
-                <span className="text-sm text-muted-foreground flex-1">{a.task}</span>
-                <span className="text-xs text-muted-foreground/50 shrink-0">{a.format}</span>
-              </div>
-            ))}
+            {assignments.map((a) => {
+              const submitted = submissions.some((s) => s.name === a.name);
+              return (
+                <div key={a.name} className={`flex items-center gap-4 rounded-xl border px-4 py-3 ${submitted ? "border-green-500/30 bg-green-500/5" : "border-border bg-card"}`}>
+                  <span className={`text-sm font-bold shrink-0 w-16 ${submitted ? "text-green-400" : "text-foreground"}`}>{a.name}</span>
+                  <span className="text-sm text-muted-foreground flex-1">{a.task}</span>
+                  <span className="text-xs text-muted-foreground/50 shrink-0">{a.format}</span>
+                  {submitted && (
+                    <span className="text-xs font-medium text-green-400 shrink-0">제출 완료</span>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </section>
 
