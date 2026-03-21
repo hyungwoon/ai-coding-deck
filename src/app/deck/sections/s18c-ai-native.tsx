@@ -33,10 +33,11 @@ const S18cAiNative = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       </div>
     </div>
 
-    {/* 심리적 허들 */}
+    {/* 언러닝 */}
     <div className={cn("grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5", anim(index))} style={{ transitionDelay: "200ms" }}>
       <div className="rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm">
-        <p className="text-sm font-bold mb-2">심리적 허들</p>
+        <p className="text-sm font-bold mb-1">언러닝이 필요한 것</p>
+        <p className="text-sm text-muted-foreground/50 mb-3">= 기존에 당연하다고 믿던 것을 내려놓기</p>
         <p className="text-sm text-muted-foreground leading-relaxed">
           &quot;그래도 이건 사람이 해야지&quot;<br />
           &quot;이건 감각의 영역이야&quot;<br />
@@ -47,7 +48,8 @@ const S18cAiNative = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         </p>
       </div>
       <div className="rounded-2xl border border-border/40 bg-card/80 p-5 shadow-sm backdrop-blur-sm">
-        <p className="text-sm font-bold mb-2">해보면 바뀌는 생각</p>
+        <p className="text-sm font-bold mb-1">언러닝 이후</p>
+        <p className="text-sm text-muted-foreground/50 mb-3">= 한 번 해보면 바뀌는 관점</p>
         <p className="text-sm text-muted-foreground leading-relaxed">
           &quot;이걸 왜 사람이 해야 하지?&quot;<br />
           &quot;내가 판단만 하면 실행은 AI가 하네&quot;<br />
