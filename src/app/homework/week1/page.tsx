@@ -161,13 +161,80 @@ export default function Week1Page() {
               </div>
             ))}
           </div>
-          <div className="rounded-xl border border-border bg-card px-4 py-3">
-            <p className="text-sm font-bold text-foreground mb-2">Plan 모드에서 이것들을 같이 쓰면 더 강력합니다</p>
-            <div className="space-y-1.5 text-sm text-muted-foreground">
-              <p><code className="font-mono text-foreground">ultrathink</code> + <code className="font-mono text-foreground">/plan</code> — Claude가 더 깊이 생각한 뒤 플랜을 생성합니다</p>
-              <p><code className="font-mono text-foreground">/superpowers</code> + <code className="font-mono text-foreground">/plan</code> — 관련 스킬을 자동으로 찾아서 플랜에 반영합니다</p>
-              <p><code className="font-mono text-foreground">ulw</code> — 플랜을 승인한 뒤, 독립적인 작업들을 동시에 실행합니다</p>
-              <p><code className="font-mono text-foreground">/ask</code> — 플래닝 중 모르는 도메인 지식을 전문가에게 물어봅니다</p>
+          <div className="rounded-xl border border-foreground/20 bg-card px-5 py-4">
+            <p className="text-base font-bold text-foreground mb-4">Plan 모드에서 이것들을 같이 쓰면 더 강력합니다</p>
+            <div className="space-y-4">
+              <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <code className="font-mono font-bold text-foreground">ultrathink</code>
+                  <span className="text-muted-foreground/40">+</span>
+                  <code className="font-mono font-bold text-foreground">/plan</code>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Plan 모드에서 <code className="font-mono text-foreground/80">ultrathink</code>를 프롬프트에 넣으면,
+                  Claude가 실행하기 전에 훨씬 깊이 추론합니다. 복잡한 설계일수록 효과가 큽니다.
+                </p>
+                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">ultrathink 회원 등급별 할인 시스템 설계해줘</p>
+              </div>
+
+              <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <code className="font-mono font-bold text-foreground">/superpowers</code>
+                  <span className="text-muted-foreground/40">+</span>
+                  <code className="font-mono font-bold text-foreground">/plan</code>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  설치된 스킬 중 요청에 맞는 것을 자동으로 찾아서 플랜에 반영합니다.
+                  어떤 스킬을 써야 할지 몰라도 됩니다. Claude가 알아서 고릅니다.
+                </p>
+                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">/superpowers 온보딩 이메일 시퀀스 설계해줘</p>
+              </div>
+
+              <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <code className="font-mono font-bold text-foreground">ulw</code>
+                  <span className="text-sm text-muted-foreground ml-1">(UltraWork)</span>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  플랜을 승인한 뒤, 서로 독립적인 작업들을 동시에 병렬로 실행합니다.
+                  예를 들어 &quot;API 만들기 + 테스트 작성 + 문서화&quot;를 동시에 진행합니다.
+                </p>
+                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">ulw API 구현 + 단위 테스트 + API 문서 병렬로 처리해줘</p>
+              </div>
+
+              <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <code className="font-mono font-bold text-foreground">/ask</code>
+                  <span className="text-sm text-muted-foreground ml-1">(전문가 질문)</span>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  플래닝 중에 도메인 지식이 필요할 때, 16명의 비즈니스 전문가에게 바로 물어봅니다.
+                  법률, 재무, 마케팅, HR 등 해당 분야 전문가가 답합니다.
+                </p>
+                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">/ask 프리랜서 계약 시 필수 포함 조항이 뭐야?</p>
+              </div>
+
+              <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <code className="font-mono font-bold text-foreground">/humanizer</code>
+                  <span className="text-sm text-muted-foreground ml-1">(AI 느낌 제거)</span>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Claude가 만든 글이 AI스러울 때, 자연스러운 문체로 다듬어줍니다.
+                  아티클, 이메일, 보고서 등 대외용 텍스트에 특히 유용합니다.
+                </p>
+                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">/humanizer 이 이메일 AI 느낌 빼고 자연스럽게 다듬어줘</p>
+              </div>
+            </div>
+
+            <div className="mt-4 rounded-lg border border-border bg-muted/10 px-4 py-3">
+              <p className="text-sm font-bold text-foreground mb-1">실전 조합 예시</p>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Plan 모드 진입 → <code className="font-mono text-foreground/80">ultrathink 뉴스레터 자동화 시스템 설계해줘</code>
+                → 플랜 확인·승인 → <code className="font-mono text-foreground/80">ulw</code>로 병렬 구현
+                → 결과물에 <code className="font-mono text-foreground/80">/humanizer</code> 적용
+                → 모르는 건 <code className="font-mono text-foreground/80">/ask</code>로 물어보기
+              </p>
             </div>
           </div>
         </section>
