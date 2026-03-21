@@ -30,22 +30,10 @@ interface Submission {
   edited: boolean;
 }
 
-const SETUP_PROMPT = `아래 도구와 스킬을 순서대로 전부 글로벌(~/.claude/)에 설치해줘.
+const SETUP_PROMPT = `아래 스킬과 MCP 서버를 전부 글로벌(~/.claude/)에 설치해줘.
 모든 프로젝트에서 사용할 수 있도록 글로벌 설치해야 합니다.
 
-## 1. oh-my-hwclaude
-- GitHub: https://github.com/hyungwoon/oh-my-hwclaude
-- 파일 편집 정확도를 10배 높여주는 코딩 하네스
-- git clone https://github.com/hyungwoon/oh-my-hwclaude.git ~/.claude/oh-my-hwclaude
-- cd ~/.claude/oh-my-hwclaude && ./install.sh
-
-## 2. business-ai-team
-- GitHub: https://github.com/hyungwoon/business-ai-team
-- 마케팅·영업·법무·재무·HR 등 16명의 비즈니스 전문가 에이전트 팀
-- git clone https://github.com/hyungwoon/business-ai-team.git ~/.claude/business-ai-team
-- cd ~/.claude/business-ai-team && ./install.sh
-
-## 3. 필수 스킬 (글로벌 설치)
+## 1. 필수 스킬 (글로벌 설치)
 다음 스킬들을 글로벌로 설치해줘:
 
 워크플로우 스킬:
@@ -77,7 +65,7 @@ const SETUP_PROMPT = `아래 도구와 스킬을 순서대로 전부 글로벌(~
 지식·학습 스킬:
 - obsidian-skills — Obsidian CEO가 만든 스킬. 자동 태깅, 자동 링킹 (https://github.com/kepano/obsidian-skills)
 
-## 4. MCP 서버 설치 (글로벌)
+## 2. MCP 서버 설치 (글로벌)
 다음 MCP 서버들도 글로벌로 설치해줘:
 - Context7 — 최신 라이브러리 문서를 LLM 컨텍스트에 주입, 할루시네이션 방지 (https://github.com/upstash/context7)
 - Tavily — AI 에이전트용 검색 엔진. 구조화된 데이터 반환 (https://github.com/tavily-ai/tavily-mcp)
@@ -257,29 +245,48 @@ export default function Week1Page() {
           </div>
         </section>
 
-        {/* Step 2: OMC 설치 */}
+        {/* Step 2: 도구 설치 */}
         <section className="mb-10">
-          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 2. OMC(멀티 에이전트 오케스트레이션)를 설치하세요</h2>
-          <p className="text-sm text-muted-foreground mb-3">
-            Claude Code 입력창에 아래 명령어를 <span className="text-foreground font-semibold">하나씩 직접 입력</span>하세요.
-            OMC는 슬래시 커맨드로만 설치할 수 있어서, 프롬프트에 포함할 수 없습니다.
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 2. 도구 3개를 설치하세요</h2>
+          <p className="text-sm text-muted-foreground mb-4">
+            Claude Code 입력창에 아래 명령어를 <span className="text-foreground font-semibold">순서대로 하나씩 입력</span>하세요.
+            각 명령어를 입력하고 Enter를 누르면 됩니다.
           </p>
-          <div className="space-y-2">
-            <div className="rounded-xl border border-border bg-card px-4 py-3">
-              <p className="text-xs text-muted-foreground/50 mb-1">1. 마켓플레이스 등록</p>
-              <code className="font-mono text-sm text-foreground">/plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode</code>
-            </div>
-            <div className="rounded-xl border border-border bg-card px-4 py-3">
-              <p className="text-xs text-muted-foreground/50 mb-1">2. 플러그인 설치</p>
-              <code className="font-mono text-sm text-foreground">/plugin install oh-my-claudecode</code>
+
+          {/* 2-1: OMC */}
+          <div className="mb-4">
+            <p className="text-sm font-bold text-foreground mb-2">2-1. OMC (멀티 에이전트 오케스트레이션)</p>
+            <p className="text-sm text-muted-foreground mb-2">
+              여러 AI 에이전트를 동시에 조율하는 레이어. <code className="font-mono text-foreground/80">ultrathink</code>, <code className="font-mono text-foreground/80">ulw</code> 같은 명령어가 활성화됩니다.
+            </p>
+            <div className="space-y-2">
+              <div className="rounded-xl border border-border bg-card px-4 py-3">
+                <p className="text-xs text-muted-foreground/50 mb-1">마켓플레이스 등록</p>
+                <code className="font-mono text-sm text-foreground">/plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode</code>
+              </div>
+              <div className="rounded-xl border border-border bg-card px-4 py-3">
+                <p className="text-xs text-muted-foreground/50 mb-1">플러그인 설치</p>
+                <code className="font-mono text-sm text-foreground">/plugin install oh-my-claudecode</code>
+              </div>
             </div>
           </div>
-          <div className="rounded-xl border border-border bg-card px-4 py-3 mt-3 space-y-2">
-            <p className="text-sm font-bold text-foreground">OMC란?</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              여러 AI 에이전트를 동시에 조율하는 오케스트레이션 레이어입니다.
-              <code className="font-mono text-foreground/80">ultrathink</code>(깊은 추론), <code className="font-mono text-foreground/80">ulw</code>(병렬 실행) 같은 강력한 명령어를 사용할 수 있게 됩니다.
-            </p>
+
+          {/* 2-2: oh-my-hwclaude */}
+          <div className="mb-4">
+            <p className="text-sm font-bold text-foreground mb-2">2-2. oh-my-hwclaude (파일 편집 하네스)</p>
+            <p className="text-sm text-muted-foreground mb-2">파일 편집 정확도를 10배 높여주는 코딩 하네스. 아래를 Claude Code에 그대로 입력하세요.</p>
+            <div className="rounded-xl border border-border bg-card px-4 py-3">
+              <code className="font-mono text-sm text-foreground whitespace-pre-wrap">git clone https://github.com/hyungwoon/oh-my-hwclaude.git ~/.claude/oh-my-hwclaude && cd ~/.claude/oh-my-hwclaude && ./install.sh</code>
+            </div>
+          </div>
+
+          {/* 2-3: business-ai-team */}
+          <div>
+            <p className="text-sm font-bold text-foreground mb-2">2-3. business-ai-team (비즈니스 전문가 팀)</p>
+            <p className="text-sm text-muted-foreground mb-2">마케팅·영업·법무·재무·HR 등 16명의 비즈니스 전문가 에이전트 팀.</p>
+            <div className="rounded-xl border border-border bg-card px-4 py-3">
+              <code className="font-mono text-sm text-foreground whitespace-pre-wrap">git clone https://github.com/hyungwoon/business-ai-team.git ~/.claude/business-ai-team && cd ~/.claude/business-ai-team && ./install.sh</code>
+            </div>
           </div>
         </section>
 
@@ -313,21 +320,66 @@ export default function Week1Page() {
           <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 4. OMC 초기 설정을 실행하세요</h2>
           <p className="text-sm text-muted-foreground mb-3">
             Step 3이 끝나면 <span className="text-foreground font-semibold">새 세션을 열고</span> 아래 명령어를 입력하세요.
-            OMC가 HUD(상태 표시줄), 에이전트 팀, 실행 모드를 자동으로 설정하는 마법사를 실행합니다.
+            셋업 마법사가 여러 질문을 하는데, 아래 표를 보고 답하면 됩니다.
           </p>
-          <code className="block rounded-xl border border-border bg-card px-4 py-3 font-mono text-sm">
+          <code className="block rounded-xl border border-border bg-card px-4 py-3 font-mono text-sm mb-4">
             /oh-my-claudecode:omc-setup --global
           </code>
-          <div className="rounded-xl border border-border bg-card px-4 py-3 mt-3 space-y-2">
-            <p className="text-sm font-bold text-foreground">셋업 마법사에서 질문이 나오면?</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              기본 추천값을 선택하면 됩니다.
-            </p>
-            <div className="flex flex-wrap gap-2 mt-1">
-              <span className="rounded-md border border-border bg-muted/30 px-2.5 py-1 text-xs font-mono text-muted-foreground">실행 모드 → ultrawork</span>
-              <span className="rounded-md border border-border bg-muted/30 px-2.5 py-1 text-xs font-mono text-muted-foreground">에이전트 수 → 3개</span>
-              <span className="rounded-md border border-border bg-muted/30 px-2.5 py-1 text-xs font-mono text-muted-foreground">에이전트 타입 → executor</span>
+
+          <div className="rounded-xl border border-border bg-card px-4 py-4 space-y-3">
+            <p className="text-sm font-bold text-foreground">셋업 마법사 질문별 답변 가이드</p>
+            <div className="space-y-2">
+              <div className="flex items-start gap-3 rounded-lg border border-border bg-muted/10 px-3 py-2.5">
+                <span className="text-sm text-muted-foreground shrink-0 w-44">실행 모드 (execution mode)</span>
+                <span className="text-sm font-mono font-bold text-foreground">ultrawork</span>
+              </div>
+              <div className="flex items-start gap-3 rounded-lg border border-border bg-muted/10 px-3 py-2.5">
+                <span className="text-sm text-muted-foreground shrink-0 w-44">OMC CLI 글로벌 설치</span>
+                <span className="text-sm font-mono font-bold text-foreground">Yes</span>
+              </div>
+              <div className="flex items-start gap-3 rounded-lg border border-border bg-muted/10 px-3 py-2.5">
+                <span className="text-sm text-muted-foreground shrink-0 w-44">태스크 관리 도구</span>
+                <span className="text-sm font-mono font-bold text-foreground">Built-in Tasks</span>
+              </div>
+              <div className="rounded-lg border border-border bg-muted/10 px-3 py-2.5 space-y-1">
+                <div className="flex items-start gap-3">
+                  <span className="text-sm text-muted-foreground shrink-0 w-44">MCP 서버 설정</span>
+                  <span className="text-sm font-mono font-bold text-foreground">No / Skip</span>
+                </div>
+                <p className="text-xs text-muted-foreground/50 pl-[11.5rem]">
+                  &quot;Configure MCP servers?&quot; 또는 MCP 관련 질문이 나오면 전부 Skip하세요.
+                  Context7과 Tavily는 Step 3에서 이미 설치됩니다.
+                  MCP는 Claude Code에 외부 도구를 연결하는 방식인데, 지금은 신경 안 써도 됩니다.
+                </p>
+              </div>
+              <div className="flex items-start gap-3 rounded-lg border border-border bg-muted/10 px-3 py-2.5">
+                <span className="text-sm text-muted-foreground shrink-0 w-44">에이전트 팀 활성화</span>
+                <span className="text-sm font-mono font-bold text-foreground">Yes</span>
+              </div>
+              <div className="flex items-start gap-3 rounded-lg border border-border bg-muted/10 px-3 py-2.5">
+                <span className="text-sm text-muted-foreground shrink-0 w-44">팀원 표시 모드</span>
+                <span className="text-sm font-mono font-bold text-foreground">Auto</span>
+              </div>
+              <div className="flex items-start gap-3 rounded-lg border border-border bg-muted/10 px-3 py-2.5">
+                <span className="text-sm text-muted-foreground shrink-0 w-44">에이전트 수</span>
+                <span className="text-sm font-mono font-bold text-foreground">5개</span>
+              </div>
+              <div className="flex items-start gap-3 rounded-lg border border-border bg-muted/10 px-3 py-2.5">
+                <span className="text-sm text-muted-foreground shrink-0 w-44">기본 에이전트 타입</span>
+                <span className="text-sm font-mono font-bold text-foreground">executor</span>
+              </div>
+              <div className="flex items-start gap-3 rounded-lg border border-border bg-muted/10 px-3 py-2.5">
+                <span className="text-sm text-muted-foreground shrink-0 w-44">규칙 템플릿 복사</span>
+                <span className="text-sm font-mono font-bold text-foreground">Yes</span>
+              </div>
+              <div className="flex items-start gap-3 rounded-lg border border-border bg-muted/10 px-3 py-2.5">
+                <span className="text-sm text-muted-foreground shrink-0 w-44">GitHub 스타</span>
+                <span className="text-sm font-mono font-bold text-foreground">자유</span>
+              </div>
             </div>
+            <p className="text-xs text-muted-foreground/50 mt-2">
+              위 질문이 정확히 이 순서대로 나오지 않을 수 있습니다. 비슷한 질문이 나오면 위 답변을 참고하세요.
+            </p>
           </div>
         </section>
 
