@@ -1,6 +1,26 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useMemo } from "react";
+
+const DEADLINE = new Date("2026-03-27T21:00:00+09:00");
+
+function useCountdown() {
+  const [now, setNow] = useState(new Date());
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const diff = DEADLINE.getTime() - now.getTime();
+  const expired = diff <= 0;
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff % 86400000) / 3600000);
+  const minutes = Math.floor((diff % 3600000) / 60000);
+  const seconds = Math.floor((diff % 60000) / 1000);
+  const urgency = days <= 1 ? "critical" : days <= 3 ? "warn" : "normal";
+
+  return { days, hours, minutes, seconds, expired, urgency };
+}
 
 interface Submission {
   ts: string;
@@ -68,6 +88,51 @@ const assignments = [
   { name: "장윤주", task: "PDF를 온톨로지화", format: "5분 스피치" },
   { name: "이용진", task: "케로셀 학습 → 디자인 스킬 만들기 (디자인 시스템화 고도화)", format: "5분 스피치" },
 ];
+
+function CountdownTimer() {
+  const { days, hours, minutes, seconds, expired, urgency } = useCountdown();
+
+  if (expired) {
+    return (
+      <div className="rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-4 text-center">
+        <p className="text-lg font-bold text-red-400">제출 마감</p>
+        <p className="text-sm text-red-400/60">제출 기한이 종료되었습니다</p>
+      </div>
+    );
+  }
+
+  const borderColor = urgency === "critical" ? "border-red-500/40" : urgency === "warn" ? "border-amber-500/40" : "border-border";
+  const bgColor = urgency === "critical" ? "bg-red-500/5" : urgency === "warn" ? "bg-amber-500/5" : "bg-card";
+  const numColor = urgency === "critical" ? "text-red-400" : urgency === "warn" ? "text-amber-400" : "text-foreground";
+  const labelColor = urgency === "critical" ? "text-red-400/60" : urgency === "warn" ? "text-amber-400/60" : "text-muted-foreground/50";
+
+  return (
+    <div className={`rounded-xl border ${borderColor} ${bgColor} px-4 py-4`}>
+      <p className={`text-xs font-bold uppercase tracking-widest mb-3 text-center ${labelColor}`}>
+        제출 마감까지
+      </p>
+      <div className="flex items-center justify-center gap-3">
+        {[
+          { value: days, label: "일" },
+          { value: hours, label: "시간" },
+          { value: minutes, label: "분" },
+          { value: seconds, label: "초" },
+        ].map((unit, i) => (
+          <div key={unit.label} className="flex items-center gap-3">
+            <div className="text-center min-w-[48px]">
+              <p className={`text-2xl sm:text-3xl font-black font-mono tabular-nums ${numColor} ${urgency === "critical" ? "animate-pulse" : ""}`}>
+                {String(unit.value).padStart(2, "0")}
+              </p>
+              <p className={`text-[10px] ${labelColor}`}>{unit.label}</p>
+            </div>
+            {i < 3 && <span className={`text-xl font-bold ${labelColor}`}>:</span>}
+          </div>
+        ))}
+      </div>
+      <p className="text-xs text-muted-foreground/40 text-center mt-2">3월 27일 (금) 21:00 마감</p>
+    </div>
+  );
+}
 
 export default function Week1Page() {
   const [copied, setCopied] = useState(false);
@@ -330,7 +395,10 @@ export default function Week1Page() {
         {/* 과제 제출 */}
         <section className="mb-10 mt-16">
           <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">과제 제출</h2>
-          <p className="text-sm text-muted-foreground mb-4">
+
+          <CountdownTimer />
+
+          <p className="text-sm text-muted-foreground mb-4 mt-4">
             이름을 선택하고 과제 내용을 작성한 뒤 제출하세요. 제출하면 Slack 채널에 자동으로 공유됩니다.
           </p>
           <div className="rounded-xl border border-border bg-card px-4 py-4 space-y-3">
