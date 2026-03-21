@@ -43,17 +43,17 @@ const SETUP_PROMPT = `아래 도구와 스킬을 순서대로 전부 글로벌(~
 전부 끝나면 설치된 목록 보여줘.`;
 
 const commands = [
-  { cmd: "ultrathink", desc: "깊은 추론 — 복잡한 설계·디버깅에 효과적", ex: "ultrathink 로그인 기능 설계해줘" },
-  { cmd: "ulw", desc: "최대 병렬 실행 — 독립 작업 2개 이상 동시 처리", ex: "ulw README + 테스트 + CI 병렬로" },
-  { cmd: "/superpowers", desc: "스킬 자동 탐색 — 요청에 맞는 스킬을 찾아서 적용", ex: "/superpowers 이 코드 리팩토링해줘" },
-  { cmd: "/ask", desc: "비즈니스 전문가에게 질문", ex: "/ask 경쟁사 마케팅 전략 분석해줘" },
-  { cmd: "/route", desc: "요청을 적합한 전문가에게 자동 라우팅", ex: "/route 다음 분기 OKR 수립" },
+  { cmd: "ultrathink", desc: "깊은 추론 — 복잡한 설계·분석에 효과적", ex: "ultrathink 하네스란 무엇이고 왜 필요한지 5분 스피치 원고 만들어줘" },
+  { cmd: "ulw", desc: "최대 병렬 실행 — 독립 작업 2개 이상 동시 처리", ex: "ulw RLVR 개념 정리 + RLHF와 차이점 비교 + 5분 스피치 원고 병렬로" },
+  { cmd: "/superpowers", desc: "스킬 자동 탐색 — 요청에 맞는 스킬을 찾아서 적용", ex: "/superpowers 내 업무의 암묵지와 명시지를 구분해서 정리해줘" },
+  { cmd: "/ask", desc: "비즈니스 전문가에게 질문", ex: "/ask 온톨로지를 처음 만들 때 어떤 구조로 시작하면 좋아?" },
+  { cmd: "/route", desc: "요청을 적합한 전문가에게 자동 라우팅", ex: "/route 오늘 강의 핵심 내용을 5분 요약 아티클로 정리해줘" },
   { cmd: "/team", desc: "전문가 팀 목록 확인", ex: "/team" },
 ];
 
 const planSteps = [
   { step: "1. Plan 모드 진입", detail: "프롬프트에 /plan 입력 또는 Shift+Tab으로 전환" },
-  { step: "2. ultrathink와 함께 요구사항을 전달하세요", detail: "ultrathink [만들고 싶은 것의 요구사항을 구체적으로 작성] — 요구사항이 구체적일수록 플랜 품질이 올라갑니다" },
+  { step: "2. ultrathink와 함께 요구사항을 전달하세요", detail: "예: ultrathink PDF 문서를 온톨로지 형태로 변환하는 방법을 설계해줘 — 요구사항이 구체적일수록 플랜 품질이 올라갑니다" },
   { step: "3. 플랜 확인", detail: "Claude가 단계별 계획을 출력 → 방향이 맞는지 검토" },
   { step: "4. 승인 후 실행", detail: "플랜이 맞으면 승인 → Claude가 계획대로 구현 시작" },
 ];
@@ -227,7 +227,7 @@ export default function Week1Page() {
                   Plan 모드에서 <code className="font-mono text-foreground/80">ultrathink</code>를 프롬프트에 넣으면,
                   Claude가 실행하기 전에 훨씬 깊이 추론합니다. 복잡한 설계일수록 효과가 큽니다.
                 </p>
-                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">ultrathink 회원 등급별 할인 시스템 설계해줘</p>
+                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">ultrathink 하네스의 개념과 구성 요소를 정리하고 5분 스피치 원고를 만들어줘</p>
               </div>
 
               <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
@@ -240,7 +240,7 @@ export default function Week1Page() {
                   설치된 스킬 중 요청에 맞는 것을 자동으로 찾아서 플랜에 반영합니다.
                   어떤 스킬을 써야 할지 몰라도 됩니다. Claude가 알아서 고릅니다.
                 </p>
-                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">/superpowers 온보딩 이메일 시퀀스 설계해줘</p>
+                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">/superpowers 내 업무에서 암묵지와 명시지를 구분해서 표로 정리해줘</p>
               </div>
 
               <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
@@ -252,7 +252,7 @@ export default function Week1Page() {
                   플랜을 승인한 뒤, 서로 독립적인 작업들을 동시에 병렬로 실행합니다.
                   예를 들어 &quot;API 만들기 + 테스트 작성 + 문서화&quot;를 동시에 진행합니다.
                 </p>
-                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">ulw API 구현 + 단위 테스트 + API 문서 병렬로 처리해줘</p>
+                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">ulw RLVR 개념 정리 + RLHF와 비교표 + 5분 스피치 원고 병렬로 만들어줘</p>
               </div>
 
               <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
@@ -264,7 +264,7 @@ export default function Week1Page() {
                   플래닝 중에 도메인 지식이 필요할 때, 16명의 비즈니스 전문가에게 바로 물어봅니다.
                   법률, 재무, 마케팅, HR 등 해당 분야 전문가가 답합니다.
                 </p>
-                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">/ask 프리랜서 계약 시 필수 포함 조항이 뭐야?</p>
+                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">/ask 온톨로지를 처음 만들 때 개체-관계-속성-규칙을 어떻게 정의하면 좋아?</p>
               </div>
 
               <div className="rounded-lg border border-border bg-muted/20 px-4 py-3">
@@ -276,16 +276,16 @@ export default function Week1Page() {
                   Claude가 만든 글이 AI스러울 때, 자연스러운 문체로 다듬어줍니다.
                   아티클, 이메일, 보고서 등 대외용 텍스트에 특히 유용합니다.
                 </p>
-                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">/humanizer 이 이메일 AI 느낌 빼고 자연스럽게 다듬어줘</p>
+                <p className="text-sm text-muted-foreground/50 font-mono mt-1.5">/humanizer 이 스피치 원고 AI 느낌 빼고 자연스럽게 다듬어줘</p>
               </div>
             </div>
 
             <div className="mt-4 rounded-lg border border-border bg-muted/10 px-4 py-3">
               <p className="text-sm font-bold text-foreground mb-1">실전 조합 예시</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Plan 모드 진입 → <code className="font-mono text-foreground/80">ultrathink 뉴스레터 자동화 시스템 설계해줘</code>
-                → 플랜 확인·승인 → <code className="font-mono text-foreground/80">ulw</code>로 병렬 구현
-                → 결과물에 <code className="font-mono text-foreground/80">/humanizer</code> 적용
+                Plan 모드 진입 → <code className="font-mono text-foreground/80">ultrathink 이 PDF를 온톨로지로 변환하는 방법 설계해줘</code>
+                → 플랜 확인·승인 → <code className="font-mono text-foreground/80">ulw</code>로 개체 추출 + 관계 정의 + 규칙 정리 병렬 실행
+                → 결과물에 <code className="font-mono text-foreground/80">/humanizer</code>로 자연스러운 스피치 원고로 다듬기
                 → 모르는 건 <code className="font-mono text-foreground/80">/ask</code>로 물어보기
               </p>
             </div>
