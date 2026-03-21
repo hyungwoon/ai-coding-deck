@@ -33,24 +33,19 @@ interface Submission {
 const SETUP_PROMPT = `아래 도구와 스킬을 순서대로 전부 글로벌(~/.claude/)에 설치해줘.
 모든 프로젝트에서 사용할 수 있도록 글로벌 설치해야 합니다.
 
-## 1. oh-my-claudecode (OMC)
-- GitHub: https://github.com/Yeachan-Heo/oh-my-claudecode
-- 멀티 에이전트 오케스트레이션 — 여러 AI 에이전트를 동시에 조율하는 레이어
-- /install-github Yeachan-Heo/oh-my-claudecode 로 글로벌 설치
-
-## 2. oh-my-hwclaude
+## 1. oh-my-hwclaude
 - GitHub: https://github.com/hyungwoon/oh-my-hwclaude
 - 파일 편집 정확도를 10배 높여주는 코딩 하네스
 - git clone https://github.com/hyungwoon/oh-my-hwclaude.git ~/.claude/oh-my-hwclaude
 - cd ~/.claude/oh-my-hwclaude && ./install.sh
 
-## 3. business-ai-team
+## 2. business-ai-team
 - GitHub: https://github.com/hyungwoon/business-ai-team
 - 마케팅·영업·법무·재무·HR 등 16명의 비즈니스 전문가 에이전트 팀
 - git clone https://github.com/hyungwoon/business-ai-team.git ~/.claude/business-ai-team
 - cd ~/.claude/business-ai-team && ./install.sh
 
-## 4. 필수 스킬 (글로벌 설치)
+## 3. 필수 스킬 (글로벌 설치)
 다음 스킬들을 글로벌로 설치해줘:
 
 워크플로우 스킬:
@@ -82,7 +77,7 @@ const SETUP_PROMPT = `아래 도구와 스킬을 순서대로 전부 글로벌(~
 지식·학습 스킬:
 - obsidian-skills — Obsidian CEO가 만든 스킬. 자동 태깅, 자동 링킹 (https://github.com/kepano/obsidian-skills)
 
-## 5. MCP 서버 설치 (글로벌)
+## 4. MCP 서버 설치 (글로벌)
 다음 MCP 서버들도 글로벌로 설치해줘:
 - Context7 — 최신 라이브러리 문서를 LLM 컨텍스트에 주입, 할루시네이션 방지 (https://github.com/upstash/context7)
 - Tavily — AI 에이전트용 검색 엔진. 구조화된 데이터 반환 (https://github.com/tavily-ai/tavily-mcp)
@@ -262,13 +257,39 @@ export default function Week1Page() {
           </div>
         </section>
 
-        {/* Step 2 */}
+        {/* Step 2: OMC 설치 */}
         <section className="mb-10">
-          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 2. 아래 프롬프트를 Claude Code에 그대로 붙여넣으세요</h2>
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 2. OMC(멀티 에이전트 오케스트레이션)를 설치하세요</h2>
+          <p className="text-sm text-muted-foreground mb-3">
+            Claude Code 입력창에 아래 명령어를 <span className="text-foreground font-semibold">하나씩 직접 입력</span>하세요.
+            OMC는 슬래시 커맨드로만 설치할 수 있어서, 프롬프트에 포함할 수 없습니다.
+          </p>
+          <div className="space-y-2">
+            <div className="rounded-xl border border-border bg-card px-4 py-3">
+              <p className="text-xs text-muted-foreground/50 mb-1">1. 마켓플레이스 등록</p>
+              <code className="font-mono text-sm text-foreground">/plugin marketplace add https://github.com/Yeachan-Heo/oh-my-claudecode</code>
+            </div>
+            <div className="rounded-xl border border-border bg-card px-4 py-3">
+              <p className="text-xs text-muted-foreground/50 mb-1">2. 플러그인 설치</p>
+              <code className="font-mono text-sm text-foreground">/plugin install oh-my-claudecode</code>
+            </div>
+          </div>
+          <div className="rounded-xl border border-border bg-card px-4 py-3 mt-3 space-y-2">
+            <p className="text-sm font-bold text-foreground">OMC란?</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              여러 AI 에이전트를 동시에 조율하는 오케스트레이션 레이어입니다.
+              <code className="font-mono text-foreground/80">ultrathink</code>(깊은 추론), <code className="font-mono text-foreground/80">ulw</code>(병렬 실행) 같은 강력한 명령어를 사용할 수 있게 됩니다.
+            </p>
+          </div>
+        </section>
+
+        {/* Step 3: 프롬프트 붙여넣기 */}
+        <section className="mb-10">
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 3. 아래 프롬프트를 Claude Code에 그대로 붙여넣으세요</h2>
           <p className="text-sm text-muted-foreground mb-3">
             오른쪽 Copy 버튼을 누르면 프롬프트가 클립보드에 복사됩니다.
-            Step 1에서 열린 Claude Code 화면에 붙여넣고 Enter를 누르세요.
-            Claude가 알아서 도구 3개 + 스킬 7개를 전부 설치합니다. 완료까지 몇 분 걸릴 수 있습니다.
+            Claude Code 화면에 붙여넣고 Enter를 누르세요.
+            Claude가 알아서 도구 2개 + 스킬 18개 + MCP 서버 2개를 전부 설치합니다. 완료까지 몇 분 걸릴 수 있습니다.
           </p>
           <div className="flex items-center justify-end mb-2">
             <button
@@ -287,9 +308,32 @@ export default function Week1Page() {
           </div>
         </section>
 
-        {/* Step 3: Planning */}
+        {/* Step 4: OMC 셋업 */}
         <section className="mb-10">
-          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 3. 무언가를 만들고 싶다면 Plan 모드를 먼저 켜세요</h2>
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 4. OMC 초기 설정을 실행하세요</h2>
+          <p className="text-sm text-muted-foreground mb-3">
+            Step 3이 끝나면 <span className="text-foreground font-semibold">새 세션을 열고</span> 아래 명령어를 입력하세요.
+            OMC가 HUD(상태 표시줄), 에이전트 팀, 실행 모드를 자동으로 설정하는 마법사를 실행합니다.
+          </p>
+          <code className="block rounded-xl border border-border bg-card px-4 py-3 font-mono text-sm">
+            /oh-my-claudecode:omc-setup --global
+          </code>
+          <div className="rounded-xl border border-border bg-card px-4 py-3 mt-3 space-y-2">
+            <p className="text-sm font-bold text-foreground">셋업 마법사에서 질문이 나오면?</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              기본 추천값을 선택하면 됩니다.
+            </p>
+            <div className="flex flex-wrap gap-2 mt-1">
+              <span className="rounded-md border border-border bg-muted/30 px-2.5 py-1 text-xs font-mono text-muted-foreground">실행 모드 → ultrawork</span>
+              <span className="rounded-md border border-border bg-muted/30 px-2.5 py-1 text-xs font-mono text-muted-foreground">에이전트 수 → 3개</span>
+              <span className="rounded-md border border-border bg-muted/30 px-2.5 py-1 text-xs font-mono text-muted-foreground">에이전트 타입 → executor</span>
+            </div>
+          </div>
+        </section>
+
+        {/* Step 5: Planning */}
+        <section className="mb-10">
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 5. 무언가를 만들고 싶다면 Plan 모드를 먼저 켜세요</h2>
           <p className="text-sm text-muted-foreground mb-4">
             바이브 코딩의 핵심은 <span className="text-foreground font-semibold">플래닝이 90%</span>입니다.
             &quot;바로 만들어줘&quot;가 아니라, 먼저 계획을 세우고 확인한 다음에 실행하세요.
@@ -396,9 +440,9 @@ export default function Week1Page() {
           </div>
         </section>
 
-        {/* Step 4 */}
+        {/* Step 6 */}
         <section>
-          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 4. 개인별 과제</h2>
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 6. 개인별 과제</h2>
           <p className="text-sm text-muted-foreground mb-3">
             위에서 세팅한 환경을 활용해서 아래 과제를 수행하세요. 과제 수행 자체를 Claude Code와 함께 하시면 됩니다.
           </p>
