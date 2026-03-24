@@ -28,6 +28,8 @@ import { S19Rag } from "./S19Rag";
 import { S20Obsidian } from "./S20Obsidian";
 import { S21OntologyPractice } from "./S21OntologyPractice";
 import { S22RlhfRlvr } from "./S22RlhfRlvr";
+import { S22bEvalWhat } from "./S22bEvalWhat";
+import { S22cEvalDriven } from "./S22cEvalDriven";
 import { S23ContextMoat } from "./S23ContextMoat";
 import { S24MoatDiagram } from "./S24MoatDiagram";
 import { S25MoatExperts } from "./S25MoatExperts";
@@ -67,7 +69,7 @@ const sceneMap: Record<string, React.FC> = {};
 const slideIds = [
   "s00", "s01", "s02", "s03", "s03b", "s04", "s05", "s05b", "s05c", "s06", "s07", "s07r",
   "s08", "s09", "s10", "s11", "s12", "s12b", "s12c", "s13", "s14", "s15", "s15r",
-  "s16", "s17", "s18", "s18b", "s18c", "s19", "s20", "s21", "s21b", "s22", "s23", "s23r",
+  "s16", "s17", "s18", "s18b", "s18c", "s19", "s20", "s21", "s21b", "s22", "s22b", "s22c", "s23", "s23r",
   "s24", "s25", "s26", "s27", "s28", "s29", "s30", "s31", "s32",
 ];
 
@@ -95,6 +97,8 @@ const slideTitles: Record<string, string> = {
   s20: "Obsidian",
   s21: "온톨로지 실전",
   s22: "RLHF → RLVR",
+  s22b: "Eval — AI 평가",
+  s22c: "Eval-Driven Development",
   s23: "컨텍스트 축적",
   s24: "해자",
   s25: "전문가 시각",
@@ -146,6 +150,8 @@ sceneMap["s19"] = S19Rag;
 sceneMap["s20"] = S20Obsidian;
 sceneMap["s21"] = S21OntologyPractice;
 sceneMap["s22"] = S22RlhfRlvr;
+sceneMap["s22b"] = S22bEvalWhat;
+sceneMap["s22c"] = S22cEvalDriven;
 sceneMap["s23"] = S23ContextMoat;
 sceneMap["s24"] = S24MoatDiagram;
 sceneMap["s25"] = S25MoatExperts;

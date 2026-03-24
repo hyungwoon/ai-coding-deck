@@ -24,6 +24,8 @@ import { S19Rag } from "./S19Rag";
 import { S20Obsidian } from "./S20Obsidian";
 import { S21OntologyPractice } from "./S21OntologyPractice";
 import { S22RlhfRlvr } from "./S22RlhfRlvr";
+import { S22bEvalWhat } from "./S22bEvalWhat";
+import { S22cEvalDriven } from "./S22cEvalDriven";
 import { S23ContextMoat } from "./S23ContextMoat";
 
 // Generic slide renderer — reads title from manifest and shows centered text
@@ -55,7 +57,7 @@ const sceneMap: Record<string, React.FC> = {};
 const slideIds = [
   "s00", "s01", "s02", "s03", "s04", "s05", "s06", "s07",
   "s08", "s09", "s10", "s11", "s12", "s13", "s14", "s15",
-  "s16", "s17", "s18", "s19", "s20", "s21", "s22", "s23",
+  "s16", "s17", "s18", "s19", "s20", "s21", "s22", "s22b", "s22c", "s23",
   "s24", "s25", "s26", "s27", "s28", "s29", "s30", "s31",
 ];
 
@@ -83,6 +85,8 @@ const slideTitles: Record<string, string> = {
   s20: "Obsidian",
   s21: "온톨로지 실전",
   s22: "RLHF → RLVR",
+  s22b: "Eval — AI 평가",
+  s22c: "Eval-Driven Development",
   s23: "컨텍스트 축적",
   s24: "해자",
   s25: "전문가 시각",
@@ -118,6 +122,8 @@ sceneMap["s19"] = S19Rag;
 sceneMap["s20"] = S20Obsidian;
 sceneMap["s21"] = S21OntologyPractice;
 sceneMap["s22"] = S22RlhfRlvr;
+sceneMap["s22b"] = S22bEvalWhat;
+sceneMap["s22c"] = S22cEvalDriven;
 sceneMap["s23"] = S23ContextMoat;
 
 for (const id of slideIds) {
