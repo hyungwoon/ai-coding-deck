@@ -3459,6 +3459,289 @@
       "title": "RLHF → RLVR"
     },
     {
+      "slideId": "s22b",
+      "audioFile": "audio/s22b.mp3",
+      "durationSec": 63.7,
+      "durationFrames": 1912,
+      "cues": [
+        {
+          "text": "지금까지 RLHF에서 RLVR로의 진화를 살펴봤습니다.",
+          "startFrame": 3,
+          "endFrame": 159
+        },
+        {
+          "text": "그런데 RLVR의 V, 즉 Verifiable이 어떻게 가능한 건지 궁금하지 않으셨나요?",
+          "startFrame": 158,
+          "endFrame": 361
+        },
+        {
+          "text": "그 답이 바로 Eval입니다.",
+          "startFrame": 361,
+          "endFrame": 439
+        },
+        {
+          "text": "Eval은 AI의 시험지입니다.",
+          "startFrame": 439,
+          "endFrame": 528
+        },
+        {
+          "text": "AI가 만든 결과물이 얼마나 좋은지를 체계적으로 측정하는 방법론이에요.",
+          "startFrame": 528,
+          "endFrame": 705
+        },
+        {
+          "text": "AI가 잘했다라는 말의 근거를 숫자로 보여주는 겁니다.",
+          "startFrame": 705,
+          "endFrame": 850
+        },
+        {
+          "text": "시험지 없이는 성적을 매길 수 없듯이, Eval 없이는 AI의 품질도 알 수 없습니다.",
+          "startFrame": 850,
+          "endFrame": 1056
+        },
+        {
+          "text": "Eval에는 세 가지 층위가 있습니다.",
+          "startFrame": 1056,
+          "endFrame": 1149
+        },
+        {
+          "text": "첫 번째는 모델 Eval입니다.",
+          "startFrame": 1149,
+          "endFrame": 1234
+        },
+        {
+          "text": "벤치마크라고도 하는데요, 모델 자체의 능력을 측정합니다.",
+          "startFrame": 1234,
+          "endFrame": 1384
+        },
+        {
+          "text": "MMLU는 지식과 추론을 종합적으로 시험하고, HumanEval은 코드 생성 능력을, SWE-bench는 실제 GitHub 이슈를 해결하는 능력을 측정합니다.",
+          "startFrame": 1384,
+          "endFrame": 1726
+        },
+        {
+          "text": "어떤 모델이 우리 업무에 적합한지 비교할 때 이 벤치마크를 봅니다.",
+          "startFrame": 1726,
+          "endFrame": 1888
+        },
+        {
+          "text": "두 번째는 태스크 Eval입니다.",
+          "startFrame": 1888,
+          "endFrame": 1979
+        },
+        {
+          "text": "같은 모델이라도 프롬프트를 어떻게 쓰느냐에 따라 결과가 완전히 달라지거든요.",
+          "startFrame": 1979,
+          "endFrame": 2173
+        },
+        {
+          "text": "프롬프트 A와 B 중 어떤 게 더 나은 결과를 내는지 비교합니다.",
+          "startFrame": 2173,
+          "endFrame": 2331
+        },
+        {
+          "text": "LLM-as-Judge라는 방식으로 AI가 AI를 평가하기도 해요.",
+          "startFrame": 2331,
+          "endFrame": 2492
+        },
+        {
+          "text": "정확도, 관련성, 안전성 같은 기준으로 점수를 매깁니다.",
+          "startFrame": 2492,
+          "endFrame": 2658
+        },
+        {
+          "text": "세 번째는 시스템 Eval입니다.",
+          "startFrame": 2658,
+          "endFrame": 2751
+        },
+        {
+          "text": "개별 컴포넌트는 잘 작동하는데 전체 파이프라인을 돌리면 실패하는 경우가 있거든요.",
+          "startFrame": 2751,
+          "endFrame": 2951
+        },
+        {
+          "text": "RAG의 검색 정확도, 에이전트의 태스크 완료율, 엔드투엔드 성공률 같은 것들을 측정합니다.",
+          "startFrame": 2951,
+          "endFrame": 3186
+        },
+        {
+          "text": "이 세 층위를 종합하면, RLVR이 왜 강력한지가 보입니다.",
+          "startFrame": 3186,
+          "endFrame": 3341
+        },
+        {
+          "text": "RLVR은 결국 Eval을 자동화한 학습입니다.",
+          "startFrame": 3341,
+          "endFrame": 3471
+        },
+        {
+          "text": "코드가 실행되는지, 수학 답이 맞는지, 이런 자동 평가가 AI의 초고속 자기개선을 가능하게 하는 겁니다.",
+          "startFrame": 3471,
+          "endFrame": 3725
+        },
+        {
+          "text": "Eval 없이는 RLVR도 없습니다.",
+          "startFrame": 3725,
+          "endFrame": 3823
+        }
+      ],
+      "title": "Eval — AI 평가"
+    },
+    {
+      "slideId": "s22c",
+      "audioFile": "audio/s22c.mp3",
+      "durationSec": 70.7,
+      "durationFrames": 2120,
+      "cues": [
+        {
+          "text": "Eval의 개념을 이해했으니, 이제 실전에서 어떻게 활용하는지 이야기해보겠습니다.",
+          "startFrame": 3,
+          "endFrame": 195
+        },
+        {
+          "text": "Eval-Driven Development, 줄여서 EDD라고 합니다.",
+          "startFrame": 193,
+          "endFrame": 329
+        },
+        {
+          "text": "소프트웨어 개발에 TDD라는 방법론이 있습니다.",
+          "startFrame": 329,
+          "endFrame": 452
+        },
+        {
+          "text": "테스트를 먼저 작성하고, 그 테스트를 통과하는 코드를 구현하는 방식이에요.",
+          "startFrame": 452,
+          "endFrame": 634
+        },
+        {
+          "text": "코드가 의도대로 동작하는지를 자동으로 확인할 수 있죠.",
+          "startFrame": 634,
+          "endFrame": 774
+        },
+        {
+          "text": "EDD는 이걸 AI 시대에 맞게 변환한 겁니다.",
+          "startFrame": 774,
+          "endFrame": 906
+        },
+        {
+          "text": "TDD에서는 테스트 케이스를 먼저 작성합니다.",
+          "startFrame": 906,
+          "endFrame": 1030
+        },
+        {
+          "text": "EDD에서는 Eval 데이터셋을 먼저 정의합니다.",
+          "startFrame": 1030,
+          "endFrame": 1155
+        },
+        {
+          "text": "기대하는 입력과 출력의 쌍을 만드는 거예요.",
+          "startFrame": 1155,
+          "endFrame": 1265
+        },
+        {
+          "text": "TDD에서 코드를 구현하듯이, EDD에서는 프롬프트와 에이전트를 구현합니다.",
+          "startFrame": 1265,
+          "endFrame": 1457
+        },
+        {
+          "text": "TDD에서 테스트 통과를 확인하듯이, EDD에서는 Eval 점수를 확인합니다.",
+          "startFrame": 1457,
+          "endFrame": 1634
+        },
+        {
+          "text": "그리고 TDD에서 리팩토링하듯이, EDD에서는 프롬프트를 최적화합니다.",
+          "startFrame": 1634,
+          "endFrame": 1815
+        },
+        {
+          "text": "파이프라인을 좀 더 구체적으로 보면, 먼저 골든 데이터셋을 준비합니다.",
+          "startFrame": 1815,
+          "endFrame": 1987
+        },
+        {
+          "text": "기대하는 입출력 쌍이에요.",
+          "startFrame": 1987,
+          "endFrame": 2066
+        },
+        {
+          "text": "그걸로 에이전트를 실행하고, 결과를 자동 채점합니다.",
+          "startFrame": 2066,
+          "endFrame": 2212
+        },
+        {
+          "text": "LLM-as-Judge가 여기서 쓰입니다.",
+          "startFrame": 2212,
+          "endFrame": 2307
+        },
+        {
+          "text": "변경 전후의 점수를 비교하고, 개선이 필요하면 프롬프트를 수정해서 다시 돌립니다.",
+          "startFrame": 2307,
+          "endFrame": 2509
+        },
+        {
+          "text": "이 사이클을 반복하는 겁니다.",
+          "startFrame": 2509,
+          "endFrame": 2596
+        },
+        {
+          "text": "EDD가 왜 중요한지 세 가지로 정리하겠습니다.",
+          "startFrame": 2596,
+          "endFrame": 2722
+        },
+        {
+          "text": "첫째, 재현 가능한 품질입니다.",
+          "startFrame": 2722,
+          "endFrame": 2828
+        },
+        {
+          "text": "느낌이 아니라 숫자로 품질을 관리합니다.",
+          "startFrame": 2828,
+          "endFrame": 2940
+        },
+        {
+          "text": "지난주보다 정확도가 12% 올랐다, 이런 대화가 가능해집니다.",
+          "startFrame": 2940,
+          "endFrame": 3112
+        },
+        {
+          "text": "둘째, 회귀 방지입니다.",
+          "startFrame": 3112,
+          "endFrame": 3200
+        },
+        {
+          "text": "프롬프트를 하나 수정했는데 다른 케이스가 깨지는 일이 있거든요.",
+          "startFrame": 3200,
+          "endFrame": 3354
+        },
+        {
+          "text": "CI/CD처럼 매 변경마다 Eval을 돌리면 이런 문제를 사전에 잡아냅니다.",
+          "startFrame": 3354,
+          "endFrame": 3540
+        },
+        {
+          "text": "셋째, 팀 스케일링입니다.",
+          "startFrame": 3540,
+          "endFrame": 3633
+        },
+        {
+          "text": "한 사람의 감에 의존하지 않고, Eval 기준을 팀 전체가 공유하면 누가 작업해도 일관된 품질을 유지할 수 있습니다.",
+          "startFrame": 3633,
+          "endFrame": 3888
+        },
+        {
+          "text": "Eval-Driven Development는 AI 시대의 TDD입니다.",
+          "startFrame": 3888,
+          "endFrame": 4024
+        },
+        {
+          "text": "AI를 만드는 사람뿐 아니라, AI를 잘 활용하려는 모든 사람에게 필요한 사고방식입니다.",
+          "startFrame": 4024,
+          "endFrame": 4238
+        }
+      ],
+      "title": "Eval-Driven Development"
+    },
+    {
       "audioFile": "audio/s23.mp3",
       "durationSec": 161.06,
       "durationFrames": 4847,
@@ -4815,5 +5098,5 @@
       "title": "마무리"
     }
   ],
-  "totalDurationFrames": 133879
+  "totalDurationFrames": 137911
 }
