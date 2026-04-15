@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "INPUT=\"$TOOL_INPUT\"; if echo \"$INPUT\" | grep -qE 'rm -rf|git add \\.|git add -A|drop table|truncate'; then echo 'BLOCKED: 위험 명령 차단됨. rm -rf, git add ., drop table, truncate 금지.' >&2; exit 2; fi"
+          }
+        ]
+      }
+    ]
+  }
+}

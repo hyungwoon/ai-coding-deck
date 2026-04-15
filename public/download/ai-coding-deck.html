@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI는 어떻게 작동하고 어떻게 쓰는가 — Vibe Coding 2026</title>
+<style>
+  :root {
+    --bg: #09090b; --card: #18181b; --border: #27272a; --fg: #fafafa;
+    --muted: #a1a1aa; --primary: #a78bfa; --primary-bg: rgba(167,139,250,.08);
+    --primary-border: rgba(167,139,250,.2);
+    --red: #f87171; --green: #4ade80; --blue: #60a5fa; --amber: #fbbf24;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--fg); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; line-height:1.7; }
+  .section { min-height:100vh; display:flex; align-items:center; justify-content:center; padding:4rem 1.5rem; scroll-snap-align:start; }
+  .section:nth-child(even) { background:rgba(255,255,255,.02); }
+  .inner { max-width:72rem; width:100%; margin:0 auto; }
+  h1 { font-size:clamp(2rem,5vw,4rem); font-weight:800; letter-spacing:-.02em; line-height:1.15; margin-bottom:1rem; }
+  h2 { font-size:clamp(1.5rem,4vw,3rem); font-weight:700; letter-spacing:-.02em; line-height:1.2; margin-bottom:.5rem; }
+  .mono { font-family:'SF Mono',Menlo,monospace; font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
+  .mono-primary { font-family:'SF Mono',Menlo,monospace; font-size:.75rem; letter-spacing:.1em; text-transform:uppercase; color:var(--primary); }
+  .subtitle { font-size:1.1rem; color:var(--muted); margin-bottom:2rem; }
+  .text { font-size:.9rem; color:var(--muted); line-height:1.8; }
+  .text strong { color:var(--fg); font-weight:600; }
+  .text .hl { color:var(--primary); font-weight:600; }
+  .card { border:1px solid var(--border); background:var(--card); border-radius:1rem; padding:1.5rem; }
+  .card-primary { border:1px solid var(--primary-border); background:var(--primary-bg); border-radius:1rem; padding:1.5rem; }
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+  .grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem; }
+  .grid4 { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:0; }
+  .tag { font-size:.7rem; font-weight:600; color:var(--primary); background:rgba(167,139,250,.1); padding:.2rem .6rem; border-radius:9999px; display:inline-block; }
+  .badge { font-size:.65rem; font-weight:600; padding:.15rem .5rem; border-radius:9999px; border:1px solid var(--border); color:var(--muted); background:rgba(255,255,255,.03); display:inline-block; }
+  .code-block { background:rgba(0,0,0,.3); border-radius:.75rem; padding:1rem; font-family:'SF Mono',Menlo,monospace; font-size:.85rem; color:var(--muted); white-space:pre-line; margin-top:.75rem; }
+  .flow { display:flex; align-items:center; gap:.5rem; flex-wrap:wrap; }
+  .flow-step { border:1px solid var(--border); background:rgba(255,255,255,.03); border-radius:.75rem; padding:.5rem 1rem; font-size:.85rem; }
+  .flow-arrow { color:rgba(255,255,255,.2); font-size:.85rem; }
+  .divider { height:1px; background:var(--border); margin:2rem 0; }
+  .mb1 { margin-bottom:.5rem; } .mb2 { margin-bottom:1rem; } .mb3 { margin-bottom:1.5rem; } .mb4 { margin-bottom:2rem; }
+  .mt2 { margin-top:1rem; } .mt3 { margin-top:1.5rem; }
+  .center { text-align:center; }
+  .muted { color:var(--muted); }
+  .small { font-size:.8rem; }
+  .bold { font-weight:700; }
+  ul.check { list-style:none; }
+  ul.check li { padding:.3rem 0; font-size:.9rem; color:var(--muted); }
+  ul.check li::before { content:''; display:inline-block; width:.5rem; height:.5rem; border-radius:50%; margin-right:.6rem; }
+  ul.check.ok li::before { background:var(--primary); }
+  ul.check.no li::before { background:var(--red); opacity:.6; }
+  .strip { display:grid; border:1px solid var(--border); border-radius:1rem; overflow:hidden; }
+  .strip > div { padding:1rem 1.25rem; }
+  .strip > div + div { border-left:1px solid rgba(255,255,255,.06); }
+  .warning { border:1px solid rgba(248,113,113,.2); background:rgba(248,113,113,.05); border-radius:1rem; padding:1rem 1.25rem; }
+  .tip { border:1px solid rgba(251,191,36,.2); background:rgba(251,191,36,.05); border-radius:1rem; padding:1rem 1.25rem; }
+  @media(max-width:768px) {
+    .grid2,.grid3,.grid4 { grid-template-columns:1fr; }
+    .strip { grid-template-columns:1fr !important; }
+    .strip > div + div { border-left:none; border-top:1px solid rgba(255,255,255,.06); }
+    .section { padding:2rem 1rem; min-height:auto; }
+  }
+  @media print { .section { min-height:auto; page-break-inside:avoid; } body { background:#fff; color:#111; } .card,.card-primary { border:1px solid #ddd; background:#f9f9f9; } }
+</style>
+</head>
+<body>
+
+<!-- S00 Title -->
+<div class="section"><div class="inner center">
+  <p class="mono mb2">Vibe Coding &middot; 2026</p>
+  <h1>AI는 어떻게 작동하고<br><span class="muted">어떻게 쓰는가</span></h1>
+  <p class="subtitle" style="max-width:36rem;margin:1.5rem auto 0">LLM의 작동 원리부터 에이전트 생태계, 그리고 실제 진화 경로까지 &mdash; 처음 접하는 사람도 읽을 수 있게 정리했습니다.</p>
+</div></div>
+
+<!-- S01 LLM 정의 + 토큰화 -->
+<div class="section"><div class="inner">
+  <p class="mono mb2">01 &middot; LLM이란 무엇인가</p>
+  <h2 class="mb3">LLM이란 무엇인가</h2>
+  <div class="card mb2">
+    <p class="mono-primary mb1">Large Language Model &mdash; 대규모 언어 모델</p>
+    <p class="text">인터넷의 방대한 텍스트를 학습해서 <strong>"다음에 올 가장 자연스러운 단어"를 확률적으로 예측</strong>하는 모델. 번역&middot;요약&middot;코드 작성&middot;추론이 모두 이 하나의 원리에서 나온다. 지식을 저장한 게 아니라, 패턴을 학습한 것.</p>
+  </div>
+  <div class="card mb2">
+    <p class="mono mb2">STEP 1 &middot; 토큰화 &mdash; 텍스트를 숫자로</p>
+    <div class="grid2">
+      <div class="text">
+        <p>AI는 텍스트를 그대로 읽지 않는다. 먼저 <strong>토큰</strong>이라는 단위로 쪼개고, 각 토큰을 <strong>고유한 숫자 ID</strong>로 변환한다.</p>
+        <p class="mt2">토큰은 단어 전체가 아닌 <strong>의미 단위 조각</strong>. 한국어는 음절 단위로 더 잘게 쪼개져 같은 내용이어도 토큰 수가 더 많이 소모된다.</p>
+      </div>
+      <div class="code-block">"Claude is powerful"
+&darr; 토큰 분해
+[Cl] [aude] [is] [power] [ful]
+&darr; 숫자 ID 변환
+3,274 &middot; 8,102 &middot; 318 &middot; 6,244 &middot; 913
+&darr; 벡터 임베딩
+[0.82, -0.31, 0.57 ... x768차원]</div>
+    </div>
+  </div>
+  <div class="grid3">
+    <div class="card"><p class="mono mb1">학습</p><p class="bold small mb1">패턴 학습</p><p class="text small">수천억 개 텍스트에서 언어 패턴을 학습. 사실 저장이 아닌 확률 분포를 학습한다.</p></div>
+    <div class="card"><p class="mono mb1">추론</p><p class="bold small mb1">토큰 예측</p><p class="text small">다음 토큰의 확률 분포를 계산하고 가장 자연스러운 답을 한 글자씩 생성한다.</p></div>
+    <div class="card"><p class="mono mb1">제약</p><p class="bold small mb1">할루시네이션</p><p class="text small">모르는 것도 그럴듯하게 지어낼 수 있다. 중요한 정보는 반드시 검증이 필요하다.</p></div>
+  </div>
+</div></div>
+
+<!-- S02 벡터 임베딩 + 컨텍스트 윈도우 -->
+<div class="section"><div class="inner">
+  <p class="mono mb2">STEP 1-2 &middot; 벡터 임베딩 + 컨텍스트 윈도우</p>
+  <h2 class="mb3">의미의 좌표와 <span class="muted">AI의 책장</span></h2>
+  <div class="grid2 mb2">
+    <div class="card">
+      <p class="mono-primary mb2">벡터 임베딩(Vector Embedding)</p>
+      <p class="text mb2">숫자 배열은 단순한 ID가 아니다. 각 숫자는 <strong>의미의 좌표</strong>다. "강아지"와 "고양이"는 벡터 공간에서 <strong>가까이 위치</strong>하고, "자동차"는 멀리 있다.</p>
+      <p class="text small">&bull; 의미가 같으면 가깝다: "강아지"와 "개"는 거의 같은 위치</p>
+      <p class="text small">&bull; 벡터 연산이 가능: 왕 - 남자 + 여자 &asymp; 여왕</p>
+      <p class="text small">&bull; 온톨로지 + 벡터DB(RAG): 지식을 벡터로 저장하면 AI가 의미 기반 검색 가능</p>
+    </div>
+    <div class="card">
+      <p class="mono-primary mb2">STEP 2 &middot; 컨텍스트 윈도우</p>
+      <p class="bold small mb2">AI의 책장</p>
+      <p class="text mb2">컨텍스트 윈도우는 <strong>AI가 한 번에 펼쳐볼 수 있는 책장</strong>이다. 책장 안에 든 것만 참고할 수 있고, 책장 밖은 존재하지 않는 것과 같다. 대화가 길어질수록 오래된 내용이 <strong>밖으로 밀려난다.</strong></p>
+      <p class="text small muted">Claude 200K = A4 약 500장 분량</p>
+    </div>
+  </div>
+</div></div>
+
+<!-- S03 추론과 출력 -->
+<div class="section"><div class="inner">
+  <p class="mono mb2">STEP 3 &middot; 4 &middot; 추론과 출력</p>
+  <h2 class="mb3">어텐션 추론과 <span class="muted">스트리밍 출력</span></h2>
+  <div class="grid2 mb2">
+    <div class="card">
+      <p class="mono-primary mb2">STEP 3 &middot; 어텐션 그래프로 의미 연결</p>
+      <p class="text">각 토큰은 다른 모든 토큰과 <strong>"얼마나 관련 있는가"</strong>를 계산한다. 이 관계망을 수백 개 레이어에서 반복 계산해 <strong>문맥 속 의미</strong>를 추론한다.</p>
+    </div>
+    <div class="card">
+      <p class="mono-primary mb2">STEP 4 &middot; 토큰 하나씩 생성 &rarr; 스트리밍</p>
+      <p class="text">추론 결과로 <strong>다음에 올 토큰의 확률 분포</strong>가 나온다. 가장 높은 확률의 토큰을 선택 &rarr; 컨텍스트에 추가 &rarr; 다시 추론. 이 과정을 반복하며 한 글자씩 생성.</p>
+      <p class="text mt2">ChatGPT&middot;Claude에서 답변이 흘러나오듯 표시되는 이유가 이 구조 때문이다.</p>
+    </div>
+  </div>
+</div></div>
+
+<!-- S04 LLM vs Agent -->
+<div class="section"><div class="inner">
+  <p class="mono mb2">02 &middot; 에이전트 전환점</p>
+  <h2 class="mb3">LLM과 AI 에이전트의 <span class="muted">차이</span></h2>
+  <div class="grid2 mb2">
+    <div class="card">
+      <p class="mono mb2">LLM 단독</p>
+      <p class="bold mb2">질문 &rarr; 답변. 끝.</p>
+      <p class="text">입력이 들어오면 출력을 냄. 기억 없음. 행동 없음. 매번 처음부터. <strong>사람이 결과를 받아서 직접 실행해야 함.</strong></p>
+    </div>
+    <div class="card-primary">
+      <p class="mono-primary mb2">AI 에이전트</p>
+      <p class="bold mb2">태스크 &rarr; 계획 &rarr; 실행 &rarr; 검증. 반복.</p>
+      <p class="text">LLM에 <strong>툴(파일&middot;터미널&middot;웹&middot;API)</strong>을 연결하면 에이전트가 됨. 스스로 계획하고, 실행하고, 결과를 보고 재시도. <strong>사람은 목표만 주면 됨.</strong></p>
+    </div>
+  </div>
+  <div class="card">
+    <p class="mono mb2">에이전트 = LLM + 이것들</p>
+    <div class="flow">
+      <span class="badge">&compfn; LLM &mdash; 판단&middot;추론 엔진</span>
+      <span class="badge">&star; 툴 호출 &mdash; 파일&middot;터미널&middot;웹 실행</span>
+      <span class="badge">&orarr; 루프 &mdash; 실행&rarr;결과 확인&rarr;재시도</span>
+      <span class="badge">&squarf; 메모리 &mdash; 컨텍스트 유지</span>
+      <span class="badge">&hexmark; MCP &mdash; 외부 앱 연결 프로토콜</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- S05 GitHub -->
+<div class="section"><div class="inner">
+  <p class="mono mb2">02-B &middot; 버전 관리</p>
+  <h2 class="mb3">GitHub 기초</h2>
+  <div class="grid2 mb2">
+    <div class="card"><p class="bold" style="color:var(--primary)">Repository</p><p class="muted small mb1">레포지토리</p><p class="text small">프로젝트 하나 = 레포 하나. 폴더&middot;파일&middot;변경 이력이 통째로 들어있는 프로젝트 상자.</p></div>
+    <div class="card"><p class="bold" style="color:var(--primary)">Commit</p><p class="muted small mb1">커밋</p><p class="text small">변경사항을 "저장점"으로 기록하는 행위. 언제든 이 시점으로 되돌아올 수 있다.</p></div>
+    <div class="card"><p class="bold" style="color:var(--primary)">Branch</p><p class="muted small mb1">브랜치</p><p class="text small">원본은 건드리지 않고 복사본에서 실험하는 공간. 실패해도 원본 안전.</p></div>
+    <div class="card"><p class="bold" style="color:var(--primary)">Pull Request</p><p class="muted small mb1">PR &middot; 머지 요청</p><p class="text small">브랜치 작업이 끝나면 메인에 합쳐달라는 검토&middot;승인 요청.</p></div>
+  </div>
+</div></div>
+
+<!-- S05b 개발 구조 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">개발의 기본 구조</h2>
+  <p class="subtitle">프론트엔드 &middot; 백엔드 &middot; 데이터베이스 &mdash; 모든 앱은 이 세 층으로 이루어져 있다</p>
+  <div class="grid3">
+    <div class="card" style="border-color:rgba(96,165,250,.3)"><p class="bold small mb1">프론트엔드 (클라이언트)</p><p class="text small">사용자가 보는 화면. HTML(구조), CSS(스타일), JavaScript(동작), React/Next.js(프레임워크)</p></div>
+    <div class="card" style="border-color:rgba(52,211,153,.3)"><p class="bold small mb1">백엔드 (서버)</p><p class="text small">눈에 안 보이는 뒷단. API(대화 창구), 인증, 비즈니스 로직, Node.js/Python/Go</p></div>
+    <div class="card" style="border-color:rgba(251,191,36,.3)"><p class="bold small mb1">데이터베이스 (DB)</p><p class="text small">데이터를 저장하고 꺼내는 곳. SQL, NoSQL, Supabase/Firebase, ORM</p></div>
+  </div>
+</div></div>
+
+<!-- S05c API CLI MCP -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">API &middot; CLI &middot; MCP</h2>
+  <p class="subtitle">AI 코딩에서 반복해서 등장하는 세 가지 핵심 개념</p>
+  <div class="grid3">
+    <div class="card"><p class="bold mb1">API</p><p class="muted small mb2">비유: 식당의 메뉴판</p><p class="text small">두 프로그램이 대화하는 규칙. 웹의 모든 것이 API로 연결된다.</p></div>
+    <div class="card"><p class="bold mb1">CLI</p><p class="muted small mb2">비유: 직접 명령하는 리모컨</p><p class="text small">마우스 대신 텍스트 명령어로 컴퓨터를 조작. AI 에이전트의 실행 환경.</p></div>
+    <div class="card"><p class="bold mb1">MCP</p><p class="muted small mb2">비유: AI의 만능 어댑터</p><p class="text small">AI 에이전트가 외부 앱을 직접 읽고 쓸 수 있게 해주는 프로토콜.</p></div>
+  </div>
+</div></div>
+
+<!-- S06 생태계 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">AI 코딩 생태계 전체 관계도</h2>
+  <p class="subtitle">위에서 아래로 &mdash; 모델이 에이전트를 구동하고, 에이전트가 에디터&middot;터미널 위에서 실행된다</p>
+  <div class="card mb1"><span class="mono-primary" style="display:inline-block;width:9rem">AI 모델</span><span class="badge">Claude</span> <span class="badge">GPT-4o</span> <span class="badge">Gemini 2.5</span> <span class="badge">오픈소스</span></div>
+  <p class="center muted">&darr;</p>
+  <div class="card mb1"><span class="mono-primary" style="display:inline-block;width:9rem">코딩 에이전트</span><span class="badge">Claude Code</span> <span class="badge">Devin</span> <span class="badge">Aider</span></div>
+  <p class="center muted">&darr;</p>
+  <div class="card mb1"><span class="mono-primary" style="display:inline-block;width:9rem">에디터 내 에이전트</span><span class="badge">Cursor Agent</span> <span class="badge">Windsurf</span> <span class="badge">Cline</span> <span class="badge">Copilot</span></div>
+  <p class="center muted">&darr;</p>
+  <div class="card mb1"><span class="mono-primary" style="display:inline-block;width:9rem">에디터 / IDE</span><span class="badge">Cursor</span> <span class="badge">VS Code</span> <span class="badge">Zed</span> <span class="badge">JetBrains</span></div>
+  <p class="center muted">&darr;</p>
+  <div class="card"><span class="mono-primary" style="display:inline-block;width:9rem">터미널 환경</span><span class="badge">Tmux</span> <span class="badge">iTerm2</span> <span class="badge">Warp</span> <span class="badge">zsh</span></div>
+</div></div>
+
+<!-- S07 진화 경로 초기 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">AI 툴 진화 경로</h2>
+  <p class="subtitle">대부분이 이 순서로 깊어진다</p>
+  <div class="card mb1"><p class="mono-primary mb1">STAGE 01 &middot; 단독 LLM 문답</p><p class="text small">ChatGPT&middot;Claude.ai&middot;Gemini에 질문하고 복붙. 자동화 없음. &rarr; "매번 반복하기 귀찮다"</p></div>
+  <p class="center muted small">&darr; 자동화 욕구 &darr;</p>
+  <div class="card mb1"><p class="mono-primary mb1">STAGE 02 &middot; 노코드 자동화 연결</p><p class="text small">Gmail &rarr; AI 요약 &rarr; Slack 자동 전송 같은 플로우 구성. Zapier, Make, Notion AI</p></div>
+  <p class="center muted small">&darr; 에이전트 접촉 &darr;</p>
+  <div class="card"><p class="mono-primary mb1">STAGE 03 &middot; Claude Code + 터미널 입문</p><p class="text small">말로 태스크 시키면 AI가 파일&middot;폴더 직접 실행. 터미널이 낯설지만 결과가 나오니까 계속.</p></div>
+</div></div>
+
+<!-- S08 진화 경로 심화 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">AI 툴 진화 경로 (심화)</h2>
+  <p class="subtitle">터미널 환경을 갖춘 뒤, 멀티 에이전트&middot;MCP로 확장된다</p>
+  <div class="card mb1"><p class="mono-primary mb1">STAGE 04 &middot; AI-native 터미널 환경 구축</p><p class="text small">여러 Claude Code 세션을 동시 운용. Warp로 멀티세션 구현.</p></div>
+  <p class="center muted small">&darr; 단일 에이전트의 한계 &darr;</p>
+  <div class="card mb1"><p class="mono-primary mb1">STAGE 05 &middot; 멀티 에이전트 + 하네스</p><p class="text small">여러 에이전트를 목적별로 조합. 하네스(harness)로 태스크 흐름을 설계.</p></div>
+  <p class="center muted small">&darr; 외부 연결 확장 &darr;</p>
+  <div class="card"><p class="mono-primary mb1">STAGE 06 &middot; MCP &mdash; 외부 앱과 에이전트 연결</p><p class="text small">Claude Code가 Notion&middot;Slack&middot;Gmail 등 외부 앱을 직접 읽고 씀.</p></div>
+</div></div>
+
+<!-- S09 Claude Code 핵심 개념 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">Claude Code 핵심 개념</h2>
+  <p class="subtitle">단순한 CLI 도구가 아닌, 작업 흐름 전체를 설계하는 프레임워크</p>
+  <div class="grid3">
+    <div class="card"><p class="bold small mb1">CLAUDE.md</p><p class="text small">프로젝트 루트에 두는 에이전트 행동 지침서. 세션 시작 시 자동 로드.</p></div>
+    <div class="card"><p class="bold small mb1">서브 에이전트</p><p class="text small">메인 에이전트가 하위 태스크를 별도 에이전트에게 위임. 병렬 실행으로 속도 향상.</p></div>
+    <div class="card"><p class="bold small mb1">커맨드 (슬래시)</p><p class="text small">/로 시작하는 단축 명령어. 자주 쓰는 프롬프트를 한 단어로 호출.</p></div>
+    <div class="card"><p class="bold small mb1">훅 (Hooks)</p><p class="text small">특정 이벤트 발생 시 자동으로 실행되는 스크립트.</p></div>
+    <div class="card"><p class="bold small mb1">스킬 (Skills)</p><p class="text small">반복 작업 방식을 파일로 정의해두는 재사용 가능한 지식 모듈.</p></div>
+    <div class="card"><p class="bold small mb1">MCP 서버</p><p class="text small">외부 앱을 직접 읽고 쓸 수 있게 해주는 연결 프로토콜.</p></div>
+  </div>
+</div></div>
+
+<!-- S10 바이브 코딩 루프 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">바이브 코딩 루프</h2>
+  <p class="subtitle">플래닝이 90%다 &mdash; 구현은 AI가 한다</p>
+  <div class="strip mb3" style="grid-template-columns:repeat(5,1fr)">
+    <div><p class="mono mb1">PHASE 1</p><p class="bold small">준비</p><p class="text small">CLAUDE.md 작성, 공식 문서 등록, 스킬 파일 세팅</p></div>
+    <div style="background:var(--primary-bg)"><p class="mono-primary mb1">PHASE 2&bigstar;</p><p class="bold small" style="color:var(--primary)">플래닝</p><p class="text small">요구사항 구체화, 단계 분해 (think), 엣지케이스 정의</p></div>
+    <div><p class="mono mb1">PHASE 3</p><p class="bold small">플랜 점검</p><p class="text small">플랜 출력 요청, 방향 확인, 수정 후 재확인</p></div>
+    <div><p class="mono mb1">PHASE 4</p><p class="bold small">구현</p><p class="text small">AI가 코드 작성, 서브 에이전트 위임</p></div>
+    <div><p class="mono mb1">PHASE 5&orarr;</p><p class="bold small">점검&middot;개선</p><p class="text small">의도대로 됐는지 확인, 문서 업데이트, &rarr; PHASE 2 반복</p></div>
+  </div>
+</div></div>
+
+<!-- S11 안티패턴 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">바이브 코딩 안티패턴</h2>
+  <p class="subtitle">흔한 실수 7가지 &mdash; 미리 알면 절반은 피할 수 있다</p>
+  <div class="grid2">
+    <div class="card"><p class="bold small mb1">01. 플래닝 없이 바로 구현 요청</p><p class="text small">"로그인 기능 만들어줘"처럼 모호하게 던지면 AI가 엉뚱한 방향으로.</p></div>
+    <div class="card"><p class="bold small mb1">02. 컨텍스트 오염</p><p class="text small">같은 세션에서 너무 많은 수정 반복하면 AI가 혼란.</p></div>
+    <div class="card"><p class="bold small mb1">03. 무한 수정 루프</p><p class="text small">"조금만 더 고쳐줘" &mdash; 일정 수준의 변경은 처음부터 다시 짜는 게 빠르다.</p></div>
+    <div class="card"><p class="bold small mb1">04. 검증 없이 배포</p><p class="text small">AI가 "완성됐다"고 해도 직접 확인해야 한다.</p></div>
+    <div class="card"><p class="bold small mb1">05. 이해 못 한 채로 사용</p><p class="text small">블랙박스로 두면 버그가 났을 때 고칠 수 없다.</p></div>
+    <div class="card"><p class="bold small mb1">06. 문서 업데이트 생략</p><p class="text small">다음 세션에서 AI가 이전 상황을 모른 채 시작한다.</p></div>
+  </div>
+  <div class="card mt2"><p class="bold small mb1">07. 너무 큰 태스크를 한 번에</p><p class="text small">"전체 앱 만들어줘"처럼 큰 요청은 방향이 틀어지면 수정 범위가 너무 넓어진다. 기능 단위로 잘게 쪼개서 진행.</p></div>
+</div></div>
+
+<!-- S12 하네스 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">하네스 &mdash; AI 에이전트를 길들이는 구조</h2>
+  <p class="subtitle">에이전트는 강력하다. 하지만 방향 없이는 쓸모없다.</p>
+  <div class="card mb2">
+    <p class="text">하네스(Harness)는 원래 <strong>말에 채우는 고삐&middot;마구</strong>를 뜻한다. AI 에이전트도 마찬가지 &mdash; LLM의 범용 능력은 유지하면서 <span class="hl">내 프로젝트&middot;도메인&middot;규칙에 맞게 제어</span>하는 장치가 하네스다.</p>
+  </div>
+  <div class="grid2">
+    <div class="card"><p class="bold small mb2">하네스 없는 에이전트 = 고삐 없는 말</p>
+      <ul class="check no"><li>매번 "우리 프로젝트는..." 반복 설명</li><li>코딩 스타일이 매번 달라짐</li><li>금지 규칙을 모름</li><li>외부 도구 접근 불가</li><li>세션이 바뀌면 맥락 소멸</li></ul>
+    </div>
+    <div class="card"><p class="bold small mb2">하네스 있는 에이전트 = 조련된 경주마</p>
+      <ul class="check ok"><li>CLAUDE.md &mdash; 프로젝트 맥락 자동 전달</li><li>스킬 파일 &mdash; 일관된 코딩 패턴</li><li>규칙 &mdash; 금지 사항 강제</li><li>MCP &mdash; DB&middot;API&middot;외부 도구 직접 조작</li><li>온톨로지 &mdash; 장기 기억</li></ul>
+    </div>
+  </div>
+</div></div>
+
+<!-- S12b 코딩 하네스 실전 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">코딩 하네스 실전</h2>
+  <p class="subtitle">건축 현장에 비유하면 &mdash; 현장 감독 + 정밀 도구 세트</p>
+  <div class="grid2">
+    <div class="card"><p class="bold small mb1">oh-my-claudecode (OMC)</p><p class="muted small mb2">비유: 건축 현장의 현장 감독</p><p class="text small">&bull; 큰 작업을 32개 전문 에이전트에 자동 위임<br>&bull; autopilot(완전자율), ralph(완료까지 반복), ultrawork(병렬처리)<br>&bull; 간단한 일은 싼 모델(Haiku), 어려운 일은 비싼 모델(Opus)</p></div>
+    <div class="card"><p class="bold small mb1">oh-my-hwclaude</p><p class="muted small mb2">비유: 레이저 가이드가 달린 정밀 공구</p><p class="text small">&bull; 파일의 정확한 줄 번호+해시로 위치 특정 (성공률 6.7%&rarr;68.3%)<br>&bull; 편집 실패 시 자동 복구<br>&bull; 들여쓰기 깨짐 등 흔한 실수 자동 보정</p></div>
+  </div>
+</div></div>
+
+<!-- S12c 비즈니스 하네스 실전 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">비즈니스 하네스 실전</h2>
+  <p class="subtitle">대기업에 전문 부서 시스템이 있듯, AI에게도 부서를 만들어줄 수 있다</p>
+  <div class="grid3">
+    <div class="card"><p class="bold small mb1">에이전트 = 전문 부서장</p><p class="text small">마케팅&middot;영업&middot;법무&middot;재무&middot;HR 등 16명의 부서장. 각자 도메인 전문 지식.</p></div>
+    <div class="card"><p class="bold small mb1">플러그인 = 업무 매뉴얼</p><p class="text small">각 부서가 보유한 매뉴얼 묶음. 17개 세트.</p></div>
+    <div class="card"><p class="bold small mb1">스킬 = 매뉴얼 안의 절차서</p><p class="text small">'경쟁사 분석하는 법', 'PRD 작성하는 법' 같은 110개의 구체적 실행 절차.</p></div>
+  </div>
+</div></div>
+
+<!-- S13 하네스 성숙도 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">하네스 성숙도</h2>
+  <p class="subtitle">어디까지 왔는가 &mdash; 4단계로 보는 에이전트 제어 수준</p>
+  <div class="strip mb3" style="grid-template-columns:repeat(4,1fr)">
+    <div style="opacity:.5"><p class="mono mb1">LV.0</p><p class="bold small">무장비</p><p class="text small">ChatGPT에 질문만. 매번 처음부터 설명.</p></div>
+    <div><p class="mono-primary mb1">LV.1</p><p class="bold small">기본 제어</p><p class="text small">CLAUDE.md 작성. 프로젝트 맥락 전달.</p></div>
+    <div><p class="mono-primary mb1">LV.2</p><p class="bold small">도구 연결</p><p class="text small">MCP로 외부 연동. 스킬 파일&middot;규칙 추가.</p></div>
+    <div><p class="mono-primary mb1">LV.3</p><p class="bold small">자율 순환</p><p class="text small">온톨로지 + RAG. 피드백 루프 운영.</p></div>
+  </div>
+  <div class="card"><p class="text"><strong>하네스 = 에이전트의 진짜 차별화 포인트.</strong> 모델은 공유된다 &mdash; 누구나 같은 Claude, 같은 GPT를 쓴다. 하지만 <span class="hl">어떤 하네스를 씌웠느냐</span>에 따라 결과는 완전히 다르다. 잘 만든 하네스는 곧 <strong>복제 불가능한 경쟁 우위</strong>다.</p></div>
+</div></div>
+
+<!-- S14 에디터 vs 에이전트 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">에디터 vs 에이전트 핵심 차이</h2>
+  <p class="subtitle">작업 단위와 주도권이 AI로 이동하는 스펙트럼</p>
+  <div class="card mb2">
+    <div style="display:grid;grid-template-columns:2fr 1.2fr 1fr 1fr 1fr;gap:.5rem;font-size:.85rem">
+      <span class="bold">구분</span><span class="muted">작업 단위</span><span class="muted">사람 개입</span><span class="muted">터미널</span><span class="muted">주도권</span>
+      <span>에디터 (VS Code)</span><span class="muted">줄/함수</span><span class="muted">매 스텝</span><span class="muted">없음</span><span>사람</span>
+      <span>에디터 내 에이전트 (Cursor)</span><span class="muted">피처/태스크</span><span class="muted">승인만</span><span class="muted">제한적</span><span>사람&rarr;AI</span>
+      <span>순수 에이전트 (Claude Code)</span><span class="muted">태스크/레포</span><span class="muted">시작&middot;끝만</span><span class="muted">풀 권한</span><span style="color:var(--primary)">AI</span>
+    </div>
+  </div>
+</div></div>
+
+<!-- S15 비용 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">비용 현실 &mdash; 얼마나 드는가</h2>
+  <p class="subtitle">Claude Code 요금 구조와 API 토큰 비용 (2026년 기준)</p>
+  <div class="grid2 mb2">
+    <div class="card">
+      <p class="mono mb2">Claude Code 요금제</p>
+      <p class="text small mb1"><strong>Pro</strong> &mdash; $20/mo (claude.ai 구독 포함, 사용량 제한)</p>
+      <p class="text small mb1"><strong>Max</strong> &mdash; $100/mo (5x 높은 사용량 한도)</p>
+      <p class="text small"><strong>API</strong> &mdash; 종량제 (토큰당 과금, 사용량 무제한)</p>
+    </div>
+    <div class="card">
+      <p class="mono mb2">API 토큰 요금 (Sonnet 4.5 기준)</p>
+      <p class="text small">Input: $3 / 1M 토큰</p>
+      <p class="text small">Output: $15 / 1M 토큰</p>
+      <p class="text small muted mt2">일반적인 바이브 코딩 세션(하루 2~3시간)은 월 $20 Pro로 대부분 커버됨</p>
+    </div>
+  </div>
+</div></div>
+
+<!-- S16 멀티모달 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">멀티모달 &mdash; 이미지를 AI에게 보여주기</h2>
+  <p class="subtitle">Claude는 텍스트만 받는 게 아니다. 이미지&middot;스크린샷&middot;PDF를 그대로 붙여넣으면 읽고 분석하고 구현한다.</p>
+  <div class="grid2">
+    <div class="card"><p class="bold small mb1">디자인 &rarr; 코드</p><p class="text small">Figma 스크린샷을 붙여넣으면 HTML/CSS로 구현</p></div>
+    <div class="card"><p class="bold small mb1">에러 화면 &rarr; 디버깅</p><p class="text small">에러 스크린샷을 붙이면 원인 분석 + 해결 방법 제시</p></div>
+    <div class="card"><p class="bold small mb1">문서&middot;PDF &rarr; 구조화</p><p class="text small">PDF를 넣으면 요약&middot;온톨로지 정리</p></div>
+    <div class="card"><p class="bold small mb1">데이터&middot;표 &rarr; 인사이트</p><p class="text small">대시보드 스크린샷으로 패턴&middot;이상값 분석</p></div>
+  </div>
+</div></div>
+
+<!-- S17 온톨로지 정의 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">온톨로지 &mdash; AI의 장기 기억을 설계한다</h2>
+  <p class="subtitle">맥락을 매번 넣는 것과 온톨로지를 구축하는 것은 다르다</p>
+  <div class="card mb2">
+    <p class="mono mb2">온톨로지(Ontology)란?</p>
+    <p class="text">개념&middot;관계&middot;규칙을 구조적으로 정의한 <strong>지식의 지도</strong>. 단순한 메모나 문서가 아니라, <strong>"무엇이 무엇과 어떻게 연결되어 있는가"</strong>를 기계가 읽을 수 있는 형태로 정의한 것. 한 번 구조화하면 에이전트가 스스로 참조하는 <strong>영구적인 지식 기반</strong>이 된다.</p>
+  </div>
+  <div class="grid2">
+    <div class="card"><p class="bold small mb1">온톨로지 없는 AI</p><p class="text small">매번 처음부터 가르쳐야 하는 직원. 세션이 끝나면 모두 사라짐.</p></div>
+    <div class="card-primary"><p class="bold small mb1">온톨로지 갖춘 AI</p><p class="text small">맥락을 내재화한 전문 어시스턴트. 지시만 하면 됨. 설명은 필요 없음.</p></div>
+  </div>
+</div></div>
+
+<!-- S18 온톨로지 4요소 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">온톨로지를 구성하는 4가지 요소</h2>
+  <p class="subtitle">Entity, Relation, Attribute, Rule</p>
+  <div class="grid2">
+    <div class="card"><p class="mono-primary mb1">ENTITY &middot; 개체</p><p class="bold small mb1">존재하는 것들의 목록</p><p class="text small">사람, 제품, 팀, 고객, 프로세스 등</p></div>
+    <div class="card"><p class="mono-primary mb1">RELATION &middot; 관계</p><p class="bold small mb1">개체들이 어떻게 연결되는지</p><p class="text small">"A는 B에 속한다", "A는 B를 담당한다"</p></div>
+    <div class="card"><p class="mono-primary mb1">ATTRIBUTE &middot; 속성</p><p class="bold small mb1">각 개체가 가진 특성&middot;값</p><p class="text small">브랜드 컬러, 톤앤매너, 타겟, 제약사항</p></div>
+    <div class="card"><p class="mono-primary mb1">RULE &middot; 규칙</p><p class="bold small mb1">판단 기준&middot;제약&middot;워크플로우</p><p class="text small">"이럴 땐 이렇게 해야 한다"는 로직</p></div>
+  </div>
+</div></div>
+
+<!-- S18b 암묵지 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">암묵지와 명시지</h2>
+  <p class="subtitle">온톨로지의 진짜 어려움 &mdash; 머릿속에만 있는 지식을 꺼내는 것</p>
+  <div class="grid2 mb2">
+    <div class="card"><p class="bold small mb1">명시지 (Explicit Knowledge)</p><p class="text small">매뉴얼, 가격표, 조직도, 계약서. 이미 문서화되어 있어 AI가 바로 읽을 수 있음. 온톨로지 구축 난이도: <strong>낮음</strong></p></div>
+    <div class="card"><p class="bold small mb1">암묵지 (Tacit Knowledge)</p><p class="text small">"이 클라이언트는 이렇게 대해야 해". 경험, 직관, 맥락 판단, 감각. 온톨로지 구축 난이도: <strong>매우 높음</strong></p></div>
+  </div>
+  <div class="card"><p class="text"><strong>규모가 커지면 하고 싶어도 못 한다.</strong> 3명일 때 암묵지를 꺼내는 건 가능합니다. 30명이 되면 이미 어렵습니다. 300명이 되면 불가능합니다. <strong>지금, 작을 때, 꺼낼 수 있을 때 구조화해야 합니다.</strong></p></div>
+</div></div>
+
+<!-- S18c AI Native -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">암묵지를 안 만드는 것</h2>
+  <p class="subtitle">가장 좋은 온톨로지 전략은 암묵지가 생기지 않게 하는 것이다</p>
+  <div class="card mb2">
+    <p class="bold small mb2">모든 일을 AI를 통해 하면, 과정과 판단이 자동으로 기록됩니다.</p>
+    <div class="flow"><span class="flow-step">머릿속에서 판단</span><span class="flow-arrow">&rarr;</span><span class="flow-step">AI에게 지시</span><span class="flow-arrow">&rarr;</span><span class="flow-step">자동으로 기록</span><span class="flow-arrow">=</span><span class="flow-step">암묵지 발생 차단</span></div>
+  </div>
+  <div class="card"><p class="bold small mb2">AI Native = 모든 일을 AI로 하는 것이 자연스러운 상태</p>
+    <p class="text">컴퓨터 없이 일하는 게 상상이 안 되듯, AI 없이 일하는 것도 곧 그렇게 됩니다.</p>
+  </div>
+</div></div>
+
+<!-- S19 RAG -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">RAG &mdash; AI가 모르는 것을 검색해서 답하는 방법</h2>
+  <p class="subtitle">Retrieval-Augmented Generation &mdash; 검색과 생성의 결합으로 LLM의 지식 한계를 극복</p>
+  <div class="card mb2"><p class="text">LLM의 가장 큰 약점은 <strong>학습 데이터 이후의 정보를 모른다</strong>는 것. RAG는 질문이 들어오면 먼저 관련 문서를 벡터DB에서 검색해서 컨텍스트에 넣고, 그 내용을 바탕으로 답변을 생성한다.</p></div>
+  <div class="flow mb2">
+    <span class="flow-step">사용자 질문</span><span class="flow-arrow">&rarr;</span>
+    <span class="flow-step" style="border-color:var(--primary-border);background:var(--primary-bg)">벡터DB 검색</span><span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">컨텍스트 조립</span><span class="flow-arrow">&rarr;</span>
+    <span class="flow-step" style="border-color:var(--primary-border);background:var(--primary-bg)">LLM 생성</span><span class="flow-arrow">&rarr;</span>
+    <span class="flow-step">정확한 답변</span>
+  </div>
+</div></div>
+
+<!-- S20 Obsidian -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">Obsidian &mdash; AI의 지식 저장소</h2>
+  <p class="subtitle">로컬 마크다운 + 양방향 링크 + 지식 그래프 &mdash; RAG에 최적화된 개인 온톨로지 저장소</p>
+  <div class="grid3">
+    <div class="card"><p class="mono-primary mb1">REASON #1</p><p class="bold small mb1">순수 마크다운</p><p class="text small">모든 노트가 .md 파일. AI가 가공 없이 바로 읽을 수 있다.</p></div>
+    <div class="card"><p class="mono-primary mb1">REASON #2</p><p class="bold small mb1">양방향 링크 = 관계 정의</p><p class="text small">[[고객사A]]에서 [[프로젝트X]]로 링크 &rarr; 온톨로지의 관계가 링크 하나로 정의됨.</p></div>
+    <div class="card"><p class="mono-primary mb1">REASON #3</p><p class="bold small mb1">그래프 뷰 = 온톨로지 시각화</p><p class="text small">노트 간 연결을 그래프로 시각화 &rarr; 지식의 빈 곳을 발견.</p></div>
+  </div>
+</div></div>
+
+<!-- S21 온톨로지 실전 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">온톨로지 실전</h2>
+  <p class="subtitle">수집 &rarr; 연결 &rarr; 구조화 &rarr; AI 연동</p>
+  <div class="strip mb3" style="grid-template-columns:repeat(4,1fr)">
+    <div style="background:var(--primary-bg)"><p class="mono mb1">STEP 01</p><p class="bold small" style="color:var(--primary)">수집</p><p class="text small">뭐든 일단 Vault에</p></div>
+    <div style="background:var(--primary-bg)"><p class="mono-primary mb1">STEP 02 &bigstar;</p><p class="bold small" style="color:var(--primary)">연결</p><p class="text small">[[링크]] &middot; 태그 &middot; MOC</p></div>
+    <div><p class="mono mb1">STEP 03</p><p class="bold small">구조화</p><p class="text small">YAML &middot; 폴더 &middot; Dataview</p></div>
+    <div><p class="mono mb1">STEP 04</p><p class="bold small">AI 연동</p><p class="text small">내 지식이 AI의 기억</p></div>
+  </div>
+</div></div>
+
+<!-- S21b 보안 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">보안과 프라이버시</h2>
+  <p class="subtitle">AI를 잘 쓰는 것만큼, 안전하게 쓰는 것도 중요하다</p>
+  <div class="grid3">
+    <div class="card"><p class="bold small mb1">데이터가 어디로 가는지</p><p class="text small">Claude API는 학습에 사용 안 함. 하지만 모든 서비스가 그렇진 않다. 이용약관 반드시 확인.</p></div>
+    <div class="card"><p class="bold small mb1">민감 정보 구분</p><p class="text small">고객 개인정보, 계약 금액, 내부 전략 &mdash; 아무 AI에나 넣지 마세요.</p></div>
+    <div class="card"><p class="bold small mb1">로컬 우선 전략</p><p class="text small">Obsidian = 내 컴퓨터에만 저장. Claude Code = 로컬 실행.</p></div>
+  </div>
+  <div class="warning mt2"><p class="text small"><strong style="color:var(--red)">조직 도입 시:</strong> 데이터 거버넌스 정책을 먼저 수립하세요.</p></div>
+</div></div>
+
+<!-- S22 RLHF RLVR -->
+<div class="section"><div class="inner">
+  <p class="mono mb2">08 &middot; RLHF &rarr; RLVR</p>
+  <h2 class="mb1">RLHF &rarr; RLVR</h2>
+  <p class="subtitle">쓸수록 똑똑해지는 AI의 시대</p>
+  <div class="card-primary mb2"><p class="bold small">"AI를 얼마나 잘 쓰느냐"가 아니라</p><p class="bold small" style="color:var(--primary)">"AI가 얼마나 나를 잘 아느냐"가 격차를 만든다</p></div>
+  <div class="grid2">
+    <div class="card"><p class="mono mb1">RLHF</p><p class="bold small mb1">인간 피드백 강화학습</p><p class="text small">사람이 A/B를 비교해 선호를 학습. <strong>느리고 비쌈. 사람의 주관에 의존.</strong></p></div>
+    <div class="card-primary"><p class="mono-primary mb1">RLVR</p><p class="bold small mb1">검증 가능한 결과 강화학습</p><p class="text small">코드 실행, 수학 정답, 테스트 통과 &mdash; 객관적 기준으로 자동 평가. <strong>사람 없이도 초고속 자기개선.</strong></p></div>
+  </div>
+</div></div>
+
+<!-- S22b Eval -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">Eval &mdash; AI 성능을 측정하는 과학</h2>
+  <p class="subtitle">측정할 수 없으면, 개선할 수 없다</p>
+  <div class="grid3">
+    <div class="card"><p class="mono mb1">Level 1</p><p class="bold small mb1">Model Eval</p><p class="text small">모델 자체의 능력 측정. 벤치마크 비교.</p></div>
+    <div class="card-primary"><p class="mono-primary mb1">Level 2</p><p class="bold small mb1">Task Eval</p><p class="text small">같은 모델이라도 프롬프트에 따라 결과가 다르다. A/B 비교, LLM-as-Judge.</p></div>
+    <div class="card"><p class="mono mb1">Level 3</p><p class="bold small mb1">System Eval</p><p class="text small">에이전트 워크플로우 전체 평가. RAG 정확도, E2E 성공률.</p></div>
+  </div>
+</div></div>
+
+<!-- S23 컨텍스트 축적 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">컨텍스트 축적이 경쟁 우위</h2>
+  <p class="subtitle">모델은 공유된다. 온톨로지는 나만의 것이다.</p>
+  <div class="grid2 mb2">
+    <div class="card"><p class="bold small mb1">모델은 공유된다</p><p class="text small">같은 AI를 써도 결과가 다른 이유 &mdash; 온톨로지.</p></div>
+    <div class="card"><p class="bold small mb1">일찍 쌓을수록 유리하다</p><p class="text small">지금 구조화한 지식이 6개월 후 에이전트의 품질을 결정한다.</p></div>
+    <div class="card"><p class="bold small mb1">피드백 루프가 핵심이다</p><p class="text small">에이전트가 틀릴 때마다 온톨로지를 갱신하면 같은 실수를 반복하지 않는다.</p></div>
+    <div class="card"><p class="bold small mb1">조직이 AI와 함께 학습한다</p><p class="text small">RLVR이 모델을 개선하듯, 온톨로지 갱신이 조직의 AI를 개선한다.</p></div>
+  </div>
+  <div class="card-primary">
+    <p class="mono-primary mb2">지금 당장 시작할 수 있는 것</p>
+    <div class="grid3">
+      <div><p class="mono-primary small mb1">WEEK 1</p><p class="bold small mb1">나의 맥락 문서화</p><p class="text small">CLAUDE.md에 역할&middot;프로젝트&middot;용어 작성.</p></div>
+      <div><p class="mono-primary small mb1">MONTH 1</p><p class="bold small mb1">도메인 온톨로지 초안</p><p class="text small">자주 쓰는 개체&middot;관계&middot;규칙 구조화.</p></div>
+      <div><p class="mono-primary small mb1">ONGOING</p><p class="bold small mb1">피드백 루프 운영</p><p class="text small">AI가 틀릴 때마다 온톨로지 갱신.</p></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- S24 해자 -->
+<div class="section"><div class="inner">
+  <p class="mono mb2">09 &middot; 해자</p>
+  <h2 class="mb3">무엇이 진짜 경쟁 우위인가</h2>
+  <div class="grid3">
+    <div class="card-primary"><p class="mono-primary mb1">MOAT #1 &bigstar;</p><p class="bold small mb1">문제 정의</p><p class="text small">AI는 주어진 문제를 잘 푼다. 하지만 <strong>어떤 문제를 풀어야 하는지</strong>는 사람이 정한다.</p></div>
+    <div class="card"><p class="mono mb1">MOAT #2</p><p class="bold small mb1">온톨로지 + 독점 데이터</p><p class="text small">같은 Claude를 써도 내 온톨로지가 주입된 에이전트와 없는 에이전트의 출력은 전혀 다르다.</p></div>
+    <div class="card"><p class="mono mb1">MOAT #3</p><p class="bold small mb1">지속 학습</p><p class="text small">AI가 틀릴 때마다 온톨로지를 갱신하는 피드백 루프.</p></div>
+  </div>
+</div></div>
+
+<!-- S25 전문가 시각 -->
+<div class="section"><div class="inner">
+  <h2 class="mb1">전문가들의 시각</h2>
+  <p class="subtitle">VC &middot; 학계 &middot; 빌더들의 시각</p>
+  <div class="grid2 mb2">
+    <div class="card"><p class="mono mb1">Sequoia &middot; a16z</p><p class="bold small mb1" style="color:var(--primary)">네트워크 효과 + 독점 데이터</p><p class="text small">사용자가 쌓아준 데이터가 모델을 개선하는 선순환.</p></div>
+    <div class="card"><p class="mono mb1">Peter Thiel</p><p class="bold small mb1" style="color:var(--primary)">독점 &mdash; 경쟁하지 않는 것</p><p class="text small">해자는 독점적 기술, 규모의 경제, 강력한 브랜드에서 나온다.</p></div>
+    <div class="card"><p class="mono mb1">Marc Andreessen</p><p class="bold small mb1" style="color:var(--primary)">배포 능력 &middot; Go-to-Market</p><p class="text small">기술이 평준화될수록 배포 능력의 격차가 승패를 가른다.</p></div>
+    <div class="card"><p class="mono mb1">Sam Altman</p><p class="bold small mb1" style="color:var(--primary)">신뢰 &middot; 관계 자산</p><p class="text small">AGI 수준에 가까워질수록 대부분의 기술 해자는 무너진다. 그때 남는 것은 신뢰.</p></div>
+  </div>
+  <div class="card-primary"><p class="text"><strong style="color:var(--primary)">종합:</strong> AI 능력 자체는 해자가 아니다. 해자는 AI 위에서 쌓이는 것들: 독점 데이터, 네트워크 효과, 배포 능력, 신뢰.</p></div>
+</div></div>
+
+<!-- S26 도구의 철학 -->
+<div class="section"><div class="inner center">
+  <p class="mono mb3">10 &middot; 도구의 철학</p>
+  <h2 style="line-height:1.3">글쓴이가 펜을 버렸다고</h2>
+  <h2 style="color:var(--primary);line-height:1.3;margin-bottom:1.5rem">그의 글이 사라지지 않는다</h2>
+  <p class="text" style="max-width:36rem;margin:0 auto 2rem">종이 &rarr; 타자기 &rarr; 워드프로세서 &rarr; AI. 도구는 계속 바뀌었지만, 무엇을 쓸지 결정한 것은 언제나 사람이었다.</p>
+  <div class="card center">
+    <p class="text">도구가 바뀌어도 바뀌지 않은 것 &rarr; <strong>무엇을 말할지, 왜 말할지, 누구를 위한지</strong></p>
+  </div>
+</div></div>
+
+<!-- S27 격차 -->
+<div class="section"><div class="inner">
+  <h2 class="mb3">도구는 같다. 격차는 어디서 오는가</h2>
+  <div class="grid3">
+    <div class="card"><p class="mono mb1">과거</p><p class="bold small mb1">컴퓨터를 쓴다</p><p class="text small">한때 스펙이었다. 지금은 공기. 도구는 반드시 평준화된다.</p></div>
+    <div class="card"><p class="mono mb1">현재</p><p class="bold small mb1">AI를 쓴다</p><p class="text small">빠르게 평준화된다. 이 공부는 기본기를 갖추는 것.</p></div>
+    <div class="card-primary"><p class="mono-primary mb1">언제나</p><p class="bold small mb1">본질을 안다</p><p class="text small">무엇을 만들지, 왜 만드는지. 이 질문은 AI가 대신할 수 없다. 여기서 격차가 만들어진다.</p></div>
+  </div>
+</div></div>
+
+<!-- S28 시작 가이드 -->
+<div class="section"><div class="inner">
+  <p class="mono mb2">11 &middot; 시작 가이드</p>
+  <h2 class="mb3">첫 시작 가이드</h2>
+  <div class="card-primary mb2">
+    <p class="mono-primary mb1">추천 조합</p>
+    <p class="bold small mb1">Claude Code + oh-my-claudecode</p>
+    <p class="text small">Anthropic 공식 CLI 에이전트 + 멀티 에이전트 오케스트레이션 레이어. 32개 특화 에이전트 &middot; 스마트 모델 라우팅.</p>
+  </div>
+  <div class="grid3">
+    <div class="card"><p class="mono mb1">필수 01</p><p class="bold small mb1">Anthropic 구독</p><p class="text small">Pro ($20) 또는 Max ($100)</p></div>
+    <div class="card"><p class="mono mb1">필수 02</p><p class="bold small mb1">Node.js</p><p class="text small">Claude Code CLI 설치에 필요</p></div>
+    <div class="card"><p class="mono mb1">필수 03</p><p class="bold small mb1">Git</p><p class="text small">코드 버전 관리 필수</p></div>
+  </div>
+</div></div>
+
+<!-- S30b .claude 폴더 -->
+<div class="section"><div class="inner">
+  <p class="mono mb2">12 &middot; 설정</p>
+  <h2 class="mb3">.claude/ 폴더 해부</h2>
+  <div class="grid2 mb2">
+    <div class="card"><p class="bold small" style="color:var(--primary)">CLAUDE.md</p><p class="text small">AI의 행동 매뉴얼 &mdash; 빌드 명령, 컨벤션, 아키텍처</p></div>
+    <div class="card"><p class="bold small" style="color:var(--primary)">rules/</p><p class="text small">관심사별 분리된 모듈 규칙</p></div>
+    <div class="card"><p class="bold small" style="color:var(--primary)">skills/</p><p class="text small">자동 트리거 워크플로우</p></div>
+    <div class="card"><p class="bold small" style="color:var(--primary)">commands/</p><p class="text small">수동 슬래시 커맨드</p></div>
+    <div class="card"><p class="bold small" style="color:var(--primary)">agents/</p><p class="text small">전문 서브에이전트</p></div>
+    <div class="card"><p class="bold small" style="color:var(--primary)">settings.json</p><p class="text small">권한 allow/deny + 훅 설정</p></div>
+  </div>
+  <div class="tip"><p class="bold small" style="color:var(--amber)">CLAUDE.md 200줄 리밋</p><p class="text small">200줄 넘으면 지시 준수율이 떨어진다. 핵심만 남기고 나머지는 rules/로 분리.</p></div>
+</div></div>
+
+<!-- S31 Contact -->
+<div class="section"><div class="inner center">
+  <p class="mono mb3">ANTIEGG &middot; HYUNGWOON</p>
+  <h2 style="font-size:clamp(2rem,5vw,3.5rem)">AI는 어떻게 작동하고 어떻게 쓰는가</h2>
+  <p class="subtitle" style="margin-top:1rem">이 문서에 대해 궁금한 게 있으신가요?</p>
+  <p style="font-size:2rem;font-weight:700;color:var(--primary);margin:3rem 0">Thank you</p>
+  <p class="mono muted">&copy; 2026 ANTIEGG HYUNGWOON</p>
+</div></div>
+
+</body>
+</html>
