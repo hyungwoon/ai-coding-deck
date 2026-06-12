@@ -3,44 +3,36 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+const LINKS: { href: string; label: string; match: (p: string) => boolean }[] = [
+  { href: "/", label: "Home", match: (p) => p === "/" },
+  { href: "/deck", label: "Foundations", match: (p) => p === "/deck" },
+  { href: "/agents-2026", label: "Agents", match: (p) => p === "/agents-2026" },
+  { href: "/design", label: "Design", match: (p) => p === "/design" },
+  { href: "/lecture", label: "Lecture", match: (p) => p === "/lecture" },
+  { href: "/homework/week1", label: "과제", match: (p) => p.startsWith("/homework") },
+];
+
 export function NavBar() {
   const pathname = usePathname();
-  const isDeck = pathname === "/" || pathname === "/deck";
-  const isLecture = pathname === "/lecture";
-  const isHomework = pathname.startsWith("/homework");
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-center gap-1 py-3 px-4 backdrop-blur-md bg-background/80 border-b border-border">
-      <Link
-        href="/"
-        className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
-          isDeck
-            ? "bg-foreground text-background"
-            : "text-muted-foreground hover:text-foreground"
-        }`}
-      >
-        Deck
-      </Link>
-      <Link
-        href="/lecture"
-        className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
-          isLecture
-            ? "bg-foreground text-background"
-            : "text-muted-foreground hover:text-foreground"
-        }`}
-      >
-        Lecture
-      </Link>
-      <Link
-        href="/homework/week1"
-        className={`rounded-full px-4 py-1.5 text-sm font-medium transition-all ${
-          isHomework
-            ? "bg-foreground text-background"
-            : "text-muted-foreground hover:text-foreground"
-        }`}
-      >
-        1주차 과제
-      </Link>
+      {LINKS.map(({ href, label, match }) => {
+        const active = match(pathname);
+        return (
+          <Link
+            key={href}
+            href={href}
+            className={`rounded-full px-3 py-1.5 text-sm font-medium transition-all ${
+              active
+                ? "bg-foreground text-background"
+                : "text-muted-foreground hover:text-foreground"
+            }`}
+          >
+            {label}
+          </Link>
+        );
+      })}
     </nav>
   );
 }
