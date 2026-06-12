@@ -6,8 +6,7 @@ import { cn } from "@/lib/utils";
 interface P { anim: (i: number) => string; index: number; }
 
 const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
-  <SectionShell ref={ref} index={index}>
-    <section data-code-slide className="w-full">
+  <SectionShell ref={ref} index={index} data-code-slide>
       <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-3", anim(index))}>
         두 파일 · 두 역할
       </p>
@@ -51,8 +50,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
        DESIGN.md = 어떻게 보이는가`}
         </pre>
       </div>
-    </section>
-  </SectionShell>
+    </SectionShell>
 ));
 S.displayName = "S19AgentsVsDesign";
 export default S;

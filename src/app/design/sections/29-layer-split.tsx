@@ -6,8 +6,7 @@ import { cn } from "@/lib/utils";
 interface P { anim: (i: number) => string; index: number; }
 
 const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
-  <SectionShell ref={ref} index={index} className="">
-    <section data-code-slide className="w-full">
+  <SectionShell ref={ref} index={index} data-code-slide>
       <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-3", anim(index))}>
         그룹 4 · 계층별 분리
       </p>
@@ -46,8 +45,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       <p className={cn("mt-4 text-xs text-muted-foreground/60", anim(index))} style={{ transitionDelay: "450ms" }}>
         하나의 giant DESIGN.md는 쓰기 편하고 읽기 나쁘다. AI는 파일 단위로 컨텍스트를 로드한다.
       </p>
-    </section>
-  </SectionShell>
+    </SectionShell>
 ));
 S.displayName = "S29LayerSplit";
 export default S;

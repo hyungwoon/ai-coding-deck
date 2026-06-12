@@ -6,8 +6,7 @@ import { cn } from "@/lib/utils";
 interface P { anim: (i: number) => string; index: number; }
 
 const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
-  <SectionShell ref={ref} index={index} className="">
-    <section data-code-slide className="w-full">
+  <SectionShell ref={ref} index={index} data-code-slide>
       <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-3", anim(index))}>
         그룹 4 · Component Case
       </p>
@@ -19,7 +18,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         <div className="border-b border-border/40 px-4 py-2 font-mono text-xs text-muted-foreground">
           product.md — Button 컴포넌트 명세 예시
         </div>
-        <pre className="overflow-x-auto p-5 font-mono text-xs leading-relaxed text-foreground/90">
+        <pre className="overflow-x-auto p-5 font-mono text-xs leading-snug text-foreground/90">
 {`## Button
 
 ### Variants
@@ -56,8 +55,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       <p className={cn("mt-4 text-xs text-muted-foreground/60", anim(index))} style={{ transitionDelay: "450ms" }}>
         States는 Figma 레이어 이름과 동일하게 — AI와 디자이너가 같은 언어를 쓴다.
       </p>
-    </section>
-  </SectionShell>
+    </SectionShell>
 ));
 S.displayName = "S30ComponentCase";
 export default S;

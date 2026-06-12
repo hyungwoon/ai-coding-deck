@@ -20,61 +20,48 @@ const CHECKS = [
 ];
 
 const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
-  <SectionShell ref={ref} index={index}>
+  <SectionShell ref={ref} index={index} data-code-slide>
     <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-3", anim(index))}>
       STEP 3 · product.md — 핵심
     </p>
     <h2 className={cn("text-3xl font-bold tracking-tight sm:text-5xl mb-4", anim(index))}>
       산문 컴포넌트 설명 → 구조화된 계층
     </h2>
-    <p className={cn("text-muted-foreground mb-6 max-w-2xl", anim(index))} style={{ transitionDelay: "100ms" }}>
+    <p className={cn("text-muted-foreground mb-4 max-w-2xl", anim(index))} style={{ transitionDelay: "100ms" }}>
       Atomic 계층으로 컴포넌트를 분류하고 조합·usage를 명시한다. 이게 AI가 일관된 UI를 만드는 계약서다.
     </p>
 
-    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 mb-5">
-      {LAYERS.map((l, i) => (
-        <div
-          key={l.label}
-          className={cn("rounded-xl border border-border/40 bg-card/60 p-3", anim(index))}
-          style={{ transitionDelay: `${150 + i * 60}ms` }}
-        >
-          <p className="font-mono text-sm text-primary mb-1">{l.label}</p>
-          <p className="text-xs text-muted-foreground mb-2">{l.desc}</p>
-          <p className="text-[11px] text-muted-foreground/70 font-mono">{l.example}</p>
-        </div>
+    <div className={cn("flex flex-wrap items-center gap-2 mb-4", anim(index))} style={{ transitionDelay: "150ms" }}>
+      {LAYERS.map((l) => (
+        <span key={l.label} className="rounded-md border border-border/40 bg-card/60 px-2.5 py-1 text-xs">
+          <span className="font-mono text-primary">{l.label}</span>
+          <span className="text-muted-foreground/60"> · {l.desc}</span>
+        </span>
       ))}
     </div>
 
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-5">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-4">
       <div className={cn("rounded-2xl border border-border/40 bg-card/80 overflow-hidden", anim(index))} style={{ transitionDelay: "390ms" }}>
         <div className="border-b border-border/40 px-4 py-2 font-mono text-xs text-muted-foreground">
           ① 강사 시연 — NMWC product.md (발췌)
         </div>
-        <pre className="overflow-x-auto p-4 font-mono text-xs leading-relaxed text-foreground/90">
+        <pre className="overflow-x-auto p-4 font-mono text-xs leading-snug text-foreground/90">
 {`# product.md
 
 ## Atoms
-
 ### btn-primary
 - Element: <button class="btn-primary">
-- Usage: CTA, 폼 제출, 주요 액션 1개
+- Usage: CTA, 주요 액션 1개
 - States: default · hover · disabled · loading
 - MUST NOT: 한 화면에 2개 이상
 
-### btn-ghost
-- Element: <button class="btn-ghost">
-- Usage: 보조 액션, 취소
-- States: default · hover · disabled
-
 ## Molecules
-
 ### PricingRow
 - Atoms: btn-primary + pricing-card
 - Usage: 플랜 비교 섹션
-- Layout: 가로 스크롤, 최대 3열
 
 ## Rules
-- 색은 토큰만: var(--accent-blue), var(--canvas)
+- 색은 토큰만: var(--accent-blue)
 - radius: var(--radius-md) 이상`}
         </pre>
       </div>
@@ -96,7 +83,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       </div>
     </div>
 
-    <div className={cn("rounded-2xl border border-primary/30 bg-card/80 p-5", anim(index))} style={{ transitionDelay: "590ms" }}>
+    <div className={cn("rounded-2xl border border-primary/30 bg-card/80 p-4", anim(index))} style={{ transitionDelay: "590ms" }}>
       <p className="font-mono text-xs text-primary uppercase tracking-widest mb-3">체크포인트 — STEP 3 완료 기준</p>
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
         {CHECKS.map((c) => (

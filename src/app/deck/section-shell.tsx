@@ -3,13 +3,13 @@
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
-interface ShellProps {
+interface ShellProps extends React.HTMLAttributes<HTMLElement> {
   index: number;
   children: React.ReactNode;
   className?: string;
 }
 
-const SectionShell = forwardRef<HTMLElement, ShellProps>(({ index, children, className }, ref) => {
+const SectionShell = forwardRef<HTMLElement, ShellProps>(({ index, children, className, ...rest }, ref) => {
   return (
     <section
       ref={ref}
@@ -18,6 +18,7 @@ const SectionShell = forwardRef<HTMLElement, ShellProps>(({ index, children, cla
         index % 2 !== 0 && "bg-muted/20",
         className,
       )}
+      {...rest}
     >
       <div className="mx-auto w-full max-w-6xl py-16">{children}</div>
     </section>

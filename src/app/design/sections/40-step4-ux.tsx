@@ -40,7 +40,7 @@ const CHECKS = [
 ];
 
 const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
-  <SectionShell ref={ref} index={index}>
+  <SectionShell ref={ref} index={index} data-code-slide>
     <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-3", anim(index))}>
       STEP 4 · ux.md
     </p>

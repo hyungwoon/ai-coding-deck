@@ -6,8 +6,7 @@ import { cn } from "@/lib/utils";
 interface P { anim: (i: number) => string; index: number; }
 
 const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
-  <SectionShell ref={ref} index={index} className="">
-    <section data-code-slide className="w-full">
+  <SectionShell ref={ref} index={index} data-code-slide>
       <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-3", anim(index))}>
         그룹 4 · AI 가독성
       </p>
@@ -19,7 +18,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         <div className="border-b border-border/40 px-4 py-2 font-mono text-xs text-muted-foreground">
           brand.md — YAML front matter + markdown rationale 예시
         </div>
-        <pre className="overflow-x-auto p-5 font-mono text-xs leading-relaxed text-foreground/90">
+        <pre className="overflow-x-auto p-5 font-mono text-xs leading-snug text-foreground/90">
 {`---
 tokens:
   color-primary: "#6366F1"
@@ -59,8 +58,7 @@ scope: brand
       <p className={cn("mt-4 text-xs text-muted-foreground/60", anim(index))} style={{ transitionDelay: "490ms" }}>
         front matter는 구조화 데이터, markdown 본문은 맥락 — 둘을 함께 써야 AI가 값과 의도를 동시에 이해한다.
       </p>
-    </section>
-  </SectionShell>
+    </SectionShell>
 ));
 S.displayName = "S32AiReadableFormat";
 export default S;

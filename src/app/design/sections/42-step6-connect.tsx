@@ -13,8 +13,7 @@ const CHECKS = [
 ];
 
 const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
-  <SectionShell ref={ref} index={index} className="">
-    <section data-code-slide className="w-full">
+  <SectionShell ref={ref} index={index} data-code-slide>
       <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-3", anim(index))}>
         STEP 6 · Claude Desktop 연결
       </p>
@@ -65,8 +64,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
           ))}
         </div>
       </div>
-    </section>
-  </SectionShell>
+    </SectionShell>
 ));
 S.displayName = "S42Step6Connect";
 export default S;

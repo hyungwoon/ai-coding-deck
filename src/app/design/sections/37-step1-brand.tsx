@@ -13,7 +13,7 @@ const CHECKS = [
 ];
 
 const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
-  <SectionShell ref={ref} index={index}>
+  <SectionShell ref={ref} index={index} data-code-slide>
     <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-3", anim(index))}>
       STEP 1 · brand.md
     </p>
@@ -29,7 +29,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         <div className="border-b border-border/40 px-4 py-2 font-mono text-xs text-muted-foreground">
           ① 강사 시연 — NMWC brand.md (발췌)
         </div>
-        <pre className="overflow-x-auto p-4 font-mono text-xs leading-relaxed text-foreground/90">
+        <pre className="overflow-x-auto p-4 font-mono text-xs leading-snug text-foreground/90">
 {`# brand.md
 
 ## Logo
