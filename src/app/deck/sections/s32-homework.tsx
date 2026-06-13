@@ -30,6 +30,11 @@ const SETUP_PROMPT = `아래 도구와 스킬을 순서대로 전부 설치해�
 - humanizer — AI가 쓴 글에서 AI 느낌을 제거하고 자연스러운 문체로 다듬기
 - ui-ux-pro-max — UI/UX 디자인 + 구현 (50가지 스타일, 21개 팔레트, React/Next.js/Tailwind 등)
 
+## 5. 추가 도구 (선택 — 필요할 때 설치)
+- gstack — Garry Tan의 23개 전문 도구 팀. git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup
+- gbrain — AI의 영속 기억(의미 검색). bun install -g github:garrytan/gbrain && gbrain init --pglite (의미 검색엔 OPENAI_API_KEY 등 임베딩 키 필요)
+- llm wiki — Karpathy의 지식 위키 패턴. git clone https://github.com/Pratiyush/llm-wiki.git && cd llm-wiki && ./setup.sh
+
 전부 끝나면 설치된 목록 보여줘.`;
 
 interface P { anim: (i: number) => string; index: number; }
@@ -97,6 +102,8 @@ const S32Homework = forwardRef<HTMLElement, P>(({ anim, index }, ref) => {
           <p>1. OMC — /install-github Yeachan-Heo/oh-my-claudecode</p>
           <p>2. oh-my-hwclaude — git clone ~/.claude/oh-my-hwclaude</p>
           <p>3. business-ai-team — git clone ~/.claude/business-ai-team</p>
+          <p className="mt-2 text-muted-foreground">## 추가 도구 (선택)</p>
+          <p>4. gstack · 5. gbrain(심화) · 6. llm wiki(Karpathy)</p>
           <p className="mt-2 text-muted-foreground">## 스킬 7개</p>
           <p>brainstorming, writing-plans, executing-plans,</p>
           <p>verification-before-completion, using-superpowers,</p>
