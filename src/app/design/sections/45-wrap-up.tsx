@@ -10,13 +10,12 @@ const MADE_TODAY = [
   { label: "bx.md",    desc: "보이스·톤 규칙" },
   { label: "product.md", desc: "컴포넌트 계층 + 조합" },
   { label: "ux.md",    desc: "UX 원칙 + 에러·로딩 처리" },
-  { label: "미니 MCP", desc: "Claude와 연결된 디자인 시스템" },
 ];
 
 const NEXT_STEPS = [
   "팀 레포에 design/ 폴더 커밋 — 개발자도 같은 DESIGN.md 사용",
   "product.md 컴포넌트 목록 계속 확장 — 쓸수록 정밀해진다",
-  "Claude Code에도 .mcp.json으로 등록 — 코드 생성 시 자동 참조",
+  "Claude Code·Cursor도 repo의 DESIGN.md를 자동 참조 — 파일 하나로 전 도구 공유",
   "디자인 변경 시 DESIGN.md 먼저 업데이트 — 파일이 단일 출처",
 ];
 
@@ -32,7 +31,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       DESIGN.md가 없으면 AI는 매번 임의 결정을 내린다. 지금 만든 파일이 그 임의성을 없앤다.
     </p>
 
-    <div className="grid grid-cols-2 gap-3 sm:grid-cols-5 mb-7">
+    <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 mb-7">
       {MADE_TODAY.map((item, i) => (
         <div
           key={item.label}
@@ -67,7 +66,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       <div className="rounded-xl border border-border/40 bg-card/60 p-4">
         <p className="font-semibold text-sm mb-2">Contact</p>
         <div className="space-y-1 text-sm text-muted-foreground">
-          <p>형운 — <span className="font-mono text-xs">nmwc.ai@gmail.com</span></p>
+          <p>형운 — <span className="font-mono text-xs">hyungwoon.kr@gmail.com</span></p>
           <p className="text-xs text-muted-foreground/60">이후 질문·피드백 환영합니다.</p>
         </div>
       </div>

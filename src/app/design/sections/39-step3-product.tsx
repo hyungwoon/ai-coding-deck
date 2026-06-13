@@ -43,7 +43,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-4">
       <div className={cn("rounded-2xl border border-border/40 bg-card/80 overflow-hidden", anim(index))} style={{ transitionDelay: "390ms" }}>
         <div className="border-b border-border/40 px-4 py-2 font-mono text-xs text-muted-foreground">
-          ① 강사 시연 — NMWC product.md (발췌)
+          ① 강사 시연 — NMWC product.md · <a href="https://nmwc.ai.kr/product" target="_blank" rel="noopener" className="underline decoration-primary/40 underline-offset-2 hover:text-foreground">라이브 ↗</a>
         </div>
         <pre className="overflow-x-auto p-4 font-mono text-xs leading-snug text-foreground/90">
 {`# product.md

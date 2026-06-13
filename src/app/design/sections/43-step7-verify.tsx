@@ -21,7 +21,7 @@ const PASS_FAIL = [
 const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
     <p className={cn("font-mono text-xs tracking-widest text-muted-foreground uppercase mb-3", anim(index))}>
-      STEP 7 · 검증
+      STEP 5 · 검증
     </p>
     <h2 className={cn("text-3xl font-bold tracking-tight sm:text-5xl mb-4", anim(index))}>
       내 판단이 AI에 전달되는지 확인

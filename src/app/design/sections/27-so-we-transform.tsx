@@ -26,7 +26,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         <p className="font-mono text-xs uppercase tracking-widest text-primary mb-2">After · AI-native DESIGN.md</p>
         <p className="text-sm leading-relaxed text-muted-foreground">
           구조화된 섹션으로 변환. 조합 규칙·usage·rationale을{" "}
-          <span className="text-foreground">AI가 파싱하고 MCP로 서빙할 수 있는 형식</span>으로.
+          <span className="text-foreground">AI가 파싱하고 직접 읽을 수 있는 형식</span>으로.
         </p>
       </div>
     </div>

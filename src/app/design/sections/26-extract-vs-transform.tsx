@@ -28,7 +28,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
           </li>
           <li className="flex items-start gap-2">
             <span className="mt-0.5 text-foreground/50">·</span>
-            <span>MCP get_token · get_component로 <span className="text-foreground">이미 배포 중</span></span>
+            <span>get_token · get_component 등 도구로 <span className="text-foreground">이미 배포 중</span></span>
           </li>
         </ul>
       </div>

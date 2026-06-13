@@ -43,7 +43,7 @@ scope: brand
       <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-3">
         <div className={cn("rounded-xl border border-border/40 bg-card/60 p-4 text-sm", anim(index))} style={{ transitionDelay: "250ms" }}>
           <p className="font-semibold mb-1 text-primary">YAML front matter</p>
-          <p className="text-muted-foreground">토큰 값 기계 파싱. MCP가 직접 읽는 레이어.</p>
+          <p className="text-muted-foreground">토큰 값 기계 파싱. AI가 직접 읽는 레이어.</p>
         </div>
         <div className={cn("rounded-xl border border-border/40 bg-card/60 p-4 text-sm", anim(index))} style={{ transitionDelay: "330ms" }}>
           <p className="font-semibold mb-1 text-primary">헤딩·표</p>

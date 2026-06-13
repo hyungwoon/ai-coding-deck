@@ -10,14 +10,12 @@ const DELIVERABLES = [
   { label: "bx.md",    desc: "보이스·톤 — Use/Avoid 단어" },
   { label: "product.md", desc: "Atomic 컴포넌트 계층 + 조합·usage" },
   { label: "ux.md",    desc: "UX 원칙 — 휴리스틱·에러·로딩" },
-  { label: "미니 MCP", desc: "4개 md를 Claude에 노출하는 서버" },
 ];
 
 const TIMELINE = [
   { t: "00", step: "STEP 0", desc: "현황 진단 — 내 프로젝트 자산 파악", min: "10분" },
-  { t: "01", step: "STEP 1–4", desc: "DESIGN.md 4개 작성", min: "50분" },
-  { t: "02", step: "STEP 5–6", desc: "미니 MCP 빌드 + Claude 연결", min: "20분" },
-  { t: "03", step: "STEP 7", desc: "검증 — 내 판단이 AI에 전달되는지", min: "10분" },
+  { t: "01", step: "STEP 1–4", desc: "DESIGN.md 4개 작성", min: "60분" },
+  { t: "02", step: "STEP 5", desc: "검증 — 내 판단이 AI에 전달되는지", min: "20분" },
 ];
 
 const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
@@ -32,7 +30,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       강의를 보는 게 아니라 직접 만든다. 90분 뒤 당신 손에 실제 파일이 남아야 한다.
     </p>
 
-    <div className="grid grid-cols-1 gap-3 sm:grid-cols-5 mb-8">
+    <div className="grid grid-cols-1 gap-3 sm:grid-cols-4 mb-8">
       {DELIVERABLES.map((d, i) => (
         <div
           key={d.label}

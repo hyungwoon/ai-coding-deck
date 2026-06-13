@@ -16,7 +16,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
 
     <div className={cn("rounded-2xl border border-border/40 bg-card/80 overflow-hidden mb-4", anim(index))} style={{ transitionDelay: "150ms" }}>
       <div className="border-b border-border/40 px-4 py-2 font-mono text-xs text-muted-foreground">
-        nmwc-design MCP — 등록된 도구 (server.mjs)
+        nmwc-design — design.json에서 자동 생성된 도구
       </div>
       <pre className="overflow-x-auto p-5 font-mono text-xs leading-relaxed text-foreground/90">
 {`get_token      // 토큰 조회 — category · role · name 필터
@@ -44,7 +44,7 @@ suggest_token  // raw 값 → 가장 가까운 토큰 제안`}
 
     <div className={cn("mt-5 border-l-2 border-primary/40 pl-5", anim(index))} style={{ transitionDelay: "420ms" }}>
       <p className="text-base font-semibold">여기까진 자동화됐다.</p>
-      <p className="mt-1 text-sm text-muted-foreground">토큰과 개별 컴포넌트 레시피는 MCP를 통해 기계가 추출·배포한다. 그런데 아직 부족한 게 있다.</p>
+      <p className="mt-1 text-sm text-muted-foreground">토큰과 개별 컴포넌트 레시피는 도구가 기계적으로 추출·배포한다(design.json·정적 번들). 그런데 아직 부족한 게 있다.</p>
     </div>
   </SectionShell>
 ));

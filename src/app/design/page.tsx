@@ -8,7 +8,6 @@ import S00 from "./sections/00-title";
 import S01 from "./sections/01-goal";
 import S02 from "./sections/02-tools";
 import S03 from "./sections/03-install-desktop";
-import S04 from "./sections/04-setup-mcp";
 import S05 from "./sections/05-ready-check";
 import S06 from "./sections/06-inflection";
 import S07 from "./sections/07-data-shift";
@@ -26,6 +25,7 @@ import S18 from "./sections/18-design-md-standard";
 import S19 from "./sections/19-agents-vs-design";
 import S20 from "./sections/20-design-md-format";
 import S21 from "./sections/21-real-examples";
+import S21b from "./sections/21b-nmwc-live";
 import S22 from "./sections/22-group2-summary";
 import S23 from "./sections/23-atomic-recap";
 import S24 from "./sections/24-whats-extracted";
@@ -45,28 +45,26 @@ import S37 from "./sections/37-step1-brand";
 import S38 from "./sections/38-step2-bx";
 import S39 from "./sections/39-step3-product";
 import S40 from "./sections/40-step4-ux";
-import S41 from "./sections/41-step5-mcp";
-import S42 from "./sections/42-step6-connect";
 import S43 from "./sections/43-step7-verify";
 import S44 from "./sections/44-troubleshooting";
 import S45 from "./sections/45-wrap-up";
 
 const sectionLabels = [
-  "Title", "목표", "도구", "설치", "MCP 셋업", "준비 체크",
+  "Title", "목표", "도구", "설치", "준비 체크",
   "변곡점", "데이터", "전통 워크플로", "AI Native", "Artifact→Spec", "Mockup→Proto", "Designer→Builder", "형운 ①", "형운 ② 브릿지",
-  "DS란", "전통 DS", "Figma 문제", "DESIGN.md", "AGENTS vs DESIGN", "포맷", "사례", "정리",
+  "DS란", "전통 DS", "Figma 문제", "DESIGN.md", "AGENTS vs DESIGN", "포맷", "사례", "NMWC 라이브", "정리",
   "Atomic 복습", "추출되는 것", "산문 암묵지", "추출 vs 변환", "변환",
   "좋은 DESIGN.md", "계층 분리", "Component Case", "Usage", "AI 형식", "함정", "체크리스트",
-  "실습 개요", "STEP0 진단", "STEP1 brand", "STEP2 bx", "STEP3 product", "STEP4 ux", "STEP5 MCP", "STEP6 연결", "STEP7 검증", "트러블슈팅", "마무리",
+  "실습 개요", "STEP0 진단", "STEP1 brand", "STEP2 bx", "STEP3 product", "STEP4 ux", "STEP5 검증", "트러블슈팅", "마무리",
 ];
 
 const sectionComponents = [
-  S00, S01, S02, S03, S04, S05,
+  S00, S01, S02, S03, S05,
   S06, S07, S08, S09, S10, S11, S12, S13, S14,
-  S15, S16, S17, S18, S19, S20, S21, S22,
+  S15, S16, S17, S18, S19, S20, S21, S21b, S22,
   S23, S24, S25, S26, S27,
   S28, S29, S30, S31, S32, S33, S34,
-  S35, S36, S37, S38, S39, S40, S41, S42, S43, S44, S45,
+  S35, S36, S37, S38, S39, S40, S43, S44, S45,
 ];
 
 const SECTION_COUNT = sectionComponents.length;

@@ -7,33 +7,33 @@ interface P { anim: (i: number) => string; index: number; }
 
 const ISSUES = [
   {
-    problem: "Claude 재시작해도 서버가 안 보임",
-    cause: "Cmd+Q 없이 창만 닫음",
-    fix: "Cmd+Q로 완전 종료 후 재실행. 백그라운드 프로세스가 남아 있으면 MCP가 로드 안 됨.",
+    problem: "Claude가 DESIGN.md를 안 읽는 것 같음",
+    cause: "Code 탭에서 프로젝트 폴더를 안 열었거나 파일이 루트에 없음",
+    fix: "Code 탭에서 DESIGN.md가 있는 폴더를 연다. 파일은 repo 루트(또는 design/)에 둔다.",
   },
   {
-    problem: "서버가 즉시 꺼짐 / 빨간 점",
-    cause: "claude_desktop_config.json JSON 오타",
-    fix: "jsonlint.com에 붙여넣어 검증. 쉼표 하나, 따옴표 하나가 전체를 조용히 죽인다.",
+    problem: "응답이 임의 색·크기를 씀",
+    cause: "프롬프트가 DESIGN.md를 명시적으로 참조 안 함",
+    fix: "'brand.md·product.md를 따라서'를 프롬프트에 명시. 파일이 있어도 자동 주입은 약하다.",
   },
   {
-    problem: "리소스는 보이는데 내용이 비어 있음",
-    cause: "DESIGN_DIR 경로가 상대 경로이거나 오타",
-    fix: "server.mjs의 DESIGN_DIR을 /Users/이름/... 절대 경로로 교체. pwd 명령으로 확인.",
+    problem: "AI가 파일 일부만 반영함",
+    cause: "한 파일에 모든 걸 몰아넣어 너무 김",
+    fix: "brand·bx·product·ux 4개로 분리. 한 파일은 한 주제만 담는다.",
   },
   {
-    problem: "Claude가 DESIGN.md를 무시하는 것 같음",
-    cause: "리소스를 명시적으로 불러오지 않음",
-    fix: "프롬프트 앞에 '내 디자인 시스템(design://product)을 참고해서'를 붙인다. MCP는 자동 주입 안 됨.",
+    problem: "팀원마다 결과가 다름",
+    cause: "DESIGN.md가 로컬에만 있고 repo에 없음",
+    fix: "DESIGN.md를 commit해 공유. 또는 URL로 publish(예: nmwc.ai.kr).",
   },
   {
-    problem: "node 명령 못 찾음 (ENOENT)",
-    cause: "config의 command가 node인데 경로 불인식",
-    fix: "which node 결과(/usr/local/bin/node)를 command에 절대 경로로 사용.",
+    problem: "수정해도 AI가 옛 규칙을 씀",
+    cause: "이전 대화 컨텍스트가 그대로 유지됨",
+    fix: "DESIGN.md 수정 후엔 새 대화로 시작. fresh chat이 최신 파일을 읽는다.",
   },
   {
-    problem: "구독 안 한 모델에서 MCP 탭 없음",
-    cause: "Claude 무료 플랜은 MCP 미지원",
+    problem: "Code 탭이 안 보임",
+    cause: "Claude 무료 플랜은 Code 미지원",
     fix: "Pro 이상 구독 필요. Settings → Account에서 플랜 확인.",
   },
 ];
