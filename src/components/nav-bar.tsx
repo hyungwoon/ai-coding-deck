@@ -8,7 +8,6 @@ const LINKS: { href: string; label: string; match: (p: string) => boolean }[] = 
   { href: "/deck", label: "Foundations", match: (p) => p === "/deck" },
   { href: "/agents-2026", label: "Agents", match: (p) => p === "/agents-2026" },
   { href: "/design", label: "Design", match: (p) => p === "/design" },
-  { href: "/lecture", label: "Lecture", match: (p) => p === "/lecture" },
   { href: "/homework/week1", label: "과제", match: (p) => p.startsWith("/homework") },
 ];
 
