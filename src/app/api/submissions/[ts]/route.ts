@@ -1,52 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
-
-const SLACK_TOKEN = process.env.SLACK_TOKEN!;
-const SLACK_CHANNEL = process.env.SLACK_CHANNEL!;
-const MARKER = "[HOMEWORK-W1]";
+import { updateSubmission } from "@/lib/submissions-store";
 
 export async function PUT(
   req: NextRequest,
   { params }: { params: Promise<{ ts: string }> },
 ) {
-  const { ts } = await params;
-  const { name, task, content } = await req.json();
+  try {
+    const { ts } = await params;
+    const { name, task, content } = await req.json();
 
-  if (!name || !content) {
-    return NextResponse.json({ error: "name and content required" }, { status: 400 });
+    if (!name || !content) {
+      return NextResponse.json({ error: "name and content required" }, { status: 400 });
+    }
+
+    const updated = await updateSubmission(ts, { name, task, content });
+    if (!updated) {
+      return NextResponse.json({ error: "not found" }, { status: 404 });
+    }
+    return NextResponse.json({ success: true });
+  } catch {
+    return NextResponse.json({ error: "수정에 실패했습니다" }, { status: 500 });
   }
-
-  const header = task ? `${name} — ${task}` : `${name}`;
-  const text = `${MARKER} ${header}\n${content}`;
-
-  const updateRes = await fetch("https://slack.com/api/chat.update", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${SLACK_TOKEN}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ channel: SLACK_CHANNEL, ts, text }),
-  });
-
-  const updateData = await updateRes.json();
-  if (!updateData.ok) {
-    return NextResponse.json({ error: updateData.error }, { status: 500 });
-  }
-
-  const notifyText = task
-    ? `[수정] ${name}님이 과제를 수정했습니다 — ${task}`
-    : `[수정] ${name}님이 과제를 수정했습니다`;
-  await fetch("https://slack.com/api/chat.postMessage", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${SLACK_TOKEN}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      channel: SLACK_CHANNEL,
-      text: notifyText,
-      unfurl_links: false,
-    }),
-  });
-
-  return NextResponse.json({ success: true });
 }

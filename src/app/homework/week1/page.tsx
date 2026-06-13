@@ -453,7 +453,7 @@ export default function Week1Page() {
           <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">과제 제출</h2>
 
           <p className="text-sm text-muted-foreground mb-4">
-            이름을 입력하고 과제 내용을 작성한 뒤 제출하세요. 마감 없이 언제든 제출·수정할 수 있고, 제출하면 Slack 채널에 자동으로 공유됩니다.
+            이름을 입력하고 과제 내용을 작성한 뒤 제출하세요. 마감 없이 언제든 제출하고 수정할 수 있습니다.
           </p>
           <div className="rounded-xl border border-border bg-card px-4 py-4 space-y-3">
             <input
