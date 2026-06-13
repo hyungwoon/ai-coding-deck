@@ -1,26 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect, useMemo } from "react";
-
-const DEADLINE = new Date("2026-03-27T21:00:00+09:00");
-
-function useCountdown() {
-  const [now, setNow] = useState(new Date());
-  useEffect(() => {
-    const id = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(id);
-  }, []);
-
-  const diff = DEADLINE.getTime() - now.getTime();
-  const expired = diff <= 0;
-  const days = Math.floor(diff / 86400000);
-  const hours = Math.floor((diff % 86400000) / 3600000);
-  const minutes = Math.floor((diff % 3600000) / 60000);
-  const seconds = Math.floor((diff % 60000) / 1000);
-  const urgency = days <= 1 ? "critical" : days <= 3 ? "warn" : "normal";
-
-  return { days, hours, minutes, seconds, expired, urgency };
-}
+import { useState, useCallback, useEffect } from "react";
 
 interface Submission {
   ts: string;
@@ -72,77 +52,12 @@ const SETUP_PROMPT = `아래 스킬과 MCP 서버를 전부 글로벌(~/.claude/
 
 전부 끝나면 설치된 스킬 목록과 MCP 서버 목록을 보여줘.`;
 
-const commands = [
-  { cmd: "ultrathink", desc: "깊은 추론 — 복잡한 설계·분석에 효과적", ex: "ultrathink 하네스란 무엇이고 왜 필요한지 5분 스피치 원고 만들어줘" },
-  { cmd: "ulw", desc: "최대 병렬 실행 — 독립 작업 2개 이상 동시 처리", ex: "ulw RLVR 개념 정리 + RLHF와 차이점 비교 + 5분 스피치 원고 병렬로" },
-  { cmd: "/using-superpowers", desc: "스킬 자동 탐색 — 요청에 맞는 스킬을 찾아서 적용", ex: "/using-superpowers 내 업무의 암묵지와 명시지를 구분해서 정리해줘" },
-  { cmd: "/ask", desc: "비즈니스 전문가에게 질문", ex: "/ask 온톨로지를 처음 만들 때 어떤 구조로 시작하면 좋아?" },
-  { cmd: "/route", desc: "요청을 적합한 전문가에게 자동 라우팅", ex: "/route 오늘 강의 핵심 내용을 5분 요약 아티클로 정리해줘" },
-  { cmd: "/team", desc: "전문가 팀 목록 확인", ex: "/team" },
-];
-
 const planSteps = [
   { step: "1. Plan 모드 진입", detail: "프롬프트에 /plan 입력 또는 Shift+Tab으로 전환" },
   { step: "2. /using-superpowers + ultrathink로 요구사항을 전달하세요", detail: "예: /using-superpowers ultrathink PDF 문서를 온톨로지 형태로 변환하는 방법을 설계해줘 — superpowers가 스킬을 찾고, ultrathink가 깊이 추론합니다" },
   { step: "3. 플랜 확인", detail: "Claude가 단계별 계획을 출력 → 방향이 맞는지 검토" },
   { step: "4. 승인 후 실행", detail: "플랜이 맞으면 승인 → Claude가 계획대로 구현 시작" },
 ];
-
-const assignments = [
-  { name: "신지환", task: "AI로 하네스 스터디", format: "5분 스피치" },
-  { name: "김자현", task: "본인의 온톨로지 만들기", format: "5분 스피치" },
-  { name: "조윤진", task: "내 업무의 암묵지/명시지 정리", format: "5분 스피치" },
-  { name: "고지영", task: "AI로 RLVR, RLHF 개념 스터디", format: "5분 스피치" },
-  { name: "모효빈", task: "오늘 강의 내용 다시 설명", format: "5분 요약 아티클" },
-  { name: "유재형", task: "알아서 와우할만한 거 하나 가져오기", format: "자유" },
-  { name: "장윤주", task: "PDF를 온톨로지화", format: "5분 스피치" },
-  { name: "이용진", task: "케로셀 학습 → 디자인 스킬 만들기 (디자인 시스템화 고도화)", format: "5분 스피치" },
-];
-
-function CountdownTimer() {
-  const { days, hours, minutes, seconds, expired, urgency } = useCountdown();
-
-  if (expired) {
-    return (
-      <div className="rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-4 text-center">
-        <p className="text-lg font-bold text-red-400">제출 마감</p>
-        <p className="text-sm text-red-400/60">제출 기한이 종료되었습니다</p>
-      </div>
-    );
-  }
-
-  const borderColor = urgency === "critical" ? "border-red-500/40" : urgency === "warn" ? "border-amber-500/40" : "border-border";
-  const bgColor = urgency === "critical" ? "bg-red-500/5" : urgency === "warn" ? "bg-amber-500/5" : "bg-card";
-  const numColor = urgency === "critical" ? "text-red-400" : urgency === "warn" ? "text-amber-400" : "text-foreground";
-  const labelColor = urgency === "critical" ? "text-red-400/60" : urgency === "warn" ? "text-amber-400/60" : "text-muted-foreground/50";
-
-  return (
-    <div className={`rounded-xl border ${borderColor} ${bgColor} px-4 py-4`}>
-      <p className={`text-xs font-bold uppercase tracking-widest mb-3 text-center ${labelColor}`}>
-        제출 마감까지
-      </p>
-      <div className="flex items-center justify-center gap-3">
-        {[
-          { value: days, label: "일" },
-          { value: hours, label: "시간" },
-          { value: minutes, label: "분" },
-          { value: seconds, label: "초" },
-        ].map((unit, i) => (
-          <div key={unit.label} className="flex items-center gap-3">
-            <div className="text-center min-w-[48px]">
-              <p className={`text-2xl sm:text-3xl font-black font-mono tabular-nums ${numColor} ${urgency === "critical" ? "animate-pulse" : ""}`}>
-                {String(unit.value).padStart(2, "0")}
-              </p>
-              <p className={`text-[10px] ${labelColor}`}>{unit.label}</p>
-            </div>
-            {i < 3 && <span className={`text-xl font-bold ${labelColor}`}>:</span>}
-          </div>
-        ))}
-      </div>
-      <p className="text-xs text-muted-foreground/40 text-center mt-2">3월 27일 (금) 21:00 마감</p>
-    </div>
-  );
-}
 
 export default function Week1Page() {
   const [copied, setCopied] = useState(false);
@@ -171,16 +86,14 @@ export default function Week1Page() {
   useEffect(() => { fetchSubmissions(); }, [fetchSubmissions]);
 
   const handleSubmit = async () => {
-    if (!selectedName || !submitContent.trim()) return;
+    if (!selectedName.trim() || !submitContent.trim()) return;
     setSubmitting(true);
-    const assignment = assignments.find((a) => a.name === selectedName);
     try {
       await fetch("/api/submissions", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: selectedName,
-          task: assignment?.task ?? "",
+          name: selectedName.trim(),
           content: submitContent,
         }),
       });
@@ -217,7 +130,7 @@ export default function Week1Page() {
     <div className="min-h-screen bg-background text-foreground">
       <div className="mx-auto max-w-3xl px-4 py-24">
 
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-2">1주차 과제</h1>
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-2">과제</h1>
         <p className="text-lg text-muted-foreground mb-12">아래 순서대로 따라오시면 됩니다. 막히는 부분은 편하게 물어보세요.</p>
 
         {/* Step 1 */}
@@ -492,49 +405,21 @@ export default function Week1Page() {
           </div>
         </section>
 
-        {/* Step 6 */}
-        <section>
-          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 6. 개인별 과제</h2>
-          <p className="text-sm text-muted-foreground mb-3">
-            위에서 세팅한 환경을 활용해서 아래 과제를 수행하세요. 과제 수행 자체를 Claude Code와 함께 하시면 됩니다.
-          </p>
-          <div className="space-y-2">
-            {assignments.map((a) => {
-              const submitted = submissions.some((s) => s.name === a.name);
-              return (
-                <div key={a.name} className={`flex items-center gap-4 rounded-xl border px-4 py-3 ${submitted ? "border-green-500/30 bg-green-500/5" : "border-border bg-card"}`}>
-                  <span className={`text-sm font-bold shrink-0 w-16 ${submitted ? "text-green-400" : "text-foreground"}`}>{a.name}</span>
-                  <span className="text-sm text-muted-foreground flex-1">{a.task}</span>
-                  <span className="text-xs text-muted-foreground/50 shrink-0">{a.format}</span>
-                  {submitted && (
-                    <span className="text-xs font-medium text-green-400 shrink-0">제출 완료</span>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </section>
-
         {/* 과제 제출 */}
         <section className="mb-10 mt-16">
           <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">과제 제출</h2>
 
-          <CountdownTimer />
-
-          <p className="text-sm text-muted-foreground mb-4 mt-4">
-            이름을 선택하고 과제 내용을 작성한 뒤 제출하세요. 제출하면 Slack 채널에 자동으로 공유됩니다.
+          <p className="text-sm text-muted-foreground mb-4">
+            이름을 입력하고 과제 내용을 작성한 뒤 제출하세요. 마감 없이 언제든 제출·수정할 수 있고, 제출하면 Slack 채널에 자동으로 공유됩니다.
           </p>
           <div className="rounded-xl border border-border bg-card px-4 py-4 space-y-3">
-            <select
+            <input
+              type="text"
               value={selectedName}
               onChange={(e) => setSelectedName(e.target.value)}
-              className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground"
-            >
-              <option value="">이름을 선택하세요</option>
-              {assignments.map((a) => (
-                <option key={a.name} value={a.name}>{a.name} — {a.task}</option>
-              ))}
-            </select>
+              placeholder="이름을 입력하세요"
+              className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground/40"
+            />
             <textarea
               value={submitContent}
               onChange={(e) => setSubmitContent(e.target.value)}
@@ -545,7 +430,7 @@ export default function Week1Page() {
             <div className="flex justify-end">
               <button
                 onClick={handleSubmit}
-                disabled={!selectedName || !submitContent.trim() || submitting}
+                disabled={!selectedName.trim() || !submitContent.trim() || submitting}
                 className="rounded-lg border border-border bg-foreground px-5 py-2 text-sm font-medium text-background transition-all hover:opacity-90 disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 {submitting ? "제출 중..." : "제출하기"}
@@ -566,7 +451,7 @@ export default function Week1Page() {
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
                       <span className="text-sm font-bold text-foreground">{sub.name}</span>
-                      <span className="text-sm text-muted-foreground">— {sub.task}</span>
+                      {sub.task && <span className="text-sm text-muted-foreground">— {sub.task}</span>}
                       {sub.edited && (
                         <span className="text-xs text-muted-foreground/40">(수정됨)</span>
                       )}

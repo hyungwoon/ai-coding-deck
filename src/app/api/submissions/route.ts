@@ -16,13 +16,16 @@ function parseSubmission(msg: SlackMessage) {
 
   const lines = text.split("\n");
   const headerLine = lines[0].replace(MARKER, "").trim();
+  // 과거 포맷("이름 — 과제")과 신규 포맷("이름")을 모두 파싱
   const nameMatch = headerLine.match(/^(.+?)\s*[—-]\s*(.+)$/);
-  if (!nameMatch) return null;
+  const name = nameMatch ? nameMatch[1].trim() : headerLine;
+  const task = nameMatch ? nameMatch[2].trim() : "";
+  if (!name) return null;
 
   return {
     ts: msg.ts,
-    name: nameMatch[1].trim(),
-    task: nameMatch[2].trim(),
+    name,
+    task,
     content: lines.slice(1).join("\n").trim(),
     edited: !!msg.edited,
   };
@@ -57,7 +60,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "name and content required" }, { status: 400 });
   }
 
-  const text = `${MARKER} ${name} — ${task}\n${content}`;
+  const header = task ? `${name} — ${task}` : `${name}`;
+  const text = `${MARKER} ${header}\n${content}`;
 
   const res = await fetch("https://slack.com/api/chat.postMessage", {
     method: "POST",

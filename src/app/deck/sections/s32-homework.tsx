@@ -57,7 +57,7 @@ const S32Homework = forwardRef<HTMLElement, P>(({ anim, index }, ref) => {
   return (
   <SectionShell ref={ref} index={index}>
     <h2 className={cn("text-3xl font-bold tracking-tight sm:text-6xl mb-2", anim(index))}>
-      1주차 과제
+      과제
     </h2>
     <p className={cn("text-lg text-muted-foreground mb-6", anim(index))} style={{ transitionDelay: "80ms" }}>
       환경 세팅 + 개인별 과제

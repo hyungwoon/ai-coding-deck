@@ -15,7 +15,8 @@ export async function PUT(
     return NextResponse.json({ error: "name and content required" }, { status: 400 });
   }
 
-  const text = `${MARKER} ${name} — ${task}\n${content}`;
+  const header = task ? `${name} — ${task}` : `${name}`;
+  const text = `${MARKER} ${header}\n${content}`;
 
   const updateRes = await fetch("https://slack.com/api/chat.update", {
     method: "POST",
@@ -31,7 +32,9 @@ export async function PUT(
     return NextResponse.json({ error: updateData.error }, { status: 500 });
   }
 
-  const notifyText = `[수정] ${name}님이 1주차 과제를 수정했습니다 — ${task}`;
+  const notifyText = task
+    ? `[수정] ${name}님이 과제를 수정했습니다 — ${task}`
+    : `[수정] ${name}님이 과제를 수정했습니다`;
   await fetch("https://slack.com/api/chat.postMessage", {
     method: "POST",
     headers: {
