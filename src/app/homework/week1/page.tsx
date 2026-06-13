@@ -160,7 +160,7 @@ export default function Week1Page() {
 
         {/* Step 2: 도구 설치 */}
         <section className="mb-10">
-          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 2. 도구 3개를 설치하세요</h2>
+          <h2 className="text-sm font-bold text-muted-foreground/50 uppercase tracking-widest mb-3">Step 2. 도구를 설치하세요</h2>
           <p className="text-sm text-muted-foreground mb-4">
             Claude Code 입력창에 아래 명령어를 <span className="text-foreground font-semibold">순서대로 하나씩 입력</span>하세요.
             각 명령어를 입력하고 Enter를 누르면 됩니다.
@@ -200,6 +200,49 @@ export default function Week1Page() {
             <div className="rounded-xl border border-border bg-card px-4 py-3">
               <code className="font-mono text-sm text-foreground whitespace-pre-wrap">git clone https://github.com/hyungwoon/business-ai-team.git ~/.claude/business-ai-team && cd ~/.claude/business-ai-team && ./install.sh</code>
             </div>
+          </div>
+
+          {/* 구분: 추가 도구 */}
+          <div className="mt-6 mb-3 border-t border-border/40 pt-4">
+            <p className="text-sm font-bold text-foreground">추가 도구 — 더 강력하게 쓰고 싶다면</p>
+            <p className="text-xs text-muted-foreground mt-1">위 3개로 강의는 충분합니다. 아래는 선택이며, gbrain은 심화입니다.</p>
+          </div>
+
+          {/* 2-4: gstack */}
+          <div className="mb-4">
+            <p className="text-sm font-bold text-foreground mb-2">2-4. gstack (가상 엔지니어링 팀)</p>
+            <p className="text-sm text-muted-foreground mb-2">
+              YC 대표 Garry Tan이 만든 23개 전문 도구 모음. Claude Code를 CEO·디자이너·엔지니어·QA·릴리스 매니저로 구성된 팀처럼 씁니다. <code className="font-mono text-foreground/80">/office-hours</code>, <code className="font-mono text-foreground/80">/review</code>, <code className="font-mono text-foreground/80">/qa</code> 같은 명령이 생깁니다. (Bun v1.0+ 필요)
+            </p>
+            <div className="rounded-xl border border-border bg-card px-4 py-3">
+              <code className="font-mono text-sm text-foreground whitespace-pre-wrap">git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup</code>
+            </div>
+          </div>
+
+          {/* 2-5: gbrain */}
+          <div className="mb-4">
+            <p className="text-sm font-bold text-foreground mb-2">
+              2-5. gbrain (영속 지식 베이스) <span className="text-xs font-normal text-amber-400/80">— 심화·선택</span>
+            </p>
+            <p className="text-sm text-muted-foreground mb-2">
+              AI 에이전트가 세션이 바뀌어도 기억을 유지하는 지식 베이스입니다. 일반 검색은 원문 페이지를 주지만 gbrain은 합성된 답을 줍니다(의미 검색). <span className="text-muted-foreground/70">DB는 PGLite(로컬)로 자동 처리되지만, 의미 검색을 제대로 쓰려면 임베딩 API 키(<code className="font-mono text-foreground/80">OPENAI_API_KEY</code> 등)가 필요합니다.</span>
+            </p>
+            <div className="rounded-xl border border-border bg-card px-4 py-3">
+              <code className="font-mono text-sm text-foreground whitespace-pre-wrap">bun install -g github:garrytan/gbrain && gbrain init --pglite && claude mcp add gbrain -- gbrain serve</code>
+            </div>
+            <p className="text-xs text-muted-foreground/50 mt-1">gstack을 설치했다면 <code className="font-mono text-foreground/70">/setup-gbrain</code> 한 번으로 더 쉽게 설정할 수 있습니다.</p>
+          </div>
+
+          {/* 2-6: llm wiki */}
+          <div>
+            <p className="text-sm font-bold text-foreground mb-2">2-6. llm wiki (지식 위키 · Karpathy 패턴)</p>
+            <p className="text-sm text-muted-foreground mb-2">
+              Andrej Karpathy의 &quot;LLM Wiki&quot; 패턴 구현. 흩어진 세션과 소스를 누적해 스스로 유지되는 마크다운 지식 베이스로 컴파일합니다. <span className="text-muted-foreground/70">강사(형운)는 이 패턴을 <code className="font-mono text-foreground/80">worklog</code>라는 이름으로 커스텀해 업무일지·OKR 관리에 씁니다.</span> (Python 3.9+ 필요)
+            </p>
+            <div className="rounded-xl border border-border bg-card px-4 py-3">
+              <code className="font-mono text-sm text-foreground whitespace-pre-wrap">git clone https://github.com/Pratiyush/llm-wiki.git && cd llm-wiki && ./setup.sh</code>
+            </div>
+            <p className="text-xs text-muted-foreground/50 mt-1">설치 후 <code className="font-mono text-foreground/70">llmwiki init</code> → <code className="font-mono text-foreground/70">llmwiki sync</code> → <code className="font-mono text-foreground/70">llmwiki build</code>. Claude Code 연동: <code className="font-mono text-foreground/70">claude mcp add llmwiki -- python3 -m llmwiki.mcp</code></p>
           </div>
         </section>
 
