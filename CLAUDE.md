@@ -27,6 +27,14 @@ pnpm build     # 프로덕션 빌드 — ⚠️ 로컬에서 돌리지 말 것 (
 - 꼭 로컬 프로덕션 빌드가 필요하면 **비-iCloud 사본에서 on-demand** (예: `/tmp`에 사본 → 빌드). 정상 사본 빌드는 ~7초.
 - Vercel 링크: project `ai-coding-deck` (`hyungwoons-projects`). remote `hyungwoon/ai-coding-deck`.
 
+### git도 같은 함정 — `git add -A`/`git status` 금지
+
+- `git add -A`·`git status`는 working tree **전체를 stat**하다 iCloud로 evict된 대용량 파일(`video/`·`public/audio`)을 materialize하려고 **무한 hang**한다(인덱스 lock이 남아 다음 git도 줄줄이 막힘).
+- **반드시 변경 파일만 명시적으로**: `git add -- <경로...>` 후 `git commit -F msg -- <같은 경로...>` (pathspec 커밋 = 전체 walk 회피). 즉시 끝난다.
+- 상태 확인은 working tree를 안 걷는 인덱스 전용 명령으로: `git diff --cached --name-only`.
+- hang이 나면 해당 git 프로세스 kill + `rm -f .git/index.lock` 후 위 방식으로 재시도.
+- push는 working tree를 안 걷으므로 정상.
+
 ## 스택
 - Next.js 16, React 19, TypeScript 5
 - Tailwind CSS 4, Remotion (비디오 플레이어)

@@ -6,21 +6,21 @@ import { cn } from "@/lib/utils";
 const CLASSES = [
   {
     href: "/deck",
-    tag: "Foundations",
+    tag: "기초",
     title: "AI는 어떻게 작동하는가",
     sub: "LLM · 에이전트 · 온톨로지 · 해자",
     count: 48,
   },
   {
     href: "/agents-2026",
-    tag: "Agents",
+    tag: "에이전트",
     title: "AI Agents 2026",
     sub: "무엇을 배우고 만들고 버릴 것인가",
     count: 31,
   },
   {
     href: "/design",
-    tag: "Design",
+    tag: "디자인",
     title: "AI Native Design",
     sub: "Design System에서 DESIGN.md로",
     count: 46,

@@ -5,10 +5,10 @@ import { usePathname } from "next/navigation";
 
 const LINKS: { href: string; label: string; match: (p: string) => boolean }[] = [
   { href: "/", label: "Home", match: (p) => p === "/" },
-  { href: "/deck", label: "Foundations", match: (p) => p === "/deck" },
-  { href: "/agents-2026", label: "Agents", match: (p) => p === "/agents-2026" },
-  { href: "/design", label: "Design", match: (p) => p === "/design" },
-  { href: "/homework/week1", label: "과제", match: (p) => p.startsWith("/homework") },
+  { href: "/deck", label: "기초", match: (p) => p === "/deck" },
+  { href: "/agents-2026", label: "에이전트", match: (p) => p === "/agents-2026" },
+  { href: "/design", label: "디자인", match: (p) => p === "/design" },
+  { href: "/homework/week1", label: "환경 셋팅", match: (p) => p.startsWith("/homework") },
 ];
 
 export function NavBar() {
