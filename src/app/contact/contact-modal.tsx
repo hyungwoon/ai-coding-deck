@@ -2,10 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, Check, Copy, Download, Mail, Phone } from "lucide-react";
 
 const NAME = "형운";
-const ROLE = "Product Manager · Designer";
+const ROLE = "AI Product Manager";
 const EMAIL = "hyungwoon.kr@gmail.com";
 const PHONE_DISPLAY = "010-4810-9142";
 const PHONE_TEL = "+821048109142";
@@ -66,9 +67,14 @@ export function ContactModal() {
         </Link>
 
         <div className="mb-7 flex items-center gap-4">
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-foreground text-xl font-bold text-background">
-            {NAME.charAt(0)}
-          </div>
+          <Image
+            src="/profile.jpg"
+            alt={NAME}
+            width={64}
+            height={64}
+            priority
+            className="h-16 w-16 shrink-0 rounded-full object-cover"
+          />
           <div>
             <h1 className="text-2xl font-bold tracking-tight">{NAME}</h1>
             <p className="text-sm text-muted-foreground">{ROLE}</p>
