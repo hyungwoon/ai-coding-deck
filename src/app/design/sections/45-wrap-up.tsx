@@ -1,6 +1,7 @@
 "use client";
 import { forwardRef } from "react";
 import SectionShell from "../../deck/section-shell";
+import { ContactQR } from "@/components/contact-qr";
 import { cn } from "@/lib/utils";
 
 interface P { anim: (i: number) => string; index: number; }
@@ -63,11 +64,18 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
           막힌 것, 더 알고 싶은 것 — 지금 물어보세요.
         </p>
       </div>
-      <div className="rounded-xl border border-border/40 bg-card/60 p-4">
-        <p className="font-semibold text-sm mb-2">Contact</p>
-        <div className="space-y-1 text-sm text-muted-foreground">
-          <p>형운 — <span className="font-mono text-xs">hyungwoon.kr@gmail.com</span></p>
-          <p className="text-xs text-muted-foreground/60">이후 질문·피드백 환영합니다.</p>
+      <div className="flex items-start justify-between gap-4 rounded-xl border border-border/40 bg-card/60 p-4">
+        <div className="min-w-0">
+          <p className="font-semibold text-sm mb-2">Contact</p>
+          <div className="space-y-1 text-sm text-muted-foreground">
+            <p>형운</p>
+            <p className="font-mono text-xs break-all">hyungwoon.kr@gmail.com</p>
+            <p className="font-mono text-xs">010-4810-9142</p>
+            <p className="text-xs text-muted-foreground/60 pt-1">QR 스캔 → 연락처 저장</p>
+          </div>
+        </div>
+        <div className="shrink-0">
+          <ContactQR size={96} />
         </div>
       </div>
     </div>
