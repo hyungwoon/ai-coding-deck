@@ -13,7 +13,7 @@ const CLASSES = [
   },
   {
     href: "/agents-2026",
-    tag: "에이전트",
+    tag: "관점",
     title: "AI Agents 2026",
     sub: "무엇을 배우고 만들고 버릴 것인가",
     count: 31,
