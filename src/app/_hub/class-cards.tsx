@@ -24,13 +24,20 @@ const CLASSES = [
     title: "AI Native Design",
     sub: "Design System에서 DESIGN.md로",
     count: 46,
+  },
+  {
+    href: "/health-research",
+    tag: "실전",
+    title: "AI는 초안, 검증은 당신",
+    sub: "건강정보 리서치 · 프롬프트 · 카드뉴스",
+    count: 31,
     featured: true,
   },
 ];
 
 export function ClassCards() {
   return (
-    <div className="grid gap-4 sm:grid-cols-3">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {CLASSES.map((c) => (
         <Link
           key={c.href}
