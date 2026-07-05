@@ -37,7 +37,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
       </div>
 
       <p className={cn("mt-12 text-sm text-muted-foreground", anim(index))} style={{ transitionDelay: "300ms" }}>
-        김형운 · AI Product Manager
+        형운 · AI Product Manager
       </p>
     </div>
   </SectionShell>

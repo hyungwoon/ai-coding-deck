@@ -22,7 +22,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         내일 바로 쓰는 프롬프트 템플릿 6개와 체크리스트 1장
       </p>
       <p className={cn("mt-4 text-xs text-muted-foreground/60", anim(index))} style={{ transitionDelay: "250ms" }}>
-        김형운 · AI Product Manager
+        형운 · AI Product Manager
       </p>
       <div className={cn("mt-16 text-muted-foreground/40", anim(index))} style={{ transitionDelay: "300ms" }}>
         <p className="text-xs mb-2">SCROLL</p>

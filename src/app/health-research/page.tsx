@@ -6,10 +6,7 @@ import { useRevealAnimation, useSectionObserver, useKeyboardNav } from "../deck/
 
 import S00 from "./sections/00-title";
 import S01 from "./sections/01-takeaways";
-import S02 from "./sections/02-workflow-map";
-import S03 from "./sections/03-ai-map";
 import S04 from "./sections/04-intern";
-import S05 from "./sections/05-demo-hallucination";
 import S06 from "./sections/06-real-incidents";
 import S07 from "./sections/07-do-dont";
 import S08 from "./sections/08-five-rules";
@@ -39,10 +36,7 @@ import S29 from "./sections/29-closing";
 const sectionLabels = [
   "Title",
   "가져갈 것",
-  "워크플로우 지도",
-  "AI 지도",
   "신입 인턴",
-  "Demo · 환각",
   "실제 사고",
   "되는 일 / 안 되는 일",
   "5수칙 = AI 수칙",
@@ -71,7 +65,7 @@ const sectionLabels = [
 ];
 
 const sectionComponents = [
-  S00, S01, S02, S03, S04, S05, S06, S07, S08, S09,
+  S00, S01, S04, S06, S07, S08, S09,
   S10, S11, S12, S13, S14, S15, S16, S17, S18, S18b,
   S19, S20, S21, S22, S23, S24, S25, S26, S27, S28, S29,
 ];

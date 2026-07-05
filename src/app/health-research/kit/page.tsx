@@ -135,7 +135,7 @@ export default function HealthResearchKitPage() {
 
         {/* 푸터 */}
         <footer className="border-t border-border/40 pt-6">
-          <p className="text-sm text-muted-foreground mb-1">만든 사람: 김형운 · AI Product Manager</p>
+          <p className="text-sm text-muted-foreground mb-1">만든 사람: 형운 · AI Product Manager</p>
           <Link href="/contact" className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground">
             연락처 보기 →
           </Link>
