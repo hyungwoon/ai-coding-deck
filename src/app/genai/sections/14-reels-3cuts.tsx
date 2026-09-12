@@ -39,9 +39,6 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
             <p className="font-mono text-xs text-primary">{c.no}</p>
             <p className="font-mono text-[10px] text-muted-foreground">{c.time}</p>
           </div>
-          <div className="mb-3 aspect-[9/16] max-h-28 w-full rounded-lg border border-dashed border-border/60 bg-muted/20 flex items-center justify-center">
-            <p className="font-mono text-[10px] text-muted-foreground/60">강사 생성 예시 이미지 자리</p>
-          </div>
           <p className="text-sm font-semibold leading-snug mb-1">{c.action}</p>
           <p className="text-xs text-muted-foreground">카메라: {c.camera}</p>
           <p className="text-xs text-muted-foreground">자막: {c.caption}</p>

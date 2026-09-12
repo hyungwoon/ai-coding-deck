@@ -41,13 +41,13 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         {Array.from({ length: 8 }).map((_, i) => (
           <div
             key={i}
-            className="aspect-square rounded-lg border border-dashed border-border/60 flex items-center justify-center"
+            className="aspect-square rounded-lg border border-border/40 flex items-center justify-center"
             style={{ background: `oklch(${0.22 + (i % 4) * 0.03} 0 0)` }}
           >
             <p className="font-mono text-[10px] text-muted-foreground/60">{i === 0 ? "시트" : `${i + 1}`}</p>
           </div>
         ))}
-        <p className="col-span-4 font-mono text-[10px] text-muted-foreground/60 text-center">강사 생성 예시 8장 자리</p>
+        <p className="col-span-4 font-mono text-[10px] text-muted-foreground/60 text-center">첫 장이 시트, 나머지 7장은 그 참조</p>
       </div>
     </div>
 
