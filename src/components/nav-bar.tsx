@@ -9,6 +9,7 @@ const LINKS: { href: string; label: string; match: (p: string) => boolean }[] = 
   { href: "/agents-2026", label: "관점", match: (p) => p === "/agents-2026" },
   { href: "/design", label: "디자인", match: (p) => p === "/design" },
   { href: "/health-research", label: "리서치", match: (p) => p.startsWith("/health-research") },
+  { href: "/genai", label: "생성형 AI", match: (p) => p.startsWith("/genai") },
   { href: "/homework/week1", label: "환경 셋팅", match: (p) => p.startsWith("/homework") },
 ];
 

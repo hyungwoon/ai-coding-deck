@@ -31,13 +31,20 @@ const CLASSES = [
     title: "AI는 초안, 검증은 당신",
     sub: "건강정보 리서치 · 프롬프트 · 카드뉴스",
     count: 31,
+  },
+  {
+    href: "/genai",
+    tag: "생성형 AI",
+    title: "같은 얼굴, 맞는 사실",
+    sub: "2026 트렌드 · 생성 원리 · 일관성 프롬프팅 · 검증",
+    count: 24,
     featured: true,
   },
 ];
 
 export function ClassCards() {
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {CLASSES.map((c) => (
         <Link
           key={c.href}
