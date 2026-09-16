@@ -1,12 +1,13 @@
-import re, html, pathlib
+import re, html, pathlib, sys
 
-# 대본 마크다운 -> 인쇄용 HTML. PDF 생성:
-#   python3 lecture/build-script-pdf.py && \
+# 대본 마크다운 -> 인쇄용 HTML. 인자로 대본 파일명을 받는다(기본: 원리 강의 대본).
+#   python3 lecture/build-script-pdf.py genai-principles-script.md && \
 #   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu \
-#     --no-pdf-header-footer --print-to-pdf=lecture/genai-deck-script.pdf file:///tmp/genai-script.html
+#     --no-pdf-header-footer --print-to-pdf=lecture/genai-principles-script.pdf file:///tmp/genai-principles-script.html
 
-SRC = str(pathlib.Path(__file__).with_name("genai-deck-script.md"))
-OUT_HTML = "/tmp/genai-script.html"
+NAME = sys.argv[1] if len(sys.argv) > 1 else "genai-principles-script.md"
+SRC = str(pathlib.Path(__file__).with_name(NAME))
+OUT_HTML = "/tmp/" + pathlib.Path(NAME).stem + ".html"
 raw = open(SRC, encoding="utf-8").read()
 
 def inline(s):
@@ -100,8 +101,12 @@ th,td { border:1px solid #dde1e5; padding:1.6mm 2.4mm; text-align:left; }
 th { background:#f5f7f8; font-weight:700; }
 """
 
+# 제목은 대본의 첫 번째 H1 을 그대로 쓴다 — 하드코딩하면 대본을 바꿔도 옛 제목이 남는다.
+_h1 = re.search(r'^# (.+)$', raw, re.M)
+TITLE = _h1.group(1).strip() if _h1 else pathlib.Path(NAME).stem
+
 doc = f"""<!doctype html><html lang="ko"><head><meta charset="utf-8">
-<title>강의 대본 — 같은 얼굴, 맞는 사실</title><style>{CSS}</style></head>
+<title>{html.escape(TITLE)}</title><style>{CSS}</style></head>
 <body>{''.join(out)}</body></html>"""
 pathlib.Path(OUT_HTML).write_text(doc, encoding="utf-8")
 print("html chars:", len(doc))
