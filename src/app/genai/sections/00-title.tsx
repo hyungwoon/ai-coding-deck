@@ -9,21 +9,21 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
   <SectionShell ref={ref} index={index}>
     <div className="text-center">
       <p className={cn("font-mono text-sm tracking-widest text-muted-foreground uppercase mb-4", anim(index))}>
-        2026 절주서포터즈 · 생성형 AI 활용
+        생성형 AI · 원리에서 유도하는 프롬프트
       </p>
       <h1 className={cn("text-5xl font-bold tracking-tight sm:text-7xl", anim(index))}>
-        같은 얼굴,
-        <br />
-        <span className="text-muted-foreground">맞는 사실</span>
+        조건을 좁히는 일
       </h1>
       <p className={cn("mt-6 text-lg text-muted-foreground max-w-2xl mx-auto", anim(index))} style={{ transitionDelay: "150ms" }}>
-        생성형 AI로 절주 콘텐츠 만들기 —
+        텍스트·이미지·영상은 어떤 로직으로 만들어지는가 —
         <br className="hidden sm:block" />
-        2026 트렌드 · 생성 원리 · 일관성 프롬프팅 · 공공 메시지 검증
+        그리고 그 로직에서 「잘 만드는 법」은 어떻게 유도되는가
       </p>
-      <p className={cn("mt-4 text-xs text-muted-foreground/60", anim(index))} style={{ transitionDelay: "250ms" }}>
-        형운 · AI Product Manager
-      </p>
+      <div className={cn("mt-10 flex flex-wrap justify-center gap-2 text-xs", anim(index))} style={{ transitionDelay: "220ms" }}>
+        {["LLM 기초", "이미지 생성·참조", "영상 생성", "노드 파이프라인", "실전 원칙"].map((t) => (
+          <span key={t} className="rounded-full border border-border/50 bg-card/60 px-3 py-1 text-muted-foreground">{t}</span>
+        ))}
+      </div>
       <div className={cn("mt-16 text-muted-foreground/40", anim(index))} style={{ transitionDelay: "300ms" }}>
         <p className="text-xs mb-2">SCROLL</p>
         <span className="text-lg animate-bounce inline-block">↓</span>

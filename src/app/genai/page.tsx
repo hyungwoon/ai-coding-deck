@@ -5,59 +5,67 @@ import { cn } from "@/lib/utils";
 import { useRevealAnimation, useSectionObserver, useKeyboardNav } from "../deck/hooks";
 
 import S00 from "./sections/00-title";
-import S01 from "./sections/01-takeaways";
-import S02 from "./sections/02-ai-role";
-import S03 from "./sections/03-three-shifts";
-import S04 from "./sections/04-image-tools";
-import S05 from "./sections/05-video-tools";
-import S06 from "./sections/06-text-mechanism";
-import S07 from "./sections/07-image-mechanism";
-import S08 from "./sections/08-video-mechanism";
-import S09 from "./sections/09-no-memory";
-import S10 from "./sections/10-image-anatomy";
-import S11 from "./sections/11-character-sheet";
-import S12 from "./sections/12-reference-map";
-import S13 from "./sections/13-video-anatomy";
-import S14 from "./sections/14-reels-3cuts";
-import S15 from "./sections/15-cardnews-8";
-import S16 from "./sections/16-failures";
-import S17 from "./sections/17-constraint-block";
-import S18 from "./sections/18-source-whitelist";
-import S19 from "./sections/19-verify-3steps";
-import S20 from "./sections/20-public-rules";
-import S21 from "./sections/21-draft-to-post";
-import S22 from "./sections/22-checklist";
-import S23 from "./sections/23-closing";
+import S01 from "./sections/01-thesis";
+import S02 from "./sections/02-common-map";
+import S03 from "./sections/03-tokens";
+import S04 from "./sections/04-embeddings";
+import S05 from "./sections/05-attention";
+import S06 from "./sections/06-sampling";
+import S07 from "./sections/07-training";
+import S08 from "./sections/08-context";
+import S09 from "./sections/09-llm-practice";
+import S10 from "./sections/10-latent-space";
+import S11 from "./sections/11-diffusion";
+import S12 from "./sections/12-conditioning";
+import S13 from "./sections/13-reference-paths";
+import S14 from "./sections/14-why-similar";
+import S15 from "./sections/15-image-practice";
+import S16 from "./sections/16-video-spacetime";
+import S17 from "./sections/17-video-problems";
+import S18 from "./sections/18-video-conditions";
+import S19 from "./sections/19-one-model-cant";
+import S20 from "./sections/20-graph-anatomy";
+import S21 from "./sections/21-preset-apps";
+import S22 from "./sections/22-reproducibility";
+import S23 from "./sections/23-evidence";
+import S24 from "./sections/24-six-principles";
+import S25 from "./sections/25-grammar-3col";
+import S26 from "./sections/26-symptom-cause";
+import S27 from "./sections/27-closing";
 
 const sectionLabels = [
   "Title",
-  "가져갈 것",
-  "AI의 자리",
-  "달라진 4가지",
-  "이미지 도구",
-  "영상 도구",
-  "텍스트 원리",
-  "이미지 원리",
-  "영상 원리",
-  "기억이 없다",
-  "이미지 8칸",
-  "캐릭터 시트",
-  "참조 기능",
-  "영상 프롬프트",
-  "릴스 3컷",
-  "카드뉴스 8장",
-  "실패 7",
-  "절주 제약 블록",
-  "출처 화이트리스트",
-  "검증 3단계",
-  "공공 메시지 규칙",
-  "초안→게시물",
-  "체크리스트",
+  "조건 설계",
+  "공통 구조",
+  "토큰",
+  "임베딩",
+  "어텐션",
+  "표본 추출",
+  "학습 3단계",
+  "컨텍스트",
+  "텍스트 실전",
+  "잠재공간",
+  "디퓨전",
+  "조건화",
+  "참조 5경로",
+  "왜 닮는가",
+  "이미지 실전",
+  "시공간",
+  "영상 3난제",
+  "영상 실전",
+  "역할 분업",
+  "노드 그래프",
+  "프리셋 앱",
+  "재현성",
+  "실측",
+  "6원칙",
+  "문법 3열",
+  "증상→원인",
   "Closing",
 ];
 
 const sectionComponents = [
-  S00, S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23,
+  S00, S01, S02, S03, S04, S05, S06, S07, S08, S09, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20, S21, S22, S23, S24, S25, S26, S27,
 ];
 
 const SECTION_COUNT = sectionComponents.length;

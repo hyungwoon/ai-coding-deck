@@ -35,9 +35,9 @@ const CLASSES = [
   {
     href: "/genai",
     tag: "생성형 AI",
-    title: "같은 얼굴, 맞는 사실",
-    sub: "2026 트렌드 · 생성 원리 · 일관성 프롬프팅 · 검증",
-    count: 24,
+    title: "조건을 좁히는 일",
+    sub: "LLM 기초 · 이미지 참조 원리 · 영상 생성 · 노드 파이프라인",
+    count: 28,
     featured: true,
   },
 ];
