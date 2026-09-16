@@ -43,7 +43,7 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
         </div>
       </div>
       <p className="mt-4 text-xs text-muted-foreground">
-        모델이 실제로 받는 것: <span className="font-mono">[3175, 19772, 374, 2579]</span> — 숫자의 줄이다.
+        모델이 실제로 받는 것: <span className="font-mono">[3175, 19772, 374, 2579]</span> — 숫자의 줄이다(번호는 예시).
       </p>
     </div>
 

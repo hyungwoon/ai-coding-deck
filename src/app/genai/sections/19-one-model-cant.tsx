@@ -41,8 +41,8 @@ const S = forwardRef<HTMLElement, P>(({ anim, index }, ref) => (
           실제로 상위권 제작자들은 <span className="text-primary">역할마다 다른 모델</span>을 쓴다
         </p>
         <p className="text-xs text-muted-foreground leading-relaxed">
-          인물 판을 만드는 모델, 배경을 만드는 모델, 소품을 만드는 모델, 움직임을 만드는 모델이
-          각각 달랐다. 한 벤더로 전부 처리한 쪽이 오히려 소수였다.
+          작업을 캐릭터·로케이션·소품·움직임 폴더로 나눈 프로젝트들에서, <span className="text-foreground">폴더마다
+          주로 쓰인 모델이 서로 달랐다</span> — 인물 판을 만드는 모델과 움직이는 컷을 만드는 모델이 같지 않았다.
         </p>
       </div>
     </div>
